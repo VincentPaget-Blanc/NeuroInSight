@@ -1,0 +1,2352 @@
+<!DOCTYPE html>
+
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Synapse · Research Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ═══════════════════════════════════════════════════
+       THEME VARIABLES
+    ═══════════════════════════════════════════════════ */
+    :root { --transition-theme: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; }
+
+[data-theme="dark"] {
+  --bg:#090d13; --bg2:#0e1219; --bg3:#151b24; --border:#1c2333;
+  --accent:#5eaec8; --accent2:#9b7ec8; --accent-rgb:94,174,200;
+  --accent3:#c8a05e;
+  --text:#aab4c8; --text-dim:#52607a; --text-head:#dde5f5;
+  --nav-bg:rgba(9,13,19,.93); --shadow:0 8px 32px rgba(0,0,0,.55);
+  --shadow-lg:0 24px 60px rgba(0,0,0,.7); --noise-op:.38;
+}
+[data-theme="light"] {
+  --bg:#f2f4f8; --bg2:#e8ecf2; --bg3:#dce1eb; --border:#c6cedc;
+  --accent:#2070a0; --accent2:#6040a0; --accent-rgb:32,112,160;
+  --accent3:#a07030;
+  --text:#3a4560; --text-dim:#8494b0; --text-head:#0e1828;
+  --nav-bg:rgba(242,244,248,.94); --shadow:0 4px 20px rgba(0,0,0,.09);
+  --shadow-lg:0 20px 50px rgba(0,0,0,.13); --noise-op:.16;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;overflow-x:hidden;transition:var(--transition-theme);}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+ul{list-style:none;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");opacity:var(--noise-op);pointer-events:none;z-index:9999;transition:opacity .35s ease;}
+
+/* ═══════════════════════════════════════════════════
+   LAYOUT HELPERS
+═══════════════════════════════════════════════════ */
+.container{max-width:1200px;margin:0 auto;padding:0 24px;}
+.section{padding:84px 0;}
+.divider{width:100%;height:1px;background:var(--border);}
+.section-label{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.section-label::after{content:'';display:block;flex:1;height:1px;background:var(--border);max-width:80px;}
+.section-title{font-family:'Fraunces',Georgia,serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:600;color:var(--text-head);margin-bottom:44px;line-height:1.1;}
+.tag-chip{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25);padding:3px 10px;border-radius:50px;cursor:pointer;transition:background .2s;}
+.tag-chip:hover{background:rgba(var(--accent-rgb),.2);}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--bg);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:13.5px;padding:10px 26px;border-radius:50px;border:none;cursor:pointer;letter-spacing:.02em;transition:opacity .2s,transform .2s;}
+.btn:hover{opacity:.86;transform:translateY(-1px);}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border);}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);opacity:1;}
+.btn-sm{font-size:11.5px;padding:6px 16px;}
+
+/* ═══════════════════════════════════════════════════
+   THEME TOGGLE
+═══════════════════════════════════════════════════ */
+#theme-toggle{display:flex;align-items:center;justify-content:center;width:38px;height:38px;background:var(--bg3);border:1px solid var(--border);border-radius:50%;cursor:pointer;color:var(--text-dim);font-size:15px;flex-shrink:0;transition:color .2s,border-color .2s,background .2s,transform .3s;}
+#theme-toggle:hover{color:var(--accent);border-color:var(--accent);transform:rotate(18deg);}
+
+/* ═══════════════════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════════════════ */
+#navbar{position:sticky;top:0;z-index:200;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:box-shadow .25s,var(--transition-theme);}
+#navbar.scrolled{box-shadow:var(--shadow);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:66px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--text-head);flex-shrink:0;}
+.nav-logo{font-family:'Fraunces',serif;font-size:1.55rem;font-weight:600;color:var(--text-head);letter-spacing:-.01em;flex-shrink:0;cursor:pointer;}
+.nav-logo span{color:var(--accent);font-style:italic;}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1;}
+.nav-links a{font-size:13.5px;font-weight:500;color:var(--text-dim);padding:6px 14px;border-radius:6px;transition:color .2s,background .2s;}
+.nav-links a:hover{color:var(--text-head);background:var(--bg3);}
+.nav-links a.active{color:var(--text-head);background:var(--bg3);}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.nav-search{display:flex;align-items:center;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:6px 12px;gap:8px;width:190px;transition:border-color .2s,width .3s;}
+.nav-search:focus-within{border-color:var(--accent);width:230px;}
+.nav-search input{background:transparent;border:none;outline:none;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;width:100%;}
+.nav-search input::placeholder{color:var(--text-dim);}
+.nav-search svg{color:var(--text-dim);flex-shrink:0;}
+#mobile-menu{display:none;flex-direction:column;gap:4px;position:fixed;top:66px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;z-index:199;}
+#mobile-menu.open{display:flex;}
+#mobile-menu a{padding:10px 12px;border-radius:8px;color:var(--text);font-size:15px;}
+#mobile-menu a:hover{background:var(--bg3);color:var(--text-head);}
+
+/* ═══════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════ */
+#hero{padding:100px 0 84px;position:relative;overflow:hidden;}
+.hero-glow{position:absolute;top:-120px;right:-80px;width:640px;height:640px;background:radial-gradient(circle,rgba(var(--accent-rgb),.07) 0%,transparent 70%);pointer-events:none;}
+.hero-glow2{position:absolute;bottom:-80px;left:-60px;width:400px;height:400px;background:radial-gradient(circle,rgba(155,126,200,.05) 0%,transparent 70%);pointer-events:none;}
+.hero-grid{display:grid;grid-template-columns:1fr auto;gap:64px;align-items:center;}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--accent);}
+.hero-name{font-family:'Fraunces',serif;font-size:clamp(2.8rem,6.5vw,5rem);font-weight:600;color:var(--text-head);line-height:1.05;margin-bottom:18px;}
+.hero-tagline{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--text-dim);letter-spacing:.06em;margin-bottom:22px;}
+.hero-bio{font-size:1.02rem;color:var(--text);max-width:520px;margin-bottom:36px;line-height:1.8;font-weight:300;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.hero-avatar-wrap{width:220px;height:220px;border-radius:50%;border:2px solid var(--border);box-shadow:0 0 0 10px rgba(var(--accent-rgb),.05),var(--shadow-lg);background:var(--bg3);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:4.5rem;}
+.hero-avatar-wrap img{width:100%;height:100%;object-fit:cover;}
+
+/* ═══════════════════════════════════════════════════
+   LAB STRIP
+═══════════════════════════════════════════════════ */
+#gallery-strip{padding:56px 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.gallery-scroll{display:flex;gap:14px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
+.gallery-scroll::-webkit-scrollbar{height:3px;}
+.gallery-thumb{flex-shrink:0;width:185px;height:185px;border-radius:10px;overflow:hidden;border:1px solid var(--border);transition:transform .22s,border-color .22s;cursor:pointer;position:relative;background:var(--bg3);}
+.gallery-thumb:hover{transform:translateY(-5px);border-color:var(--accent);}
+.gallery-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.gallery-thumb:hover img{transform:scale(1.07);}
+.gt-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.78));color:#fff;font-size:11.5px;font-weight:500;padding:24px 10px 9px;opacity:0;transition:opacity .22s;}
+.gallery-thumb:hover .gt-label{opacity:1;}
+.gallery-thumb-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--text-dim);font-size:2.5rem;}
+.gallery-thumb-placeholder span{font-size:11px;letter-spacing:.04em;color:var(--text-dim);}
+
+/* ═══════════════════════════════════════════════════
+   POSTS + SIDEBAR
+═══════════════════════════════════════════════════ */
+.main-layout{display:grid;grid-template-columns:1fr 305px;gap:52px;align-items:start;}
+.post-card{display:grid;grid-template-columns:auto 1fr;gap:22px;padding:28px 0;border-bottom:1px solid var(--border);cursor:pointer;}
+.post-card:first-child{padding-top:0;}
+.post-thumb{width:116px;height:86px;border-radius:8px;overflow:hidden;flex-shrink:0;background:var(--bg3);border:1px solid var(--border);position:relative;}
+.post-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.post-card:hover .post-thumb img{transform:scale(1.07);}
+.post-thumb-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:1.9rem;color:var(--text-dim);}
+.post-type-badge{position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.15);}
+.post-meta{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;}
+.post-title{font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600;color:var(--text-head);line-height:1.3;margin-bottom:8px;transition:color .2s;}
+.post-card:hover .post-title{color:var(--accent);}
+.post-excerpt{font-size:.86rem;color:var(--text-dim);line-height:1.65;font-weight:300;}
+.post-date{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-dim);}
+.post-read{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-dim);}
+.load-more-wrap{text-align:center;margin-top:44px;}
+
+.sidebar{position:sticky;top:84px;display:flex;flex-direction:column;gap:32px;}
+.sidebar-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:22px;}
+.sidebar-title{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;color:var(--text-head);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+.sidebar-post{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);align-items:flex-start;cursor:pointer;transition:opacity .2s;}
+.sidebar-post:last-child{border-bottom:none;padding-bottom:0;}
+.sidebar-post:hover{opacity:.75;}
+.sidebar-post-thumb{width:56px;height:46px;border-radius:6px;overflow:hidden;background:var(--bg3);flex-shrink:0;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--text-dim);}
+.sidebar-post-info{display:flex;flex-direction:column;gap:3px;min-width:0;}
+.sp-title{font-size:.83rem;color:var(--text-head);line-height:1.35;display:block;margin-bottom:2px;transition:color .2s;}
+.sidebar-post:hover .sp-title{color:var(--accent);}
+.tags-cloud{display:flex;flex-wrap:wrap;gap:8px;}
+
+/* ═══════════════════════════════════════════════════
+   FEATURED HORIZONTAL STRIPS
+═══════════════════════════════════════════════════ */
+.horizontal-section{padding:56px 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.horizontal-strip{display:flex;gap:16px;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
+.horizontal-strip::-webkit-scrollbar{height:3px;}
+.featured-gallery-card{flex-shrink:0;width:255px;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--bg3);cursor:pointer;transition:transform .22s,border-color .22s,box-shadow .22s;}
+.featured-gallery-card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:var(--shadow-lg);}
+.fgc-thumb{height:165px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden;}
+.fgc-thumb img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .4s;}
+.featured-gallery-card:hover .fgc-thumb img{transform:scale(1.07);}
+.fgc-thumb-emoji{position:relative;z-index:1;}
+.fgc-count{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.7);color:#fff;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;padding:3px 9px;border-radius:50px;z-index:2;}
+.fgc-info{padding:14px 16px;}
+.fgc-tag{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:5px;}
+.fgc-title{font-family:'Fraunces',serif;font-size:1rem;font-weight:600;color:var(--text-head);line-height:1.25;}
+
+/* ═══════════════════════════════════════════════════
+   PUBLICATIONS SECTION
+═══════════════════════════════════════════════════ */
+#publications-section{background:var(--bg);}
+
+/* Publication type badge */
+.pub-type-badge{display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:50px;border:1px solid;font-weight:500;}
+.pub-type-badge.article  {background:rgba(94,174,200,.1);color:var(--accent);border-color:rgba(94,174,200,.3);}
+.pub-type-badge.review   {background:rgba(155,126,200,.1);color:var(--accent2);border-color:rgba(155,126,200,.3);}
+.pub-type-badge.preprint {background:rgba(200,160,94,.1);color:var(--accent3);border-color:rgba(200,160,94,.3);}
+.pub-type-badge.chapter  {background:rgba(150,180,100,.1);color:#7ab05a;border-color:rgba(150,180,100,.3);}
+
+/* Featured pub cards (homepage strip) */
+.pub-card-featured{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:22px 24px;flex-shrink:0;width:340px;cursor:pointer;transition:border-color .22s,transform .22s,box-shadow .22s;}
+.pub-card-featured:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+.pub-card-featured .pub-title{font-family:'Fraunces',serif;font-size:1rem;font-weight:600;color:var(--text-head);line-height:1.35;margin:10px 0 8px;transition:color .2s;}
+.pub-card-featured:hover .pub-title{color:var(--accent);}
+.pub-card-featured .pub-authors{font-size:.8rem;color:var(--text-dim);line-height:1.5;margin-bottom:8px;font-weight:300;}
+.pub-card-featured .pub-journal{font-size:.8rem;color:var(--text-dim);font-style:italic;margin-bottom:12px;}
+.pub-card-featured .pub-journal strong{font-style:normal;color:var(--text);font-weight:500;font-size:.78rem;}
+.pub-card-featured .pub-actions{display:flex;gap:8px;flex-wrap:wrap;}
+
+/* Archive list (publications page) */
+.pub-year-group{margin-bottom:48px;}
+.pub-year-heading{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:600;color:var(--text-head);margin-bottom:20px;padding-bottom:14px;border-bottom:2px solid var(--border);opacity:.35;transition:opacity .2s;}
+.pub-year-group:hover .pub-year-heading{opacity:1;}
+.pub-list-item{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.pub-list-item:last-child{border-bottom:none;}
+.pub-list-num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);width:28px;flex-shrink:0;padding-top:3px;}
+.pub-list-body{flex:1;min-width:0;}
+.pub-list-title{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;color:var(--text-head);line-height:1.35;margin-bottom:6px;cursor:pointer;transition:color .2s;}
+.pub-list-title:hover{color:var(--accent);}
+.pub-list-authors{font-size:.84rem;color:var(--text-dim);margin-bottom:5px;font-weight:300;}
+.pub-list-meta{font-size:.82rem;color:var(--text-dim);margin-bottom:10px;font-style:italic;}
+.pub-list-meta strong{font-style:normal;color:var(--text);font-size:.8rem;}
+.pub-list-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pub-btn{display:inline-flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:50px;border:1px solid var(--border);color:var(--text-dim);background:transparent;cursor:pointer;transition:border-color .2s,color .2s,background .2s;}
+.pub-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(var(--accent-rgb),.06);}
+.pub-btn.doi{border-color:rgba(var(--accent-rgb),.3);color:var(--accent);}
+.pub-btn.doi:hover{background:rgba(var(--accent-rgb),.1);}
+
+/* Filters row */
+.pub-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;}
+.pub-filter-btn{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:50px;border:1px solid var(--border);color:var(--text-dim);background:transparent;cursor:pointer;transition:all .2s;}
+.pub-filter-btn:hover,.pub-filter-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(var(--accent-rgb),.08);}
+
+/* ═══════════════════════════════════════════════════
+   CV / TIMELINE SECTION
+═══════════════════════════════════════════════════ */
+#cv{background:var(--bg2);border-top:1px solid var(--border);}
+
+/* Tab strip */
+.cv-tabs{display:flex;gap:4px;margin-bottom:44px;border-bottom:1px solid var(--border);padding-bottom:0;}
+.cv-tab{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:10px 18px;border:none;background:none;cursor:pointer;color:var(--text-dim);border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s;}
+.cv-tab:hover{color:var(--text-head);}
+.cv-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+
+/* Timeline itself */
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border);}
+.tl-entry{position:relative;padding:0 0 36px 32px;}
+.tl-entry:last-child{padding-bottom:0;}
+.tl-dot{position:absolute;left:-7px;top:4px;width:15px;height:15px;border-radius:50%;border:2px solid var(--bg2);z-index:1;transition:transform .2s;}
+.tl-entry:hover .tl-dot{transform:scale(1.2);}
+.tl-dot.position {background:var(--accent);}
+.tl-dot.education{background:var(--accent2);}
+.tl-dot.grant    {background:var(--accent3);}
+.tl-dot.award    {background:var(--accent3);}
+.tl-period{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--text-dim);margin-bottom:6px;}
+.tl-title{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:var(--text-head);line-height:1.25;margin-bottom:4px;}
+.tl-institution{font-size:.88rem;color:var(--accent);font-weight:500;margin-bottom:6px;}
+.tl-desc{font-size:.85rem;color:var(--text-dim);line-height:1.65;font-weight:300;max-width:560px;}
+.tl-badge{display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:50px;margin-left:8px;vertical-align:middle;}
+.tl-badge.position {background:rgba(94,174,200,.12);color:var(--accent);}
+.tl-badge.education{background:rgba(155,126,200,.12);color:var(--accent2);}
+.tl-badge.grant    {background:rgba(200,160,94,.12);color:var(--accent3);}
+.tl-badge.award    {background:rgba(200,160,94,.12);color:var(--accent3);}
+
+.cv-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;}
+@media(max-width:860px){.cv-grid{grid-template-columns:1fr;}}
+
+/* ═══════════════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════════════ */
+#contact{background:linear-gradient(140deg,var(--bg2) 0%,var(--bg3) 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.inquiries-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.inquiries-info .section-title{margin-bottom:14px;}
+.inquiries-sub{color:var(--text-dim);font-size:.94rem;line-height:1.75;margin-bottom:28px;font-weight:300;}
+.inquiries-details{display:flex;flex-direction:column;gap:12px;}
+.inquiry-detail{display:flex;align-items:center;gap:12px;font-size:.875rem;color:var(--text);}
+.inquiry-form{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:16px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-field{display:flex;flex-direction:column;gap:6px;}
+.form-field label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);}
+.form-field input,.form-field textarea,.form-field select{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;outline:none;transition:border-color .2s;width:100%;}
+.form-field input::placeholder,.form-field textarea::placeholder{color:var(--text-dim);}
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus{border-color:var(--accent);}
+.form-field textarea{resize:vertical;min-height:110px;}
+.form-field select option{background:var(--bg2);}
+
+/* ═══════════════════════════════════════════════════
+   CATEGORIES
+═══════════════════════════════════════════════════ */
+#categories{background:var(--bg);}
+.categories-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;}
+.cat-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .22s,transform .22s;cursor:pointer;}
+.cat-card:hover{border-color:var(--accent);transform:translateY(-2px);}
+.cat-header{display:flex;align-items:center;gap:12px;padding:15px 20px;border-bottom:1px solid var(--border);background:var(--bg3);}
+.cat-icon{font-size:1.35rem;}
+.cat-name{font-family:'Fraunces',serif;font-size:1rem;font-weight:600;color:var(--text-head);}
+.cat-posts{padding:6px 0;}
+.cat-post-item{display:flex;align-items:center;gap:10px;padding:9px 20px;font-size:.875rem;color:var(--text);border-left:2px solid transparent;transition:border-color .2s,color .2s,background .2s;}
+.cat-post-item:hover{border-left-color:var(--accent);color:var(--text-head);background:rgba(var(--accent-rgb),.04);}
+.cat-post-item::before{content:'↗';font-size:10px;color:var(--text-dim);flex-shrink:0;}
+
+/* ═══════════════════════════════════════════════════
+   LIGHTBOX
+═══════════════════════════════════════════════════ */
+#lightbox{display:none;position:fixed;inset:0;z-index:9990;background:rgba(0,0,0,.94);backdrop-filter:blur(10px);align-items:center;justify-content:center;}
+#lightbox.open{display:flex;}
+#lightbox img{max-width:90vw;max-height:86vh;border-radius:10px;box-shadow:0 40px 80px rgba(0,0,0,.9);}
+#lightbox-close{position:absolute;top:22px;right:22px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:1.1rem;transition:background .2s;}
+#lightbox-close:hover{background:rgba(255,255,255,.15);}
+
+/* ═══════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════ */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 0 32px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px;}
+.footer-brand .nav-logo{font-size:1.6rem;margin-bottom:14px;display:block;}
+.footer-brand p{font-size:.875rem;color:var(--text-dim);line-height:1.75;max-width:255px;font-weight:300;}
+.footer-col-title{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+.footer-links{display:flex;flex-direction:column;gap:10px;}
+.footer-links a{font-size:.875rem;color:var(--text-dim);transition:color .2s;}
+.footer-links a:hover{color:var(--text-head);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-dim);gap:16px;flex-wrap:wrap;}
+.footer-social-row{display:flex;gap:10px;}
+.social-btn{width:36px;height:36px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:14px;transition:color .2s,border-color .2s,background .2s;}
+.social-btn:hover{color:var(--accent);border-color:var(--accent);background:rgba(var(--accent-rgb),.07);}
+
+/* ═══════════════════════════════════════════════════
+   ARCHIVE / DETAIL PAGES
+═══════════════════════════════════════════════════ */
+#detail-view{min-height:100vh;background:var(--bg);}
+.detail-back-bar{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:66px;display:flex;align-items:center;padding:0 24px;gap:16px;}
+.detail-back-btn{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;color:var(--text-dim);background:none;border:none;cursor:pointer;padding:6px 12px;border-radius:6px;transition:color .2s,background .2s;white-space:nowrap;}
+.detail-back-btn:hover{color:var(--text-head);background:var(--bg3);}
+.detail-back-btn svg{flex-shrink:0;}
+.detail-breadcrumb{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+.archive-header{padding:56px 0 44px;border-bottom:1px solid var(--border);}
+.archive-title{font-family:'Fraunces',serif;font-size:clamp(2.4rem,6vw,4rem);font-weight:600;color:var(--text-head);line-height:1.05;margin-bottom:12px;}
+.archive-sub{font-size:.95rem;color:var(--text-dim);max-width:540px;line-height:1.75;font-weight:300;}
+.archive-count{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:10px;}
+.archive-filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px;}
+
+/* Journal archive */
+.archive-post-list{display:flex;flex-direction:column;padding:44px 0 80px;}
+.archive-post-card{display:grid;grid-template-columns:auto 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:opacity .2s;}
+.archive-post-card:first-child{padding-top:0;}
+.archive-post-card:hover{opacity:.82;}
+.archive-post-thumb{width:126px;height:92px;border-radius:8px;overflow:hidden;flex-shrink:0;background:var(--bg3);border:1px solid var(--border);position:relative;display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--text-dim);}
+.archive-post-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.archive-post-title{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;color:var(--text-head);line-height:1.25;margin-bottom:8px;transition:color .2s;}
+.archive-post-card:hover .archive-post-title{color:var(--accent);}
+.archive-post-excerpt{font-size:.86rem;color:var(--text-dim);line-height:1.65;margin-bottom:10px;font-weight:300;}
+.archive-post-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+
+/* Galleries archive */
+.archive-galleries-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:22px;padding:44px 0 80px;}
+.archive-gallery-card{border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--bg2);cursor:pointer;transition:transform .22s,border-color .22s,box-shadow .22s;}
+.archive-gallery-card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:var(--shadow-lg);}
+.agc-thumb{height:195px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;overflow:hidden;}
+.agc-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.archive-gallery-card:hover .agc-thumb img{transform:scale(1.06);}
+.agc-emoji{position:relative;z-index:1;}
+.agc-count{position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,.72);color:#fff;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;padding:4px 10px;border-radius:50px;z-index:2;}
+.agc-info{padding:18px 20px;}
+.agc-tag{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
+.agc-title{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;color:var(--text-head);line-height:1.25;margin-bottom:5px;}
+.agc-desc{font-size:.8rem;color:var(--text-dim);line-height:1.55;font-weight:300;}
+
+/* Gallery detail */
+.gallery-detail-header{max-width:860px;margin:0 auto;padding:44px 24px 32px;}
+.gallery-detail-grid{padding:0 24px 80px;columns:3;column-gap:14px;}
+.gallery-detail-block{break-inside:avoid;margin-bottom:14px;border-radius:10px;overflow:hidden;border:1px solid var(--border);cursor:pointer;position:relative;background:var(--bg3);transition:transform .22s,border-color .22s;}
+.gallery-detail-block:hover{transform:translateY(-3px);border-color:var(--accent);}
+.gallery-detail-block img{width:100%;display:block;transition:transform .42s;}
+.gallery-detail-block:hover img{transform:scale(1.04);}
+.gallery-detail-placeholder{height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--text-dim);font-size:2.6rem;}
+.gallery-detail-overlay{position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,.85));opacity:0;transition:opacity .22s;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;}
+.gallery-detail-block:hover .gallery-detail-overlay{opacity:1;}
+.gallery-detail-caption{color:#fff;font-size:.85rem;line-height:1.4;}
+.gallery-detail-location{color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;margin-bottom:4px;}
+
+/* Post detail */
+.post-detail-hero{height:320px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:6rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+.post-detail-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.post-detail-hero-overlay{position:absolute;inset:0;background:linear-gradient(transparent 30%,var(--bg) 100%);}
+.post-detail-hero-emoji{position:relative;z-index:1;}
+.post-detail-container{max-width:740px;margin:0 auto;padding:0 24px;}
+.post-detail-header{padding:44px 0 32px;border-bottom:1px solid var(--border);margin-bottom:44px;}
+.post-detail-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px;}
+.post-detail-title{font-family:'Fraunces',serif;font-size:clamp(1.9rem,5vw,3rem);font-weight:600;color:var(--text-head);line-height:1.1;margin-bottom:18px;}
+.post-detail-excerpt{font-size:1.02rem;color:var(--text-dim);line-height:1.75;font-weight:300;}
+.post-article-body{padding-bottom:80px;}
+.post-article-body h2{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:600;color:var(--text-head);margin:40px 0 18px;line-height:1.2;}
+.post-article-body h3{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:600;color:var(--text-head);margin:30px 0 14px;}
+.post-article-body p{margin-bottom:22px;line-height:1.85;color:var(--text);font-weight:300;}
+.post-article-body blockquote{border-left:3px solid var(--accent);padding:16px 22px;margin:28px 0;background:rgba(var(--accent-rgb),.05);border-radius:0 8px 8px 0;}
+.post-article-body blockquote p{margin:0;font-family:'Fraunces',serif;font-size:1.1rem;font-style:italic;color:var(--text-head);}
+.post-article-body .tip-box{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:18px 22px;margin:24px 0;}
+.post-article-body .tip-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
+
+/* Gallery / loading states */
+.gallery-loader{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px;gap:18px;color:var(--text-dim);}
+.gallery-spinner{width:36px;height:36px;border:2.5px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .75s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.gallery-loader-text{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;}
+.gallery-error{padding:44px 24px;text-align:center;}
+.gallery-error-icon{font-size:2.5rem;margin-bottom:12px;}
+.gallery-error-title{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:600;color:var(--text-head);margin-bottom:8px;}
+.gallery-error-msg{font-size:.875rem;color:var(--text-dim);line-height:1.65;max-width:420px;margin:0 auto 20px;}
+.gallery-error code{font-family:'JetBrains Mono',monospace;font-size:.8rem;background:var(--bg3);padding:2px 7px;border-radius:4px;color:var(--accent);}
+.gallery-count-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:var(--text-dim);margin-top:8px;}
+
+/* ═══════════════════════════════════════════════════
+   TOPIC OVERLAY
+═══════════════════════════════════════════════════ */
+#topic-overlay{position:fixed;inset:0;z-index:300;pointer-events:none;opacity:0;transition:opacity .3s;}
+#topic-overlay.open{pointer-events:all;opacity:1;}
+.topic-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);cursor:pointer;}
+.topic-drawer{position:absolute;top:0;right:0;bottom:0;width:460px;max-width:95vw;background:var(--bg2);border-left:1px solid var(--border);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);}
+#topic-overlay.open .topic-drawer{transform:translateX(0);}
+.topic-drawer-header{padding:28px 28px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;flex-shrink:0;}
+.topic-drawer-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:6px;}
+.topic-drawer-title{font-family:'Fraunces',serif;font-size:1.85rem;font-weight:600;color:var(--text-head);}
+.topic-close-btn{background:var(--bg3);border:1px solid var(--border);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-dim);font-size:14px;flex-shrink:0;transition:color .2s,border-color .2s;}
+.topic-close-btn:hover{color:var(--accent);border-color:var(--accent);}
+.topic-drawer-posts{flex:1;overflow-y:auto;padding:20px 28px;}
+.topic-post-item{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:opacity .2s;}
+.topic-post-item:last-child{border-bottom:none;}
+.topic-post-item:hover{opacity:.75;}
+.topic-post-thumb{width:76px;height:56px;border-radius:7px;background:var(--bg3);border:1px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem;overflow:hidden;position:relative;}
+.topic-post-thumb img{width:100%;height:100%;object-fit:cover;}
+.topic-post-tag{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;}
+.topic-post-title{font-family:'Fraunces',serif;font-size:.98rem;font-weight:600;color:var(--text-head);line-height:1.3;margin-bottom:4px;transition:color .2s;}
+.topic-post-item:hover .topic-post-title{color:var(--accent);}
+.topic-post-meta{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--text-dim);}
+.topic-empty{padding:40px 0;text-align:center;color:var(--text-dim);font-size:.9rem;}
+
+/* ═══════════════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════════════ */
+.fade-in{opacity:0;transform:translateY(22px);animation:fadeUp .65s ease forwards;}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+.s1{animation-delay:.1s}.s2{animation-delay:.2s}.s3{animation-delay:.3s}.s4{animation-delay:.42s}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════ */
+@media(max-width:960px){
+  .main-layout{grid-template-columns:1fr;}
+  .sidebar{position:static;}
+  .hero-grid{grid-template-columns:1fr;text-align:center;}
+  .hero-avatar-wrap{margin:0 auto;}
+  .hero-eyebrow,.hero-actions{justify-content:center;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:30px;}
+  .gallery-detail-grid{columns:2;}
+  .nav-links,.nav-search{display:none;}
+  .hamburger{display:flex;}
+  .inquiries-inner{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+  .archive-galleries-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));}
+  .archive-post-card{grid-template-columns:auto 1fr;}
+  .archive-post-thumb{width:100px;height:76px;}
+  .cv-tabs{flex-wrap:wrap;}
+}
+@media(max-width:600px){
+  .footer-grid{grid-template-columns:1fr;}
+  .gallery-detail-grid{columns:1;}
+  .gallery-thumb{width:155px;height:155px;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+  #hero{padding:60px 0;}
+  .topic-drawer{width:100%;}
+  .form-row{grid-template-columns:1fr;}
+  .archive-post-card{grid-template-columns:1fr;}
+  .archive-post-thumb{display:none;}
+  .archive-galleries-grid{grid-template-columns:1fr;}
+}
+
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     ★  CONTENT CONFIG — EDIT EVERYTHING HERE  ★
+     ══════════════════════════════════════════════════ -->
+
+<script>
+const CONFIG = {
+
+  /* ── Site ── */
+  site: { name: "NeuroInSight", year: "2026" },
+
+  /* ── Hero ── */
+  hero: {
+    greeting:    "Neuroscientist Bridging Synaptic Molecular Mechanisms and Behavior",
+    name:        "Dr. Vincent Paget-Blanc",
+    tagline:     " Proteins · Synapse · Neuromodulation · Neural Circuits · Behavioral Neuroscience",
+    bio:         "I research how neuromodulatory systems influence and interact with synapses to modulate behavior, trying to link molecular mechanisms to circuit function, and how these processes are affected in mood disorders.",
+    avatarUrl:   "",
+    avatarEmoji: "🧠",
+    ctaLink:     "#contact",
+    ctaText:     "Collaborate",
+  },
+
+  /* ── Navigation ── */
+  nav: [
+    { label: "Home",         href: "#home" },
+    { label: "Research",     href: "#journal" },
+    { label: "Publications", href: "#publications" },
+    { label: "Gallery",      href: "#galleries" },
+    { label: "Contact",      href: "#contact" },
+  ],
+
+  /* ── Lab Strip ── */
+  galleryStrip: {
+    title: "The tools",
+    items: [
+      { imageUrl: "", emoji: "💉", label: "Proteomics" },
+      { imageUrl: "", emoji: "🔬", label: "Nanoscopy" },
+      { imageUrl: "", emoji: "🧲", label: "FASS" },
+      { imageUrl: "", emoji: "🐭", label: "Behavioural Rigs" },
+      { imageUrl: "", emoji: "⚡", label: "Fiber Photometry" },
+      { imageUrl: "", emoji: "💻", label: "Data Analysis Suite" },
+    ],
+  },
+
+  /* ─────────────────────────────────────────────────
+     POSTS  (type: 'post' | 'gallery')
+  ───────────────────────────────────────────────── */
+  posts: [
+      {
+  type: "post", slug: "evolutionary-origins-of-synapses",
+  title: "Before the First Neuron: The Ancient Origins of the Synaptic Toolkit",
+  excerpt: "A landmark review traces synaptic proteins back hundreds of millions of years — long before neurons existed. What does this tell us about how the nervous system first evolved?",
+  date: "10 Jan, 2025", readTime: "7 min read", tag: "Neural Circuits",
+  imageUrl: "", emoji: "",
+  content: `
+    <p>One of the deepest questions in neuroscience is not how brains process information — it is how brains came to exist at all. A 2025 review by Jeffrey Colgren and Pawel Burkhardt in <em>Nature Reviews Neuroscience</em> confronts this question directly, tracing the molecular components of the chemical synapse across the full breadth of animal and pre-animal life. Their conclusion is striking: the toolkit for building a synapse was assembled long before any animal had neurons.</p>
+
+    <h2>A Modular Machine, Built Across Deep Time</h2>
+    <p>The chemical synapse is not a single invention — it is a modular assembly of distinct functional units. The presynaptic side handles the packaging and regulated release of neurotransmitter-laden vesicles. The postsynaptic side clusters receptors and scaffolding proteins to receive and decode the signal. The synaptic cleft is held together by adhesion molecules that determine its geometry and influence transmission. Colgren and Burkhardt's central argument is that these modules did not appear together. They emerged piecemeal, in organisms with no neurons at all, each repurposed from pre-existing cellular machinery.</p>
+
+    <blockquote><p>Everything necessary to build a minimal chemical synapse was present before the first animal. The ancient origin of these major parts raises the question of how the first true synapses evolved.</p></blockquote>
+
+    <h2>Choanoflagellates: A Primordial Neurosecretory Apparatus</h2>
+    <p>Choanoflagellates are the closest living unicellular relatives of animals. They are filter feeders — single cells with a flagellum and a collar of microvilli that trap bacterial prey. They have no synapses, no neurons, and no multicellular body plan. Yet they express a remarkable array of core synaptic proteins: SNARE proteins involved in vesicle fusion, scaffolding proteins like Shank and DLG, a wide repertoire of GPCRs and gated ion channels, and key regulatory proteins including Unc13 and complexin. Critically, these are not just present — SNARE proteins localise to a pool of apical vesicles near the feeding collar, forming what the authors call a primordial neurosecretory apparatus. More remarkable still, recent work has shown that electrical depolarisation in choanoflagellates triggers a coordinated arrest of flagellar beating that can synchronise across an entire colony — a form of collective behaviour that echoes what neurons do.</p>
+
+    <h2>Sponges and Placozoans: Synaptic Genes Without Synapses</h2>
+    <p>Sponges are the earliest branching animal lineage, and they have no neurons, no muscles, and no morphological synapses. Yet single-cell RNA sequencing in freshwater sponges has identified a specialised cell type — the neuroid cell — that expresses a rich set of presynaptic genes and extends protrusions that contact the collars of choanocytes. Intriguingly, the choanocytes themselves are enriched for postsynaptic genes. The molecular components appear to be distributed across two cell types in a synapse-like arrangement, without any ultrastructural evidence of a true synaptic junction. Sponges do coordinate body-wide behaviours — a slow "sneezing" of their aquiferous system driven by glutamate and ATP signalling — but this relies on volumetric, diffusion-based communication rather than directed synaptic transmission.</p>
+
+    <p>Placozoans, the simplest known animals, go a step further. Despite having no neurons and no defined body axes, they respond to neuropeptides with complex, stereotyped behavioural changes. Single-cell sequencing reveals distinct clusters of peptidergic cells that co-express the full presynaptic secretory machinery alongside specific GPCRs — suggesting they can both send and receive peptidergic signals. The postsynaptic scaffolding proteins, however, are largely absent. This positions placozoans as a system with regulated secretion but without the receptor-clustering architecture that defines a true postsynapse.</p>
+
+    <blockquote><p>Coordinated behaviour in early animals relied on volumetric signalling. The transition towards increased spatial precision involved mobilising the presynaptic module into cellular protrusions, regulated by electrical signalling.</p></blockquote>
+
+    <h2>Ctenophores: An Independent Evolutionary Experiment</h2>
+    <p>Ctenophores — comb jellies — are gelatinous marine predators with a genuine nervous system: a nerve net, sensory neurons, and morphologically identifiable synapses. For a long time, this was taken as evidence of a common origin with the nervous systems of cnidarians and bilaterians. The picture has changed. Ctenophores appear to lack true neuroligin, their neurexins are expressed primarily in non-neuronal cells, and their nerve net has now been shown to be a syncytium — a continuous shared cytoplasm — rather than a network of individually synaptically connected neurons. Synapses do exist in ctenophores, but they connect the nerve net to effector cells, not neuron-to-neuron in the canonical sense. Colgren and Burkhardt propose that ctenophore synapses evolved independently, driven by the selective pressure of a free-living pelagic lifestyle requiring fast, precise body coordination.</p>
+
+    <div class="tip-box"><div class="tip-label">Key Paper</div><p>Burkhardt et al. (2023), <em>Science</em>: Syncytial nerve net in a ctenophore adds new insights on the evolution of nervous systems.</p></div>
+
+    <h2>Cnidarians: Where the Full Synapse Appears</h2>
+    <p>Cnidarians — jellyfish, sea anemones, corals, and hydroids — are the sister group to all bilaterians, and they are where the complete bilaterian synaptic toolkit first appears in the fossil-bracketed record. Their nerve nets are built from neurons connected by chemical and electrical synapses. They express the full set of presynaptic release machinery, postsynaptic scaffolding proteins (Shank, Homer, DLG), and critically, both neurexin and neuroligin — the adhesion molecules that bridge the synaptic cleft. Some cnidarians demonstrate associative learning, and recent single-cell transcriptomics has readily identified distinct neuronal cell types, in stark contrast to ctenophores.</p>
+
+    <h2>Conclusions: A Stepwise Assembly, Shaped by Ecology</h2>
+    <p>The model that emerges from this review is one of stepwise ecological co-option. Early animals were sessile or slow-moving, feeding on microbial sources. Volumetric peptidergic signalling — diffuse, slow, but sufficient — was the dominant mode of coordination. As body size increased and free-living predatory lifestyles emerged, the demand for fast, directed, spatially precise communication intensified. The presynaptic module was recruited into protrusions. Adhesion machinery stabilised cell-cell contacts. Postsynaptic scaffolding proteins began to cluster receptors at specific sites. The synapse as we know it was, in this framing, the outcome of an evolutionary arms race — not a single invention, but a gradual convergence of ancient modules onto a common solution.</p>
+
+    <blockquote><p>We propose that early animals had sensory-secretory cells to interact with their microbial environment, forming the basis of the first neurosecretory cells — later co-opted for neurotransmission.</p></blockquote>
+
+    <div class="tip-box">
+      <div class="tip-label">Source</div>
+      <p style="margin:0;line-height:1.75;">
+        Colgren JJ &amp; Burkhardt P. <em>The evolutionary origins of synaptic proteins and their changing roles in different organisms across evolution.</em> Nature Reviews Neuroscience (2025).<br>
+        <a href="https://doi.org/10.1038/s41583-025-00983-6" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;word-break:break-all;">https://doi.org/10.1038/s41583-025-00983-6</a>
+      </p>
+    </div>
+  `,
+},
+    // ── ADD THIS OBJECT TO CONFIG.posts ARRAY ──────────────────────────────────
+// Written from the author's perspective (first-person / "we").
+// Open-access paper: CC BY 4.0. Figure 1 reproduced with attribution below.
+
+{
+  type: "post",
+  slug: "dopamine-hub-synapses-cryo-et",
+  title: "How We Froze Dopamine in Time and What We Found Inside",
+  excerpt:
+    "Using cryo-electron tomography, we imaged dopaminergic nerve terminals in near-native conditions for the first time and discovered that dopamine doesn't work the way textbooks assume.",
+  date: "13 Dec, 2025",
+  readTime: "8 min read",
+  tag: "Neural Circuits",
+  emoji: "🔬",
+  // Host lapios2025-fig1-cryo-clem.png in your repo and set the URL below.
+  imageUrl: "",
+  content: `
+<p>
+  A few years ago, we showed that most dopaminergic terminals in the striatum are physically embedded in multipartite structures, which we called <a href="/blog/synaptomic-analysis-dopamine-hub-synapses" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;">dopamine hub synapses</a>, in which a dopamine varicosity adheres to glutamatergic, GABAergic or cholinergic partners. That 2022 study gave us the molecular composition of these terminals and showed that the glutamatergic synapses contacted by dopamine terminals are molecularly distinct from those that are not. What it could not tell us was what any of this looked like at the nanometre scale, in close-to-native conditions, without the artefacts introduced by chemical fixation. That is what this paper set out to do.
+</p>
+
+<h2>From Proteomics to Nanoscale Architecture</h2>
+
+<p>
+  The tools we turned to were cryo-correlative light and electron microscopy (cryo-CLEM) and cryo-electron tomography (cryo-ET). The core problem with studying dopaminergic terminals by classical electron microscopy is that you cannot identify them, dopaminergic axons are underrepresented in the brain neuropil, and produce no obvious ultrastructural signature. Cryo-CLEM solves this by letting us first locate a fluorescently labelled terminal by its colour, then image its internal architecture by electron tomography on the same frozen grid, with no chemical fixation or staining in between. The result is a three-dimensional reconstruction at nanometre resolution, of a structure that is identified with certainty, and preserved as close to its living state as current technology allows.
+</p>
+
+<blockquote>
+  <p>
+    When Paul started this project, I had a simple-sounding question: what does a dopamine synapse actually look like, not in a diagram, not in a cartoon, but in genuine molecular detail? After several years of work, I think we finally have an answer. And it is stranger, and more interesting, than we expected.
+  </p>
+</blockquote>
+
+<h2>The Experiment: Freezing Synaptosomes in Liquid Ethane</h2>
+
+<p>
+  Paul isolated synaptosomes from the striatum of adult mice, the same preparation that underpinned our 2022 synaptomic study, using three different mouse lines that gave us fluorescent access to glutamatergic corticostriatal terminals (VGLUT1-Venus), dopaminergic terminals (DAT-Cre × AAV-mNeonGreen or tdTomato), and both simultaneously for identifying dopamine hub synapses. The suspension is then mixed with electron-dense fiducial beads, applied it to an EM grid, and plunge-froze it in liquid ethane at –180 °C. The water vitrifies, it does not crystallise, locking the cellular ultrastructure in place within milliseconds, without fixation artefacts.
+</p>
+
+<p>
+  A cryo-fluorescence microscope to photograph synaptosomes of interest is then used, it registers their positions relative to fiducial beads, the grid is then transferred to the cryo-electron microscope, and tilt series are acquired to reconstruct full three-dimensional tomograms. The final dataset obtained by Paul comprised 103 glutamatergic and 110 dopaminergic synaptosomes, including 32 cases where a dopamine terminal was in direct contact with a glutamate synapse, the hub configuration we had identified in 2022.
+</p>
+
+<figure style="margin:2.5rem 0; text-align:center;">
+  <img
+    src="lapios2025-fig1-cryo-clem.png"
+    alt="Figure 1 from Lapios et al. 2025 — Cryo-CLEM workflow and representative tomograms of GLU, DA and DHS synaptosomes"
+    style="width:100%;max-width:860px;border-radius:10px;border:1px solid var(--border);display:inline-block;"
+  />
+  <figcaption style="margin-top:0.75rem;font-size:0.78rem;color:var(--fg2);font-family:'JetBrains Mono',monospace;line-height:1.6;">
+    <strong>Fig. 1</strong> — Cryo-CLEM and cryo-ET of cortico-striatal and dopaminergic synaptosomes.
+    <strong>A–C</strong>: experimental strategy, from fluorescent mouse lines to plunge-freezing on EM grids.
+    <strong>D–E</strong>: cryo-fluorescence and cryo-EM images of the same grid square, registered using fiducial beads (yellow circles).
+    <strong>F–G</strong>: representative tomographic slices and 3D segmentation models for VGLUT1+ (GLU, green), DAT+ (DA, magenta) and DA+GLU dopamine hub synaptosomes (DHS, blue).
+    Scale bars: 500 nm (tomograms). Reproduced from Lapios et al., <em>Nature Communications</em> (2025) under CC BY 4.0.
+  </figcaption>
+</figure>
+
+<h2>Dopamine Terminals Are Nothing Like Glutamate Synapses</h2>
+
+<p>
+  The first thing that struck us when we segmented the tomograms was sheer scarcity. Where a typical glutamate terminal holds around 191 vesicles on average, a dopamine terminal holds only about 28, and a quarter of them have fewer than five vesicles altogether. Taking into account that dopamine terminals are also physically smaller, this translates to roughly ten times fewer vesicles per terminal. The vesicles themselves are also different: larger on average (45 nm versus 40 nm outer diameter), and far more variable in shape. Glutamate vesicles are almost perfectly round; dopamine vesicles are frequently elongated or pleomorphic.
+</p>
+
+<blockquote>
+  <p>
+    This heterogeneity was striking. Some dopamine terminals were almost empty, ghost-like structures with a handful of vesicles scattered in a sea of cytoplasm. Others were densely packed. This could suggest functional diversity across dopamine varicosities...
+  </p>
+</blockquote>
+
+<h2>Tethered but Not Primed: A Fundamental Asymmetry</h2>
+
+<p>
+  In glutamate synapses, release occurs within a millisecond of calcium entry. This speed depends on vesicles being pre-positioned and pre-primed at the active zone: tethered to the plasma membrane by nanoscale filaments, and in many cases sitting less than five nanometres from the membrane, held by multiple short tethers that correspond to the primed, fusion-ready state. Among glutamatergic synaptosomes, 52% of proximal vesicles were tethered, and those closest to the membrane carried an average of three tethers, the hallmark of priming.
+</p>
+
+<p>
+  Dopamine terminals told a different story. Tethered vesicles were present in only 37% of dopaminergic synaptosomes, and only 25% of proximal vesicles in those terminals were tethered. More significantly: we found virtually no vesicles within 5 nm of the plasma membrane, just one, out of 135 candidates. The hallmark of the primed state (three tethers) was essentially absent. Dopamine vesicles are tethered, but they seem to have not taken that final step toward fusion readiness.
+</p>
+
+<div class="tip-box">
+  <div class="tip-label">Key finding</div>
+  <p style="margin:0;line-height:1.75;">
+    The 37% of dopamine terminals that contain tethered vesicles are larger, have higher vesicle density, and show vesicles positioned closer to the plasma membrane. This mirrors the ~30% of dopamine varicosities previously shown to contain active-zone scaffold proteins (RIM, ELKS, bassoon), consistent with our 2022 observation that only a subset of varicosities form hub contacts with a full complement of release machinery.
+  </p>
+</div>
+
+<h2>The Hub Synapse Contact: Adhesion Without a Postsynaptic Density</h2>
+
+<p>
+  In the 32 reconstructed hub synapses, the configurations we first identified by immunofluorescence in 2022, the contact between the dopamine terminal and the glutamate presynapse was narrow (about 12 nm, versus the 32 nm synaptic cleft of the glutamate synapse itself) and entirely devoid of postsynaptic density material. In 28 of 32 cases the dopamine terminal adhered to the glutamate presynaptic side; in the remaining four, it contacted the postsynaptic element. In both cases the interface resembles an adhesion junction rather than a synapse, with no clustering of tethered vesicles at the contact zone itself. The candidate adhesion molecule we identified in 2022, SynCAM 2, remains a strong candidate to mediate this contact.
+</p>
+
+<blockquote>
+  <p>
+    Dopamine varicosities do not form conventional synapses. They cling to glutamate synapses via adhesion contacts, without a postsynaptic density or a clear active zone on the dopamine side. And yet the contact appears to matter, because glutamate synapses that are part of a hub behave differently from those that are not.
+  </p>
+</blockquote>
+
+<h2>A Nanoscale Signature of Local Dopamine Regulation</h2>
+
+<p>
+  When we compared glutamate synaptosomes isolated in contact with a dopamine terminal (GLU DA+) against those without a dopamine partner (GLU DA−), overall vesicle counts and active-zone areas were identical. But the spatial arrangement of proximal vesicles near the active zone was not. GLU DA+ terminals showed a clear peak in vesicle occupancy close to the active-zone membrane, a signature previously associated with a healthy, release-ready pool. GLU DA− terminals showed a flat profile consistent with a reduced tendency to release. Proximal vesicles in GLU DA+ terminals were also five times more likely to be simultaneously tethered and connected to other vesicles, a configuration associated with primed, clustered vesicles.
+</p>
+
+<p>
+  This finding directly extends what we showed in 2022: that corticostriatal synapses contacted by dopaminergic varicosities display increased levels of Bassoon, VGLUT1, Homer1c and Synaptopodin. The 2022 data showed molecular potentiation; the 2025 cryo-ET data now show that this potentiation has a structural correlate at the nanometre scale, in the organisation of the vesicle pool itself.
+</p>
+
+<h2>Implications: Local Modulation Through Physical Contact</h2>
+
+<p>
+  Together, our 2022 and 2025 studies converge on a picture in which dopamine hub synapses are not merely anatomical curiosities but functionally meaningful structures. The physical adhesion of a dopamine terminal to a specific glutamate synapse, mediated likely by SynCAM 2 and other adhesion molecules, is associated with a structural state of the glutamate terminal that suggests enhanced release probability. Whether this requires dopamine secretion, or whether trans-synaptic adhesion signals alone are sufficient to alter the glutamate partner, remains an open question we are actively pursuing.
+</p>
+
+<div class="tip-box">
+  <div class="tip-label">Source</div>
+  <p style="margin:0;line-height:1.75;">
+    Lapios P, Anger R, Paget-Blanc V, Marza E, Lučić V, Fronzes R, Herzog E &amp; Perrais D. <em>Cryo-correlative light and electron tomography of dopaminergic axonal varicosities reveals non-synaptic modulation of cortico-striatal synapses.</em> Nature Communications 16, 11467 (2025).<br>
+    <a href="https://doi.org/10.1038/s41467-025-66355-x" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;word-break:break-all;">https://doi.org/10.1038/s41467-025-66355-x</a>
+    &nbsp;·&nbsp; Open Access · CC BY 4.0
+  </p>
+</div>
+`
+},
+    {
+  type: "post",
+  slug: "synaptomic-analysis-dopamine-hub-synapses",
+  title: "Sorting Dopamine Synapses: How We Found That They Almost Never Work Alone",
+  excerpt:
+    "Using fluorescence-activated synaptosome sorting and mass spectrometry, we purified dopaminergic synapses from the mouse striatum and discovered that most are embedded in multipartite hub structures with glutamatergic, GABAergic and cholinergic partners.",
+  date: "03 Jun, 2022",
+  readTime: "8 min read",
+  tag: "Neural Circuits",
+  emoji: "🧫",
+  // Host paget2022-fig6-hub-model.png in your repo and set the URL below.
+  imageUrl: "",
+  content: `
+<p>
+  Dopamine is one of the most studied neuromodulators in the brain, yet for a long time its synaptic organisation remained oddly opaque. We knew dopaminergic neurons project densely from the midbrain to the striatum, and we knew that dopamine release regulates reward, motivation and motor control. But the precise molecular and cellular architecture of dopaminergic synapses, what proteins they contain, how they are organised in space, what cellular partners they contact, had never been systematically established. This paper was our attempt to fill that gap.
+</p>
+
+<h2>The Problem: Dopamine Synapses Are Hard to Find and Hard to Isolate</h2>
+
+<p>
+  Glutamatergic synapses, the dominant excitatory connections in the brain, are easily recognisable by electron microscopy: a dense cluster of vesicles, a clear active zone, a prominent postsynaptic density. Dopaminergic terminals have none of that. They are smaller, more variable, and for decades were believed to release dopamine mostly through "volume transmission", diffuse release from varicosities without specific postsynaptic partners, allowing dopamine to bathe entire regions rather than engage in point-to-point signalling. If that picture were true, the very concept of a "dopaminergic synapse" would be questionable.
+</p>
+
+<blockquote>
+  <p>
+    We suspected the reality was more structured than the volume-transmission model implied. The question was how to access dopaminergic synapses selectively, in enough quantity, and with enough purity, to characterise them properly.
+  </p>
+</blockquote>
+
+<h2>The Approach: Fluorescence-Activated Synaptosome Sorting</h2>
+
+<p>
+  The method we used is called fluorescence-activated synaptosome sorting (FASS). The principle is analogous to flow cytometry for cells, but applied to synaptosomes, the small, resealed membrane compartments that pinch off from axon terminals during gentle brain homogenisation and retain much of their protein composition and even some functional properties. We labelled the dopaminergic projection specifically by injecting a Cre-dependent fluorescent virus (expressing EGFP or mNeonGreen) into the midbrain of DAT-Cre transgenic mice, in which only dopamine-transporter-expressing neurons are targeted. After dissecting the striatum and preparing synaptosomes, we ran the suspension through a cell sorter and collected the fluorescent fraction, the DA-FASS sample.
+</p>
+
+<p>
+  The enrichment was substantial. Whereas only around 4% of synaptosomes in an unsorted striatal preparation are fluorescent in average, the sorted DA-FASS fraction contained around 50% fluorescent synaptosomes. Canonical dopaminergic markers, tyrosine hydroxylase, the dopamine transporter, VMAT2, were strongly enriched. Astrocytic and glutamatergic markers were depleted. We had a reasonably pure preparation of dopaminergic nerve terminals, in sufficient quantities for mass spectrometry.
+</p>
+
+<h2>A Proteome of the Dopaminergic Synapse</h2>
+
+<p>
+  We identified 2,653 proteins reliably quantified across six samples (three DA-FASS and three control). Of these, 57 were significantly enriched in the dopaminergic fraction. Beyond the expected canonical markers, we validated six proteins not previously described at dopaminergic synapses: Copine-7 (Cpne7), Mint-1/Apba1, Cadps2, SynCAM 2/Cadm2, Syntaxin-4 (Stx4), and Monoglyceride lipase (Mgll). Each was confirmed by immunofluorescence on sorted synaptosomes, and the immunodetection enrichment ratios correlated linearly with the mass spectrometry values, a reassuring sign that our screen was quantitatively reliable.
+</p>
+
+<div class="tip-box">
+  <div class="tip-label">Highlight</div>
+  <p style="margin:0;line-height:1.75;">
+    SynCAM 2 (Cadm2) stood out as a particularly interesting candidate for synaptic adhesion. Its mRNA is expressed at its highest level in the entire brain in a subcluster of dopaminergic neurons of the midbrain, yet it is also present throughout striatal neuropil. We found it enriched in 88% of EGFP+ dopaminergic synaptosomes, close to universal, making it a prime candidate for the adhesion mechanism that holds these terminals to their synaptic partners.
+  </p>
+</div>
+
+<h2>The Unexpected Discovery: Most Dopamine Terminals Are Not Alone</h2>
+
+<p>
+  The most striking result came from looking at the sorted synaptosomes under the electron microscope. What we expected to see was isolated dopaminergic boutons, perhaps with a postsynaptic element containing a dopamine receptor. What we actually saw, repeatedly, were multipartite structures: a dopaminergic terminal adhering to one or more other terminals, which in turn were in contact with postsynaptic membranes. These were not aggregation artefacts, the structures survived two rounds of mechanical shearing forces (tissue homogenisation and passage through the nozzle of the cell sorter) and were not seen in control aggregation experiments.
+</p>
+
+<p>
+  To characterise these structures systematically, we immunolabelled the sorted synaptosomes with markers for different synaptic types and measured co-association by fluorescence. The results were consistent and striking. Around 30% of dopaminergic synaptosomes were associated with VGLUT1-positive corticostriatal glutamatergic terminals, 12% with VGLUT2-positive thalamostriatal terminals, 26% with VIAAT-positive GABAergic terminals, and 14% with VAChT-positive cholinergic terminals. Taken together, roughly 82% of dopaminergic varicosities were associated with at least one other synaptic partner. We named these structures <strong>dopamine hub synapses</strong>.
+</p>
+
+<figure style="margin:2.5rem 0; text-align:center;">
+  <img
+    src="paget2022-fig6-hub-model.png"
+    alt="Figure 6 from Paget-Blanc et al. 2022, Spatial organisation of dopaminergic synaptic hubs, showing STED images and the hub model diagram"
+    style="width:100%;max-width:860px;border-radius:10px;border:1px solid var(--border);display:inline-block;"
+  />
+  <figcaption style="margin-top:0.75rem;font-size:0.78rem;color:var(--fg2);font-family:'JetBrains Mono',monospace;line-height:1.6;">
+    <strong>Fig. 6</strong> Spatial organisation of dopaminergic synaptic hubs.
+    <strong>a</strong>: Centre-to-centre distance between dopaminergic varicosities (EGFP+ or Th+) and each indicated synaptic marker, showing a structured spatial hierarchy from the DA varicosity outward.
+    <strong>b–g</strong>: STED super-resolution images confirming the apposition of each marker.
+    <strong>h</strong>: Synaptomic model summarising the full population: most DA varicosities contact a postsynaptic element (D1R or D2R), and up to 82% additionally form hub contacts with glutamatergic (VGLUT1: 30%, VGLUT2: 12%), GABAergic (VIAAT: 26%) or cholinergic (VAChT: 14%) partners.
+    Reproduced from Paget-Blanc et al., <em>Nature Communications</em> (2022) under CC BY 4.0.
+  </figcaption>
+</figure>
+
+<h2>A Spatial Hierarchy Around the Dopamine Varicosity</h2>
+
+<p>
+  By measuring the centre-to-centre distance from each dopaminergic varicosity to each of its associated markers, using both widefield epifluorescence and STED super-resolution microscopy, we established a spatial hierarchy. Directly apposed to the dopaminergic terminal (within around 285 nm) were SynCAM 2 and D2R. Further out (around 318–408 nm) came the cholinergic, glutamatergic and GABAergic partners. The furthest apposed markers were Syntaxin-4 and D1R, at around 497–513 nm. This architecture suggested that the dopaminergic varicosity sits at the centre of a structured multipartite complex, not embedded randomly in neuropil.
+</p>
+
+<h2>Dopamine Hub Synapses Show a Strengthened Glutamatergic Partner</h2>
+
+<p>
+  Finally, we asked whether the association with a dopaminergic varicosity leaves any molecular trace at the glutamatergic synapse. To test this, we sorted VGLUT1-venus synaptosomes and classified them according to whether or not they carried a Th-positive (dopaminergic) partner. The results were clear: corticostriatal synapses that are part of a dopamine hub synapse display significantly higher levels of VGLUT1, the active-zone scaffold Bassoon, the postsynaptic scaffold Homer1c, and the spine-apparatus marker Synaptopodin, compared to those without a dopaminergic partner. Only PSD-95 showed a modest decrease.
+</p>
+
+<blockquote>
+  <p>
+    This was unexpected. We had anticipated that the hub might simply be a physical proximity, without functional consequence. Instead, the molecular profile of the glutamatergic synapse was systematically altered by the presence of a dopaminergic neighbour, suggesting that the adhesion itself, or the local signalling it enables, actively remodels the synapse.
+  </p>
+</blockquote>
+
+<p>
+  Whether this molecular potentiation reflects a causal effect of dopamine release, or whether it results from trans-synaptic adhesion signals independent of dopamine secretion, remains an open question, and one we have continued to pursue. What this study established is that dopamine hub synapses are real, mechanically resilient, molecularly distinct, and remarkably frequent. The volume-transmission picture of dopaminergic signalling is likely incomplete.
+</p>
+
+<div class="tip-box">
+  <div class="tip-label">Source</div>
+  <p style="margin:0;line-height:1.75;">
+    Paget-Blanc V*, Pfeffer ME*, Pronot M*, Lapios P, Angelo MF, Walle R, Cordelières FP, Levet F, Claverol S, Lacomme S, Petrel M, Martin C, Pitard V, De Smedt Peyrusse V, Biederer T, Perrais D, Trifilieff P &amp; Herzog E. <em>A synaptomic analysis reveals dopamine hub synapses in the mouse striatum.</em> Nature Communications 13, 3102 (2022). (* equal contribution)<br>
+    <a href="https://doi.org/10.1038/s41467-022-30776-9" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;word-break:break-all;">https://doi.org/10.1038/s41467-022-30776-9</a>
+    &nbsp;·&nbsp; Open Access · CC BY 4.0
+  </p>
+</div>
+`
+},
+// ─────────────────────────────────────────────────────────────────────────────
+// POST 3  ·  2025  ·  bioRxiv preprint
+// Paget-Blanc*, Zöldi*, Cavaccini* et al.
+// "Nanoscale synaptic remodeling at corticostriatal circuits predicts flexible
+//  action control"
+// ─────────────────────────────────────────────────────────────────────────────
+
+{
+  type: "post",
+  slug: "nanoscale-remodeling-corticostriatal-flexibility-storm",
+  title: "Seen at 91 Nanometres: The Molecular Portrait of a Flexible Brain",
+  excerpt:
+    "Using STORM super-resolution imaging combined with cell-type-specific confocal microscopy, we found that behavioral flexibility — the ability to suppress an outdated action when contingencies change — is written into the nanoscale architecture of corticostriatal synapses. Three molecules rearrange within thirty minutes of behavioral updating: mGlu5 and DAGLα converge to 91 nm in iSPN spine heads, and CB1 receptors multiply fourfold on the presynaptic bouton. The same molecular signature predicts individual differences in adaptability — and is absent in rigidity, whether caused by overtraining or by aging.",
+  date: "31 Oct, 2025",
+  readTime: "10 min read",
+  tag: "Synaptic Plasticity",
+  emoji: "🔬",
+  imageUrl: "",
+  content: `
+<p>
+  The previous post on this site traced the molecular path into behavioral inflexibility: overtraining desensitises mGluR5 in the dorsolateral striatum, which removes the drive for endocannabinoid (eCB) retrograde signalling at the corticostriatal synapses that would otherwise help a mouse suppress an outdated action. That study explained a failure. This one asked what success looks like.
+</p>
+
+<p>
+  The question had a sharper edge than it might seem. We know that eCB-mediated long-term depression at cortico-iSPN synapses depends on the physical proximity of two postsynaptic molecules — the metabotropic glutamate receptor mGlu5 and the endocannabinoid-synthesising enzyme diacylglycerol lipase-α (DAGLα). Research on Fragile X syndrome, a monogenic form of autism associated with behavioral inflexibility, showed that these two proteins are normally separated by less than 100 nm at functional synapses, but in Fragile X mice the distance exceeds 100 nm — and LTD is absent. If a 30 nm gap can abolish plasticity in a disease model, it seemed reasonable to ask whether a 30 nm closure could create it in a healthy, adapting animal. To test this, we needed a microscope that could resolve distances below the diffraction limit of conventional optics.
+</p>
+
+<h2>Why Nanoscale? Why STORM?</h2>
+
+<p>
+  Standard confocal microscopy resolves structures down to roughly 200–250 nm — sufficient to assign a protein to a cell type or a subcellular compartment, but not to measure the functional nanodomain organisation within a spine head. Stochastic Optical Reconstruction Microscopy (STORM) works by switching individual fluorophore molecules on and off stochastically and recording their precise positions over thousands of frames, producing a final image with localisation precision in the tens of nanometres. By combining correlated confocal and STORM imaging on the same tissue sections, we could first identify cell types and subcellular compartments at the confocal level, and then interrogate molecular distributions at nanoscale resolution within those defined contexts.
+</p>
+
+<blockquote>
+  <p>
+    The question we were asking could only be answered at this scale. Whether two proteins are 91 nm apart or 160 nm apart is invisible to any other optical method — yet, as the Fragile X data make clear, that distance is the difference between plasticity and its absence.
+  </p>
+</blockquote>
+
+<p>
+  To identify indirect-pathway neurons (iSPNs) selectively, we used D2-EGFP BAC transgenic mice, in which EGFP fluorescence marks the spine heads of D2-receptor-expressing neurons. Cortical glutamatergic afferents were labelled by immunostaining for VGLUT1, distinguishing them from thalamic and other subcortical inputs. This three-layer approach — EGFP for cell type, VGLUT1 for input identity, STORM for molecular content — allowed us to ask what happens, at the nanoscale, at precisely the synapses of interest: cortico-iSPN contacts in the dorsolateral striatum (DLS).
+</p>
+
+<h2>The Behavioral Paradigm and Its Synaptic Readout</h2>
+
+<p>
+  We used the same instrumental conditioning and reward omission procedure established in our companion study. Mice underwent either a short (Sh) or an overtraining (Ov) schedule of nose-poke for food reward, then faced a reward omission session requiring them to withhold the learned response. Short-trained mice adapted and earned substantially more food; overtrained mice continued to nose-poke and did not. After the omission session, we sacrificed animals for electrophysiology or STORM imaging within thirty minutes — a narrow window that constrained the molecular changes we could observe to those causally relevant to behavioral updating.
+</p>
+
+<p>
+  Electrophysiology in acute brain slices confirmed the iSPN-specific plasticity signature. In short-trained mice that had experienced the contingency shift (Sh ∆A-O), pharmacological mGlu1/5 stimulation with DHPG induced substantially stronger long-term depression of corticostriatal EPSPs in iSPNs — roughly 50% depression versus the 20% seen in short-trained mice without the omission session, in overtrained mice, and in overtrained mice that had undergone the omission session. The facilitation was cell-type specific: dSPNs showed no difference across any group. Flexible behavioral updating and facilitated mGlu-LTD at cortico-iSPN synapses were tightly co-incident.
+</p>
+
+<h2>mGlu5 Abundance Rises in Flexible Mice</h2>
+
+<p>
+  STORM imaging of iSPN spine heads receiving VGLUT1-positive cortical afferents revealed the first molecular correlate of this facilitated LTD: the total number of STORM localisation points representing mGlu5 increased specifically in Sh ∆A-O mice, with no change in the other three groups. Crucially, the spatial clustering of mGlu5 molecules within spine heads did not change — the receptor was not reorganised into tighter nanodomains; it was simply more abundant. More molecules at the synapse means a higher probability that, at any given moment, a sufficient number are positioned close enough to DAGLα to trigger eCB synthesis when cortical glutamate arrives.
+</p>
+
+<h2>DAGLα Clusters and Concentrates</h2>
+
+<p>
+  The story for the eCB-synthesising enzyme DAGLα was both consistent and richer. In Sh ∆A-O iSPN spine heads, the total number of DAGLα localisation points increased, more DAGLα-containing clusters were present, and those clusters were nearly twice as dense as in any other group. The enzyme was not merely more abundant — it was more organised.
+</p>
+
+<div class="tip-box">
+  <div class="tip-label">Key measurement</div>
+  <p style="margin:0;line-height:1.75;">
+    Using dual-channel STORM, we measured the nearest-neighbour distance between individual mGlu5 and DAGLα localisations in the same spine head. In short-trained, overtrained, and overtrained post-omission mice, this distance averaged between 127 and 167 nm — comparable to what has been reported in Fragile X mice. In short-trained mice after the contingency shift (Sh ∆A-O), the mean nearest-neighbour distance dropped to <strong>91 nm</strong>. The molecules had converged into the functional coupling range, and LTD was facilitated. The Fragile X data and our flexibility data are mirror images of each other.
+  </p>
+</div>
+
+<h2>Presynaptic CB1 Receptors Quadruple</h2>
+
+<p>
+  The postsynaptic changes were dramatic, but we wondered whether the presynaptic side of the synapse would mirror them. CB1 cannabinoid receptors on cortico-striatal axon terminals are the final effectors of eCB retrograde signalling: when 2-AG synthesised in the iSPN spine head diffuses to the presynaptic bouton and activates CB1Rs, glutamate release is suppressed. If the postsynaptic machinery was upregulated to produce more 2-AG, it would make little functional sense if the receiving end was not also primed to respond.
+</p>
+
+<p>
+  STORM imaging of VGLUT1-positive boutons apposed to iSPN spine heads gave a striking result. The number of CB1R localisation points in cortico-striatal axon terminals was almost four times higher in Sh ∆A-O mice than in any other group. The density of CB1R clusters was also substantially elevated, while the number of localisations per cluster did not change — meaning more clusters were present, not denser ones. Pre- and postsynaptic molecular adaptations were co-ordinated, consistent with a trans-synaptic mechanism of remodelling.
+</p>
+
+<blockquote>
+  <p>
+    Taken together, the three molecular changes — more mGlu5, closer DAGLα, more CB1R — define a synapse that is structurally configured to translate anterograde cortical glutamate into a maximal retrograde suppression signal. The architecture of the synapse predicts its function, and its function predicts the behavior.
+  </p>
+</blockquote>
+
+<h2>Molecular Density Predicts Individual Behavioral Flexibility</h2>
+
+<p>
+  Both short-trained and overtrained mice showed substantial individual variation in how well they suppressed nose-poking during the omission session. We quantified this as an adaptive index — the inverse ratio of active nose-pokes during the negative contingency relative to the positive contingency — and asked whether the nanoscale molecular parameters correlated with it across animals.
+</p>
+
+<p>
+  They did, consistently. The total number of postsynaptic mGlu5 localisation points in iSPN spine heads showed a strong positive correlation with the adaptive index; the number and density of postsynaptic DAGLα clusters tracked it almost as reliably; and most CB1R parameters in presynaptic boutons also correlated significantly. The correlations held across the full range of performance, from the most inflexible overtrained animals to the most flexible short-trained ones. The nanoscale molecular state of the synapse was not merely a group-level correlate of a behavioral category — it was a quantitative predictor of individual performance.
+</p>
+
+<h2>Aging: The Same Molecular Signature Separates Flexible from Rigid</h2>
+
+<p>
+  Behavioral inflexibility is a well-documented feature of aging, and the DLS has been implicated in the age-related shift toward stimulus–response habits. If the nanoscale remodelling we observed in young flexible mice reflects a genuine plasticity mechanism rather than a developmental artefact, it should be observable in old animals that happen to remain behaviorally flexible, and absent in those that do not. We tested this by running one-year-old mice through the same short-training and omission procedure used with young animals.
+</p>
+
+<p>
+  Aged mice learned the nose-poke task as efficiently as young ones, establishing comparable active nose-poke rates by the end of training. But in the omission session, their performance was markedly heterogeneous — with some animals performing like young short-trained flexible mice and others resembling young overtrained rigid animals. Using k-nearest-neighbour clustering to classify each aged animal's behavioral profile against the young benchmarks, we assigned them to two groups: Sh aged ∆A-O Adaptive and Sh aged ∆A-O Rigid.
+</p>
+
+<p>
+  Under baseline conditions, before the omission session, DAGLα and CB1R levels at cortico-iSPN synapses were indistinguishable between young and aged short-trained mice. Neither aging nor short training alone depleted the molecular machinery. But after the contingency shift, the groups diverged sharply. Aged Adaptive mice showed robust upregulation of both DAGLα localisation points and CB1R localisation points at cortico-iSPN synapses — changes of the same magnitude and character as those seen in young flexible mice. Aged Rigid mice showed, if anything, reduced DAGLα and CB1R following the omission session, a picture that more closely resembled overtrained young animals than flexible ones.
+</p>
+
+<div class="tip-box">
+  <div class="tip-label">Key finding</div>
+  <p style="margin:0;line-height:1.75;">
+    Aging does not uniformly deplete the capacity for nanoscale synaptic remodelling at cortico-iSPN synapses. What it does is increase the probability that this capacity will fail. The molecular signature of flexibility — DAGLα accumulation, CB1R upregulation, and presumably mGlu5-DAGLα convergence — is present in aged mice that remain behaviorally flexible, and absent in those that have become rigid. The baseline molecular state is preserved; the activity-driven remodelling is what becomes unreliable.
+  </p>
+</div>
+
+<h2>Retrograde Plasticity Follows the Same Rules as Anterograde</h2>
+
+<p>
+  One of the broader implications of these findings concerns the conceptual symmetry between anterograde and retrograde forms of synaptic plasticity. Changes in the strength of glutamatergic transmission — long-term potentiation and depression — have long been attributed to regulated changes in the abundance and nanoscale organisation of postsynaptic AMPA receptors. What our data show is that the retrograde eCB signalling pathway is plastic by the same principles: activity-dependent changes in the abundance of its molecular components, and in the nanoscale distances between them, determine the strength of retrograde suppression. The synapse controls two communication directions with the same molecular logic.
+</p>
+
+<p>
+  The speed of the observed changes is also striking. The molecular remodelling was captured thirty minutes after a behavioral session of about twenty minutes — meaning the relevant molecular processes had to occur within roughly half an hour of behavioral updating. This is not the timescale of gene expression or protein synthesis; it is the timescale of receptor trafficking, lipid domain reorganisation, and trans-synaptic adhesion dynamics. The convergence of mGlu5 and DAGLα from 150 nm to 91 nm within this window implies that lateral diffusion in the plasma membrane, guided by scaffold proteins such as Homer, is sufficient to produce functionally significant molecular reorganisation on the timescale of experience.
+</p>
+
+<h2>What This Opens Up</h2>
+
+<p>
+  The positive molecular portrait of flexibility has several practical implications. First, it provides concrete, quantifiable synaptic markers — mGlu5 density, DAGLα cluster number, CB1R abundance at cortico-iSPN boutons — that predict behavioral adaptability at the individual level. This correlation across individual animals and across age groups suggests that these molecular parameters might serve as biological indicators of preserved or compromised flexibility in contexts where behavioral testing is impractical.
+</p>
+
+<p>
+  Second, the aging data point toward a potential intervention target. If aged mice that become rigid do so because activity-driven eCB remodelling fails — rather than because basal molecular levels are depleted — then the intervention window may be acute rather than chronic. Strategies that briefly facilitate eCB signalling or mGlu5-DAGLα coupling around the time of contingency change might, in principle, restore the molecular conditions for flexibility in aging brains, without requiring long-term pharmacological modification of the system.
+</p>
+
+<p>
+  Third, the finding that the nanoscale distance between mGlu5 and DAGLα is the parameter most closely linked to LTD magnitude places trans-synaptic adhesion molecules — which regulate receptor positioning at the perisynaptic membrane — at the centre of the flexibility mechanism. The neuroligin-neurexin complex and related adhesion molecules are leading candidates for organising this geometry, and their disruption in autism spectrum disorders may partially explain the behavioral inflexibility associated with those conditions. Whether restoring mGlu5-DAGLα proximity is both necessary and sufficient to rescue flexibility remains an open question — and the one we are most eager to answer next.
+</p>
+
+<div class="tip-box">
+  <div class="tip-label">Source</div>
+  <p style="margin:0;line-height:1.75;">
+    Paget-Blanc V*, Zöldi M*, Cavaccini A*, Miczán V, Dudok B, Katona I &amp; Tonini R.
+    <em>Nanoscale synaptic remodeling at corticostriatal circuits predicts flexible action control.</em>
+    bioRxiv preprint (2025). (* co-first authors)<br>
+    <a href="https://doi.org/10.1101/2025.10.30.684628" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;word-break:break-all;">https://doi.org/10.1101/2025.10.30.684628</a>
+    &nbsp;·&nbsp; Preprint · CC BY-NC-ND 4.0
+  </p>
+</div>
+`,
+},
+
+// ─────────────────────────────────────────────────────────────────────────────
+// POST  ·  2025  ·  PLoS Biology
+// Paget-Blanc*, Cavaccini* et al.
+// "Behavioral inflexibility through overtraining is mediated by reduced
+//  mGluR1/5 signaling capacity in the dorsolateral striatum"
+// ─────────────────────────────────────────────────────────────────────────────
+
+{
+  type: "post",
+  slug: "mglur5-overtraining-behavioral-inflexibility-dls",
+  title: "How Repetition Silences a Receptor: The Molecular Mechanism Behind Habitual Inflexibility",
+  excerpt:
+    "We asked why the brain loses behavioral flexibility after overtraining. By combining in vivo biochemistry, ex vivo electrophysiology and targeted pharmacology in mice performing an appetitive instrumental task, we found that the metabotropic glutamate receptor mGluR5 in the dorsolateral striatum becomes progressively less able to signal in response to new contingencies — and that this desensitisation is both necessary and sufficient to explain the transition from flexible to habitual behavior.",
+  date: "29 Jul, 2025",
+  readTime: "10 min read",
+  tag: "Synaptic Plasticity",
+  emoji: "🧠",
+  imageUrl: "",
+  content: `
+<p>
+  Every time you reach for your phone without thinking, take the same route to work, or find yourself halfway through a routine before you consciously decided to start it, your dorsolateral striatum is doing exactly what it was trained to do. Habits are not a failure of willpower. They are an adaptive solution: automating well-practised sequences frees cognitive resources for genuinely novel problems. But the same machinery that makes habits efficient can make them dangerous. When an action becomes so thoroughly ingrained that it persists even after it stops being useful — when the contingency has changed but the behavior has not — that is behavioral inflexibility, and it lies at the heart of obsessive-compulsive disorder, addiction, and several other psychiatric conditions.
+</p>
+
+<p>
+  The question we set out to answer was deceptively simple: what happens, at the molecular level, in the dorsolateral striatum (DLS) as repetition converts flexible, goal-directed actions into inflexible habits? We knew from prior work that habit formation requires synaptic plasticity at corticostriatal circuits. We knew that the DLS encodes stimulus–response associations. What we did not know was the specific molecular substrate whose progressive alteration takes behavioral control away from outcome-sensitive mechanisms and locks it into automatic execution.
+</p>
+
+<h2>A Receptor Ideally Placed to Track Experience</h2>
+
+<p>
+  We focused on mGluR5, the Gq/11-coupled metabotropic glutamate receptor subtype that is densely expressed at corticostriatal synapses on both direct- and indirect-pathway striatal projection neurons (dSPNs and iSPNs). mGluR5 is not just a glutamate sensor: at the postsynapse, it integrates cortical glutamatergic drive with midbrain dopaminergic signals, modulates glutamate release through retrograde endocannabinoid (eCB) signalling, and regulates NMDA receptor function. It is, in short, a molecular coincidence detector that sits precisely at the intersection of the signals needed to encode action–outcome associations. If anything in the DLS were to accumulate a record of prolonged training, mGluR5 seemed like a reasonable candidate.
+</p>
+
+<h2>mGluR5 Is Engaged During Early Training — and Exhausted After Overtraining</h2>
+
+<p>
+  Our first experiments confirmed that mGluR5 is actively recruited when mice are learning to nose-poke for food rewards. An additional training session above the baseline schedule boosted phosphorylation of Akt — a downstream effector of mGluR1/5 signalling — in the DLS, and this effect was abolished by local infusion of the mGluR5 antagonist MPEP. The receptor was being used.
+</p>
+
+<p>
+  The critical comparison was between mice that had received a short training (nine sessions, producing flexible, goal-directed behavior) and mice that had been overtrained (twenty-three sessions, producing the inflexible, habitual performance that is the hallmark of the DLS habit system). At rest, and in response to direct pharmacological activation, the two groups were indistinguishable: basal Akt phosphorylation was the same, and DHPG-induced long-term depression of population spikes was equally robust. Overtraining had not broken mGluR5 at baseline.
+</p>
+
+<blockquote>
+  <p>
+    The damage was contextual. When we shifted the contingency — rewarding mice for withholding the trained nose-poke rather than performing it — short-trained mice showed a surge of mGluR5-dependent Akt phosphorylation in the DLS. Overtrained mice showed nothing. Their mGluR5 had become specifically unable to respond to a change in the rules.
+  </p>
+</blockquote>
+
+<p>
+  This was not a general reduction in mGluR5 expression or function. It was a selective loss of signalling capacity in response to novelty. The same contingency shift that drove molecular adaptation in flexible animals produced silence in habitual ones — and the effect was anatomically specific to the DLS; the adjacent dorsomedial striatum was unaffected.
+</p>
+
+<h2>A Dichotomous Synaptic Signature: iSPNs Lose Plasticity, dSPNs Gain It</h2>
+
+<p>
+  Reduced mGluR5 signalling in the DLS has a well-established synaptic consequence: it impairs the eCB-mediated timing-dependent long-term depression (t-LTD) at corticostriatal synapses on iSPNs, the indirect-pathway neurons whose depression normally suppresses automatic responding and enables flexible updating. This is exactly what we found in overtrained mice tested after the omission procedure: t-LTD at cortico-iSPN synapses was lost.
+</p>
+
+<p>
+  What we did not expect was what happened in dSPNs, the direct-pathway neurons. In naive and short-trained animals, the same plasticity protocol fails to induce t-LTD at cortico-dSPN synapses — a well-established asymmetry that reflects the tonically active mGluR5–CaMKII–GluN2B signalling cascade, which normally counteracts endocannabinoid synthesis in this cell type. In overtrained mice after the contingency shift, however, a robust form of eCB-dependent t-LTD appeared at cortico-dSPN synapses. Overtraining had not only disabled plasticity in one cell type; it had unlocked it in another.
+</p>
+
+<div class="tip-box">
+  <div class="tip-label">Key finding</div>
+  <p style="margin:0;line-height:1.75;">
+    The dichotomy is precise and causally linked. In overtrained mice facing a contingency change: iSPN t-LTD is <strong>lost</strong> (normally present in flexible animals), and dSPN t-LTD <strong>appears</strong> (normally absent). Both changes are eCB-dependent and CB1R-mediated. Both are prevented by restoring mGluR5 signalling capacity before the contingency shift. One receptor state explains both synaptic phenotypes.
+  </p>
+</div>
+
+<h2>A Homotypic Rescue: Blocking mGluR5 Late Preserves Flexibility</h2>
+
+<p>
+  If accumulated overstimulation of mGluR5 during repeated training progressively depletes its signalling capacity — through feedback desensitisation, PKC-mediated internalisation, or Homer scaffold disruption — then transiently blocking mGluR5 during the late phase of training should prevent that depletion and preserve behavioral sensitivity to contingency changes. We tested this by locally infusing MPEP into the DLS during sessions 12, 14, and 16 of the training schedule.
+</p>
+
+<p>
+  The result was clear. MPEP had no effect on performance during training itself. But when overtrained mice were subsequently tested in the omission procedure, those that had received MPEP during late training suppressed their nose-poking in response to the contingency reversal, just like short-trained, goal-directed mice — and received significantly more food as a result. Vehicle-treated overtrained animals continued to nose-poke as if nothing had changed. MPEP also rescued Akt phosphorylation, restored t-LTD at cortico-iSPN synapses, and prevented the aberrant t-LTD at cortico-dSPN synapses. The behavioral and synaptic phenotypes traveled together, as they should if they share a common molecular cause.
+</p>
+
+<p>
+  Notably, MPEP did not rescue sensitivity to outcome devaluation — a separate test of goal-directed control that depends on the incentive value of the reward rather than the action–outcome contingency. This dissociation suggests that mGluR5 desensitisation specifically mediates the inability to encode new contingencies, not the broader loss of sensitivity to reward value. The two behavioral deficits of overtraining may have distinct molecular substrates.
+</p>
+
+<h2>Different Pathways in Different Neurons: CaMKII Gatekeeps dSPN Plasticity</h2>
+
+<p>
+  Understanding why dSPNs normally resist eCB-dependent t-LTD — and why this resistance collapses after overtraining — required probing the intracellular logic of mGluR5 signalling in this cell type. We found that mGluR5, when active, constitutively couples to CaMKII in dSPNs. This activated CaMKII phosphorylates GluN2B-containing NMDA receptors, increasing their surface expression and simultaneously inhibiting the diacylglycerol lipase that synthesises the endocannabinoid 2-AG. The net result is that active mGluR5 in dSPNs is counterproductive to eCB-LTD: it builds up GluN2B and suppresses the biosynthetic enzyme.
+</p>
+
+<p>
+  When we simultaneously blocked mGluR5 and GluN2B in naive animals during the plasticity induction protocol, t-LTD appeared at cortico-dSPN synapses — and was blocked by CB1R antagonism, confirming its eCB dependence. Inhibiting CaMKII alone was sufficient to gate the same plasticity. This showed that CaMKII is the key gate, and mGluR5 holds it closed.
+</p>
+
+<p>
+  After overtraining followed by a contingency shift, GluN2B protein was reduced in the DLS, and the Ro-sensitive component of NMDA currents at dSPN synapses was smaller — confirming reduced GluN2B at the membrane. Phosphorylation of GluN2B at Tyr1472, which normally prevents endocytosis, was decreased in the same condition, suggesting that reduced CaMKII activity (secondary to mGluR5 desensitisation) promotes GluN2B internalisation, lifting the brake on eCB synthesis and allowing t-LTD to proceed.
+</p>
+
+<blockquote>
+  <p>
+    The model that emerged is mechanistically tight: overtraining desensitises mGluR5 → less CaMKII activity in dSPNs → GluN2B endocytosis → eCB synthesis gate is released → t-LTD at cortico-dSPN synapses is unlocked. In iSPNs, the same mGluR5 desensitisation removes the drive for Gq-PLCβ-mediated eCB production → t-LTD is lost. One molecular change, two opposing synaptic consequences, one behavioral outcome: inflexibility.
+  </p>
+</blockquote>
+
+<h2>What This Means Beyond the Mouse Operant Box</h2>
+
+<p>
+  These findings have implications that reach beyond rodent behavioral neuroscience. mGluR5 signalling is dysregulated in several psychiatric conditions characterised by excessive and maladaptive behavioral repetition. In animal models of obsessive-compulsive disorder, Fragile-X syndrome, and autism spectrum disorders, striatal mGluR5 is hyperactive and the mGluR5–Homer scaffold is disrupted. The finding that pathological overactivation of mGluR5 — whether caused by compulsive repetition or by molecular disease mechanisms — converges on the same deficit in signalling capacity provides a mechanistic framework for understanding why mGluR5 antagonists can reduce repetitive behaviors in these models.
+</p>
+
+<p>
+  It also suggests a potentially important temporal constraint. The rescue we achieved required intervening during the late phase of training — not before, and not after the habit had fully consolidated. If mGluR5 desensitisation is the molecular event that tips the balance from flexible to inflexible control, there may be a window during which the transition is still reversible. Identifying that window, and the upstream events that open and close it, is one of the central questions we are now pursuing.
+</p>
+
+<p>
+  There is, however, a companion question that this study leaves open: if desensitisation tells us what fails in inflexibility, what does successful flexibility actually look like at the molecular level? We pursued that question in a follow-up study using STORM super-resolution imaging — and the answer is strikingly concrete. At the moment a mouse updates its behavior in response to a contingency change, the mGlu5 receptor, its downstream endocannabinoid-synthesising enzyme DAGLα, and the presynaptic CB1 receptor all increase in abundance at cortico-iSPN synapses in the DLS. More importantly, the nanoscale distance between mGlu5 and DAGLα drops from roughly 150 nm to 91 nm — a structural reconfiguration that precisely mirrors what is known about the molecular basis of LTD failure in Fragile X syndrome. That story is told in the next post.
+</p>
+
+<div class="tip-box">
+  <div class="tip-label">Source</div>
+  <p style="margin:0;line-height:1.75;">
+    Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A, Pennuto M, Marcello E, Gardoni F, Greco B &amp; Tonini R.
+    <em>Behavioral inflexibility through overtraining is mediated by reduced mGluR1/5 signaling capacity in the dorsolateral striatum.</em>
+    PLoS Biology 23(7): e3003288 (2025). (* co-first authors)<br>
+    <a href="https://doi.org/10.1371/journal.pbio.3003288" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;word-break:break-all;">https://doi.org/10.1371/journal.pbio.3003288</a>
+    &nbsp;·&nbsp; Open Access · CC BY 4.0
+  </p>
+</div>
+`,
+},
+    {
+      type:"gallery", slug:"lab-confocal-images",
+      title:"Confocal Microscopy: Neurons in Detail",
+      excerpt:"Fluorescently labelled hippocampal neurons, dendritic spines, and synaptic puncta — images from our 2024 imaging campaigns.",
+      date:"05 Jan, 2025", tag:"Imaging", imageUrl:"", emoji:"🔬",
+      galleryDescription:"A selection of confocal and two-photon microscopy images from the lab — hippocampal slices, cortical dendrites, and whole-brain iDISCO-cleared tissue stained for c-Fos, GCaMP, and synaptic markers.",
+    },
+    {
+      type:"gallery", slug:"sfn-2024",
+      title:"Society for Neuroscience 2024",
+      excerpt:"Photos from SfN Annual Meeting in Chicago — posters, talks, and the team.",
+      date:"20 Nov, 2024", tag:"Conference", imageUrl:"", emoji:"🏙️",
+      galleryDescription:"The lab at SfN 2024 in Chicago. Three posters, two oral presentations, and a lot of coffee.",
+    },
+    {
+      type:"gallery", slug:"lab-life",
+      title:"Lab Life",
+      excerpt:"Behind the scenes — the everyday reality of working in a neuroscience research lab.",
+      date:"01 Oct, 2024", tag:"Lab", imageUrl:"", emoji:"🧪",
+      galleryDescription:"From early morning slice preparation to late-night recording sessions — what it actually looks like to run a memory and circuits lab.",
+    },
+    {
+      type:"gallery", slug:"fens-2024-rome",
+      title:"FENS Forum 2024 — Rome",
+      excerpt:"European Neuroscience at its largest gathering — five days in Rome with 7,000 researchers.",
+      date:"28 Jun, 2024", tag:"Conference", imageUrl:"", emoji:"🇮🇹",
+      galleryDescription:"FENS Forum 2024, Rome. Two talks from the lab, endless conversations, and the occasional gelato between sessions.",
+    },
+  ],
+
+  /* ── Featured Posts (sidebar) ── */
+  featuredPosts: [
+    "evolutionary-origins-of-synapses",
+    "hippocampus-engram",
+    "lab-confocal-images",
+  ],
+
+  /* ── Topics ── */
+  topics: [
+    { label: "Memory",          tag: "Memory" },
+    { label: "Sleep",           tag: "Sleep" },
+    { label: "Neural Circuits", tag: "Neural Circuits" },
+    { label: "Imaging",         tag: "Imaging" },
+    { label: "Conference",      tag: "Conference" },
+    { label: "Lab",             tag: "Lab" },
+  ],
+
+  /* ── Featured Galleries ── */
+  featuredGalleries: [
+    "lab-confocal-images",
+    "sfn-2024",
+    "lab-life",
+    "fens-2024-rome",
+  ],
+
+  /* ─────────────────────────────────────────────────
+     PUBLICATIONS
+     type: "Article" | "Review" | "Preprint" | "Chapter"
+  ───────────────────────────────────────────────── */
+  publications: [
+  {
+    "slug": "paget-blanc-2025-Bior",
+    "authors": "Paget-Blanc, V., Zöldi, M., Cavaccini, A., Miczán, V., Dudok, B., Katona, I., Tonini, R.",
+    "title": "Nanoscale synaptic remodeling at corticostriatal circuits predicts flexible action control",
+    "journal": "biorxiv",
+    "year": 2025,
+    "volume": "",
+    "pages": "",
+    "doi": "10.1101/2025.10.30.684628",
+    "type": "Preprint",
+    "tags": ["Behavioral Control", "Synaptic Plasticity", "Neuromodulation"],
+    "featured": true,
+    "pdfUrl": "https://www.biorxiv.org/content/10.1101/2025.10.30.684628v1.full.pdf"
+  },
+  {
+    "slug": "paget-blanc-2025-plos-biol",
+    "authors": "Paget-Blanc, V., Cavaccini, A., Longaretti, A., Nava, L., Trusel, M., Rocchi, A., Pennuto, M., Marcello, E., Gardoni, F., Greco, B., Tonini, R.",
+    "title": "Behavioral inflexibility through overtraining is mediated by reduced mGluR1/5 signaling capacity in the dorsolateral striatum",
+    "journal": "PLOS Biology",
+    "year": 2025,
+    "volume": "23",
+    "pages": "e3003288",
+    "doi": "10.1371/journal.pbio.3003288",
+    "type": "Article",
+    "tags": ["Behavioral Control", "Synaptic Plasticity", "Neuromodulation"],
+    "featured": true,
+    "pdfUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12327642/pdf/pbio.3003288.pdf"
+  },
+  {
+    "slug": "paget-blanc-2022-nat-commun",
+    "authors": "Paget-Blanc, V., Pfeffer, M.E., Pronot, M., Lapios, P., Angelo, M.-F., Walle, R., Cordelières, F.P., Levet, F., Claverol, S., Lacomme, S., Petrel, M., Martin, C., Pitard, V., De Smedt Peyrusse, V., Biederer, T., Perrais, D., Trifilieff, P., Herzog, E.",
+    "title": "A synaptomic analysis reveals dopamine hub synapses in the mouse striatum",
+    "journal": "Nature Communications",
+    "year": 2022,
+    "volume": "13",
+    "pages": "3102",
+    "doi": "10.1038/s41467-022-30776-9",
+    "type": "Article",
+    "tags": ["Dopamine Synapses", "Neuromodulation", "Synaptic Plasticity"],
+    "featured": true,
+    "pdfUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9166739/pdf/41467_2022_Article_30776.pdf"
+  },
+  {
+    "slug": "paget-blanc-2025b-springer",
+    "authors": "Paget-Blanc, V., Pronot, M., Pfeffer, M.E., Angelo, M.F., Herzog, E.",
+    "title": "Purification of Afference-Specific Synaptosome Populations Using Fluorescence-Activated Synaptosome Sorting",
+    "journal": "Synapse Development: Methods and Protocols",
+    "year": 2025,
+    "volume": "",
+    "pages": "87–104",
+    "doi": "10.1007/978-1-0716-4446-1_6",
+    "type": "Chapter",
+    "tags": ["Synaptic Plasticity", "Neuromodulation", "Methodology"],
+    "featured": true,
+    "pdfUrl": ""
+  },
+  {
+    "slug": "lapios-2025-nat-commun",
+    "authors": "Lapios, P., Anger, R., Paget-Blanc, V., Marza, E., Lučić, V., Fronzes, R., Herzog, E., Perrais, D.",
+    "title": "Cryocorrelative light and electron tomography of dopaminergic axonal varicosities reveals non-synaptic modulation of cortico-striatal synapses",
+    "journal": "Nature Communications",
+    "year": 2025,
+    "volume": "16",
+    "pages": "11467",
+    "doi": "10.1038/s41467-025-66355-x",
+    "type": "Article",
+    "tags": ["Dopamine Synapses", "Neuromodulation", "Synaptic Plasticity"],
+    "featured": false,
+    "pdfUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12749485/pdf/41467_2025_Article_66355.pdf"
+  },
+  {
+    "slug": "bakr-2021-cell-rep",
+    "authors": "Bakr, M., Jullié, D., Krapivkina, J., Paget-Blanc, V., Bouit, L., Petersen, J.D., Retailleau, N., Breillat, C., Herzog, E., Choquet, D., Perrais, D.",
+    "title": "The vSNAREs VAMP2 and VAMP4 control recycling and intracellular sorting of post-synaptic receptors in neuronal dendrites",
+    "journal": "Cell Reports",
+    "year": 2021,
+    "volume": "36",
+    "pages": "",
+    "doi": "10.1016/j.cellrep.2021.109678",
+    "type": "Article",
+    "tags": ["Synaptic Plasticity", "Neuromodulation"],
+    "featured": false,
+    "pdfUrl": "https://www.cell.com/action/showPdf?pii=S2211-1247%2821%2901122-0"
+  },
+],
+
+  /* ─────────────────────────────────────────────────
+     CV TIMELINE
+     type: "position" | "education" | "grant" | "award"
+  ───────────────────────────────────────────────── */
+  timeline: {
+    positions: [
+    {
+        period: "November 2025 — Today",
+        title: "Postdoctoral researcher",
+        institution: "Laboratory 'Nutrineuro', INRAE UMR1286, France",
+        description: "Preclinical study on the role of mesocorticolimbic dopamine transmission in reward processing, using a SynCAM 2 conditional knockout model. Methods: Pavlovian conditioning, stereotaxic surgeries, operant behavior, in-vivo fiber photometry.",
+        type: "position"
+      },
+      {
+        period: "June 2020 — June 2025",
+        title: "Postdoctoral researcher",
+        institution: "Laboratory 'Membrane trafficking at synapses', CNRS UMR5297, France",
+        description: "Study of dopaminergic synapses, revealing a novel multi-synaptic structure—dopamine hub synapses—including their proteomes, microscopic/nanoscopic organization, and roles in physiology and pathophysiology. Methods: flow cytometry, subcellular fractionation, stereotaxic surgeries, synaptic tagging, neuronal tracing, proteomic data analysis, conditional knock-out, immuno-fluorescence, in-situ confocal microscopy, in-situ STED nanoscopy, ImageJ macro development, and Python programming.",
+        type: "position"
+      },
+      {
+        period: "March 2018 — September 2019",
+        title: "Postdoctoral researcher",
+        institution: "Istituto Italiano di Tecnologia, Laboratory 'Neuromodulation of Cortical and Subcortical Circuits', Italy",
+        description: "Extension of Ph.D. research and collaborative work investigating the role of non coding genome in regulating automated actions. Method: biochemistry, behavioral paradigms (i.e., instrumental conditioning, contingency degradation, outcome devaluation), and in-vivo region-specific pharmacological interventions.",
+        type: "position"
+      },
+      {
+        period: "Multiple years, 2016, 2017, 2018, 2019",
+        title: "Visiting scientist",
+        institution: "Institute of Experimental Medicine of the Hungarian Academy of Sciences, Laboratory 'Momentum Laboratory of Molecular Neurobiology', Hungary",
+        description: "Extension of Ph.D. research and collaborative work investigating the role of non coding genome in regulating automated actions. Method: biochemistry, behavioral paradigms (i.e., instrumental conditioning, contingency degradation, outcome devaluation), and in-vivo region-specific pharmacological interventions.",
+        type: "position"
+      },
+    ],
+    education: [
+      {
+        period: "2014 — 2018",
+        title: "PhD in Neuroscience",
+        institution: "Università degli Studi di Genova, Italy",
+        description: "Thesis: 'Investigating the molecular basis of the shift from goal-directed to habitual behavior'. Supervised by Dr. Raffaella Tonini.",
+        type: "education",
+      },
+      {
+        period: "2011 — 2013",
+        title: "MSc in Neuroscience",
+        institution: "University of Bordeaux, France",
+        description: " Specialisation in neurosciences and neuropsychopharmacology.",
+        type: "education",
+      },
+      {
+        period: "2009 — 2011",
+        title: "BSc in Biology",
+        institution: "University of Bordeaux, France",
+        description: "Major in neuroscience. Specialisation in cell biology and physiology",
+        type: "education",
+      },
+    ],
+     grants: [
+      {
+        period: "... — ...",
+        title: "",
+        institution: "",
+        description: "€... . ...",
+        type: "grant",
+      },
+    ],
+    awards: [
+      {
+        period: "2024",
+        title: "Prix Forum FENS",
+        institution: "French Society of Neuroscience",
+        description: "Awarded to early-career neuroscientists to take part in FENS forum.",
+        type: "award",
+      },
+      {
+        period: "2015",
+        title: "BIF Travel Grant",
+        institution: "Boehringer Ingelheim Fonds",
+        description: "Early carreer support travel grant to attend Cajal School of Neuroscience.",
+        type: "award",
+      },
+      {
+        period: "2015",
+        title: "FENS Featured Regional Meeting",
+        institution: "Cajal School of Neuroscience ",
+        description: "Award to disseminate the school program at FENS Featured Regional Meeting.",
+        type: "award",
+      },
+    ],
+  },
+
+  /* ── Collaboration / Contact ── */
+  inquiries: {
+    label:    "Work With Me",
+    title:    "Let's Collaborate",
+    subtitle: "Open to research collaborations, enquiry, invited talks, media appearances, and science communication projects. I typically respond within 48 hours.",
+    details: [
+      { icon: "📍", text: "Based in France — collaborating globally" },
+      { icon: "🔬", text: "Collaboration · Enquiry · Invited Talks · Media" },
+    ],
+    projectTypes: [
+      "Research Collaboration",
+      "Enquiry",
+      "Invited Talk / Keynote",
+      "Media / Science Communication",
+      "Funding / Grant Partnership",
+      "Other",
+    ],
+  },
+
+  /* ── Research Areas / Categories ── */
+  categories: [
+    {
+      name: "Memory & Learning", icon: "🧠", topic: "Memory",
+      posts: [
+        { title: "The Hippocampus and Spatial Memory: A Primer",            slug: "hippocampus-engram" },
+        { title: "Reconsolidation: How Memories Are Rewritten on Retrieval", slug: "hippocampus-engram" },
+        { title: "Pattern Separation vs. Pattern Completion in CA3",         slug: "hippocampus-engram" },
+        { title: "Working Memory and Prefrontal Cortex",                     slug: "sleep-memory-consolidation" },
+      ],
+    },
+    {
+      name: "Sleep & Consolidation", icon: "😴", topic: "Memory",
+      posts: [
+        { title: "Sharp-Wave Ripples and Memory Replay",            slug: "sleep-memory-consolidation" },
+        { title: "REM Sleep and Emotional Memory Processing",        slug: "sleep-memory-consolidation" },
+        { title: "The Two-Stage Model of Memory Consolidation",      slug: "sleep-memory-consolidation" },
+        { title: "Sleep Deprivation and Synaptic Homeostasis",       slug: "sleep-memory-consolidation" },
+      ],
+    },
+    {
+      name: "Methods & Techniques", icon: "🔬", topic: "Imaging",
+      posts: [
+        { title: "Introduction to Two-Photon Calcium Imaging",             slug: "lab-confocal-images" },
+        { title: "Optogenetics: Light-Controlled Neuron Activation",        slug: "hippocampus-engram" },
+        { title: "Silicon Probes vs. Tetrodes: Trade-offs and Use Cases",   slug: "lab-confocal-images" },
+        { title: "Open-Source Behavioural Tracking with DeepLabCut",        slug: "lab-confocal-images" },
+      ],
+    },
+    {
+      name: "Science Communication", icon: "🎤", topic: "Lab",
+      posts: [
+        { title: "Writing About Neuroscience for a General Audience", slug: "sleep-memory-consolidation" },
+        { title: "How to Give a Talk That Non-Scientists Enjoy",       slug: "sleep-memory-consolidation" },
+        { title: "Why Outreach Matters in Fundamental Research",       slug: "sleep-memory-consolidation" },
+        { title: "Podcasts and the Public Understanding of Brain Science", slug: "sleep-memory-consolidation" },
+      ],
+    },
+  ],
+
+  /* ── GitHub — gallery image loading ── */
+  github: {
+    owner: "your-username",
+    repo: "your-repo",
+    branch: "main",
+    imagesFolder: "galleries",
+  },
+
+  /* ── Footer ── */
+  footer: {
+    about: "Cognitive neuroscience research on memory, sleep, and neural circuits. Open to collaboration, media enquiries, and PhD applications.",
+    menuLinks: [
+      { label: "Home",         href: "#home" },
+      { label: "Research",     href: "#journal" },
+      { label: "Publications", href: "#publications" },
+      { label: "Gallery",      href: "#galleries" },
+    ],
+    pageLinks: [
+      { label: "CV",         href: "#cv" },
+      { label: "Contact",    href: "#contact" },
+      { label: "Press",      href: "#contact" },
+    ],
+    socialLinks: [
+      { icon: "🐦", label: "Bluesky",    href: "https://bsky.app/profile/vincentpb.bsky.social" },
+      { icon: "🐦", label: "Twitter / X",    href: "https://x.com/VincentPB_" },
+      { icon: "🎓", label: "Orcid", href: "https://orcid.org/0000-0001-8773-3538" },
+      { icon: "🔬", label: "ResearchGate",   href: "https://www.researchgate.net/profile/Vincent-Paget-Blanc" },
+      { icon: "💼", label: "LinkedIn",       href: "https://fr.linkedin.com/in/vincent-paget-blanc-16949b77" },
+    ],
+  },
+
+};
+</script>
+
+<!-- END CONFIG ══════════════════════════════════════ -->
+
+<!-- NAVBAR -->
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a class="nav-logo" id="nav-brand" href="#home">Synapt<span>e</span></a>
+    <ul class="nav-links" id="nav-links"></ul>
+    <div class="nav-right">
+      <div class="nav-search">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Search…" id="search-input" />
+      </div>
+      <button id="theme-toggle" title="Toggle light / dark" aria-label="Toggle theme">
+        <svg id="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<div id="mobile-menu"></div>
+
+<!-- TOPIC OVERLAY -->
+
+<div id="topic-overlay">
+  <div class="topic-backdrop" id="topic-backdrop"></div>
+  <div class="topic-drawer">
+    <div class="topic-drawer-header">
+      <div>
+        <span class="topic-drawer-label">Research Area</span>
+        <h2 class="topic-drawer-title" id="topic-drawer-title">Memory</h2>
+      </div>
+      <button class="topic-close-btn" id="topic-close-btn">✕</button>
+    </div>
+    <div class="topic-drawer-posts" id="topic-drawer-posts"></div>
+  </div>
+</div>
+
+<!-- DETAIL VIEW -->
+
+<div id="detail-view" style="display:none;">
+  <div class="detail-back-bar">
+    <button class="detail-back-btn" id="detail-back-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back
+    </button>
+    <span class="detail-breadcrumb" id="detail-breadcrumb"></span>
+  </div>
+  <div id="detail-content"></div>
+</div>
+
+<!-- MAIN PAGE -->
+
+<div id="main-page">
+
+  <!-- HERO -->
+
+  <section id="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <p class="hero-eyebrow fade-in" id="hero-eyebrow"></p>
+          <h1 class="hero-name fade-in s1" id="hero-name"></h1>
+          <p class="hero-tagline fade-in s1" id="hero-tagline"></p>
+          <p class="hero-bio fade-in s2" id="hero-bio"></p>
+          <div class="hero-actions fade-in s3">
+            <a class="btn" id="hero-cta" href="#contact">Collaborate</a>
+            <a class="btn btn-ghost" id="hero-journal-btn" href="#journal">Read Research</a>
+          </div>
+        </div>
+        <div id="hero-avatar-wrap" class="hero-avatar-wrap fade-in s4"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- LAB STRIP -->
+
+  <section id="gallery-strip">
+    <div class="container">
+      <span class="section-label" id="gallery-label"></span>
+      <div class="gallery-scroll" id="gallery-scroll"></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- RESEARCH BLOG + SIDEBAR -->
+
+  <section class="section" id="posts">
+    <div class="container">
+      <div class="main-layout">
+        <div>
+          <span class="section-label">Research Blog</span>
+          <h2 class="section-title">Latest Posts</h2>
+          <div id="posts-list"></div>
+          <div class="load-more-wrap">
+            <button class="btn btn-ghost" id="load-more-btn">Load More</button>
+          </div>
+        </div>
+        <aside class="sidebar">
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">⭐ Highlighted</h3>
+            <div id="featured-posts"></div>
+          </div>
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">🏷️ Browse by Topic</h3>
+            <div class="tags-cloud" id="topics-cloud"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED GALLERIES -->
+
+  <section class="horizontal-section" id="featured-galleries-section">
+    <div class="container">
+      <span class="section-label">Lab & Conference</span>
+      <h2 class="section-title" style="margin-bottom:22px;">Photo Galleries</h2>
+      <div class="horizontal-strip" id="featured-galleries-strip"></div>
+      <div style="margin-top:24px;">
+        <a href="#galleries" class="btn btn-ghost" style="font-size:12.5px;padding:8px 20px;" onclick="event.preventDefault();location.hash='galleries';">View All Galleries →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PUBLICATIONS -->
+
+  <section class="section" id="publications-section">
+    <div class="container">
+      <span class="section-label">Selected Work</span>
+      <h2 class="section-title" style="margin-bottom:22px;">Recent Publications</h2>
+      <div class="horizontal-strip" id="featured-publications-strip"></div>
+      <div style="margin-top:28px;">
+        <a href="#publications" class="btn btn-ghost" style="font-size:12.5px;padding:8px 20px;" onclick="event.preventDefault();location.hash='publications';">View All Publications →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV TIMELINE -->
+
+  <section class="section" id="cv">
+    <div class="container">
+      <span class="section-label">Curriculum Vitae</span>
+      <h2 class="section-title" style="margin-bottom:32px;">Academic Record</h2>
+      <div class="cv-tabs" id="cv-tabs">
+        <button class="cv-tab active" data-tab="positions">Positions</button>
+        <button class="cv-tab" data-tab="education">Education</button>
+        <button class="cv-tab" data-tab="grants">Grants</button>
+        <button class="cv-tab" data-tab="awards">Awards</button>
+      </div>
+      <div id="cv-content"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="inquiries-inner">
+        <div class="inquiries-info">
+          <span class="section-label" id="inquiries-label"></span>
+          <h2 class="section-title" id="inquiries-title"></h2>
+          <p class="inquiries-sub" id="inquiries-sub"></p>
+          <div class="inquiries-details" id="inquiries-details"></div>
+        </div>
+        <form class="inquiry-form" onsubmit="handleInquiry(event)">
+          <div class="form-row">
+            <div class="form-field">
+              <label>Your Name</label>
+              <input type="text" placeholder="Dr. Alex Kim" required />
+            </div>
+            <div class="form-field">
+              <label>Email</label>
+              <input type="email" placeholder="you@university.edu" required />
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Enquiry Type</label>
+            <select id="project-type-select">
+              <option value="" disabled selected>Select an enquiry type…</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Tell me about your project</label>
+            <textarea placeholder="A brief description — your research group, the collaboration idea, or the talk topic you have in mind…" required></textarea>
+          </div>
+          <button class="btn" type="submit" id="inquiry-submit-btn" style="align-self:flex-start;">Send Enquiry →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH AREAS -->
+
+  <section class="section" id="categories">
+    <div class="container">
+      <span class="section-label">Browse by Area</span>
+      <h2 class="section-title">Research Topics</h2>
+      <div class="categories-grid" id="categories-grid"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer id="about">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="nav-logo" id="footer-brand"></span>
+          <p id="footer-about"></p>
+        </div>
+        <div>
+          <p class="footer-col-title">Navigate</p>
+          <div class="footer-links" id="footer-menu"></div>
+        </div>
+        <div>
+          <p class="footer-col-title">Pages</p>
+          <div class="footer-links" id="footer-pages"></div>
+        </div>
+        <div>
+          <p class="footer-col-title">Connect</p>
+          <div id="footer-social" style="display:flex;flex-direction:column;gap:10px;"></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span id="footer-copy"></span>
+        <div class="footer-social-row" id="footer-social-icons"></div>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- END #main-page -->
+
+<!-- LIGHTBOX -->
+
+<div id="lightbox">
+  <button id="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="Full size image" />
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     RENDER ENGINE
+     ══════════════════════════════════════════════════ -->
+
+<script>
+/* ── Helpers ── */
+function el(id){ return document.getElementById(id); }
+function make(tag,cls,html){
+  const e=document.createElement(tag);
+  if(cls) e.className=cls;
+  if(html!==undefined) e.innerHTML=html;
+  return e;
+}
+function slugToHref(p){
+  if(p.type==='gallery') return '#gallery/'+p.slug;
+  return '#post/'+p.slug;
+}
+const POST_MAP={};
+CONFIG.posts.forEach(p=>POST_MAP[p.slug]=p);
+const PUB_MAP={};
+CONFIG.publications.forEach(p=>PUB_MAP[p.slug]=p);
+
+/* ── Theme ── */
+const htmlEl=document.documentElement;
+function applyTheme(t){
+  htmlEl.setAttribute('data-theme',t);
+  const d=t==='dark';
+  const m=el('moon-icon'); if(m) m.style.display=d?'block':'none';
+  const s=el('sun-icon');  if(s) s.style.display=d?'none':'block';
+  try{localStorage.setItem('theme',t);}catch(e){}
+}
+(function(){let s='dark';try{s=localStorage.getItem('theme')||'dark';}catch(e){}applyTheme(s);})();
+function toggleTheme(){applyTheme(htmlEl.getAttribute('data-theme')==='dark'?'light':'dark');}
+el('theme-toggle').addEventListener('click',toggleTheme);
+
+/* ── Navbar ── */
+document.title=CONFIG.site.name+' · Neuroscience Research';
+['nav-brand','footer-brand'].forEach(id=>{
+  const n=CONFIG.site.name;
+  el(id).innerHTML=n.slice(0,-1)+'<span>'+n.slice(-1)+'</span>';
+});
+el('nav-brand').onclick=(e)=>{e.preventDefault();location.hash='home';};
+
+const navList=el('nav-links');
+const mobileM=el('mobile-menu');
+const navAnchors=[];
+
+CONFIG.nav.forEach(n=>{
+  const li=make('li');
+  const a=make('a'); a.textContent=n.label; a.href=n.href;
+  a.onclick=(e)=>{e.preventDefault();location.hash=n.href.replace('#','');mobileM.classList.remove('open');};
+  li.appendChild(a); navList.appendChild(li);
+  navAnchors.push({el:a,href:n.href});
+  const ma=make('a'); ma.textContent=n.label; ma.href=n.href;
+  ma.onclick=(e)=>{e.preventDefault();location.hash=n.href.replace('#','');mobileM.classList.remove('open');};
+  mobileM.appendChild(ma);
+});
+
+['footer-menu','footer-pages'].forEach(cid=>{
+  const key=cid==='footer-menu'?'menuLinks':'pageLinks';
+  CONFIG.footer[key].forEach(l=>{
+    const a=make('a'); a.href=l.href; a.textContent=l.label;
+    a.onclick=(e)=>{e.preventDefault();location.hash=l.href.replace('#','');};
+    el(cid).appendChild(a);
+  });
+});
+
+el('hero-cta').onclick=(e)=>{e.preventDefault();location.hash='contact';};
+el('hero-journal-btn').onclick=(e)=>{e.preventDefault();location.hash='journal';};
+el('hamburger').onclick=()=>mobileM.classList.toggle('open');
+document.addEventListener('click',e=>{
+  if(mobileM.classList.contains('open')&&!mobileM.contains(e.target)&&e.target!==el('hamburger')&&!el('hamburger').contains(e.target)){
+    mobileM.classList.remove('open');
+  }
+});
+
+function updateActiveNavLink(hash){
+  navAnchors.forEach(({el:a,href})=>{
+    const h=href.replace('#','');
+    const active=hash===h
+      ||(h==='journal'&&hash.startsWith('post/'))
+      ||(h==='galleries'&&hash.startsWith('gallery/'))
+      ||(h==='publications'&&hash==='publications');
+    a.classList.toggle('active',active);
+  });
+}
+window.addEventListener('scroll',()=>el('navbar').classList.toggle('scrolled',scrollY>20));
+
+/* ── Hero ── */
+el('hero-eyebrow').textContent=CONFIG.hero.greeting;
+el('hero-name').textContent=CONFIG.hero.name;
+el('hero-tagline').textContent=CONFIG.hero.tagline;
+el('hero-bio').textContent=CONFIG.hero.bio;
+const heroCta=el('hero-cta'); heroCta.href=CONFIG.hero.ctaLink; heroCta.textContent=CONFIG.hero.ctaText;
+const av=el('hero-avatar-wrap');
+if(CONFIG.hero.avatarUrl){
+  const img=make('img'); img.src=CONFIG.hero.avatarUrl; img.alt='Avatar';
+  img.style='width:100%;height:100%;object-fit:cover;'; av.appendChild(img);
+} else { av.textContent=CONFIG.hero.avatarEmoji; }
+
+/* ── Lab Strip ── */
+el('gallery-label').textContent=CONFIG.galleryStrip.title;
+const gs=el('gallery-scroll');
+CONFIG.galleryStrip.items.forEach(item=>{
+  const t=make('div','gallery-thumb');
+  if(item.imageUrl){const img=make('img');img.src=item.imageUrl;img.alt=item.label;t.appendChild(img);}
+  else{const ph=make('div','gallery-thumb-placeholder');ph.innerHTML=`<span style="font-size:2.6rem">${item.emoji}</span><span>${item.label}</span>`;t.appendChild(ph);}
+  const lbl=make('div','gt-label');lbl.textContent=item.label;t.appendChild(lbl);
+  gs.appendChild(t);
+});
+
+/* ── Posts List ── */
+const POST_TYPE_ICONS={post:'📝',gallery:'🖼️'};
+const postsList=el('posts-list');
+let visiblePosts=3;
+function renderPosts(){
+  postsList.innerHTML='';
+  CONFIG.posts.slice(0,visiblePosts).forEach(p=>{
+    const card=make('div','post-card');
+    card.onclick=()=>{location.hash=slugToHref(p).slice(1);};
+    const thumb=make('div','post-thumb');
+    if(p.imageUrl){const img=make('img');img.src=p.imageUrl;img.alt=p.title;thumb.appendChild(img);}
+    else{const ph=make('div','post-thumb-placeholder');ph.textContent=p.emoji;thumb.appendChild(ph);}
+    const badge=make('div','post-type-badge');badge.textContent=POST_TYPE_ICONS[p.type]||'📝';badge.title=p.type;
+    thumb.appendChild(badge);
+    const info=make('div');
+    const meta=make('div','post-meta');
+    const chip=make('span','tag-chip');chip.textContent=p.tag;chip.onclick=(e)=>{e.stopPropagation();openTopic(p.tag);};meta.appendChild(chip);
+    const date=make('span','post-date');date.textContent=p.date;meta.appendChild(date);
+    if(p.readTime){const rt=make('span','post-read');rt.textContent='· '+p.readTime;meta.appendChild(rt);}
+    const title=make('div','post-title');title.textContent=p.title;
+    const exc=make('p','post-excerpt');exc.textContent=p.excerpt;
+    info.appendChild(meta);info.appendChild(title);info.appendChild(exc);
+    card.appendChild(thumb);card.appendChild(info);
+    postsList.appendChild(card);
+  });
+  el('load-more-btn').style.display=visiblePosts>=CONFIG.posts.length?'none':'';
+}
+renderPosts();
+el('load-more-btn').onclick=()=>{visiblePosts+=3;renderPosts();reObserve();};
+
+/* ── Sidebar ── */
+const fpWrap=el('featured-posts');
+CONFIG.featuredPosts.forEach(slug=>{
+  const p=POST_MAP[slug];if(!p)return;
+  const div=make('div','sidebar-post');
+  div.onclick=()=>{location.hash=slugToHref(p).slice(1);};
+  const thumb=make('div','sidebar-post-thumb');thumb.textContent=p.emoji||POST_TYPE_ICONS[p.type];
+  const info=make('div','sidebar-post-info');
+  const t=make('span','sp-title');t.textContent=p.title;
+  const d=make('span','post-date');d.textContent=p.date;
+  info.appendChild(t);info.appendChild(d);
+  div.appendChild(thumb);div.appendChild(info);
+  fpWrap.appendChild(div);
+});
+const tc=el('topics-cloud');
+CONFIG.topics.forEach(t=>{
+  const a=make('span','tag-chip');a.textContent=t.label;
+  a.onclick=()=>openTopic(t.tag);
+  tc.appendChild(a);
+});
+
+/* ── Featured Galleries Strip ── */
+const fgs=el('featured-galleries-strip');
+CONFIG.featuredGalleries.forEach(slug=>{
+  const g=POST_MAP[slug];if(!g)return;
+  const card=make('div','featured-gallery-card');
+  card.onclick=()=>{location.hash='gallery/'+g.slug;};
+  const thumb=make('div','fgc-thumb');
+  if(g.imageUrl){const img=make('img');img.src=g.imageUrl;img.alt=g.title;thumb.appendChild(img);}
+  const emoji=make('div','fgc-thumb-emoji');emoji.textContent=g.emoji;thumb.appendChild(emoji);
+  const countBadge=make('div','fgc-count');countBadge.textContent='…';thumb.appendChild(countBadge);
+  const info=make('div','fgc-info');
+  const tag=make('div','fgc-tag');tag.textContent=g.tag;
+  const title=make('div','fgc-title');title.textContent=g.title;
+  info.appendChild(tag);info.appendChild(title);
+  card.appendChild(thumb);card.appendChild(info);
+  fgs.appendChild(card);
+  fetchGalleryImages(g.slug)
+    .then(({count})=>{countBadge.textContent=count+(count===1?' image':' images');})
+    .catch(()=>{countBadge.textContent='—';});
+});
+
+/* ══════════════════════════════════════════════════
+   PUBLICATIONS — featured strip (homepage)
+══════════════════════════════════════════════════ */
+function pubTypeBadge(type){
+  const cls=type.toLowerCase()==='book chapter'?'chapter':type.toLowerCase();
+  return `<span class="pub-type-badge ${cls}">${type}</span>`;
+}
+function pubActions(pub,context){
+  let html='';
+  if(pub.doi) html+=`<a class="pub-btn doi" href="https://doi.org/${pub.doi}" target="_blank" rel="noopener">DOI ↗</a>`;
+  if(pub.pdfUrl) html+=`<a class="pub-btn" href="${pub.pdfUrl}" target="_blank" rel="noopener">PDF ↓</a>`;
+  return html;
+}
+
+const fps=el('featured-publications-strip');
+CONFIG.publications.filter(p=>p.featured).forEach(pub=>{
+  const card=make('div','pub-card-featured');
+  card.onclick=()=>{location.hash='publications';};
+
+  const topRow=make('div','');
+  topRow.style.cssText='display:flex;align-items:center;justify-content:space-between;gap:8px;';
+  topRow.innerHTML=pubTypeBadge(pub.type);
+  const yearBadge=make('span','');
+  yearBadge.style.cssText='font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--text-dim);';
+  yearBadge.textContent=pub.year;
+  topRow.appendChild(yearBadge);
+  card.appendChild(topRow);
+
+  const title=make('div','pub-title');title.textContent=pub.title;card.appendChild(title);
+  const authors=make('div','pub-authors');authors.textContent=pub.authors;card.appendChild(authors);
+  const journal=make('div','pub-journal');
+  journal.innerHTML=`<em>${pub.journal}</em>${pub.volume?' <strong>'+pub.volume+'</strong>':''}${pub.pages?', '+pub.pages:''}`;
+  card.appendChild(journal);
+
+  const actions=make('div','pub-actions');
+  actions.innerHTML=pubActions(pub);
+  card.appendChild(actions);
+  fps.appendChild(card);
+});
+
+/* ══════════════════════════════════════════════════
+   CV TIMELINE — homepage section
+══════════════════════════════════════════════════ */
+function renderCVTab(tabName){
+  const content=el('cv-content');
+  content.innerHTML='';
+  const entries=CONFIG.timeline[tabName]||[];
+  const timeline=make('div','timeline');
+  entries.forEach(entry=>{
+    const div=make('div','tl-entry');
+    const dot=make('div',`tl-dot ${entry.type}`);
+    const period=make('div','tl-period');period.textContent=entry.period;
+    const titleEl=make('div','tl-title');
+    titleEl.innerHTML=entry.title+`<span class="tl-badge ${entry.type}">${entry.type}</span>`;
+    const inst=make('div','tl-institution');inst.textContent=entry.institution;
+    const desc=make('div','tl-desc');desc.textContent=entry.description;
+    div.appendChild(dot);div.appendChild(period);div.appendChild(titleEl);div.appendChild(inst);div.appendChild(desc);
+    timeline.appendChild(div);
+  });
+  content.appendChild(timeline);
+}
+renderCVTab('positions');
+
+el('cv-tabs').addEventListener('click',e=>{
+  const btn=e.target.closest('.cv-tab');
+  if(!btn)return;
+  el('cv-tabs').querySelectorAll('.cv-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  renderCVTab(btn.dataset.tab);
+});
+
+/* ── Contact Section ── */
+el('inquiries-label').textContent=CONFIG.inquiries.label;
+el('inquiries-title').textContent=CONFIG.inquiries.title;
+el('inquiries-sub').textContent=CONFIG.inquiries.subtitle;
+const idets=el('inquiries-details');
+CONFIG.inquiries.details.forEach(d=>{
+  const row=make('div','inquiry-detail');row.innerHTML=`<span>${d.icon}</span><span>${d.text}</span>`;idets.appendChild(row);
+});
+const psel=el('project-type-select');
+CONFIG.inquiries.projectTypes.forEach(pt=>{
+  const opt=document.createElement('option');opt.value=pt;opt.textContent=pt;psel.appendChild(opt);
+});
+function handleInquiry(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('button[type=submit]');
+  btn.textContent='✓ Enquiry Sent!';btn.style.background='#22c55e';
+  setTimeout(()=>{btn.textContent='Send Enquiry →';btn.style.background='';e.target.reset();},3500);
+}
+
+/* ── Categories ── */
+const cg=el('categories-grid');
+CONFIG.categories.forEach(cat=>{
+  const card=make('div','cat-card');
+  const hdr=make('div','cat-header');hdr.onclick=()=>openTopic(cat.topic);
+  const icon=make('span','cat-icon');icon.textContent=cat.icon;
+  const name=make('span','cat-name');name.textContent=cat.name;
+  hdr.appendChild(icon);hdr.appendChild(name);
+  const posts=make('div','cat-posts');
+  cat.posts.forEach(p=>{
+    const item=make('div','cat-post-item');item.textContent=p.title;
+    item.onclick=()=>{location.hash='post/'+p.slug;};
+    posts.appendChild(item);
+  });
+  card.appendChild(hdr);card.appendChild(posts);cg.appendChild(card);
+});
+
+/* ── Footer ── */
+el('footer-about').textContent=CONFIG.footer.about;
+const fsoc=el('footer-social');
+CONFIG.footer.socialLinks.forEach(s=>{
+  const a=make('a');a.href=s.href;a.target='_blank';a.rel='noopener noreferrer';
+  a.style.cssText='display:flex;align-items:center;gap:8px;color:var(--text-dim);font-size:.875rem;transition:color .2s';
+  a.innerHTML=`<span>${s.icon}</span>${s.label}`;
+  a.onmouseenter=()=>a.style.color='var(--text-head)';a.onmouseleave=()=>a.style.color='';
+  fsoc.appendChild(a);
+});
+const fi=el('footer-social-icons');
+CONFIG.footer.socialLinks.forEach(s=>{
+  const a=make('a','social-btn');a.href=s.href;a.target='_blank';a.rel='noopener noreferrer';
+  a.title=s.label;a.textContent=s.icon;fi.appendChild(a);
+});
+el('footer-copy').textContent=`${CONFIG.site.year} © ${CONFIG.site.name}. All rights reserved.`;
+
+/* ── Lightbox ── */
+function openLightbox(src){el('lightbox-img').src=src;el('lightbox').classList.add('open');}
+function closeLightbox(){el('lightbox').classList.remove('open');el('lightbox-img').src='';}
+el('lightbox').addEventListener('click',e=>{if(e.target===el('lightbox'))closeLightbox();});
+
+/* ── Search ── */
+el('search-input').addEventListener('input',function(){
+  const q=this.value.toLowerCase().trim();
+  document.querySelectorAll('.post-card').forEach(card=>{
+    card.style.display=q&&!card.textContent.toLowerCase().includes(q)?'none':'';
+  });
+});
+
+/* ── Topic Overlay ── */
+function openTopic(topicTag){
+  el('topic-drawer-title').textContent=topicTag;
+  const allPosts=CONFIG.posts.filter(p=>p.tag&&p.tag.toLowerCase().includes(topicTag.toLowerCase()));
+  const dposts=el('topic-drawer-posts');dposts.innerHTML='';
+  if(allPosts.length===0){
+    dposts.innerHTML=`<div class="topic-empty">No posts found for this topic yet.</div>`;
+  } else {
+    allPosts.forEach(p=>{
+      const item=make('div','topic-post-item');
+      item.onclick=()=>{closeTopicOverlay();location.hash=slugToHref(p).slice(1);};
+      const thumb=make('div','topic-post-thumb');
+      if(p.imageUrl){const img=make('img');img.src=p.imageUrl;img.alt=p.title;thumb.appendChild(img);}
+      else{thumb.textContent=p.emoji;}
+      const tbadge=make('div','post-type-badge');tbadge.textContent=POST_TYPE_ICONS[p.type]||'📝';
+      thumb.appendChild(tbadge);
+      const info=make('div');
+      const tag=make('div','topic-post-tag');tag.textContent=p.tag;
+      const title=make('div','topic-post-title');title.textContent=p.title;
+      const meta=make('div','topic-post-meta');meta.textContent=p.date+(p.readTime?' · '+p.readTime:'');
+      info.appendChild(tag);info.appendChild(title);info.appendChild(meta);
+      item.appendChild(thumb);item.appendChild(info);
+      dposts.appendChild(item);
+    });
+  }
+  el('topic-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeTopicOverlay(){
+  el('topic-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+el('topic-close-btn').onclick=closeTopicOverlay;
+el('topic-backdrop').onclick=closeTopicOverlay;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLightbox();closeTopicOverlay();}});
+
+/* ══════════════════════════════════════════════════
+   DETAIL RENDERERS
+══════════════════════════════════════════════════ */
+function renderPostDetail(post){
+  el('detail-breadcrumb').textContent='Research · '+post.tag;
+  el('detail-back-btn').onclick=()=>history.back();
+  const dc=el('detail-content');dc.innerHTML='';
+  const hero=make('div','post-detail-hero');
+  if(post.imageUrl){const img=make('img');img.src=post.imageUrl;img.alt=post.title;hero.appendChild(img);}
+  const heroEmoji=make('div','post-detail-hero-emoji');heroEmoji.textContent=post.emoji||'🧠';
+  const heroOverlay=make('div','post-detail-hero-overlay');
+  hero.appendChild(heroEmoji);hero.appendChild(heroOverlay);dc.appendChild(hero);
+  const wrap=make('div','post-detail-container');
+  const header=make('div','post-detail-header');
+  const meta=make('div','post-detail-meta');
+  const chip=make('span','tag-chip');chip.textContent=post.tag;chip.onclick=()=>openTopic(post.tag);meta.appendChild(chip);
+  const date=make('span','post-date');date.textContent=post.date;meta.appendChild(date);
+  if(post.readTime){const rt=make('span','post-read');rt.textContent='· '+post.readTime;meta.appendChild(rt);}
+  const title=make('h1','post-detail-title');title.textContent=post.title;
+  const excerpt=make('p','post-detail-excerpt');excerpt.textContent=post.excerpt;
+  header.appendChild(meta);header.appendChild(title);header.appendChild(excerpt);
+  wrap.appendChild(header);
+  const body=make('div','post-article-body');body.innerHTML=post.content||'<p>Full article coming soon.</p>';
+  wrap.appendChild(body);dc.appendChild(wrap);
+}
+
+/* ══════════════════════════════════════════════════
+   PUBLICATIONS ARCHIVE PAGE
+══════════════════════════════════════════════════ */
+function renderPublicationsArchive(){
+  el('detail-breadcrumb').textContent='All Publications';
+  el('detail-back-btn').onclick=()=>{location.hash='home';};
+  const dc=el('detail-content');dc.innerHTML='';
+  const wrap=make('div','container');
+
+  // Header
+  const hdr=make('div','archive-header');
+  const lbl=make('div');lbl.className='section-label';lbl.textContent='Research Output';hdr.appendChild(lbl);
+  const title=make('h1','archive-title');title.textContent='Publications';hdr.appendChild(title);
+  const sub=make('p','archive-sub');sub.textContent='Peer-reviewed articles, reviews, preprints, and book chapters — complete list.';hdr.appendChild(sub);
+  const cnt=make('div','archive-count');cnt.textContent=CONFIG.publications.length+' publications';hdr.appendChild(cnt);
+  wrap.appendChild(hdr);
+
+  // Filter bar
+  let activeType='';
+  const filterWrap=make('div','');filterWrap.style.cssText='padding:28px 0 0;';
+  const filterRow=make('div','pub-filters');
+  const types=['All','Article','Review','Preprint','Chapter'];
+  types.forEach(t=>{
+    const btn=make('button','pub-filter-btn');btn.textContent=t;
+    if((t==='All'&&activeType==='')||t===activeType) btn.classList.add('active');
+    btn.onclick=()=>{
+      activeType=t==='All'?'':t;
+      filterRow.querySelectorAll('.pub-filter-btn').forEach((b,i)=>b.classList.toggle('active',(i===0&&activeType==='')||(b.textContent===activeType)));
+      renderPubList();
+    };
+    filterRow.appendChild(btn);
+  });
+  filterWrap.appendChild(filterRow);
+  wrap.appendChild(filterWrap);
+
+  const listWrap=make('div','');listWrap.style.cssText='padding:8px 0 80px;';wrap.appendChild(listWrap);
+
+  function renderPubList(){
+    listWrap.innerHTML='';
+    const filtered=activeType?CONFIG.publications.filter(p=>p.type===activeType):CONFIG.publications;
+    // Group by year descending
+    const byYear={};
+    filtered.forEach(p=>{if(!byYear[p.year])byYear[p.year]=[];byYear[p.year].push(p);});
+    const years=Object.keys(byYear).sort((a,b)=>b-a);
+    let globalN=filtered.length;
+    years.forEach(year=>{
+      const group=make('div','pub-year-group');
+      const yh=make('div','pub-year-heading');yh.textContent=year;group.appendChild(yh);
+      byYear[year].forEach(pub=>{
+        const item=make('div','pub-list-item');
+        const num=make('div','pub-list-num');num.textContent=globalN--;item.appendChild(num);
+        const body=make('div','pub-list-body');
+        const topRow=make('div','');topRow.style.cssText='display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;';
+        topRow.innerHTML=pubTypeBadge(pub.type);
+        if(pub.tags){pub.tags.forEach(tag=>{const c=make('span','tag-chip');c.textContent=tag;c.onclick=()=>{showView('main');setTimeout(()=>openTopic(tag),10);};topRow.appendChild(c);});}
+        body.appendChild(topRow);
+        const t=make('div','pub-list-title');t.textContent=pub.title;body.appendChild(t);
+        const a=make('div','pub-list-authors');a.textContent=pub.authors;body.appendChild(a);
+        const m=make('div','pub-list-meta');
+        m.innerHTML=`<em>${pub.journal}</em>${pub.volume?' <strong>'+pub.volume+'</strong>':''}${pub.pages?', '+pub.pages:''} (${pub.year})`;
+        body.appendChild(m);
+        const acts=make('div','pub-list-actions');acts.innerHTML=pubActions(pub);body.appendChild(acts);
+        item.appendChild(body);group.appendChild(item);
+      });
+      listWrap.appendChild(group);
+    });
+  }
+  renderPubList();
+  dc.appendChild(wrap);
+}
+
+/* ── Gallery Renderers ── */
+const GALLERY_CACHE={};
+const IMAGE_EXTS=new Set(['jpg','jpeg','png','webp','gif','avif','tiff']);
+function githubContentsUrl(path){const{owner,repo,branch}=CONFIG.github;return `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;}
+function isImage(f){return IMAGE_EXTS.has(f.split('.').pop().toLowerCase());}
+function naturalSort(a,b){return a.name.localeCompare(b.name,undefined,{numeric:true,sensitivity:'base'});}
+
+async function fetchGalleryImages(slug){
+  const cached=GALLERY_CACHE[slug];
+  if(cached&&Date.now()-cached.fetchedAt<5*60*1000)return cached;
+  const url=githubContentsUrl(`${CONFIG.github.imagesFolder}/${slug}`);
+  let files;
+  try{
+    const res=await fetch(url);
+    if(!res.ok){
+      if(res.status===404)throw{code:'NOT_FOUND'};
+      if(res.status===403)throw{code:'RATE_LIMIT'};
+      throw{code:'API_ERROR',status:res.status};
+    }
+    files=await res.json();
+  }catch(e){if(e.code)throw e;throw{code:'NETWORK',message:e.message};}
+  const imageFiles=files.filter(f=>f.type==='file'&&isImage(f.name)).sort(naturalSort);
+  let captions={};
+  const cf=files.find(f=>f.name==='captions.json');
+  if(cf){try{const cr=await fetch(cf.download_url);if(cr.ok)captions=await cr.json();}catch(_){}}
+  const images=imageFiles.map(f=>{const c=captions[f.name]||{};return{url:f.download_url,name:f.name,caption:c.caption||'',location:c.location||'',alt:c.caption||f.name};});
+  const result={images,count:images.length,fetchedAt:Date.now()};
+  GALLERY_CACHE[slug]=result;return result;
+}
+
+function showGalleryError(dc,err,slug){
+  const gh=CONFIG.github;const ok=gh.owner!=='your-username'&&gh.repo!=='your-repo';
+  const msg=ok?`The folder <code>galleries/${slug}/</code> wasn't found.`:`GitHub not configured. Set <code>CONFIG.github.owner</code> and <code>CONFIG.github.repo</code>.`;
+  const hint=ok?`Create <code>${gh.imagesFolder}/${slug}/</code> in your repo and push images there.`:`Once configured, create <code>${gh.imagesFolder}/${slug}/</code> in your repo.`;
+  dc.innerHTML=`<div class="gallery-detail-header" style="max-width:860px;margin:0 auto;padding:44px 24px;"><div class="gallery-error"><div class="gallery-error-icon">🗂️</div><div class="gallery-error-title">Gallery not yet populated</div><p class="gallery-error-msg">${msg}</p><p class="gallery-error-msg" style="font-size:.8rem">${hint}</p></div></div>`;
+}
+
+function buildGalleryGrid(dc,images,slug){
+  if(images.length===0){dc.innerHTML+=`<div style="max-width:860px;margin:0 auto;padding:0 24px 60px"><div class="gallery-error"><div class="gallery-error-icon">📂</div><div class="gallery-error-title">Folder is empty</div><p class="gallery-error-msg">The folder <code>${CONFIG.github.imagesFolder}/${slug}/</code> exists but has no images yet.</p></div></div>`;return;}
+  const grid=make('div','gallery-detail-grid');
+  images.forEach(img=>{
+    const block=make('div','gallery-detail-block');
+    const i=make('img');i.src=img.url;i.alt=img.alt;i.loading='lazy';block.appendChild(i);
+    block.onclick=()=>openLightbox(img.url);
+    if(img.caption||img.location){
+      const ov=make('div','gallery-detail-overlay');
+      if(img.location){const loc=make('div','gallery-detail-location');loc.textContent=img.location;ov.appendChild(loc);}
+      if(img.caption){const cap=make('div','gallery-detail-caption');cap.textContent=img.caption;ov.appendChild(cap);}
+      block.appendChild(ov);
+    }
+    grid.appendChild(block);
+  });
+  dc.appendChild(grid);
+}
+
+async function renderGalleryDetail(gallery){
+  el('detail-breadcrumb').textContent='Gallery · '+(gallery.tag||'Lab Photos');
+  el('detail-back-btn').onclick=()=>history.back();
+  const dc=el('detail-content');dc.innerHTML='';
+  const header=make('div','gallery-detail-header');
+  const meta=make('div','post-detail-meta');
+  if(gallery.tag){const chip=make('span','tag-chip');chip.textContent=gallery.tag;meta.appendChild(chip);}
+  if(gallery.date){const date=make('span','post-date');date.textContent=gallery.date;meta.appendChild(date);}
+  header.appendChild(meta);
+  const title=make('h1','post-detail-title');title.textContent=gallery.title;header.appendChild(title);
+  if(gallery.galleryDescription||gallery.excerpt){const sub=make('p','post-detail-excerpt');sub.textContent=gallery.galleryDescription||gallery.excerpt;header.appendChild(sub);}
+  const countEl=make('p','gallery-count-badge');countEl.textContent='Loading images…';header.appendChild(countEl);
+  dc.appendChild(header);
+  const loaderWrap=make('div','gallery-loader');
+  loaderWrap.innerHTML=`<div class="gallery-spinner"></div><span class="gallery-loader-text">Fetching from GitHub…</span>`;
+  dc.appendChild(loaderWrap);
+  try{
+    const{images,count}=await fetchGalleryImages(gallery.slug);
+    loaderWrap.remove();countEl.textContent=count+(count===1?' image':' images');
+    buildGalleryGrid(dc,images,gallery.slug);
+  }catch(err){loaderWrap.remove();countEl.remove();showGalleryError(dc,err,gallery.slug);}
+}
+
+function renderGalleriesArchive(){
+  el('detail-breadcrumb').textContent='All Galleries';
+  el('detail-back-btn').onclick=()=>{location.hash='home';};
+  const dc=el('detail-content');dc.innerHTML='';
+  const allG=CONFIG.posts.filter(p=>p.type==='gallery');
+  const wrap=make('div','container');
+  const hdr=make('div','archive-header');
+  const lbl=make('div');lbl.className='section-label';lbl.textContent='Lab & Conference';hdr.appendChild(lbl);
+  const title=make('h1','archive-title');title.textContent='All Galleries';hdr.appendChild(title);
+  const sub=make('p','archive-sub');sub.textContent='Microscopy, conferences, lab life — every photo series and image collection.';hdr.appendChild(sub);
+  const cnt=make('div','archive-count');cnt.textContent=allG.length+' galleries';hdr.appendChild(cnt);
+  wrap.appendChild(hdr);
+  const grid=make('div','archive-galleries-grid');
+  allG.forEach(g=>{
+    const card=make('div','archive-gallery-card');
+    card.onclick=()=>{location.hash='gallery/'+g.slug;};
+    const thumb=make('div','agc-thumb');
+    if(g.imageUrl){const img=make('img');img.src=g.imageUrl;img.alt=g.title;thumb.appendChild(img);}
+    const emoji=make('div','agc-emoji');emoji.textContent=g.emoji;thumb.appendChild(emoji);
+    const countBadge=make('div','agc-count');countBadge.textContent='…';thumb.appendChild(countBadge);
+    fetchGalleryImages(g.slug).then(({count})=>{countBadge.textContent=count+(count===1?' image':' images');}).catch(()=>{countBadge.textContent='—';});
+    const info=make('div','agc-info');
+    const tag=make('div','agc-tag');tag.textContent=g.tag;
+    const tit=make('div','agc-title');tit.textContent=g.title;
+    const date=make('div','post-date');date.textContent=g.date;date.style.marginTop='4px';
+    info.appendChild(tag);info.appendChild(tit);info.appendChild(date);
+    if(g.galleryDescription||g.excerpt){const desc=make('div','agc-desc');desc.textContent=g.galleryDescription||g.excerpt;info.appendChild(desc);}
+    card.appendChild(thumb);card.appendChild(info);grid.appendChild(card);
+  });
+  wrap.appendChild(grid);dc.appendChild(wrap);
+}
+
+function renderJournalArchive(){
+  el('detail-breadcrumb').textContent='Research — All Posts';
+  el('detail-back-btn').onclick=()=>{location.hash='home';};
+  const dc=el('detail-content');dc.innerHTML='';
+  const wrap=make('div','container');
+  const hdr=make('div','archive-header');
+  const lbl=make('div');lbl.className='section-label';lbl.textContent='Research Blog';hdr.appendChild(lbl);
+  const title=make('h1','archive-title');title.textContent='All Posts';hdr.appendChild(title);
+  const sub=make('p','archive-sub');sub.textContent='Every article and gallery — sorted newest first.';hdr.appendChild(sub);
+  const cnt=make('div','archive-count');cnt.textContent=CONFIG.posts.length+' entries';hdr.appendChild(cnt);
+  const filters=make('div','archive-filters');
+  const types=[{label:'All',val:''},{label:'📝 Articles',val:'post'},{label:'🖼️ Galleries',val:'gallery'}];
+  let activeFilter='';
+  types.forEach(f=>{
+    const chip=make('span','tag-chip');chip.textContent=f.label;
+    if(f.val===activeFilter)chip.style.background='rgba(var(--accent-rgb),.3)';
+    chip.onclick=()=>{
+      activeFilter=f.val;
+      filters.querySelectorAll('.tag-chip').forEach((c,i)=>c.style.background=types[i].val===f.val?'rgba(var(--accent-rgb),.3)':'');
+      renderList();
+    };
+    filters.appendChild(chip);
+  });
+  hdr.appendChild(filters);wrap.appendChild(hdr);
+  const listWrap=make('div','archive-post-list');wrap.appendChild(listWrap);
+  function renderList(){
+    listWrap.innerHTML='';
+    const filtered=activeFilter?CONFIG.posts.filter(p=>p.type===activeFilter):CONFIG.posts;
+    filtered.forEach(p=>{
+      const card=make('div','archive-post-card');
+      card.onclick=()=>{location.hash=slugToHref(p).slice(1);};
+      const thumb=make('div','archive-post-thumb');
+      if(p.imageUrl){const img=make('img');img.src=p.imageUrl;img.alt=p.title;thumb.appendChild(img);}
+      else{thumb.textContent=p.emoji||POST_TYPE_ICONS[p.type];}
+      const badge=make('div','post-type-badge');badge.textContent=POST_TYPE_ICONS[p.type]||'📝';thumb.appendChild(badge);
+      const info=make('div');
+      const meta=make('div','archive-post-meta');
+      const chip=make('span','tag-chip');chip.textContent=p.tag;chip.onclick=(e)=>{e.stopPropagation();openTopic(p.tag);};meta.appendChild(chip);
+      if(p.date){const d=make('span','post-date');d.textContent=p.date;meta.appendChild(d);}
+      if(p.readTime){const r=make('span','post-read');r.textContent='· '+p.readTime;meta.appendChild(r);}
+      const ti=make('div','archive-post-title');ti.textContent=p.title;
+      const ex=make('p','archive-post-excerpt');ex.textContent=p.excerpt;
+      info.appendChild(meta);info.appendChild(ti);info.appendChild(ex);
+      card.appendChild(thumb);card.appendChild(info);listWrap.appendChild(card);
+    });
+  }
+  renderList();dc.appendChild(wrap);
+}
+
+/* ══════════════════════════════════════════════════
+   SPA ROUTER
+══════════════════════════════════════════════════ */
+const SECTION_ANCHORS=new Set(['','home','posts','contact','about','categories','gallery-strip','featured-galleries-section','publications-section','cv']);
+
+function showView(which){
+  el('main-page').style.display=which==='main'?'':'none';
+  el('detail-view').style.display=which==='detail'?'':'none';
+}
+
+function router(){
+  const hash=location.hash.replace(/^#/,'');
+  closeTopicOverlay();
+  updateActiveNavLink(hash);
+
+  if(SECTION_ANCHORS.has(hash)){
+    showView('main');
+    if(hash&&hash!=='home'){
+      setTimeout(()=>{const t=document.getElementById(hash);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});},60);
+    } else {window.scrollTo(0,0);}
+    return;
+  }
+  if(hash==='contact'){
+    showView('main');
+    setTimeout(()=>{const t=el('contact');if(t)t.scrollIntoView({behavior:'smooth',block:'start'});},60);
+    return;
+  }
+  if(hash==='journal'){
+    showView('detail');window.scrollTo(0,0);
+    el('detail-back-btn').onclick=()=>{location.hash='home';};
+    renderJournalArchive();return;
+  }
+  if(hash==='galleries'){
+    showView('detail');window.scrollTo(0,0);
+    el('detail-back-btn').onclick=()=>{location.hash='home';};
+    renderGalleriesArchive();return;
+  }
+  if(hash==='publications'){
+    showView('detail');window.scrollTo(0,0);
+    el('detail-back-btn').onclick=()=>{location.hash='home';};
+    renderPublicationsArchive();return;
+  }
+  if(hash.startsWith('post/')){
+    const slug=hash.slice(5);const post=POST_MAP[slug];
+    if(post&&post.type!=='gallery'){showView('detail');window.scrollTo(0,0);el('detail-back-btn').onclick=()=>history.back();renderPostDetail(post);return;}
+  }
+  if(hash.startsWith('gallery/')){
+    const slug=hash.slice(8);const post=POST_MAP[slug];
+    if(post){showView('detail');window.scrollTo(0,0);el('detail-back-btn').onclick=()=>history.back();renderGalleryDetail(post);return;}
+  }
+  if(hash.startsWith('topic/')){
+    const topic=decodeURIComponent(hash.slice(6));showView('main');setTimeout(()=>openTopic(topic),10);return;
+  }
+  showView('main');window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',router);
+router();
+
+/* ── Scroll-triggered Fade In ── */
+function reObserve(){
+  document.querySelectorAll('.post-card,.cat-card,.pub-card-featured,.featured-gallery-card').forEach(e=>{
+    if(!e.dataset.observed){
+      e.style.opacity='0';e.style.transform='translateY(18px)';
+      e.style.transition='opacity .5s ease, transform .5s ease';
+      observer.observe(e);e.dataset.observed='1';
+    }
+  });
+}
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';observer.unobserve(e.target);}
+  });
+},{threshold:0.08});
+reObserve();
+</script>
+
+</body>
+</html>
