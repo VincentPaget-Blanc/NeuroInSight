@@ -7,8 +7,8 @@ Currently referenced:
   - paget2022-fig6-hub-model.png    (used in: synaptomic-analysis-dopamine-hub-synapses)
 
 Place them here and update src attributes to:
-  src="post-figures/lapios2025-fig1-cryo-clem.png"
-  src="post-figures/paget2022-fig6-hub-model.png"
+  src="/image-assets/post-figures/lapios2025-fig1-cryo-clem.png"
+  src="/image-assets/post-figures/paget2022-fig6-hub-model.png"
 
 Recommended: up to 860 px wide.
 
