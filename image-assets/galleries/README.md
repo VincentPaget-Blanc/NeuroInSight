@@ -11,12 +11,11 @@ Set in CONFIG.github:
   }
 
 Gallery slugs:
-  - lab-confocal-images   → confocal / 2-photon microscopy
-  - sfn-2024              → SfN Annual Meeting Chicago 2024
+  - lab-images   → confocal / 2-photon microscopy
   - lab-life              → everyday lab life
-  - fens-2024-rome        → FENS Forum Rome 2024
+  - fens-2024-rome        → FENS Forum Vienna 2024
 
 Cover image per gallery (optional):
-  imageUrl: "galleries/lab-confocal-images/cover.jpg"
-  Use icon-gallery.svg as placeholder: "icons/ui/icon-gallery.svg"
+  imageUrl: "/image-assets/galleries/lab-confocal-images/cover.jpg"
+  Use icon-gallery.svg as placeholder: "/image-assets/icons/ui/icon-gallery.svg"
 
