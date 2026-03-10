@@ -37,11 +37,11 @@ All icons use currentColor. Style via CSS:
 ## JS usage example (CONFIG)
 
   CONFIG.social = [
-    { icon: "icons/social/icon-github.svg",   label: "GitHub",   url: "..." },
-    { icon: "icons/social/icon-linkedin.svg", label: "LinkedIn", url: "..." },
-    { icon: "icons/social/icon-bluesky.svg",  label: "Bluesky",  url: "..." },
-    { icon: "icons/social/icon-twitter.svg",  label: "Twitter",  url: "..." },
-    { icon: "icons/social/icon-orcid.svg",    label: "ORCID",    url: "..." },
-    { icon: "icons/social/icon-email.svg",    label: "Email",    url: "..." },
+    { icon: "/image-assets/icons/social/icon-github.svg",   label: "GitHub",   url: "..." },
+    { icon: "/image-assets/icons/social/icon-linkedin.svg", label: "LinkedIn", url: "..." },
+    { icon: "/image-assets/icons/social/icon-bluesky.svg",  label: "Bluesky",  url: "..." },
+    { icon: "/image-assets/icons/social/icon-twitter.svg",  label: "Twitter",  url: "..." },
+    { icon: "/image-assets/icons/social/icon-orcid.svg",    label: "ORCID",    url: "..." },
+    { icon: "/image-assets/icons/social/icon-email.svg",    label: "Email",    url: "..." },
   ]
 
