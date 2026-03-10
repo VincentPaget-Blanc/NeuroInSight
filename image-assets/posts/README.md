@@ -3,7 +3,7 @@
 One image per subfolder (named after the post slug).
 Set in CONFIG.posts[n].imageUrl, e.g.:
 
-  imageUrl: "posts/dopamine-hub-synapses-cryo-et/cover.jpg"
+  imageUrl: "/image-assets/posts/dopamine-hub-synapses-cryo-et/cover.jpg"
 
 Recommended: 16:9 landscape, min 232×172 px.
 Use icon-post.svg as placeholder until you have a real cover:
