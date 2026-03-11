@@ -56,6 +56,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .section-title{font-family:'Fraunces',Georgia,serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:600;color:var(--text-head);margin-bottom:44px;line-height:1.1;}
 .tag-chip{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25);padding:3px 10px;border-radius:50px;cursor:pointer;transition:background .2s;}
 .tag-chip:hover{background:rgba(var(--accent-rgb),.2);}
+/* Archive filter buttons — bigger, flex-aligned */
+.filter-chip{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;background:rgba(var(--accent-rgb),.08);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.22);padding:8px 16px;border-radius:50px;cursor:pointer;transition:background .2s,border-color .2s;}
+.filter-chip:hover{background:rgba(var(--accent-rgb),.18);}
+.filter-chip.active{background:rgba(var(--accent-rgb),.25);border-color:rgba(var(--accent-rgb),.5);}
+.filter-chip .icon-img{width:14px;height:14px;flex-shrink:0;}
 .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--bg);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:13.5px;padding:10px 26px;border-radius:50px;border:none;cursor:pointer;letter-spacing:.02em;transition:opacity .2s,transform .2s;}
 .btn:hover{opacity:.86;transform:translateY(-1px);}
 .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border);}
@@ -463,6 +468,18 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 0 3
   .archive-galleries-grid{grid-template-columns:1fr;}
 }
 
+.post-type-badge .icon-img{width:13px;height:13px;filter:invert(1) opacity(.85) !important;}
+.post-type-badge:hover .icon-img{filter:invert(1) opacity(1) !important;}
+.sidebar-post-thumb .icon-img{width:22px;height:22px;}
+/* ── SVG icon images (currentColor simulation via filter) ── */
+.icon-img{width:18px;height:18px;display:block;flex-shrink:0;transition:filter .2s;}
+[data-theme="dark"]  .icon-img{filter:invert(1) opacity(.6);}
+[data-theme="dark"]  .social-btn:hover .icon-img,
+[data-theme="dark"]  a:hover .icon-img{filter:invert(1) opacity(1);}
+[data-theme="light"] .icon-img{filter:invert(0) opacity(.55);}
+[data-theme="light"] .social-btn:hover .icon-img,
+[data-theme="light"] a:hover .icon-img{filter:invert(0) opacity(.9);}
+
   </style>
 </head>
 <body>
@@ -483,7 +500,7 @@ const CONFIG = {
     name:        "Dr. Vincent Paget-Blanc",
     tagline:     " Proteins · Synapse · Neuromodulation · Neural Circuits · Behavioral Neuroscience",
     bio:         "I research how neuromodulatory systems influence and interact with synapses to modulate behavior, trying to link molecular mechanisms to circuit function, and how these processes are affected in mood disorders.",
-    avatarUrl:   "",
+    avatarUrl:   "image-assets/hero/portrait.jpg",
     avatarEmoji: "🧠",
     ctaLink:     "#contact",
     ctaText:     "Collaborate",
@@ -502,12 +519,12 @@ const CONFIG = {
   galleryStrip: {
     title: "The tools",
     items: [
-      { imageUrl: "", emoji: "💉", label: "Proteomics" },
-      { imageUrl: "", emoji: "🔬", label: "Nanoscopy" },
-      { imageUrl: "", emoji: "🧲", label: "FASS" },
-      { imageUrl: "", emoji: "🐭", label: "Behavioural Rigs" },
-      { imageUrl: "", emoji: "⚡", label: "Fiber Photometry" },
-      { imageUrl: "", emoji: "💻", label: "Data Analysis Suite" },
+      { imageUrl: "image-assets/gallery-strip/proteomics/proteomics.svg",                       emoji: "💉", label: "Proteomics" },
+      { imageUrl: "image-assets/gallery-strip/nanoscopy/nanoscopy.svg",                         emoji: "🔬", label: "Nanoscopy" },
+      { imageUrl: "image-assets/gallery-strip/fass/fass.svg",                                   emoji: "🧲", label: "FASS" },
+      { imageUrl: "image-assets/gallery-strip/behavioural-rigs/behavioural_rigs.svg",           emoji: "🐭", label: "Behavioural Rigs" },
+      { imageUrl: "image-assets/gallery-strip/fiber-photometry/fiber_photometry.svg",           emoji: "⚡", label: "Fiber Photometry" },
+      { imageUrl: "image-assets/gallery-strip/data-analysis-suite/data_analysis.svg",           emoji: "💻", label: "Data Analysis Suite" },
     ],
   },
 
@@ -519,7 +536,7 @@ const CONFIG = {
   type: "post", slug: "evolutionary-origins-of-synapses",
   title: "Before the First Neuron: The Ancient Origins of the Synaptic Toolkit",
   excerpt: "A landmark review traces synaptic proteins back hundreds of millions of years — long before neurons existed. What does this tell us about how the nervous system first evolved?",
-  date: "10 Jan, 2025", readTime: "7 min read", tag: "Neural Circuits",
+  date: "10 Jan, 2025", readTime: "7 min read", tag: "Literature",
   imageUrl: "", emoji: "",
   content: `
     <p>One of the deepest questions in neuroscience is not how brains process information, it is how brains came to exist at all. A 2025 review by Jeffrey Colgren and Pawel Burkhardt in <em>Nature Reviews Neuroscience</em> confronts this question directly, tracing the molecular components of the chemical synapse across the full breadth of animal and pre-animal life. Their conclusion is striking: the toolkit for building a synapse was assembled long before any animal had neurons.</p>
@@ -561,6 +578,151 @@ const CONFIG = {
     </div>
   `,
 },
+    // ── NANOSCOPY POST ─────────────────────────────────────────────────────────
+{
+  type: "post",
+  slug: "nanoscopy-dstorm-sted-dnapaint",
+  title: "Seeing the Nanoscale Synapse: Principles of dSTORM, STED and DNA-PAINT",
+  excerpt: "Conventional fluorescence microscopy cannot resolve synaptic substructure — the diffraction limit sits at ~200 nm while the structures that matter are 20–100 nm. Here is how three super-resolution techniques break that barrier, and why each one matters for neuroscience.",
+  date: "11 Mar, 2025",
+  readTime: "10 min read",
+  tag: "Literature",
+  emoji: "🔬",
+  imageUrl: "image-assets/gallery-strip/nanoscopy/nanoscopy.svg",
+  content: `
+<p>
+  The chemical synapse is, by the standards of cell biology, a remarkably small object. The postsynaptic density of a glutamatergic synapse spans roughly 300–400 nm in diameter. The synaptic cleft is 20 nm wide. The scaffold proteins — PSD-95, Shank, Homer — organise into nanoscale domains of 70–100 nm that determine receptor numbers and synaptic strength. None of this can be resolved by a conventional confocal microscope, which is constrained by the Abbe diffraction limit to a lateral resolution of approximately λ/(2NA), roughly 200–250 nm for visible light. For most of the twentieth century, the architecture of the synapse at the scale at which it actually functions was simply invisible to light microscopy.
+</p>
+<p>
+  Super-resolution fluorescence microscopy — or nanoscopy — breaks this constraint. Three techniques have become the workhorses of synaptic nanoscale imaging: STED, dSTORM and DNA-PAINT. Each uses a fundamentally different physical principle to circumvent diffraction, and each comes with its own strengths, limitations and practical demands. Understanding how they work is essential to interpreting what they show.
+</p>
+
+<h2>The Diffraction Barrier and Why It Matters</h2>
+<p>
+  Ernst Abbe established in 1873 that the minimum resolvable distance between two point sources in a far-field light microscope is d = λ/(2n·sinα), where λ is the wavelength, n the refractive index and sinα the half-angle of the objective's acceptance cone. With high numerical-aperture objectives and visible light, this places a hard floor at roughly 200 nm laterally and ~500 nm axially. This is not an engineering limitation — it is a consequence of wave optics. For a century it was considered inviolable.
+</p>
+<p>
+  The key conceptual shift that enabled super-resolution was recognising that the Abbe limit applies to <em>ensembles</em> of simultaneously emitting fluorophores, not to individual molecules. If you can control which molecules are emitting at any given moment — either by spatially engineering the emission volume, or by separating emitters stochastically in time — you can reconstruct images far below the diffraction limit.
+</p>
+
+<h2>STED: Engineering the Emission Volume</h2>
+<p>
+  Stimulated Emission Depletion microscopy was proposed by Stefan Hell and Jan Wichmann in 1994 and represents the conceptually cleanest approach to super-resolution: rather than post-processing images, it physically shrinks the region from which fluorescence is allowed to occur before any photon is collected.
+</p>
+<p>
+  In a STED microscope, a conventional diffraction-limited excitation beam is superimposed with a second, red-shifted beam — the STED beam — shaped into a toroid (a "doughnut") with a zero-intensity point at its centre. This doughnut beam drives fluorophores at the periphery of the excitation spot into their ground state via stimulated emission before they can spontaneously fluoresce. The process is coherent and near-instantaneous: incoming photons from the STED beam stimulate the excited fluorophore to emit a photon of identical wavelength to the STED beam, which is then spectrally rejected, returning the molecule to the ground state. Only fluorophores located within the central zero of the doughnut — where STED intensity is insufficient to deplete — can contribute to the detected signal.
+</p>
+<p>
+  The effective resolution is no longer determined by diffraction alone but by the intensity of the STED beam relative to the saturation intensity I<sub>s</sub> of the fluorophore. The effective PSF narrows according to:
+</p>
+<p style="font-family:'JetBrains Mono',monospace;font-size:0.88rem;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin:24px 0;color:var(--accent);">
+  d<sub>eff</sub> ≈ λ / (2·NA · √(1 + I<sub>STED</sub>/I<sub>s</sub>))
+</p>
+<p>
+  As I<sub>STED</sub> increases, d<sub>eff</sub> shrinks without bound in principle. In practice, modern STED microscopes routinely achieve 20–50 nm lateral resolution in fixed tissue and 50–80 nm in living cells, sufficient to resolve individual synaptic nano-domains, vesicle pools and scaffold protein clusters. STED operates in a point-scanning mode and produces images directly — there is no reconstruction step — making it well-suited to live imaging and time-lapse experiments where temporal fidelity matters. The principal trade-off is photodamage: the high STED intensities required (typically 10–100 MW/cm²) can be phototoxic and accelerate photobleaching, particularly in live preparations.
+</p>
+
+<div class="tip-box">
+  <div class="tip-label">Foundational Reference — STED</div>
+  <p style="margin:0;line-height:1.75;">
+    Hell SW &amp; Wichmann J. Breaking the diffraction resolution limit by stimulated emission: stimulated-emission-depletion fluorescence microscopy. <em>Opt Lett.</em> 1994;19(11):780–782.<br>
+    <a href="https://doi.org/10.1364/OL.19.000780" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">https://doi.org/10.1364/OL.19.000780</a>
+  </p>
+</div>
+
+<div class="tip-box">
+  <div class="tip-label">First Experimental Demonstration — STED</div>
+  <p style="margin:0;line-height:1.75;">
+    Klar TA &amp; Hell SW. Subdiffraction resolution in far-field fluorescence microscopy. <em>Opt Lett.</em> 1999;24(14):954–956.<br>
+    <a href="https://doi.org/10.1364/OL.24.000954" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">https://doi.org/10.1364/OL.24.000954</a>
+  </p>
+</div>
+
+<h2>dSTORM: Stochastic Single-Molecule Localisation</h2>
+<p>
+  Direct Stochastic Optical Reconstruction Microscopy belongs to a family of techniques — alongside STORM, PALM and PAINT variants — in which super-resolution images are built up from the localised positions of individual fluorescent molecules detected one sparse subset at a time across thousands of camera frames. The principle was first demonstrated with paired activator–reporter fluorophore couples by Rust, Bates and Zhuang in 2006. dSTORM, introduced by Heilemann and colleagues in 2008, extended the approach to standard single organic dyes under conditions that allow photoswitching without a covalently paired activator.
+</p>
+<p>
+  The key requirement is that the fluorophore population must be kept predominantly in a dark, non-emitting state so that at any given camera exposure only a sparse, optically resolvable subset of molecules is emitting. When the spatial density of active emitters is low enough that their point-spread functions do not overlap, each can be fit with a 2D Gaussian to determine the molecular position with precision far exceeding the PSF width. The localisation precision σ scales approximately as:
+</p>
+<p style="font-family:'JetBrains Mono',monospace;font-size:0.88rem;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin:24px 0;color:var(--accent);">
+  σ ≈ s / √N
+</p>
+<p>
+  where s is the PSF standard deviation (~130 nm for a typical objective) and N is the number of detected photons. With bright dyes yielding 1,000–5,000 photons per localisation, precisions of 10–30 nm are routinely achieved.
+</p>
+<p>
+  The photoswitching in dSTORM is achieved chemically. The sample is imaged in a carefully formulated aqueous buffer containing a thiol reducing agent — typically β-mercaptoethylamine (MEA) at 50–100 mM — and an enzymatic oxygen-scavenging system (commonly glucose oxidase with catalase). Under intense 647 nm illumination, cyanine dyes such as Alexa Fluor 647 and Cy5 enter a long-lived dark state via a thiol-adduct mechanism: the reducing agent reacts with the excited triplet state to form a covalent, non-fluorescent species that spontaneously reverts to the fluorescent ground state on a timescale of tens to hundreds of milliseconds. The oxygen-scavenging system prolongs the dark state and reduces photobleaching by limiting oxidative recovery pathways. This photoswitching cycle — on, off, on — can be repeated hundreds to thousands of times per molecule before permanent bleaching, generating the large localisation datasets needed to reconstruct a super-resolution image.
+</p>
+<p>
+  A full dSTORM acquisition typically comprises 10,000–50,000 frames at 10–50 ms exposure, yielding 10⁵–10⁷ localisations that are rendered into an image with effective resolution of 20–50 nm. The technique requires no specialised light source beyond a high-power continuous-wave laser and a sensitive sCMOS or EMCCD camera, making it accessible on most modern single-molecule setups. Its principal limitation is temporal: the lengthy acquisition means it cannot capture dynamic processes directly, and it is primarily applied to fixed samples.
+</p>
+
+<blockquote>
+  <p>The ability to count individual scaffold proteins and resolve their nanoscale arrangement within a single synapse changed the way we think about synaptic heterogeneity — it is not noise, it is structure.</p>
+</blockquote>
+
+<div class="tip-box">
+  <div class="tip-label">Foundational Reference — dSTORM</div>
+  <p style="margin:0;line-height:1.75;">
+    Heilemann M, van de Linde S, Schüttpelz M, et al. Subdiffraction-resolution fluorescence imaging with conventional fluorescent probes. <em>Angew Chem Int Ed.</em> 2008;47(33):6172–6176.<br>
+    <a href="https://doi.org/10.1002/anie.200802376" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">https://doi.org/10.1002/anie.200802376</a>
+  </p>
+</div>
+
+<div class="tip-box">
+  <div class="tip-label">Practical Protocol — dSTORM</div>
+  <p style="margin:0;line-height:1.75;">
+    van de Linde S, Löschberger A, Klein T, et al. Direct stochastic optical reconstruction microscopy with standard fluorescent probes. <em>Nat Protoc.</em> 2011;6(7):991–1009.<br>
+    <a href="https://doi.org/10.1038/nprot.2011.336" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">https://doi.org/10.1038/nprot.2011.336</a>
+  </p>
+</div>
+
+<h2>DNA-PAINT: Programmable Transient Binding</h2>
+<p>
+  DNA Points Accumulation for Imaging in Nanoscale Topography, introduced by Jungmann and colleagues in 2010, takes a conceptually distinct route to generating the sparse single-molecule signal required for localisation microscopy. Rather than relying on photoswitching of a covalently attached fluorophore, DNA-PAINT creates transient fluorescent events through the reversible hybridisation of short, fluorescently labelled DNA strands from solution — "imager strands" — to complementary "docking strands" conjugated to the target molecule.
+</p>
+<p>
+  The kinetics of hybridisation and dissociation are tunable by design: the on-rate depends on imager strand concentration (typically 0.1–5 nM) and sequence composition, while the off-rate is set by the length and GC content of the binding region (typically 8–10 nucleotides for a dwell time of 0.5–3 s at room temperature). By choosing these parameters so that at most one imager strand per diffraction-limited region is bound at any time, the system generates the sparse, temporally separated blinking events needed for single-molecule localisation. Crucially, docking strands are not consumed: they survive the imaging process intact, and fresh imager strands from solution continuously replenish the pool of potential binders. This eliminates the photobleaching ceiling that limits dSTORM, enabling arbitrarily long acquisitions and, in principle, unlimited localisation counts per target.
+</p>
+<p>
+  The programmability of DNA sequences makes DNA-PAINT uniquely suited to multiplexed imaging through a scheme called Exchange-PAINT, described by Jungmann and colleagues in 2014. In Exchange-PAINT, each target is labelled with a unique orthogonal docking sequence, and the sample is imaged sequentially with matched imager strands, washing the flow chamber between rounds. Because docking strands are chemically inert during imaging, there is no crosstalk between rounds and no need for spectrally distinct fluorophores — any single dye (typically Atto 655 or Cy3B) can be used throughout. This allows in principle unlimited multiplexing, constrained only by the number of orthogonal DNA sequences available, far exceeding what is achievable with spectral separation alone.
+</p>
+<p>
+  Resolution in DNA-PAINT is governed by the same localisation precision framework as dSTORM, and sub-10 nm resolution has been demonstrated on DNA origami structures. In biological samples, practical resolution is typically 10–20 nm, limited by the size of the antibody-docking strand linkage and residual drift. Quantitative analysis of binding event frequency can also yield absolute molecule counts — an application called qPAINT — enabling stoichiometric mapping of synaptic proteins at nanoscale resolution.
+</p>
+
+<div class="tip-box">
+  <div class="tip-label">Foundational Reference — DNA-PAINT</div>
+  <p style="margin:0;line-height:1.75;">
+    Jungmann R, Steinhauer C, Scheible M, Kuzyk A, Tinnefeld P, Simmel FC. Single-molecule kinetics and super-resolution microscopy by fluorescence imaging of transient binding on DNA origami. <em>Nano Lett.</em> 2010;10(11):4756–4761.<br>
+    <a href="https://doi.org/10.1021/nl103427w" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">https://doi.org/10.1021/nl103427w</a>
+  </p>
+</div>
+
+<div class="tip-box">
+  <div class="tip-label">Exchange-PAINT &amp; qPAINT Reference</div>
+  <p style="margin:0;line-height:1.75;">
+    Jungmann R, Avendaño MS, Woehrstein JB, Dai M, Shih WM, Yin P. Multiplexed 3D cellular super-resolution imaging with DNA-PAINT and Exchange-PAINT. <em>Nat Methods.</em> 2014;11(3):313–318.<br>
+    <a href="https://doi.org/10.1038/nmeth.2835" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">https://doi.org/10.1038/nmeth.2835</a>
+  </p>
+</div>
+
+<h2>Choosing the Right Tool</h2>
+<p>
+  Each technique occupies a different niche. STED is the method of choice when temporal resolution matters — its direct, scanning-based image formation is compatible with live-cell imaging at speeds approaching video rate, and gated CW-STED implementations have substantially reduced phototoxicity. The requirement for bright, photostable fluorophores that survive the STED beam is a meaningful constraint: genetically encoded tags such as rsEGFP2 and organic dyes conjugated via SNAP or Halo tags are typically preferred over conventional antibody labelling.
+</p>
+<p>
+  dSTORM excels for fixed-tissue work where dense antibody labelling is acceptable and multi-colour imaging is required without sequential acquisition. Its compatibility with standard organic dyes, straightforward buffer chemistry and widely available open-source localisation software (ThunderSTORM, SMAP) make it the most accessible entry point to single-molecule localisation microscopy in a neuroscience context.
+</p>
+<p>
+  DNA-PAINT is the technique of choice when quantification and high-order multiplexing are the priority. Its freedom from photobleaching makes it the highest-resolution option currently available in biological samples, and Exchange-PAINT's ability to map many protein species in the same synapse from a single preparation is without parallel. The cost is throughput: exchange cycles, washing and re-imaging add substantial time per sample.
+</p>
+<p>
+  In practice, the techniques are increasingly used in combination or in parallel with cryo-electron tomography — as we did in our own work on dopaminergic terminals — to link molecular identity with true nanometre-scale ultrastructure. The synapse is finally visible at the scale at which it works, and what it reveals continues to surprise.
+</p>
+  `,
+},
     // ── ADD THIS OBJECT TO CONFIG.posts ARRAY ──────────────────────────────────
 // Written from the author's perspective (first-person / "we").
 // Open-access paper: CC BY 4.0. Figure 1 reproduced with attribution below.
@@ -573,7 +735,7 @@ const CONFIG = {
     "Using cryo-electron tomography, we imaged dopaminergic nerve terminals in near-native conditions for the first time and discovered that dopamine doesn't work the way textbooks assume.",
   date: "13 Dec, 2025",
   readTime: "8 min read",
-  tag: "Neural Circuits",
+  tag: "Dopamine",
   emoji: "🔬",
   // Host lapios2025-fig1-cryo-clem.png in your repo and set the URL below.
   imageUrl: "",
@@ -694,7 +856,7 @@ const CONFIG = {
     "Using fluorescence-activated synaptosome sorting and mass spectrometry, we purified dopaminergic synapses from the mouse striatum and discovered that most are embedded in multipartite hub structures with glutamatergic, GABAergic and cholinergic partners.",
   date: "03 Jun, 2022",
   readTime: "8 min read",
-  tag: "Neural Circuits",
+  tag: "Dopamine",
   emoji: "🧫",
   // Host paget2022-fig6-hub-model.png in your repo and set the URL below.
   imageUrl: "",
@@ -1120,13 +1282,12 @@ const CONFIG = {
 
   /* ── Topics ── */
   topics: [
-    { label: "Neuromodulation",          tag: "Neuromodulation" },
-    { label: "Synapse",           tag: "Synapse" },
-    { label: "Behavior",           tag: "Behavior" },
-    { label: "Neural Circuits", tag: "Neural Circuits" },
-    { label: "Imaging",         tag: "Imaging" },
-    { label: "Conference",      tag: "Conference" },
-    { label: "Lab",             tag: "Lab" },
+    { label: "Dopamine",          tag: "Dopamine" },
+    { label: "Synaptic Plasticity", tag: "Synaptic Plasticity" },
+    { label: "Imaging",           tag: "Imaging" },
+    { label: "Literature",        tag: "Literature" },
+    { label: "Conference",        tag: "Conference" },
+    { label: "Lab",               tag: "Lab" },
   ],
 
   /* ── Featured Galleries ── */
@@ -1326,8 +1487,8 @@ const CONFIG = {
     title:    "Let's Collaborate",
     subtitle: "Open to research collaborations, invited talks, media appearances, science communication projects and any other enquiries you might have. I typically respond within 48 hours.",
     details: [
-      { icon: "📍", text: "Based in France — collaborating globally" },
-      { icon: "🔬", text: "Collaboration · Enquiry · Invited Talks · Media" },
+      { icon: "<img src='image-assets/icons/ui/icon-location.svg' class='icon-img' alt=''>", text: "Based in France — collaborating globally" },
+      { icon: "<img src='image-assets/icons/ui/icon-microscope.svg' class='icon-img' alt=''>", text: "Collaboration · Enquiry · Invited Talks · Media" },
     ],
     projectTypes: [
       "Research Collaboration",
@@ -1341,39 +1502,33 @@ const CONFIG = {
   /* ── Research Areas / Categories ── */
   categories: [
     {
-      name: "Memory & Learning", icon: "🧠", topic: "Memory",
+      name: "Dopamine", icon: "<img src='image-assets/icons/ui/icon-flask.svg' class='icon-img' alt=''>", topic: "Dopamine",
       posts: [
-        { title: "The Hippocampus and Spatial Memory: A Primer",            slug: "hippocampus-engram" },
-        { title: "Reconsolidation: How Memories Are Rewritten on Retrieval", slug: "hippocampus-engram" },
-        { title: "Pattern Separation vs. Pattern Completion in CA3",         slug: "hippocampus-engram" },
-        { title: "Working Memory and Prefrontal Cortex",                     slug: "sleep-memory-consolidation" },
+        { title: "Sorting Dopamine Synapses: How We Found That They Almost Never Work Alone",       slug: "synaptomic-analysis-dopamine-hub-synapses" },
+        { title: "How We Froze Dopamine in Time and What We Found Inside",                         slug: "dopamine-hub-synapses-cryo-et" },
       ],
     },
     {
-      name: "Sleep & Consolidation", icon: "😴", topic: "Memory",
+      name: "Synaptic Plasticity", icon: "<img src='image-assets/icons/ui/icon-brain.svg' class='icon-img' alt=''>", topic: "Synaptic Plasticity",
       posts: [
-        { title: "Sharp-Wave Ripples and Memory Replay",            slug: "sleep-memory-consolidation" },
-        { title: "REM Sleep and Emotional Memory Processing",        slug: "sleep-memory-consolidation" },
-        { title: "The Two-Stage Model of Memory Consolidation",      slug: "sleep-memory-consolidation" },
-        { title: "Sleep Deprivation and Synaptic Homeostasis",       slug: "sleep-memory-consolidation" },
+        { title: "How Repetition Silences a Receptor: The Molecular Mechanism Behind Habitual Inflexibility",  slug: "mglur5-overtraining-behavioral-inflexibility-dls" },
+        { title: "Seen at 91 Nanometres: The Molecular Portrait of a Flexible Brain",                          slug: "nanoscale-remodeling-corticostriatal-flexibility-storm" },
       ],
     },
     {
-      name: "Methods & Techniques", icon: "🔬", topic: "Imaging",
+      name: "Analytical Tools", icon: "<img src='image-assets/icons/ui/icon-microscope.svg' class='icon-img' alt=''>", topic: "Imaging",
       posts: [
-        { title: "Introduction to Two-Photon Calcium Imaging",             slug: "lab-confocal-images" },
-        { title: "Optogenetics: Light-Controlled Neuron Activation",        slug: "hippocampus-engram" },
-        { title: "Silicon Probes vs. Tetrodes: Trade-offs and Use Cases",   slug: "lab-confocal-images" },
-        { title: "Open-Source Behavioural Tracking with DeepLabCut",        slug: "lab-confocal-images" },
+        { title: "Seeing the Nanoscale Synapse: Principles of dSTORM, STED and DNA-PAINT",                     slug: "nanoscopy-dstorm-sted-dnapaint" },
+        { title: "FASS: Fluorescence-Activated Synaptosome Sorting",                                           slug: "synaptomic-analysis-dopamine-hub-synapses" },
+        { title: "Cryo-CLEM and Cryo-ET of Dopaminergic Terminals",                                            slug: "dopamine-hub-synapses-cryo-et" },
+        { title: "STORM Super-Resolution Imaging of Corticostriatal Synapses",                                  slug: "nanoscale-remodeling-corticostriatal-flexibility-storm" },
       ],
     },
     {
-      name: "Science Communication", icon: "🎤", topic: "Lab",
+      name: "Literature Excerpts", icon: "<img src='image-assets/icons/ui/icon-publication.svg' class='icon-img' alt=''>", topic: "Literature",
       posts: [
-        { title: "Writing About Neuroscience for a General Audience", slug: "sleep-memory-consolidation" },
-        { title: "How to Give a Talk That Non-Scientists Enjoy",       slug: "sleep-memory-consolidation" },
-        { title: "Why Outreach Matters in Fundamental Research",       slug: "sleep-memory-consolidation" },
-        { title: "Podcasts and the Public Understanding of Brain Science", slug: "sleep-memory-consolidation" },
+        { title: "Before the First Neuron: The Ancient Origins of the Synaptic Toolkit",                        slug: "evolutionary-origins-of-synapses" },
+        { title: "Seeing the Nanoscale Synapse: Principles of dSTORM, STED and DNA-PAINT",                     slug: "nanoscopy-dstorm-sted-dnapaint" },
       ],
     },
   ],
@@ -1401,11 +1556,11 @@ const CONFIG = {
       { label: "Press",      href: "#contact" },
     ],
     socialLinks: [
-      { icon: "🐦", label: "Bluesky",    href: "https://bsky.app/profile/vincentpb.bsky.social" },
-      { icon: "🐦", label: "Twitter / X",    href: "https://x.com/VincentPB_" },
-      { icon: "🎓", label: "Orcid", href: "https://orcid.org/0000-0001-8773-3538" },
-      { icon: "🔬", label: "ResearchGate",   href: "https://www.researchgate.net/profile/Vincent-Paget-Blanc" },
-      { icon: "💼", label: "LinkedIn",       href: "https://fr.linkedin.com/in/vincent-paget-blanc-16949b77" },
+      { icon: "<img src='image-assets/icons/social/icon-bluesky.svg'  class='icon-img' alt='Bluesky'>",   label: "Bluesky",       href: "https://bsky.app/profile/vincentpb.bsky.social" },
+      { icon: "<img src='image-assets/icons/social/icon-twitter.svg'  class='icon-img' alt='Twitter'>",   label: "Twitter / X",   href: "https://x.com/VincentPB_" },
+      { icon: "<img src='image-assets/icons/social/icon-orcid.svg'    class='icon-img' alt='ORCID'>",     label: "Orcid",         href: "https://orcid.org/0000-0001-8773-3538" },
+      { icon: "🔬",                                                                                         label: "ResearchGate",  href: "https://www.researchgate.net/profile/Vincent-Paget-Blanc" },
+      { icon: "<img src='image-assets/icons/social/icon-linkedin.svg' class='icon-img' alt='LinkedIn'>",  label: "LinkedIn",      href: "https://fr.linkedin.com/in/vincent-paget-blanc-16949b77" },
     ],
   },
 
@@ -1520,7 +1675,7 @@ const CONFIG = {
         </div>
         <aside class="sidebar">
           <div class="sidebar-card">
-            <h3 class="sidebar-title">⭐ Highlighted</h3>
+            <h3 class="sidebar-title"><img src="image-assets/icons/ui/icon-star.svg" class="icon-img" alt="" style="width:16px;height:16px;vertical-align:middle;margin-right:6px;"> Highlighted</h3>
             <div id="featured-posts"></div>
           </div>
           <div class="sidebar-card">
@@ -1772,7 +1927,7 @@ CONFIG.galleryStrip.items.forEach(item=>{
 });
 
 /* ── Posts List ── */
-const POST_TYPE_ICONS={post:'📝',gallery:'🖼️'};
+const POST_TYPE_ICONS={post:`<img src="image-assets/icons/ui/icon-post.svg" class="icon-img" alt="post">`,gallery:`<img src="image-assets/icons/ui/icon-gallery.svg" class="icon-img" alt="gallery">`};
 const postsList=el('posts-list');
 let visiblePosts=3;
 function renderPosts(){
@@ -1783,7 +1938,7 @@ function renderPosts(){
     const thumb=make('div','post-thumb');
     if(p.imageUrl){const img=make('img');img.src=p.imageUrl;img.alt=p.title;thumb.appendChild(img);}
     else{const ph=make('div','post-thumb-placeholder');ph.textContent=p.emoji;thumb.appendChild(ph);}
-    const badge=make('div','post-type-badge');badge.textContent=POST_TYPE_ICONS[p.type]||'📝';badge.title=p.type;
+    const badge=make('div','post-type-badge');badge.innerHTML=POST_TYPE_ICONS[p.type]||POST_TYPE_ICONS.post;badge.title=p.type;
     thumb.appendChild(badge);
     const info=make('div');
     const meta=make('div','post-meta');
@@ -1807,7 +1962,7 @@ CONFIG.featuredPosts.forEach(slug=>{
   const p=POST_MAP[slug];if(!p)return;
   const div=make('div','sidebar-post');
   div.onclick=()=>{location.hash=slugToHref(p).slice(1);};
-  const thumb=make('div','sidebar-post-thumb');thumb.textContent=p.emoji||POST_TYPE_ICONS[p.type];
+  const thumb=make('div','sidebar-post-thumb');thumb.innerHTML=p.emoji?`<span style="font-size:1.3rem">${p.emoji}</span>`:(POST_TYPE_ICONS[p.type]||POST_TYPE_ICONS.post);
   const info=make('div','sidebar-post-info');
   const t=make('span','sp-title');t.textContent=p.title;
   const d=make('span','post-date');d.textContent=p.date;
@@ -1938,7 +2093,7 @@ const cg=el('categories-grid');
 CONFIG.categories.forEach(cat=>{
   const card=make('div','cat-card');
   const hdr=make('div','cat-header');hdr.onclick=()=>openTopic(cat.topic);
-  const icon=make('span','cat-icon');icon.textContent=cat.icon;
+  const icon=make('span','cat-icon');icon.innerHTML=cat.icon;
   const name=make('span','cat-name');name.textContent=cat.name;
   hdr.appendChild(icon);hdr.appendChild(name);
   const posts=make('div','cat-posts');
@@ -1963,7 +2118,7 @@ CONFIG.footer.socialLinks.forEach(s=>{
 const fi=el('footer-social-icons');
 CONFIG.footer.socialLinks.forEach(s=>{
   const a=make('a','social-btn');a.href=s.href;a.target='_blank';a.rel='noopener noreferrer';
-  a.title=s.label;a.textContent=s.icon;fi.appendChild(a);
+  a.title=s.label;a.innerHTML=s.icon;fi.appendChild(a);
 });
 el('footer-copy').textContent=`${CONFIG.site.year} © ${CONFIG.site.name}. All rights reserved.`;
 
@@ -1994,7 +2149,7 @@ function openTopic(topicTag){
       const thumb=make('div','topic-post-thumb');
       if(p.imageUrl){const img=make('img');img.src=p.imageUrl;img.alt=p.title;thumb.appendChild(img);}
       else{thumb.textContent=p.emoji;}
-      const tbadge=make('div','post-type-badge');tbadge.textContent=POST_TYPE_ICONS[p.type]||'📝';
+      const tbadge=make('div','post-type-badge');tbadge.innerHTML=POST_TYPE_ICONS[p.type]||POST_TYPE_ICONS.post;
       thumb.appendChild(tbadge);
       const info=make('div');
       const tag=make('div','topic-post-tag');tag.textContent=p.tag;
@@ -2234,14 +2389,20 @@ function renderJournalArchive(){
   const sub=make('p','archive-sub');sub.textContent='Every article and gallery — sorted newest first.';hdr.appendChild(sub);
   const cnt=make('div','archive-count');cnt.textContent=CONFIG.posts.length+' entries';hdr.appendChild(cnt);
   const filters=make('div','archive-filters');
-  const types=[{label:'All',val:''},{label:'📝 Articles',val:'post'},{label:'🖼️ Galleries',val:'gallery'}];
+  const types=[
+    {label:'All',   icon:null,                                          val:''},
+    {label:'Articles', icon:'image-assets/icons/ui/icon-post.svg',    val:'post'},
+    {label:'Galleries',icon:'image-assets/icons/ui/icon-gallery.svg', val:'gallery'},
+  ];
   let activeFilter='';
   types.forEach(f=>{
-    const chip=make('span','tag-chip');chip.textContent=f.label;
-    if(f.val===activeFilter)chip.style.background='rgba(var(--accent-rgb),.3)';
+    const chip=make('span','filter-chip');
+    if(f.icon){const ic=make('img');ic.src=f.icon;ic.className='icon-img';ic.alt='';chip.appendChild(ic);}
+    chip.appendChild(document.createTextNode(f.label));
+    if(f.val===activeFilter)chip.classList.add('active');
     chip.onclick=()=>{
       activeFilter=f.val;
-      filters.querySelectorAll('.tag-chip').forEach((c,i)=>c.style.background=types[i].val===f.val?'rgba(var(--accent-rgb),.3)':'');
+      filters.querySelectorAll('.filter-chip').forEach((c,i)=>c.classList.toggle('active',types[i].val===f.val));
       renderList();
     };
     filters.appendChild(chip);
@@ -2256,8 +2417,8 @@ function renderJournalArchive(){
       card.onclick=()=>{location.hash=slugToHref(p).slice(1);};
       const thumb=make('div','archive-post-thumb');
       if(p.imageUrl){const img=make('img');img.src=p.imageUrl;img.alt=p.title;thumb.appendChild(img);}
-      else{thumb.textContent=p.emoji||POST_TYPE_ICONS[p.type];}
-      const badge=make('div','post-type-badge');badge.textContent=POST_TYPE_ICONS[p.type]||'📝';thumb.appendChild(badge);
+      else{thumb.innerHTML=p.emoji?`<span style="font-size:1.5rem">${p.emoji}</span>`:(POST_TYPE_ICONS[p.type]||POST_TYPE_ICONS.post);}
+      const badge=make('div','post-type-badge');badge.innerHTML=POST_TYPE_ICONS[p.type]||POST_TYPE_ICONS.post;thumb.appendChild(badge);
       const info=make('div');
       const meta=make('div','archive-post-meta');
       const chip=make('span','tag-chip');chip.textContent=p.tag;chip.onclick=(e)=>{e.stopPropagation();openTopic(p.tag);};meta.appendChild(chip);
