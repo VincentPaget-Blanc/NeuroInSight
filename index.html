@@ -138,7 +138,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .post-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
 .post-card:hover .post-thumb img{transform:scale(1.07);}
 .post-thumb-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:1.9rem;color:var(--text-dim);}
-.post-type-badge{position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.15);}
+.post-type-badge{position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.15);overflow:hidden;line-height:0;}
 .post-meta{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;}
 .post-title{font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600;color:var(--text-head);line-height:1.3;margin-bottom:8px;transition:color .2s;}
 .post-card:hover .post-title{color:var(--accent);}
@@ -468,7 +468,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 0 3
   .archive-galleries-grid{grid-template-columns:1fr;}
 }
 
-.post-type-badge .icon-img{width:13px;height:13px;filter:invert(1) opacity(.85) !important;}
+.post-type-badge .icon-img{width:100%;height:100%;padding:4px;box-sizing:border-box;object-fit:contain;display:block;filter:invert(1) opacity(.85) !important;}
 .post-type-badge:hover .icon-img{filter:invert(1) opacity(1) !important;}
 .sidebar-post-thumb .icon-img{width:22px;height:22px;}
 /* ── SVG icon images (currentColor simulation via filter) ── */
@@ -528,12 +528,10 @@ const CONFIG = {
     ],
   },
 
-  /* ─────────────────────────────────────────────────
-     POSTS  (type: 'post' | 'gallery')
-  ───────────────────────────────────────────────── */
+  /*  POSTS  (type: 'post' | 'excerpt' | 'gallery')  */
   posts: [
       {
-  type: "post", slug: "evolutionary-origins-of-synapses",
+  type: "excerpt", slug: "evolutionary-origins-of-synapses",
   title: "Before the First Neuron: The Ancient Origins of the Synaptic Toolkit",
   excerpt: "A landmark review traces synaptic proteins back hundreds of millions of years — long before neurons existed. What does this tell us about how the nervous system first evolved?",
   date: "10 Jan, 2025", readTime: "7 min read", tag: "Literature",
@@ -580,7 +578,7 @@ const CONFIG = {
 },
     // ── NANOSCOPY POST ─────────────────────────────────────────────────────────
 {
-  type: "post",
+  type: "excerpt",
   slug: "nanoscopy-dstorm-sted-dnapaint",
   title: "Seeing the Nanoscale Synapse: Principles of dSTORM, STED and DNA-PAINT",
   excerpt: "Conventional fluorescence microscopy cannot resolve synaptic substructure — the diffraction limit sits at ~200 nm while the structures that matter are 20–100 nm. Here is how three super-resolution techniques break that barrier, and why each one matters for neuroscience.",
@@ -1543,7 +1541,7 @@ const CONFIG = {
 
   /* ── Footer ── */
   footer: {
-    about: "Cognitive neuroscience research on memory, sleep, and neural circuits. Open to collaboration, media enquiries, and PhD applications.",
+    about: "Studying neuromodulation of synaptic function, and its role in shaping behavior and mood disorders. Open to collaborations, media, job offers.",
     menuLinks: [
       { label: "Home",         href: "#home" },
       { label: "Research",     href: "#journal" },
@@ -1927,7 +1925,7 @@ CONFIG.galleryStrip.items.forEach(item=>{
 });
 
 /* ── Posts List ── */
-const POST_TYPE_ICONS={post:`<img src="image-assets/icons/ui/icon-post.svg" class="icon-img" alt="post">`,gallery:`<img src="image-assets/icons/ui/icon-gallery.svg" class="icon-img" alt="gallery">`};
+const POST_TYPE_ICONS={post:`<img src="image-assets/icons/ui/icon-post.svg" class="icon-img" alt="post">`,gallery:`<img src="image-assets/icons/ui/icon-gallery.svg" class="icon-img" alt="gallery">`,excerpt:`<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-img" style="padding:3px;filter:invert(1) opacity(.85)"><path d="M3 3.5A.5.5 0 0 1 3.5 3h5a.5.5 0 0 1 0 1H4v7.5a.5.5 0 0 1-1 0v-8Zm2.5 2A.5.5 0 0 1 6 5h5.5a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5H6a.5.5 0 0 1-.5-.5v-6Z" fill="white"/></svg>`};
 const postsList=el('posts-list');
 let visiblePosts=3;
 function renderPosts(){
@@ -2390,14 +2388,16 @@ function renderJournalArchive(){
   const cnt=make('div','archive-count');cnt.textContent=CONFIG.posts.length+' entries';hdr.appendChild(cnt);
   const filters=make('div','archive-filters');
   const types=[
-    {label:'All',   icon:null,                                          val:''},
-    {label:'Articles', icon:'image-assets/icons/ui/icon-post.svg',    val:'post'},
-    {label:'Galleries',icon:'image-assets/icons/ui/icon-gallery.svg', val:'gallery'},
+    {label:'All',      icon:null,                                          val:''},
+    {label:'Articles', icon:'image-assets/icons/ui/icon-post.svg',        val:'post'},
+    {label:'Galleries',icon:'image-assets/icons/ui/icon-gallery.svg',     val:'gallery'},
+    {label:'Excerpts', icon:null,                                          val:'excerpt', svgIcon:`<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px;flex-shrink:0"><path d="M3 3.5A.5.5 0 0 1 3.5 3h5a.5.5 0 0 1 0 1H4v7.5a.5.5 0 0 1-1 0v-8Zm2.5 2A.5.5 0 0 1 6 5h5.5a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5H6a.5.5 0 0 1-.5-.5v-6Z" fill="currentColor"/></svg>`},
   ];
   let activeFilter='';
   types.forEach(f=>{
     const chip=make('span','filter-chip');
     if(f.icon){const ic=make('img');ic.src=f.icon;ic.className='icon-img';ic.alt='';chip.appendChild(ic);}
+    else if(f.svgIcon){const wrap=make('span');wrap.innerHTML=f.svgIcon;chip.appendChild(wrap.firstChild);}
     chip.appendChild(document.createTextNode(f.label));
     if(f.val===activeFilter)chip.classList.add('active');
     chip.onclick=()=>{
