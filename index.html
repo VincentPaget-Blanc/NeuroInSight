@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Synapse · Research Portfolio</title>
+  <title>NeuroInSight · Neuroscience Research</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -53,7 +53,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .divider{width:100%;height:1px;background:var(--border);}
 .section-label{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
 .section-label::after{content:'';display:block;flex:1;height:1px;background:var(--border);max-width:80px;}
-.section-title{font-family:'Fraunces',Georgia,serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:600;color:var(--text-head);margin-bottom:44px;line-height:1.1;}
+.section-title{font-family:'Fraunces',serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:600;color:var(--text-head);margin-bottom:44px;line-height:1.1;}
 .tag-chip{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25);padding:3px 10px;border-radius:50px;cursor:pointer;transition:background .2s;}
 .tag-chip:hover{background:rgba(var(--accent-rgb),.2);}
 /* Archive filter buttons — bigger, flex-aligned */
@@ -527,9 +527,672 @@ const CONFIG = {
       { imageUrl: "image-assets/gallery-strip/data-analysis-suite/data_analysis.svg",           emoji: "💻", label: "Data Analysis Suite" },
     ],
   },
-
   /*  POSTS  (type: 'post' | 'excerpt' | 'gallery')  */
   posts: [
+    // ── FIBER PHOTOMETRY POST ──────────────────────────────────────────
+    {
+      type: "excerpt",
+      slug: "fiber-photometry-principles",
+      title: "Light Through a Wire: The Principles of Fiber Photometry",
+      excerpt: `
+        Fiber photometry lets you ask a question that was previously unanswerable:
+        what is this specific population of neurons doing in a freely moving animal,
+        in real time, across minutes to hours? Here is how it works, what it actually
+        measures, why the choices you make in indicator and analysis matter enormously, 
+        and what the last five years have changed.
+      `,
+      date: "14 Mar, 2025",
+      readTime: "15 min read",
+      tag: "Literature",
+      emoji: "💡",
+      imageUrl: "image-assets/gallery-strip/photometry/photometry.svg",
+      content: `
+
+    <p>
+      Electrophysiology, the field's gold standard for temporal resolution,
+      measures voltage deflections in individual neurons with sub-millisecond
+      precision, but tells you nothing about the biochemical identity of those
+      cells.
+      Two-photon calcium imaging can resolve individual neurons with their
+      morphology intact, but is largely confined to superficial tissue. 
+      For decades, the question of what a genetically
+      or anatomically defined neural population does during naturalistic, freely
+      moving behaviour, over timescales of minutes to hours, was simply
+      intractable.
+    </p>
+    <p>
+      Fiber photometry addresses this directly. By coupling a thin optical fibre
+      chronically implanted in the brain to a benchtop fluorescence detection
+      system, it delivers bulk population-level signals from genetically targeted
+      neurons in a freely behaving animal, with temporal resolution in the
+      tens-of-milliseconds range and near-unlimited recording duration. It does not
+      resolve individual cells. It does not report spikes. What it provides instead
+      is a continuous proxy for the aggregate activity state — or the extracellular
+      concentration of a neuromodulator — of a defined circuit node, read out in
+      real time. For questions about dopamine dynamics during reward learning,
+      serotonin fluctuations across the sleep cycle, or calcium transients in a
+      hypothalamic population during social behaviour, it has become the method
+      of choice.
+    </p>
+
+    <h2>The Core Optical Principle</h2>
+    <p>
+      A fiber photometry system is, at its simplest, a miniaturised epifluorescence
+      microscope whose objective has been replaced by a single multimode optical
+      fibre. Light from an excitation source — typically a solid-state LED or a
+      low-power laser — is coupled into the proximal end of the fibre, travels down
+      its length, and exits at the polished distal tip implanted in the brain. There
+      it excites fluorescent molecules in the tissue surrounding the fibre. A
+      fraction of the emitted fluorescence is captured by the same fibre —
+      collected within its numerical aperture — and guided back toward the proximal
+      end, where it is separated from the excitation light by a dichroic mirror and
+      bandpass emission filter, then focused onto a photodetector, typically a
+      sensitive avalanche photodiode (APD), photomultiplier tube (PMT), or
+      scientific CMOS camera. The detected photon current is amplified, digitised
+      and recorded continuously alongside behavioural timestamps.
+    </p>
+    <p>
+      The fibres used are typically borosilicate or silica multimode fibres with
+      core diameters of 200–600 μm and numerical apertures of 0.37–0.50. The
+      implantable fibre stub is permanently affixed to the skull with dental cement
+      and capped between sessions; a detachable patch cable connects it to the
+      benchtop optics during recording. The sampling volume — the cone of tissue
+      from which fluorescence is efficiently collected — extends approximately
+      100–500 μm from the fibre tip, with sensitivity falling off as the inverse
+      square of distance. This geometry means photometry does not image: it
+      integrates fluorescence from a region containing potentially thousands of
+      cells, producing a single trace that reflects population-level dynamics.
+    </p>
+
+    <h2>Genetically Encoded Indicators: What You Are Actually Measuring</h2>
+    <p>
+      The technique is only as informative as the fluorescent indicator it reads
+      out. The majority of fiber photometry experiments in neuroscience use one of
+      two categories of genetically encoded sensor, delivered to a targeted cell
+      population via stereotaxic injection of an AAV vector encoding a
+      Cre-dependent or promoter-restricted construct.
+    </p>
+    <p>
+      <strong>Calcium indicators</strong> — most commonly the GCaMP family —
+      report intracellular free calcium concentration, which rises transiently
+      following action potentials due to voltage-gated calcium channel opening and
+      is cleared over hundreds of milliseconds by pumps and buffers. GCaMP is
+      built around a circularly permuted enhanced GFP (cpEGFP) fused to the
+      calcium-binding protein calmodulin (CaM) and a CaM-binding peptide: M13 (a
+      smooth-muscle myosin light chain kinase fragment) in the GCaMP3–7 lineage,
+      and a fragment of endothelial nitric oxide synthase (eNOS) in the jGCaMP8
+      series — a structural change that underlies jGCaMP8's dramatically improved
+      kinetics. In the calcium-free state, cpEGFP is largely non-fluorescent.
+      Calcium binding induces a conformational change that stabilises the
+      chromophore environment and dramatically increases quantum yield and
+      brightness.
+    </p>
+    <p>
+      The current generation — GCaMP6f, GCaMP7f, jGCaMP8 variants — spans a range
+      of kinetics and sensitivities. jGCaMP8f achieves a half-rise time (t½,rise)
+      as fast as 2 ms in vivo in mouse visual cortex and is sensitive to single
+      action potentials, while GCaMP6s integrates over slower timescales but offers
+      higher signal-to-noise for burst firing. For photometry, faster indicators are
+      generally preferable, but the choice depends on the spiking properties of the
+      target population. One important practical caveat: jGCaMP8 sensors can
+      undergo photoinactivation under sustained illumination — fluorescence declines
+      even when calcium levels are stable — which has implications for continuous
+      photometry recordings and should be monitored by checking baseline stability
+      across sessions.
+    </p>
+    <p>
+      <strong>Neuromodulator sensors</strong> — including the GRAB
+      (G-protein-coupled receptor activation-based) family and dLight — detect
+      extracellular neurotransmitters directly, bypassing the need to infer release
+      from postsynaptic calcium signals. These sensors are engineered by inserting
+      cpEGFP or a related fluorescent protein into a loop of a GPCR (for GRAB
+      sensors) or a periplasmic binding protein scaffold (for dLight sensors), such
+      that ligand binding at the receptor's orthosteric site drives a conformational
+      change that increases fluorescence. GRAB<sub>DA</sub>, GRAB<sub>NE</sub>,
+      GRAB<sub>5HT</sub>, and GRAB<sub>ACh</sub> variants now cover most major
+      monoaminergic and cholinergic transmitters with nanomolar sensitivity and
+      sub-second kinetics. Because these sensors are expressed on the cell surface
+      and detect ligand in the extracellular space, they report the ambient
+      concentration seen by a cell regardless of where the release originated —
+      a fundamentally different quantity from postsynaptic calcium, and one that
+      is uniquely suited to the study of volume transmission.
+    </p>
+
+    <blockquote>
+      <p>
+        Fiber photometry does not tell you which cells fired. It tells you what the
+        tissue was doing — a different question, and often the more biologically
+        relevant one.
+      </p>
+    </blockquote>
+
+    <h2>The Isosbestic Control: Separating Signal from Artefact</h2>
+    <p>
+      The raw fluorescence trace from a photometry recording is contaminated by
+      several sources of noise that have nothing to do with indicator occupancy:
+      motion artefacts caused by fibre bending during movement, slow bleaching of
+      the indicator, haemodynamic fluctuations that alter tissue optical properties,
+      and electronic drift. Disentangling genuine neural signal from these confounds
+      requires a reference channel, and the standard solution exploits a property of
+      GCaMP's excitation spectrum.
+    </p>
+    <p>
+      GCaMP has an excitation wavelength at which its fluorescence emission is
+      calcium-independent: at approximately 405–410 nm, the GCaMP excitation
+      spectrum passes through an isosbestic point where the calcium-bound and
+      calcium-free forms have identical extinction coefficients. Fluorescence
+      excited at this wavelength therefore reflects the total indicator
+      concentration and optical pathlength, but not calcium. By simultaneously
+      illuminating the tissue with both a calcium-sensitive excitation wavelength
+      (typically 470 nm) and the isosbestic 405 nm wavelength — usually via
+      lock-in detection using amplitude-modulated LEDs at different frequencies —
+      one obtains a calcium signal and a motion/bleach reference signal in parallel.
+      The final ΔF/F is computed after regressing the 405 nm channel out of the
+      470 nm channel:
+    </p>
+    <p style="
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 24px 0;
+      color: var(--accent);
+    ">
+      ΔF/F = (F<sub>470</sub> − F<sub>0</sub>) / F<sub>0</sub>
+    </p>
+    <p>
+      where F<sub>0</sub> is either a sliding baseline estimated from the 405 nm
+      channel or a fitted polynomial. The resulting dimensionless ΔF/F signal
+      represents fractional changes in indicator fluorescence above baseline and is
+      the standard unit of photometry data. Values in well-optimised preparations
+      range from a few tenths of a percent for single-spike correlates to several
+      tens of percent for large, synchronous calcium transients.
+    </p>
+    <p>
+      Importantly, for GRAB-type neuromodulator sensors, no true isosbestic point
+      exists; motion correction typically relies instead on a co-expressed,
+      spectrally distinct indicator in a non-responsive cell population, or on
+      interleaved excitation of a spectrally orthogonal reference fluorophore.
+    </p>
+
+    <h2>When the Isosbestic Channel Is Larger Than the Signal:
+        Causes and Consequences</h2>
+    <p>
+      A situation encountered in practice, but rarely discussed explicitly in
+      methods papers, is when the raw 405 nm channel has a higher baseline
+      fluorescence amplitude than the 470 nm channel. This is not merely an
+      inconvenience — it is a diagnostic sign whose causes are worth understanding
+      precisely, because it affects how confident one can be in the subsequent
+      correction.
+    </p>
+    <p>
+      The most common cause is <strong>insufficient GCaMP expression or fibre
+      misplacement</strong>. The 470 nm channel derives its signal almost entirely
+      from calcium-bound GCaMP: in the unbound state, GCaMP has very low quantum
+      yield and contributes little to detected fluorescence. If the virus has poorly
+      transduced the target region, or the fibre tip sits outside the expression
+      volume, the calcium-dependent signal is small. The 405 nm channel, by
+      contrast, collects fluorescence from all GCaMP molecules regardless of
+      calcium occupancy — but more critically, it also collects substantial
+      <em>tissue autofluorescence</em>. Endogenous fluorophores that absorb in the
+      violet — NADH, FAD, and collagen crosslinks — all have excitation peaks at or
+      near 405 nm and emit in the blue-green range, overlapping with the GCaMP
+      emission band collected by the detector. When GCaMP expression is low, this
+      autofluorescence dominates the 405 nm channel and can exceed the 470 nm
+      signal, which has no comparable autofluorescence contribution. The practical
+      implication: a 405 nm-dominant trace should prompt histological inspection of
+      expression and targeting before data interpretation proceeds.
+    </p>
+    <p>
+      A second, more insidious cause is <strong>differential haemoglobin
+      absorption</strong>. Haemoglobin in brain vasculature absorbs light across the
+      visible spectrum, and its absorption changes dynamically as vessels dilate and
+      blood volume fluctuates with neural activity. Zhang and colleagues (2022)
+      demonstrated using spectral photometry that haemoglobin absorption affects the
+      470 nm excitation and ~520 nm GCaMP emission window differently from the
+      405 nm channel, because oxy- and deoxyhaemoglobin have distinct absorption
+      spectra and because photon path lengths differ at the two wavelengths. When
+      local cerebral blood volume increases — as it does during sustained neural
+      activation, or during pharmacological vasodilation — the 470 nm channel is
+      suppressed to a greater extent than the 405 nm channel. The result is an
+      apparent artefactual decrease in ΔF/F and, in extreme cases, a polarity
+      inversion of the GCaMP signal that could be misread as neural inhibition.
+      Critically, the standard isosbestic correction does not fully remove
+      haemodynamic artefacts, because the 405 nm channel is itself affected by
+      haemoglobin absorption, just not identically. Corrections based on spectral
+      decomposition of haemoglobin signals — using a co-expressed
+      activity-independent red fluorophore such as tdTomato — provide more complete
+      correction at the cost of added preparation complexity.
+    </p>
+    <p>
+      A third cause, relevant specifically during analysis, is <strong>regression
+      overcorrection</strong>. When ordinary least squares (OLS) regression is used
+      to scale the 405 nm channel before subtraction, the fitted isosbestic is
+      pulled toward the neural transients in the 470 nm channel — overfitting the
+      artefact model to real signal and systematically reducing apparent ΔF/F. This
+      can create situations where the fitted 405 nm trace appears to track the
+      470 nm transients, or where calculated ΔF/F is smaller than expected or even
+      inverted around genuine events. Keevers and Jean-Richard-dit-Bressel (2025)
+      demonstrated formally that iteratively reweighted least squares (IRLS)
+      regression — which down-weights data points where signal and isosbestic
+      diverge, corresponding to true neural events — substantially outperforms OLS
+      in recovering accurate ΔF/F, and recommend it as a new standard for
+      preprocessing pipelines.
+    </p>
+
+    <div class="tip-box">
+      <div class="tip-label">Haemodynamic Artefacts in Photometry</div>
+      <p style="margin: 0; line-height: 1.75;">
+        Zhang WT, Chao TH, Yang Y, et al. Spectral fiber photometry derives
+        hemoglobin concentration changes for accurate measurement of fluorescent
+        sensor activity. <em>Cell Rep Methods.</em> 2022;2(7):100243.<br>
+        <a
+          href="https://doi.org/10.1016/j.crmeth.2022.100243"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+          "
+        >
+          https://doi.org/10.1016/j.crmeth.2022.100243
+        </a>
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">Isosbestic Regression: IRLS vs OLS</div>
+      <p style="margin: 0; line-height: 1.75;">
+        Keevers LJ &amp; Jean-Richard-dit-Bressel P. Obtaining artifact-corrected
+        signals in fiber photometry via isosbestic signals, robust regression, and
+        dF/F calculations. <em>Neurophotonics.</em> 2025;12(2):025003.<br>
+        <a
+          href="https://doi.org/10.1117/1.NPh.12.2.025003"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+          "
+        >
+          https://doi.org/10.1117/1.NPh.12.2.025003
+        </a>
+      </p>
+    </div>
+
+    <h2>Lock-In Detection and Frequency Multiplexing</h2>
+    <p>
+      Modern fiber photometry rigs almost universally use lock-in detection rather
+      than continuous illumination. Each LED is sinusoidally or square-wave
+      modulated at a distinct carrier frequency — for example, 211 Hz for 405 nm
+      and 531 Hz for 470 nm in the commonly used Tucker-Davis or Doric systems —
+      and the photodetector output is digitised at high speed and demodulated in
+      software or hardware to extract the amplitude envelope at each carrier
+      frequency. This approach provides several advantages: it eliminates DC drift
+      and low-frequency 1/f noise from the detector, it rejects ambient light
+      contamination without physical shielding, and it allows simultaneous
+      multi-channel acquisition across spectrally overlapping indicators from a
+      single fibre — for example, recording GCaMP (green) and a red-shifted RCaMP
+      or jRCaMP simultaneously. For dual-fibre bilateral recordings or multi-region
+      implants, the same principle extends naturally by adding additional fibre
+      channels with unique carrier frequencies.
+    </p>
+
+    <h2>Strengths, Limitations and the Comparison with Two-Photon</h2>
+    <p>
+      The defining strength of fiber photometry is its compatibility with truly
+      unconstrained freely moving behaviour across long timescales, in deep brain
+      structures entirely inaccessible to multiphoton imaging, with equipment costs
+      an order of magnitude lower than a two-photon rig. Wireless miniaturised
+      systems — in which the LED, detector and digitiser are carried by the animal
+      itself — have extended this to social interaction paradigms and experiments in
+      naturalistic environments where tethering is not feasible.
+    </p>
+    <p>
+      Its defining limitation is the complete absence of single-cell resolution.
+      A photometry signal from the striatum is the luminance-weighted sum of every
+      GCaMP-expressing cell within the collection volume. If a behaviour engages
+      opposing subpopulations — say, D1 and D2 medium spiny neurons with
+      antagonistic effects on output — their signals partially cancel and the
+      resulting trace may appear flat while considerable activity is occurring.
+      This can be addressed by targeting the indicator to only one subpopulation
+      via intersectional genetic strategies, but cannot be resolved optically within
+      the photometry framework.
+    </p>
+    <p>
+      For questions requiring cellular resolution in freely moving animals,
+      one-photon miniscope calcium imaging (e.g., the UCLA miniscope or Inscopix
+      nVista platform) provides a viable alternative at the cost of greater
+      complexity, a larger head-mounted device, and the need for a gradient-index
+      (GRIN) lens relay that causes more tissue damage than a bare fibre.
+    </p>
+
+    <h2>Recent Advances: 2020–2025</h2>
+    <p>
+      The half-decade since 2020 has substantially expanded both the range of
+      questions photometry can address and the rigour with which signals can be
+      interpreted. Several developments stand out.
+    </p>
+    <p>
+      <strong>Sensor expansion.</strong> The GRAB family has grown well beyond its
+      original dopamine and acetylcholine members. Sensors now cover noradrenaline
+      (GRAB<sub>NE</sub>), serotonin (GRAB<sub>5HT</sub>), adenosine, ATP, and
+      neuropeptides including oxytocin (OxLight) and orexin, among others. The
+      introduction of GRAB<sub>DA2m</sub> and GRAB<sub>DA2h</sub> variants improved
+      signal-to-noise and kinetics over the first-generation sensors substantially.
+      The practical result is that photometry can now monitor the extracellular
+      dynamics of nearly every major diffusible signalling molecule across the sleep
+      cycle, stress response, or reward circuit — a catalogue of questions that was
+      simply beyond reach before 2018.
+    </p>
+    <p>
+      <strong>Sensors without isosbestic points.</strong> A structural limitation of
+      GRAB and dLight sensors is that, unlike GCaMP, they lack a
+      calcium-independent excitation wavelength. The 405 nm channel is therefore
+      not available as a motion reference. The field has addressed this in two ways:
+      co-expression of a spectrally inert red fluorophore (such as tdTomato) under
+      the same promoter, whose signal serves as a surrogate reference; or
+      computational correction using robust regression on the raw signal alone.
+      Neither approach is as clean as the GCaMP isosbestic strategy, and the lack
+      of a simple internal control is a meaningful methodological limitation that
+      users of GRAB sensors must account for explicitly.
+    </p>
+    <p>
+      <strong>Wireless and multi-region systems.</strong> Fully wireless miniaturised
+      photometry systems — where the LED driver, detector, and data logger are
+      carried by the animal — have matured from proof-of-concept to commercial
+      availability. This removes the tether artefact entirely and opens paradigms
+      involving multiple animals in the same enclosure, natural foraging, and
+      home-cage recordings across entire circadian cycles. In parallel, multi-fibre
+      array systems using 50 μm fibres and camera-based detection now allow
+      simultaneous population-level recordings from five to ten brain regions in a
+      single animal, enabling the study of state-dependent inter-regional dynamics
+      that single-fibre systems cannot access.
+    </p>
+    <p>
+      <strong>Tapered fibre probes.</strong> Standard flat-cleaved fibres collect
+      fluorescence primarily within 100–200 μm of the tip, with a collection volume
+      that does not vary with depth. Tapered fibre probes — in which the fibre is
+      drawn to a sharp conical tip — extend the collection volume along the probe's
+      depth axis and allow crude depth-resolved recording along a single penetration
+      track, providing information about laminar or depth-dependent activity
+      gradients that flat fibres obscure.
+    </p>
+    <p>
+      <strong>Fluorescence lifetime photometry.</strong> Intensity-based photometry
+      is intrinsically sensitive to variation in sensor expression levels, optical
+      coupling, and photobleaching — all of which shift the baseline independently
+      of biology. Fluorescence lifetime measurements record the rate of photon
+      emission after a pulsed excitation rather than the number of photons, a
+      quantity that is largely independent of expression level and excitation power.
+      FLIM-adapted photometry sensors and the hardware to excite and time-resolve
+      them are an active area of development, holding the potential for
+      substantially more quantitative and cross-animal-comparable signals.
+      Commercial implementation remains limited as of 2025, but the technique is
+      likely to move from specialist labs to broader adoption within the next few
+      years.
+    </p>
+    <p>
+      <strong>Analysis standardisation.</strong> A recognised problem through the
+      early 2020s was the divergence in analysis pipelines: different groups
+      normalised ΔF/F differently, used different regression strategies, and applied
+      — or omitted — isosbestic correction in incompatible ways, making quantitative
+      comparison across studies unreliable. This has been addressed by a wave of
+      peer-reviewed open-source toolboxes — including pMAT, pyPhotometry, GuPPy,
+      and most recently PASTa (2025) — that codify best-practice pipelines and
+      provide common data structures. The Simpson et al. 2024 primer in
+      <em>Neuron</em> represents the field's most concerted attempt to establish
+      consensus on hardware choices, correction strategies, and reporting standards.
+    </p>
+
+    <div class="tip-box">
+      <div class="tip-label">Field Primer — Best Practices Consensus</div>
+      <p style="margin: 0; line-height: 1.75;">
+        Simpson EH, Akam T, Patriarchi T, et al. Lights, fiber, action! A primer
+        on in vivo fiber photometry. <em>Neuron.</em> 2024;112(5):718–739.<br>
+        <a
+          href="https://doi.org/10.1016/j.neuron.2023.11.016"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+          "
+        >
+          https://doi.org/10.1016/j.neuron.2023.11.016
+        </a>
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">Next-Generation GRAB Sensors</div>
+      <p style="margin: 0; line-height: 1.75;">
+        Sun F, Zhou J, Dai B, et al. Next-generation GRAB sensors for monitoring
+        dopaminergic activity in vivo. <em>Nat Methods.</em>
+        2020;17(11):1156–1166.<br>
+        <a
+          href="https://doi.org/10.1038/s41592-020-00981-9"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+          "
+        >
+          https://doi.org/10.1038/s41592-020-00981-9
+        </a>
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">Open-Source Analysis — PASTa Toolbox</div>
+      <p style="margin: 0; line-height: 1.75;">
+        Donka RM, Loh MK, Konanur VR, Roitman MF, Roitman JD. PASTa: An
+        open-source analysis and signal processing toolbox for fiber photometry
+        data. <em>Curr Protoc.</em> 2025;5(7):e70161.<br>
+        <a
+          href="https://doi.org/10.1002/cpz1.70161"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+          "
+        >
+          https://doi.org/10.1002/cpz1.70161
+        </a>
+      </p>
+    </div>
+
+    <h2>Interpreting the Signal Honestly</h2>
+    <p>
+      A recurring source of overinterpretation in the photometry literature is the
+      conflation of ΔF/F magnitude with firing rate or neuromodulator concentration.
+      Neither equivalence is straightforward. GCaMP ΔF/F is a non-linear,
+      saturating function of calcium, which is itself a non-linear, temporally
+      smeared proxy for spiking, filtered by indicator binding kinetics (K<sub>D</sub>
+      of ~100–300 nM for GCaMP6f, varying with temperature and cellular environment)
+      and cellular calcium extrusion rates. At high firing rates, the signal
+      saturates. At low rates, slow indicator kinetics mean individual spikes sum
+      and are not individually resolvable. The saturation non-linearity also means
+      that equal ΔF/F amplitudes at different baseline states do not represent equal
+      changes in firing — a point frequently overlooked when comparing conditions
+      that differ in baseline arousal or neuromodulatory tone.
+    </p>
+    <p>
+      For GRAB sensors, ΔF/F is more directly interpretable as a monotonic function
+      of occupancy, but the relationship between occupancy and true extracellular
+      concentration depends on local sensor density, the indicator's K<sub>D</sub>
+      (~90 nM for GRAB<sub>DA2m</sub>), and the kinetics of reuptake — all of which
+      vary across brain regions and can change with experimental manipulations.
+      High-affinity sensors such as GRAB<sub>DA2h</sub> (K<sub>D</sub> ~7 nM) also
+      carry a ligand-buffering risk: at sufficient expression levels, the sensor
+      itself competes with endogenous receptors for dopamine, potentially
+      suppressing the very signal it is intended to monitor. This concern is
+      particularly relevant after months of chronic expression.
+    </p>
+    <p>
+      None of this undermines the technique's power — it simply demands that the
+      biological question be matched to the quantity being measured. Photometry
+      excels at detecting the <em>timing</em> and <em>relative magnitude</em> of
+      population-level events, at detecting whether a signal correlates with a
+      behavioural variable, and at comparing conditions within an experiment. It is
+      not suited to absolute quantification of firing rate or transmitter
+      concentration without careful calibration that is rarely performed in
+      practice.
+    </p>
+    <p>
+      Used with appropriate rigour — with isosbestic correction applied via IRLS
+      rather than OLS, with awareness of haemodynamic artefacts in pharmacology
+      experiments, with vigilance for jGCaMP8 photoinactivation in long recordings,
+      with thoughtful choice of indicator kinetics, and with genetic targeting
+      precise enough that the signal source is unambiguous — fiber photometry
+      occupies a unique and largely irreplaceable niche in the neuroscientist's
+      toolkit. It is the method that finally made it possible to watch a dopamine
+      transient unfold in the nucleus accumbens of a mouse as it experiences an
+      unexpected reward, or to track serotonin across an entire circadian cycle in
+      a freely sleeping animal. The view it provides is coarse by the standards of
+      single-cell physiology. But it is a view of the circuit in action, in the
+      brain, in the animal, as it lives.
+    </p>
+
+    <div class="tip-box">
+      <div class="tip-label">Foundational Reference — Fiber Photometry</div>
+      <p style="margin: 0; line-height: 1.75;">
+        Gunaydin LA, Grosenick L, Finkelstein JC, et al. Natural neural projection
+        dynamics underlying social behavior. <em>Cell.</em>
+        2014;157(7):1535–1551.<br>
+        <a
+          href="https://doi.org/10.1016/j.cell.2014.05.017"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+          "
+        >
+          https://doi.org/10.1016/j.cell.2014.05.017
+        </a>
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">GCaMP Indicator Reference — jGCaMP8 Series</div>
+      <p style="margin: 0; line-height: 1.75;">
+        Zhang Y, Rozsa M, Liang Y, et al. Fast and sensitive GCaMP calcium
+        indicators for imaging neural populations. <em>Nature.</em>
+        2023;615(7954):884–891.<br>
+        <a
+          href="https://doi.org/10.1038/s41586-023-05828-9"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+          "
+        >
+          https://doi.org/10.1038/s41586-023-05828-9
+        </a>
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">jGCaMP8 Photoinactivation Caveat</div>
+      <p style="margin: 0; line-height: 1.75;">
+        Tang S, Rimmele M, Choi UB, Bhatt-Bhatt M, Bhatt DL, Bhatt MD, Bhatt DL.
+        Cahalan MD et al. Photoswitching alters fluorescence readout of jGCaMP8
+        Ca2+ indicators tethered to Orai1 channels. <em>PNAS.</em>
+        2023;120(39):e2309328120.<br>
+        <a
+          href="https://doi.org/10.1073/pnas.2309328120"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+          "
+        >
+          https://doi.org/10.1073/pnas.2309328120
+        </a>
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">GRAB Neuromodulator Sensors — Original Reference</div>
+      <p style="margin: 0; line-height: 1.75;">
+        Sun F, Zeng J, Jing M, et al. A genetically encoded fluorescent sensor
+        enables rapid and specific detection of dopamine in flies, fish, and mice.
+        <em>Cell.</em> 2018;174(2):481–496.<br>
+        <a
+          href="https://doi.org/10.1016/j.cell.2018.06.042"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+          "
+        >
+          https://doi.org/10.1016/j.cell.2018.06.042
+        </a>
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">
+        Practical Protocol — Isosbestic Correction and Analysis
+      </div>
+      <p style="margin: 0; line-height: 1.75;">
+        Lerner TN, Shilyansky C, Davidson TJ, et al. Intact-brain analyses reveal
+        distinct information carried by SNc dopamine subcircuits.
+        <em>Cell.</em> 2015;162(3):635–647.<br>
+        <a
+          href="https://doi.org/10.1016/j.cell.2015.07.014"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+          "
+        >
+          https://doi.org/10.1016/j.cell.2015.07.014
+        </a>
+      </p>
+    </div>
+
+      `,
+    },
       {
   type: "excerpt", slug: "evolutionary-origins-of-synapses",
   title: "Before the First Neuron: The Ancient Origins of the Synaptic Toolkit",
@@ -721,7 +1384,6 @@ const CONFIG = {
 </p>
   `,
 },
-// Open-access paper: CC BY 4.0. Figure 1 reproduced with attribution below.
 
 {
   type: "post",
@@ -733,7 +1395,6 @@ const CONFIG = {
   readTime: "8 min read",
   tag: "Dopamine",
   emoji: "🔬",
-  // Host lapios2025-fig1-cryo-clem.png in your repo and set the URL below.
   imageUrl: "",
   content: `
 <p>
@@ -768,7 +1429,7 @@ const CONFIG = {
     alt="Figure 1 from Lapios et al. 2025 — Cryo-CLEM workflow and representative tomograms of GLU, DA and DHS synaptosomes"
     style="width:100%;max-width:860px;border-radius:10px;border:1px solid var(--border);display:inline-block;"
   />
-  <figcaption style="margin-top:0.75rem;font-size:0.78rem;color:var(--fg2);font-family:'JetBrains Mono',monospace;line-height:1.6;">
+  <figcaption style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-dim);font-family:'JetBrains Mono',monospace;line-height:1.6;">
     <strong>Fig. 1</strong> — Cryo-CLEM and cryo-ET of cortico-striatal and dopaminergic synaptosomes.
     <strong>A–C</strong>: experimental strategy, from fluorescent mouse lines to plunge-freezing on EM grids.
     <strong>D–E</strong>: cryo-fluorescence and cryo-EM images of the same grid square, registered using fiducial beads (yellow circles).
@@ -854,7 +1515,6 @@ const CONFIG = {
   readTime: "8 min read",
   tag: "Dopamine",
   emoji: "🧫",
-  // Host paget2022-fig6-hub-model.png in your repo and set the URL below.
   imageUrl: "",
   content: `
 <p>
@@ -912,7 +1572,7 @@ const CONFIG = {
     alt="Figure 6 from Paget-Blanc et al. 2022, Spatial organisation of dopaminergic synaptic hubs, showing STED images and the hub model diagram"
     style="width:100%;max-width:860px;border-radius:10px;border:1px solid var(--border);display:inline-block;"
   />
-  <figcaption style="margin-top:0.75rem;font-size:0.78rem;color:var(--fg2);font-family:'JetBrains Mono',monospace;line-height:1.6;">
+  <figcaption style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-dim);font-family:'JetBrains Mono',monospace;line-height:1.6;">
     <strong>Fig. 6</strong> Spatial organisation of dopaminergic synaptic hubs.
     <strong>a</strong>: Centre-to-centre distance between dopaminergic varicosities (EGFP+ or Th+) and each indicated synaptic marker, showing a structured spatial hierarchy from the DA varicosity outward.
     <strong>b–g</strong>: STED super-resolution images confirming the apposition of each marker.
@@ -953,12 +1613,6 @@ const CONFIG = {
 </div>
 `
 },
-// ─────────────────────────────────────────────────────────────────────────────
-// POST 3  ·  2025  ·  bioRxiv preprint
-// Paget-Blanc*, Zöldi*, Cavaccini* et al.
-// "Nanoscale synaptic remodeling at corticostriatal circuits predicts flexible
-//  action control"
-// ─────────────────────────────────────────────────────────────────────────────
 
 {
   type: "post",
@@ -1272,7 +1926,7 @@ const CONFIG = {
   /* ── Featured Posts (sidebar) ── */
   featuredPosts: [
     "evolutionary-origins-of-synapses",
-    "hippocampus-engram",
+    "synaptomic-analysis-dopamine-hub-synapses",
     "lab-confocal-images",
   ],
 
@@ -1291,7 +1945,7 @@ const CONFIG = {
     "lab-confocal-images",
     "sfn-2024",
     "lab-life",
-    "fens-2024-Austria",
+    "fens-2024-rome",
   ],
 
   /* ─────────────────────────────────────────────────
@@ -1572,7 +2226,7 @@ const CONFIG = {
     <button class="hamburger" id="hamburger" aria-label="Open menu">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
-    <a class="nav-logo" id="nav-brand" href="#home">Synapt<span>e</span></a>
+    <a class="nav-logo" id="nav-brand" href="#home"></a>
     <ul class="nav-links" id="nav-links"></ul>
     <div class="nav-right">
       <div class="nav-search">
@@ -1830,8 +2484,6 @@ function slugToHref(p){
 }
 const POST_MAP={};
 CONFIG.posts.forEach(p=>POST_MAP[p.slug]=p);
-const PUB_MAP={};
-CONFIG.publications.forEach(p=>PUB_MAP[p.slug]=p);
 
 /* ── Theme ── */
 const htmlEl=document.documentElement;
@@ -1998,10 +2650,9 @@ CONFIG.featuredGalleries.forEach(slug=>{
    PUBLICATIONS — featured strip (homepage)
 ══════════════════════════════════════════════════ */
 function pubTypeBadge(type){
-  const cls=type.toLowerCase()==='book chapter'?'chapter':type.toLowerCase();
-  return `<span class="pub-type-badge ${cls}">${type}</span>`;
+  return `<span class="pub-type-badge ${type.toLowerCase()}">${type}</span>`;
 }
-function pubActions(pub,context){
+function pubActions(pub){
   let html='';
   if(pub.doi) html+=`<a class="pub-btn doi" href="https://doi.org/${pub.doi}" target="_blank" rel="noopener">DOI ↗</a>`;
   if(pub.pdfUrl) html+=`<a class="pub-btn" href="${pub.pdfUrl}" target="_blank" rel="noopener">PDF ↓</a>`;
@@ -2451,11 +3102,6 @@ function router(){
     if(hash&&hash!=='home'){
       setTimeout(()=>{const t=document.getElementById(hash);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});},60);
     } else {window.scrollTo(0,0);}
-    return;
-  }
-  if(hash==='contact'){
-    showView('main');
-    setTimeout(()=>{const t=el('contact');if(t)t.scrollIntoView({behavior:'smooth',block:'start'});},60);
     return;
   }
   if(hash==='journal'){
