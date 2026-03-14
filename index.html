@@ -527,7 +527,7 @@ const CONFIG = {
       { imageUrl: "image-assets/gallery-strip/data-analysis-suite/data_analysis.svg",           emoji: "💻", label: "Data Analysis Suite" },
     ],
   },
-  /*  POSTS  (type: 'post' | 'excerpt' | 'gallery')  */
+  /*  POSTS  (type: 'post' | 'excerpt' | 'gallery' | 'tool')  */
   posts: [
     // ── FIBER PHOTOMETRY POST ──────────────────────────────────────────
     {
@@ -543,7 +543,7 @@ const CONFIG = {
       `,
       date: "14 Mar, 2025",
       readTime: "15 min read",
-      tag: "Literature",
+      tag: "Literature Excerpt",
       emoji: "💡",
       imageUrl: "image-assets/gallery-strip/photometry/photometry.svg",
       content: `
@@ -1197,7 +1197,7 @@ const CONFIG = {
   type: "excerpt", slug: "evolutionary-origins-of-synapses",
   title: "Before the First Neuron: The Ancient Origins of the Synaptic Toolkit",
   excerpt: "A landmark review traces synaptic proteins back hundreds of millions of years — long before neurons existed. What does this tell us about how the nervous system first evolved?",
-  date: "10 Jan, 2025", readTime: "7 min read", tag: "Literature",
+  date: "10 Jan, 2025", readTime: "7 min read", tag: "Literature Excerpt",
   imageUrl: "", emoji: "",
   content: `
     <p>One of the deepest questions in neuroscience is not how brains process information, it is how brains came to exist at all. A 2025 review by Jeffrey Colgren and Pawel Burkhardt in <em>Nature Reviews Neuroscience</em> confronts this question directly, tracing the molecular components of the chemical synapse across the full breadth of animal and pre-animal life. Their conclusion is striking: the toolkit for building a synapse was assembled long before any animal had neurons.</p>
@@ -1247,7 +1247,7 @@ const CONFIG = {
   excerpt: "Conventional fluorescence microscopy cannot resolve synaptic substructure — the diffraction limit sits at ~200 nm while the structures that matter are 20–100 nm. Here is how three super-resolution techniques break that barrier, and why each one matters for neuroscience.",
   date: "11 Mar, 2025",
   readTime: "10 min read",
-  tag: "Literature",
+  tag: "Literature Excerpt",
   emoji: "🔬",
   imageUrl: "image-assets/gallery-strip/nanoscopy/nanoscopy.svg",
   content: `
@@ -1893,6 +1893,36 @@ const CONFIG = {
 </div>
 `,
 },
+    // ── ANALYTICAL TOOL POST ──────────────────────────────────────────────
+    {
+      type: "tool",
+      slug: "fiberflow-photometry-analysis-suite",
+      title: "FiberFlow: An Open-Source Pipeline for Fiber Photometry Analysis",
+      excerpt:
+        "A step-by-step walkthrough of FiberFlow, our in-house Python toolkit for preprocessing, isosbestic correction, event-triggered averaging, and behavioural alignment of fiber photometry data. Includes interactive Jupyter notebooks and worked examples with GCaMP6f and GRAB sensor recordings.",
+      date: "01 Mar, 2026",
+      readTime: "12 min read",
+      tag: "Analytical Tools",
+      emoji: "📊",
+      imageUrl: "image-assets/gallery-strip/data-analysis-suite/data_analysis.svg",
+      content: `
+<p>
+  Fiber photometry generates clean, continuous fluorescence traces — but translating those traces into interpretable neuroscience requires a surprisingly large number of choices: how to correct for motion artefacts, which baseline period to use for ΔF/F normalisation, how to handle recordings that drift over hours, and how to align neural signals to behavioural events with sub-second precision. FiberFlow is our attempt to make those choices explicit, reproducible, and easy to modify.
+</p>
+<h2>Pipeline Overview</h2>
+<p>
+  The pipeline runs in five modular stages: (1) raw data import and metadata parsing, (2) low-pass filtering and photobleach correction, (3) isosbestic regression, (4) ΔF/F computation and z-score normalisation, and (5) event-triggered averaging aligned to behavioural timestamps. Each stage writes a standardised HDF5 output so that downstream modules can be swapped independently.
+</p>
+<div class="tip-box">
+  <div class="tip-label">Repository</div>
+  <p style="margin:0;line-height:1.75;">
+    Source code, documentation and example datasets are available on GitHub.<br>
+    <a href="https://github.com/placeholder/fiberflow" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;">https://github.com/placeholder/fiberflow</a>
+  </p>
+</div>
+      `,
+    },
+
     {
       type:"gallery", slug:"lab-confocal-images",
       title:"Confocal Microscopy: Neurons in Detail",
@@ -1932,10 +1962,11 @@ const CONFIG = {
 
   /* ── Topics ── */
   topics: [
+    { label: "Analytical Tools",  tag: "Analytical Tools" },
     { label: "Dopamine",          tag: "Dopamine" },
     { label: "Synaptic Plasticity", tag: "Synaptic Plasticity" },
     { label: "Imaging",           tag: "Imaging" },
-    { label: "Literature",        tag: "Literature" },
+    { label: "Literature Excerpt",        tag: "Literature Excerpt" },
     { label: "Conference",        tag: "Conference" },
     { label: "Lab",               tag: "Lab" },
   ],
@@ -2175,7 +2206,7 @@ const CONFIG = {
       ],
     },
     {
-      name: "Literature Excerpts", icon: "<img src='image-assets/icons/ui/icon-publication.svg' class='icon-img' alt=''>", topic: "Literature",
+      name: "Literature Excerpts", icon: "<img src='image-assets/icons/ui/icon-publication.svg' class='icon-img' alt=''>", topic: "Literature Excerpt",
       posts: [
         { title: "Before the First Neuron: The Ancient Origins of the Synaptic Toolkit",                        slug: "evolutionary-origins-of-synapses" },
         { title: "Seeing the Nanoscale Synapse: Principles of dSTORM, STED and DNA-PAINT",                     slug: "nanoscopy-dstorm-sted-dnapaint" },
@@ -2575,7 +2606,12 @@ CONFIG.galleryStrip.items.forEach(item=>{
 });
 
 /* ── Posts List ── */
-const POST_TYPE_ICONS={post:`<img src="image-assets/icons/ui/icon-post.svg" class="icon-img" alt="post">`,gallery:`<img src="image-assets/icons/ui/icon-gallery.svg" class="icon-img" alt="gallery">`,excerpt:`<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-img" style="padding:3px;filter:invert(1) opacity(.85)"><path d="M3 3.5A.5.5 0 0 1 3.5 3h5a.5.5 0 0 1 0 1H4v7.5a.5.5 0 0 1-1 0v-8Zm2.5 2A.5.5 0 0 1 6 5h5.5a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5H6a.5.5 0 0 1-.5-.5v-6Z" fill="white"/></svg>`};
+const POST_TYPE_ICONS={
+  post:    `<img src="image-assets/icons/ui/icon-publication.svg" class="icon-img" alt="post">`,
+  gallery: `<img src="image-assets/icons/ui/icon-gallery.svg" class="icon-img" alt="gallery">`,
+  excerpt: `<img src="image-assets/icons/ui/icon-post.svg" class="icon-img" alt="excerpt">`,
+  tool:    `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-img" style="padding:2px;filter:invert(1) opacity(.85)"><rect x="1" y="9" width="3" height="6" rx=".75" fill="white"/><rect x="6.5" y="5" width="3" height="10" rx=".75" fill="white"/><rect x="12" y="1" width="3" height="14" rx=".75" fill="white"/><path d="M2.5 8.5 L8 5 L13.5 1.5" stroke="white" stroke-width="1" stroke-linecap="round"/><circle cx="2.5" cy="8.5" r="1" fill="white"/><circle cx="8" cy="5" r="1" fill="white"/><circle cx="13.5" cy="1.5" r="1" fill="white"/></svg>`,
+};
 const postsList=el('posts-list');
 let visiblePosts=3;
 function renderPosts(){
@@ -3038,9 +3074,10 @@ function renderJournalArchive(){
   const filters=make('div','archive-filters');
   const types=[
     {label:'All',      icon:null,                                          val:''},
-    {label:'Articles', icon:'image-assets/icons/ui/icon-post.svg',        val:'post'},
+    {label:'Articles', icon:'image-assets/icons/ui/icon-publication.svg', val:'post'},
     {label:'Galleries',icon:'image-assets/icons/ui/icon-gallery.svg',     val:'gallery'},
-    {label:'Excerpts', icon:null,                                          val:'excerpt', svgIcon:`<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px;flex-shrink:0"><path d="M3 3.5A.5.5 0 0 1 3.5 3h5a.5.5 0 0 1 0 1H4v7.5a.5.5 0 0 1-1 0v-8Zm2.5 2A.5.5 0 0 1 6 5h5.5a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5H6a.5.5 0 0 1-.5-.5v-6Z" fill="currentColor"/></svg>`},
+    {label:'Excerpts', icon:'image-assets/icons/ui/icon-post.svg',        val:'excerpt'},
+    {label:'Tools',    icon:null,                                          val:'tool', svgIcon:`<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px;flex-shrink:0"><rect x="1" y="9" width="3" height="6" rx=".75" fill="currentColor"/><rect x="6.5" y="5" width="3" height="10" rx=".75" fill="currentColor"/><rect x="12" y="1" width="3" height="14" rx=".75" fill="currentColor"/><path d="M2.5 8.5 L8 5 L13.5 1.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><circle cx="2.5" cy="8.5" r="1" fill="currentColor"/><circle cx="8" cy="5" r="1" fill="currentColor"/><circle cx="13.5" cy="1.5" r="1" fill="currentColor"/></svg>`},
   ];
   let activeFilter='';
   types.forEach(f=>{
