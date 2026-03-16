@@ -562,13 +562,13 @@ const CONFIG = {
     </p>
     <p>
       Fiber photometry addresses this directly. By coupling a thin optical fibre
-      chronically implanted in the brain to a benchtop fluorescence detection
+     implanted in the brain to a benchtop fluorescence detection
       system, it delivers bulk population-level signals from genetically targeted
       neurons in a freely behaving animal, with temporal resolution in the
       tens-of-milliseconds range and near-unlimited recording duration. It does not
       resolve individual cells. It does not report spikes. What it provides instead
-      is a continuous proxy for the aggregate activity state — or the extracellular
-      concentration of a neuromodulator — of a defined circuit node, read out in
+      is a continuous proxy for the aggregate activity state, or the extracellular
+      concentration of a neuromodulator, of a defined circuit node, read out in
       real time. For questions about dopamine dynamics during reward learning,
       serotonin fluctuations across the sleep cycle, or calcium transients in a
       hypothalamic population during social behaviour, it has become the method
@@ -579,12 +579,12 @@ const CONFIG = {
     <p>
       A fiber photometry system is, at its simplest, a miniaturised epifluorescence
       microscope whose objective has been replaced by a single multimode optical
-      fibre. Light from an excitation source — typically a solid-state LED or a
-      low-power laser — is coupled into the proximal end of the fibre, travels down
+      fiber. Light from an excitation source (typically a solid-state LED or a
+      low-power laser) is coupled into the proximal end of the fibre, travels down
       its length, and exits at the polished distal tip implanted in the brain. There
       it excites fluorescent molecules in the tissue surrounding the fibre. A
-      fraction of the emitted fluorescence is captured by the same fibre —
-      collected within its numerical aperture — and guided back toward the proximal
+      fraction of the emitted fluorescence is captured by the same fibre,
+      collected within its numerical aperture, and guided back toward the proximal
       end, where it is separated from the excitation light by a dichroic mirror and
       bandpass emission filter, then focused onto a photodetector, typically a
       sensitive avalanche photodiode (APD), photomultiplier tube (PMT), or
@@ -596,8 +596,8 @@ const CONFIG = {
       core diameters of 200–600 μm and numerical apertures of 0.37–0.50. The
       implantable fibre stub is permanently affixed to the skull with dental cement
       and capped between sessions; a detachable patch cable connects it to the
-      benchtop optics during recording. The sampling volume — the cone of tissue
-      from which fluorescence is efficiently collected — extends approximately
+      benchtop optics during recording. The sampling volume (the cone of tissue
+      from which fluorescence is efficiently collected) extends approximately
       100–500 μm from the fibre tip, with sensitivity falling off as the inverse
       square of distance. This geometry means photometry does not image: it
       integrates fluorescence from a region containing potentially thousands of
@@ -613,7 +613,7 @@ const CONFIG = {
       Cre-dependent or promoter-restricted construct.
     </p>
     <p>
-      <strong>Calcium indicators</strong> — most commonly the GCaMP family —
+      <strong>Calcium indicators</strong> (most commonly the GCaMP family)
       report intracellular free calcium concentration, which rises transiently
       following action potentials due to voltage-gated calcium channel opening and
       is cleared over hundreds of milliseconds by pumps and buffers. GCaMP is
@@ -621,28 +621,28 @@ const CONFIG = {
       calcium-binding protein calmodulin (CaM) and a CaM-binding peptide: M13 (a
       smooth-muscle myosin light chain kinase fragment) in the GCaMP3–7 lineage,
       and a fragment of endothelial nitric oxide synthase (eNOS) in the jGCaMP8
-      series — a structural change that underlies jGCaMP8's dramatically improved
+      series, a structural change that underlies jGCaMP8's dramatically improved
       kinetics. In the calcium-free state, cpEGFP is largely non-fluorescent.
       Calcium binding induces a conformational change that stabilises the
       chromophore environment and dramatically increases quantum yield and
       brightness.
     </p>
     <p>
-      The current generation — GCaMP6f, GCaMP7f, jGCaMP8 variants — spans a range
+      The current generation (GCaMP6f, GCaMP7f, jGCaMP8 variants) spans a range
       of kinetics and sensitivities. jGCaMP8f achieves a half-rise time (t½,rise)
       as fast as 2 ms in vivo in mouse visual cortex and is sensitive to single
       action potentials, while GCaMP6s integrates over slower timescales but offers
       higher signal-to-noise for burst firing. For photometry, faster indicators are
       generally preferable, but the choice depends on the spiking properties of the
       target population. One important practical caveat: jGCaMP8 sensors can
-      undergo photoinactivation under sustained illumination — fluorescence declines
-      even when calcium levels are stable — which has implications for continuous
+      undergo photoinactivation under sustained illumination (fluorescence declines
+      even when calcium levels are stable) which has implications for continuous
       photometry recordings and should be monitored by checking baseline stability
       across sessions.
     </p>
     <p>
-      <strong>Neuromodulator sensors</strong> — including the GRAB
-      (G-protein-coupled receptor activation-based) family and dLight — detect
+      <strong>Neuromodulator sensors</strong>, including the GRAB
+      (G-protein-coupled receptor activation-based) family and dLight, detect
       extracellular neurotransmitters directly, bypassing the need to infer release
       from postsynaptic calcium signals. These sensors are engineered by inserting
       cpEGFP or a related fluorescent protein into a loop of a GPCR (for GRAB
@@ -653,16 +653,14 @@ const CONFIG = {
       monoaminergic and cholinergic transmitters with nanomolar sensitivity and
       sub-second kinetics. Because these sensors are expressed on the cell surface
       and detect ligand in the extracellular space, they report the ambient
-      concentration seen by a cell regardless of where the release originated —
-      a fundamentally different quantity from postsynaptic calcium, and one that
-      is uniquely suited to the study of volume transmission.
+      concentration seen by a cell regardless of where the release originated
+      a fundamentally different quantity from postsynaptic calcium.
     </p>
 
     <blockquote>
       <p>
         Fiber photometry does not tell you which cells fired. It tells you what the
-        tissue was doing — a different question, and often the more biologically
-        relevant one.
+        tissue was doing, a different question.
       </p>
     </blockquote>
 
@@ -684,8 +682,8 @@ const CONFIG = {
       excited at this wavelength therefore reflects the total indicator
       concentration and optical pathlength, but not calcium. By simultaneously
       illuminating the tissue with both a calcium-sensitive excitation wavelength
-      (typically 470 nm) and the isosbestic 405 nm wavelength — usually via
-      lock-in detection using amplitude-modulated LEDs at different frequencies —
+      (typically 470 nm) and the isosbestic 405 nm wavelength (usually via
+      lock-in detection using amplitude-modulated LEDs at different frequencies)
       one obtains a calcium signal and a motion/bleach reference signal in parallel.
       The final ΔF/F is computed after regressing the 405 nm channel out of the
       470 nm channel:
@@ -723,7 +721,7 @@ const CONFIG = {
       A situation encountered in practice, but rarely discussed explicitly in
       methods papers, is when the raw 405 nm channel has a higher baseline
       fluorescence amplitude than the 470 nm channel. This is not merely an
-      inconvenience — it is a diagnostic sign whose causes are worth understanding
+      inconvenience, it is a diagnostic sign whose causes are worth understanding
       precisely, because it affects how confident one can be in the subsequent
       correction.
     </p>
@@ -735,9 +733,9 @@ const CONFIG = {
       transduced the target region, or the fibre tip sits outside the expression
       volume, the calcium-dependent signal is small. The 405 nm channel, by
       contrast, collects fluorescence from all GCaMP molecules regardless of
-      calcium occupancy — but more critically, it also collects substantial
+      calcium occupancy, but more critically, it also collects substantial
       <em>tissue autofluorescence</em>. Endogenous fluorophores that absorb in the
-      violet — NADH, FAD, and collagen crosslinks — all have excitation peaks at or
+      violet — NADH, FAD, and collagen crosslinks, all have excitation peaks at or
       near 405 nm and emit in the blue-green range, overlapping with the GCaMP
       emission band collected by the detector. When GCaMP expression is low, this
       autofluorescence dominates the 405 nm channel and can exceed the 470 nm
@@ -754,23 +752,23 @@ const CONFIG = {
       470 nm excitation and ~520 nm GCaMP emission window differently from the
       405 nm channel, because oxy- and deoxyhaemoglobin have distinct absorption
       spectra and because photon path lengths differ at the two wavelengths. When
-      local cerebral blood volume increases — as it does during sustained neural
-      activation, or during pharmacological vasodilation — the 470 nm channel is
+      local cerebral blood volume increases, as it does during sustained neural
+      activation, or during pharmacological vasodilation, the 470 nm channel is
       suppressed to a greater extent than the 405 nm channel. The result is an
       apparent artefactual decrease in ΔF/F and, in extreme cases, a polarity
       inversion of the GCaMP signal that could be misread as neural inhibition.
       Critically, the standard isosbestic correction does not fully remove
       haemodynamic artefacts, because the 405 nm channel is itself affected by
       haemoglobin absorption, just not identically. Corrections based on spectral
-      decomposition of haemoglobin signals — using a co-expressed
-      activity-independent red fluorophore such as tdTomato — provide more complete
+      decomposition of haemoglobin signals, using a co-expressed
+      activity-independent red fluorophore such as tdTomato, provide more complete
       correction at the cost of added preparation complexity.
     </p>
     <p>
       A third cause, relevant specifically during analysis, is <strong>regression
       overcorrection</strong>. When ordinary least squares (OLS) regression is used
       to scale the 405 nm channel before subtraction, the fitted isosbestic is
-      pulled toward the neural transients in the 470 nm channel — overfitting the
+      pulled toward the neural transients in the 470 nm channel, overfitting the
       artefact model to real signal and systematically reducing apparent ΔF/F. This
       can create situations where the fitted 405 nm trace appears to track the
       470 nm transients, or where calculated ΔF/F is smaller than expected or even
@@ -832,15 +830,15 @@ const CONFIG = {
     <p>
       Modern fiber photometry rigs almost universally use lock-in detection rather
       than continuous illumination. Each LED is sinusoidally or square-wave
-      modulated at a distinct carrier frequency — for example, 211 Hz for 405 nm
-      and 531 Hz for 470 nm in the commonly used Tucker-Davis or Doric systems —
+      modulated at a distinct carrier frequency, for example, 211 Hz for 405 nm
+      and 531 Hz for 470 nm in the commonly used Tucker-Davis or Doric systems,
       and the photodetector output is digitised at high speed and demodulated in
       software or hardware to extract the amplitude envelope at each carrier
       frequency. This approach provides several advantages: it eliminates DC drift
       and low-frequency 1/f noise from the detector, it rejects ambient light
       contamination without physical shielding, and it allows simultaneous
       multi-channel acquisition across spectrally overlapping indicators from a
-      single fibre — for example, recording GCaMP (green) and a red-shifted RCaMP
+      single fibre, for example, recording GCaMP (green) and a red-shifted RCaMP
       or jRCaMP simultaneously. For dual-fibre bilateral recordings or multi-region
       implants, the same principle extends naturally by adding additional fibre
       channels with unique carrier frequencies.
@@ -852,16 +850,16 @@ const CONFIG = {
       unconstrained freely moving behaviour across long timescales, in deep brain
       structures entirely inaccessible to multiphoton imaging, with equipment costs
       an order of magnitude lower than a two-photon rig. Wireless miniaturised
-      systems — in which the LED, detector and digitiser are carried by the animal
-      itself — have extended this to social interaction paradigms and experiments in
+      systems, in which the LED, detector and digitiser are carried by the animal
+      itself, have extended this to social interaction paradigms and experiments in
       naturalistic environments where tethering is not feasible.
     </p>
     <p>
       Its defining limitation is the complete absence of single-cell resolution.
       A photometry signal from the striatum is the luminance-weighted sum of every
       GCaMP-expressing cell within the collection volume. If a behaviour engages
-      opposing subpopulations — say, D1 and D2 medium spiny neurons with
-      antagonistic effects on output — their signals partially cancel and the
+      opposing subpopulations, say, D1 and D2 striatal projection neurons with
+      antagonistic effects on output, their signals partially cancel and the
       resulting trace may appear flat while considerable activity is occurring.
       This can be addressed by targeting the indicator to only one subpopulation
       via intersectional genetic strategies, but cannot be resolved optically within
@@ -890,7 +888,7 @@ const CONFIG = {
       signal-to-noise and kinetics over the first-generation sensors substantially.
       The practical result is that photometry can now monitor the extracellular
       dynamics of nearly every major diffusible signalling molecule across the sleep
-      cycle, stress response, or reward circuit — a catalogue of questions that was
+      cycle, stress response, or reward circuit, a catalogue of questions that was
       simply beyond reach before 2018.
     </p>
     <p>
@@ -907,8 +905,8 @@ const CONFIG = {
     </p>
     <p>
       <strong>Wireless and multi-region systems.</strong> Fully wireless miniaturised
-      photometry systems — where the LED driver, detector, and data logger are
-      carried by the animal — have matured from proof-of-concept to commercial
+      photometry systems, where the LED driver, detector, and data logger are
+      carried by the animal, have matured from proof-of-concept to commercial
       availability. This removes the tether artefact entirely and opens paradigms
       involving multiple animals in the same enclosure, natural foraging, and
       home-cage recordings across entire circadian cycles. In parallel, multi-fibre
@@ -920,8 +918,8 @@ const CONFIG = {
     <p>
       <strong>Tapered fibre probes.</strong> Standard flat-cleaved fibres collect
       fluorescence primarily within 100–200 μm of the tip, with a collection volume
-      that does not vary with depth. Tapered fibre probes — in which the fibre is
-      drawn to a sharp conical tip — extend the collection volume along the probe's
+      that does not vary with depth. Tapered fibre probes, in which the fibre is
+      drawn to a sharp conical tip, extend the collection volume along the probe's
       depth axis and allow crude depth-resolved recording along a single penetration
       track, providing information about laminar or depth-dependent activity
       gradients that flat fibres obscure.
@@ -929,7 +927,7 @@ const CONFIG = {
     <p>
       <strong>Fluorescence lifetime photometry.</strong> Intensity-based photometry
       is intrinsically sensitive to variation in sensor expression levels, optical
-      coupling, and photobleaching — all of which shift the baseline independently
+      coupling, and photobleaching, all of which shift the baseline independently
       of biology. Fluorescence lifetime measurements record the rate of photon
       emission after a pulsed excitation rather than the number of photons, a
       quantity that is largely independent of expression level and excitation power.
@@ -943,11 +941,11 @@ const CONFIG = {
     <p>
       <strong>Analysis standardisation.</strong> A recognised problem through the
       early 2020s was the divergence in analysis pipelines: different groups
-      normalised ΔF/F differently, used different regression strategies, and applied
-      — or omitted — isosbestic correction in incompatible ways, making quantitative
+      normalised ΔF/F differently, used different regression strategies, and applied,
+       or omitted, isosbestic correction in incompatible ways, making quantitative
       comparison across studies unreliable. This has been addressed by a wave of
-      peer-reviewed open-source toolboxes — including pMAT, pyPhotometry, GuPPy,
-      and most recently PASTa (2025) — that codify best-practice pipelines and
+      peer-reviewed open-source toolboxes, including pMAT, pyPhotometry, GuPPy,
+      and most recently PASTa (2025), that codify best-practice pipelines and
       provide common data structures. The Simpson et al. 2024 primer in
       <em>Neuron</em> represents the field's most concerted attempt to establish
       consensus on hardware choices, correction strategies, and reporting standards.
@@ -1033,14 +1031,14 @@ const CONFIG = {
       saturates. At low rates, slow indicator kinetics mean individual spikes sum
       and are not individually resolvable. The saturation non-linearity also means
       that equal ΔF/F amplitudes at different baseline states do not represent equal
-      changes in firing — a point frequently overlooked when comparing conditions
+      changes in firing, a point frequently overlooked when comparing conditions
       that differ in baseline arousal or neuromodulatory tone.
     </p>
     <p>
       For GRAB sensors, ΔF/F is more directly interpretable as a monotonic function
       of occupancy, but the relationship between occupancy and true extracellular
       concentration depends on local sensor density, the indicator's K<sub>D</sub>
-      (~90 nM for GRAB<sub>DA2m</sub>), and the kinetics of reuptake — all of which
+      (~90 nM for GRAB<sub>DA2m</sub>), and the kinetics of reuptake, all of which
       vary across brain regions and can change with experimental manipulations.
       High-affinity sensors such as GRAB<sub>DA2h</sub> (K<sub>D</sub> ~7 nM) also
       carry a ligand-buffering risk: at sufficient expression levels, the sensor
@@ -1049,7 +1047,7 @@ const CONFIG = {
       particularly relevant after months of chronic expression.
     </p>
     <p>
-      None of this undermines the technique's power — it simply demands that the
+      None of this undermines the technique's power, it simply demands that the
       biological question be matched to the quantity being measured. Photometry
       excels at detecting the <em>timing</em> and <em>relative magnitude</em> of
       population-level events, at detecting whether a signal correlates with a
@@ -1059,11 +1057,11 @@ const CONFIG = {
       practice.
     </p>
     <p>
-      Used with appropriate rigour — with isosbestic correction applied via IRLS
+      Used with appropriate rigour, with isosbestic correction applied via IRLS
       rather than OLS, with awareness of haemodynamic artefacts in pharmacology
       experiments, with vigilance for jGCaMP8 photoinactivation in long recordings,
       with thoughtful choice of indicator kinetics, and with genetic targeting
-      precise enough that the signal source is unambiguous — fiber photometry
+      precise enough that the signal source is unambiguous, fiber photometry
       occupies a unique and largely irreplaceable niche in the neuroscientist's
       toolkit. It is the method that finally made it possible to watch a dopamine
       transient unfold in the nucleus accumbens of a mouse as it experiences an
