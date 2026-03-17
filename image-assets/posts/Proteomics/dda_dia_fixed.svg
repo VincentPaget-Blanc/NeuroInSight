@@ -1,0 +1,258 @@
+<svg width="100%" viewBox="0 0 680 530" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5"
+    markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      .panel-hd  { fill: #e8e6de; }
+      .frame     { fill: none; stroke: rgba(222,220,209,0.2); }
+      .mz-txt    { fill: #5f5e5a; }
+      .scan-lbl  { fill: #9c9a92; }
+      .arr-neu   { stroke: #5f5e5a; }
+      .pk        { fill: #1D9E75; }
+      .sel-bdr   { fill: none; stroke: #E24B4A; }
+      .sel-num   { fill: #E24B4A; }
+      .arr-sel   { stroke: #E24B4A; }
+      .sel-lbl   { fill: #E24B4A; }
+      .frag      { fill: #0F6E56; }
+      .out-dda   { fill: #501313; stroke: #F09595; }
+      .out-dda-h { fill: #F7C1C1; }
+      .out-dda-s { fill: #F09595; }
+      .win-a     { fill: rgba(83,74,183,0.20); }
+      .win-b     { fill: rgba(127,119,221,0.20); }
+      .win-lbl   { fill: #AFA9EC; }
+      .arr-dia   { stroke: #7F77DD; }
+      .ch1       { fill: #534AB7; }
+      .ch2       { fill: #7F77DD; }
+      .ch3       { fill: #AFA9EC; }
+      .out-dia   { fill: #04342C; stroke: #5DCAA5; }
+      .out-dia-h { fill: #9FE1CB; }
+      .out-dia-s { fill: #5DCAA5; }
+      .sum-box   { fill: none; stroke: rgba(222,220,209,0.2); }
+      .sum-hd    { fill: #e8e6de; }
+      .sum-txt   { fill: #9c9a92; }
+      .divider   { stroke: rgba(222,220,209,0.2); }
+      .soft-lbl  { fill: #9c9a92; }
+    }
+    @media (prefers-color-scheme: light) {
+      .panel-hd  { fill: #1a1a1a; }
+      .frame     { fill: none; stroke: #D3D1C7; }
+      .mz-txt    { fill: #B4B2A9; }
+      .scan-lbl  { fill: #5f5e5a; }
+      .arr-neu   { stroke: #B4B2A9; }
+      .pk        { fill: #1D9E75; }
+      .sel-bdr   { fill: none; stroke: #E24B4A; }
+      .sel-num   { fill: #E24B4A; }
+      .arr-sel   { stroke: #E24B4A; }
+      .sel-lbl   { fill: #E24B4A; }
+      .frag      { fill: #0F6E56; }
+      .out-dda   { fill: #FCEBEB; stroke: #F09595; }
+      .out-dda-h { fill: #501313; }
+      .out-dda-s { fill: #A32D2D; }
+      .win-a     { fill: rgba(83,74,183,0.08); }
+      .win-b     { fill: rgba(127,119,221,0.08); }
+      .win-lbl   { fill: #534AB7; }
+      .arr-dia   { stroke: #534AB7; }
+      .ch1       { fill: #534AB7; }
+      .ch2       { fill: #7F77DD; }
+      .ch3       { fill: #AFA9EC; }
+      .out-dia   { fill: #E1F5EE; stroke: #0F6E56; }
+      .out-dia-h { fill: #04342C; }
+      .out-dia-s { fill: #0F6E56; }
+      .sum-box   { fill: none; stroke: #D3D1C7; }
+      .sum-hd    { fill: #1a1a1a; }
+      .sum-txt   { fill: #5f5e5a; }
+      .divider   { stroke: #D3D1C7; }
+      .soft-lbl  { fill: #888780; }
+    }
+    .lbl { font: 500 13px "Helvetica Neue", Arial, sans-serif; }
+    .sub { font: 400 11px "Helvetica Neue", Arial, sans-serif; }
+  </style>
+</defs>
+
+<!-- ════ DDA PANEL (left, x=20..330) ════ -->
+<text class="lbl panel-hd" x="175" y="20" text-anchor="middle">DDA — data-dependent acquisition</text>
+
+<!-- MS1 frame -->
+<rect x="20" y="28" width="310" height="114" rx="5" class="frame" stroke-width="0.5"/>
+<text class="sub scan-lbl" x="28" y="44">MS1 survey scan</text>
+
+<!-- 10 peptide peaks -->
+<rect x="42"  y="86"  width="11" height="48" rx="2" class="pk" opacity="0.70"/>
+<rect x="62"  y="98"  width="11" height="36" rx="2" class="pk" opacity="0.65"/>
+<rect x="82"  y="66"  width="11" height="68" rx="2" class="pk" opacity="0.95"/>
+<rect x="102" y="104" width="11" height="32" rx="2" class="pk" opacity="0.50"/>
+<rect x="122" y="76"  width="11" height="58" rx="2" class="pk" opacity="0.85"/>
+<rect x="142" y="94"  width="11" height="40" rx="2" class="pk" opacity="0.60"/>
+<rect x="162" y="114" width="11" height="20" rx="2" class="pk" opacity="0.40"/>
+<rect x="182" y="100" width="11" height="34" rx="2" class="pk" opacity="0.55"/>
+<rect x="202" y="118" width="11" height="16" rx="2" class="pk" opacity="0.35"/>
+<rect x="222" y="108" width="11" height="26" rx="2" class="pk" opacity="0.45"/>
+<text class="sub mz-txt" x="175" y="152" text-anchor="middle">m/z →</text>
+
+<!-- Top-3 selection brackets on tallest peaks -->
+<!-- Peak at x=82 (tallest, h=68): bracket x=76..100 -->
+<rect x="76" y="58" width="24" height="80" rx="3" class="sel-bdr" stroke-width="1.5" stroke-dasharray="3 2"/>
+<text class="sub sel-num" x="88" y="55" text-anchor="middle">1</text>
+<!-- Peak at x=122 (2nd, h=58): bracket x=116..140 -->
+<rect x="116" y="68" width="24" height="76" rx="3" class="sel-bdr" stroke-width="1.5" stroke-dasharray="3 2"/>
+<text class="sub sel-num" x="128" y="65" text-anchor="middle">2</text>
+<!-- Peak at x=42 (3rd, h=48): bracket x=36..60 -->
+<rect x="36" y="78" width="24" height="66" rx="3" class="sel-bdr" stroke-width="1.5" stroke-dasharray="3 2"/>
+<text class="sub sel-num" x="48" y="75" text-anchor="middle">3</text>
+
+<!-- Arrow + label (label above arrow, not on it) -->
+<text class="sub sel-lbl" x="175" y="162" text-anchor="middle">↓ select top-N precursors</text>
+
+<!-- Three MS2 spectra side by side (y=170..240) -->
+<rect x="20"  y="170" width="92" height="68" rx="4" class="frame" stroke-width="0.5"/>
+<text class="sub scan-lbl" x="66" y="184" text-anchor="middle">precursor 1</text>
+<rect x="28"  y="205" width="6" height="27" rx="1" class="frag" opacity="0.90"/>
+<rect x="38"  y="213" width="6" height="19" rx="1" class="frag" opacity="0.65"/>
+<rect x="48"  y="200" width="6" height="32" rx="1" class="frag" opacity="0.95"/>
+<rect x="58"  y="209" width="6" height="23" rx="1" class="frag" opacity="0.70"/>
+<rect x="68"  y="217" width="6" height="15" rx="1" class="frag" opacity="0.50"/>
+<rect x="78"  y="204" width="6" height="28" rx="1" class="frag" opacity="0.80"/>
+<rect x="88"  y="211" width="6" height="21" rx="1" class="frag" opacity="0.60"/>
+
+<rect x="119" y="170" width="92" height="68" rx="4" class="frame" stroke-width="0.5"/>
+<text class="sub scan-lbl" x="165" y="184" text-anchor="middle">precursor 2</text>
+<rect x="127" y="208" width="6" height="24" rx="1" class="frag" opacity="0.65"/>
+<rect x="137" y="196" width="6" height="36" rx="1" class="frag" opacity="0.95"/>
+<rect x="147" y="205" width="6" height="27" rx="1" class="frag" opacity="0.70"/>
+<rect x="157" y="214" width="6" height="18" rx="1" class="frag" opacity="0.45"/>
+<rect x="167" y="200" width="6" height="32" rx="1" class="frag" opacity="0.80"/>
+<rect x="177" y="210" width="6" height="22" rx="1" class="frag" opacity="0.55"/>
+<rect x="187" y="204" width="6" height="28" rx="1" class="frag" opacity="0.70"/>
+
+<rect x="218" y="170" width="92" height="68" rx="4" class="frame" stroke-width="0.5"/>
+<text class="sub scan-lbl" x="264" y="184" text-anchor="middle">precursor 3</text>
+<rect x="226" y="203" width="6" height="29" rx="1" class="frag" opacity="0.85"/>
+<rect x="236" y="212" width="6" height="20" rx="1" class="frag" opacity="0.60"/>
+<rect x="246" y="198" width="6" height="34" rx="1" class="frag" opacity="0.90"/>
+<rect x="256" y="207" width="6" height="25" rx="1" class="frag" opacity="0.65"/>
+<rect x="266" y="216" width="6" height="16" rx="1" class="frag" opacity="0.45"/>
+<rect x="276" y="202" width="6" height="30" rx="1" class="frag" opacity="0.75"/>
+<rect x="286" y="209" width="6" height="23" rx="1" class="frag" opacity="0.55"/>
+
+<!-- DDA outcome box -->
+<rect x="20" y="250" width="310" height="44" rx="6" class="out-dda" stroke-width="0.5"/>
+<text class="lbl out-dda-h" x="175" y="268" text-anchor="middle" dominant-baseline="central">Stochastic: low-abundance peptides</text>
+<text class="sub out-dda-s" x="175" y="284" text-anchor="middle" dominant-baseline="central">often skipped → missing values across runs</text>
+
+<!-- ════ DIA PANEL (right, x=350..660) ════ -->
+<text class="lbl panel-hd" x="505" y="20" text-anchor="middle">DIA — data-independent acquisition</text>
+
+<!-- MS1 frame -->
+<rect x="350" y="28" width="310" height="114" rx="5" class="frame" stroke-width="0.5"/>
+<text class="sub scan-lbl" x="358" y="44">MS1 survey (same peaks)</text>
+
+<!-- Same peaks -->
+<rect x="372" y="86"  width="11" height="48" rx="2" class="pk" opacity="0.70"/>
+<rect x="392" y="98"  width="11" height="36" rx="2" class="pk" opacity="0.65"/>
+<rect x="412" y="66"  width="11" height="68" rx="2" class="pk" opacity="0.95"/>
+<rect x="432" y="104" width="11" height="32" rx="2" class="pk" opacity="0.50"/>
+<rect x="452" y="76"  width="11" height="58" rx="2" class="pk" opacity="0.85"/>
+<rect x="472" y="94"  width="11" height="40" rx="2" class="pk" opacity="0.60"/>
+<rect x="492" y="114" width="11" height="20" rx="2" class="pk" opacity="0.40"/>
+<rect x="512" y="100" width="11" height="34" rx="2" class="pk" opacity="0.55"/>
+<rect x="532" y="118" width="11" height="16" rx="2" class="pk" opacity="0.35"/>
+<rect x="552" y="108" width="11" height="26" rx="2" class="pk" opacity="0.45"/>
+<text class="sub mz-txt" x="505" y="152" text-anchor="middle">m/z →</text>
+
+<!-- Three wide isolation windows -->
+<rect x="354" y="32" width="90" height="108" class="win-a"/>
+<rect x="446" y="32" width="90" height="108" class="win-b"/>
+<rect x="538" y="32" width="90" height="108" class="win-a"/>
+<!-- Window labels inside windows, above peaks -->
+<text class="sub win-lbl" x="399" y="48" text-anchor="middle">window 1</text>
+<text class="sub win-lbl" x="491" y="48" text-anchor="middle">window 2</text>
+<text class="sub win-lbl" x="583" y="48" text-anchor="middle">window 3</text>
+
+<!-- Arrow + label (label above arrow) -->
+<text class="sub win-lbl" x="505" y="162" text-anchor="middle">↓ fragment all windows, every cycle</text>
+
+<!-- Chimeric MS2 (y=170..240) -->
+<rect x="350" y="170" width="310" height="68" rx="4" class="frame" stroke-width="0.5"/>
+<text class="sub scan-lbl" x="505" y="184" text-anchor="middle">chimeric MS2 — fragment ions from all co-isolated precursors</text>
+<!-- Dense forest of coloured bars -->
+<rect x="358" y="210" width="5" height="24" rx="1" class="ch1" opacity="0.70"/>
+<rect x="365" y="200" width="5" height="34" rx="1" class="ch2" opacity="0.60"/>
+<rect x="372" y="206" width="5" height="28" rx="1" class="ch1" opacity="0.55"/>
+<rect x="379" y="197" width="5" height="37" rx="1" class="ch3" opacity="0.80"/>
+<rect x="386" y="213" width="5" height="21" rx="1" class="ch1" opacity="0.45"/>
+<rect x="393" y="204" width="5" height="30" rx="1" class="ch2" opacity="0.65"/>
+<rect x="400" y="198" width="5" height="36" rx="1" class="ch1" opacity="0.75"/>
+<rect x="407" y="208" width="5" height="26" rx="1" class="ch3" opacity="0.50"/>
+<rect x="414" y="202" width="5" height="32" rx="1" class="ch2" opacity="0.70"/>
+<rect x="421" y="211" width="5" height="23" rx="1" class="ch1" opacity="0.55"/>
+<rect x="428" y="195" width="5" height="39" rx="1" class="ch2" opacity="0.85"/>
+<rect x="435" y="209" width="5" height="25" rx="1" class="ch3" opacity="0.45"/>
+<rect x="442" y="201" width="5" height="33" rx="1" class="ch1" opacity="0.60"/>
+<rect x="449" y="207" width="5" height="27" rx="1" class="ch2" opacity="0.70"/>
+<rect x="456" y="215" width="5" height="19" rx="1" class="ch1" opacity="0.42"/>
+<rect x="463" y="199" width="5" height="35" rx="1" class="ch3" opacity="0.60"/>
+<rect x="470" y="205" width="5" height="29" rx="1" class="ch2" opacity="0.55"/>
+<rect x="477" y="210" width="5" height="24" rx="1" class="ch1" opacity="0.65"/>
+<rect x="484" y="196" width="5" height="38" rx="1" class="ch2" opacity="0.80"/>
+<rect x="491" y="212" width="5" height="22" rx="1" class="ch1" opacity="0.50"/>
+<rect x="498" y="203" width="5" height="31" rx="1" class="ch3" opacity="0.55"/>
+<rect x="505" y="208" width="5" height="26" rx="1" class="ch2" opacity="0.60"/>
+<rect x="512" y="197" width="5" height="37" rx="1" class="ch1" opacity="0.70"/>
+<rect x="519" y="213" width="5" height="21" rx="1" class="ch3" opacity="0.40"/>
+<rect x="526" y="202" width="5" height="32" rx="1" class="ch2" opacity="0.65"/>
+<rect x="533" y="207" width="5" height="27" rx="1" class="ch1" opacity="0.52"/>
+<rect x="540" y="194" width="5" height="40" rx="1" class="ch2" opacity="0.75"/>
+<rect x="547" y="209" width="5" height="25" rx="1" class="ch3" opacity="0.45"/>
+<rect x="554" y="204" width="5" height="30" rx="1" class="ch1" opacity="0.60"/>
+<rect x="561" y="199" width="5" height="35" rx="1" class="ch2" opacity="0.55"/>
+<rect x="568" y="211" width="5" height="23" rx="1" class="ch3" opacity="0.48"/>
+<rect x="575" y="202" width="5" height="32" rx="1" class="ch1" opacity="0.65"/>
+<rect x="582" y="207" width="5" height="27" rx="1" class="ch2" opacity="0.58"/>
+<rect x="589" y="196" width="5" height="38" rx="1" class="ch1" opacity="0.70"/>
+<rect x="596" y="210" width="5" height="24" rx="1" class="ch3" opacity="0.50"/>
+<rect x="603" y="201" width="5" height="33" rx="1" class="ch2" opacity="0.62"/>
+<rect x="610" y="206" width="5" height="28" rx="1" class="ch1" opacity="0.55"/>
+<rect x="617" y="198" width="5" height="36" rx="1" class="ch3" opacity="0.68"/>
+<rect x="624" y="213" width="5" height="21" rx="1" class="ch2" opacity="0.45"/>
+<rect x="631" y="204" width="5" height="30" rx="1" class="ch1" opacity="0.60"/>
+<rect x="638" y="208" width="5" height="26" rx="1" class="ch3" opacity="0.55"/>
+<rect x="645" y="200" width="5" height="34" rx="1" class="ch2" opacity="0.72"/>
+<rect x="652" y="215" width="5" height="19" rx="1" class="ch1" opacity="0.42"/>
+
+<!-- Arrow + label (label above arrow) -->
+<text class="sub soft-lbl" x="505" y="252" text-anchor="middle">↓ deconvolved by DIA-NN / Spectronaut</text>
+
+<!-- DIA outcome box -->
+<rect x="350" y="258" width="310" height="36" rx="6" class="out-dia" stroke-width="0.5"/>
+<text class="lbl out-dia-h" x="505" y="274" text-anchor="middle" dominant-baseline="central">All precursors sampled every cycle</text>
+<text class="sub out-dia-s" x="505" y="288" text-anchor="middle" dominant-baseline="central">near-zero missing values · CV 5–15%</text>
+
+<!-- ════ Summary table (y=310..490) ════ -->
+<rect x="20"  y="308" width="310" height="170" rx="7" class="sum-box" stroke-width="0.5"/>
+<rect x="350" y="308" width="310" height="170" rx="7" class="sum-box" stroke-width="0.5"/>
+<line x1="340" y1="308" x2="340" y2="478" class="divider" stroke-width="0.5" stroke-dasharray="4 3"/>
+
+<text class="lbl sum-hd" x="175" y="328" text-anchor="middle">DDA characteristics</text>
+<text class="sub sum-txt" x="32" y="348">Biased toward high-abundance peptides</text>
+<text class="sub sum-txt" x="32" y="364">Stochastic selection → missing values</text>
+<text class="sub sum-txt" x="32" y="380">Clean, single-precursor MS2 spectra</text>
+<text class="sub sum-txt" x="32" y="396">Works on any instrument</text>
+<text class="sub sum-txt" x="32" y="412">Intra-group CV: 20–30% (LFQ)</text>
+<text class="sub sum-txt" x="32" y="428">MBR (match-between-runs) recovers some</text>
+<text class="sub sum-txt" x="32" y="444">missing IDs at the cost of FDR inflation</text>
+<text class="sub sum-txt" x="32" y="464">Depth: moderate; favours abundant</text>
+
+<text class="lbl sum-hd" x="505" y="328" text-anchor="middle">DIA characteristics</text>
+<text class="sub sum-txt" x="362" y="348">Unbiased: all precursors sampled</text>
+<text class="sub sum-txt" x="362" y="364">Consistent detection → low missingness</text>
+<text class="sub sum-txt" x="362" y="380">Chimeric MS2; spectral library required</text>
+<text class="sub sum-txt" x="362" y="396">DIA-NN / Spectronaut for analysis</text>
+<text class="sub sum-txt" x="362" y="412">Intra-group CV: 5–15%</text>
+<text class="sub sum-txt" x="362" y="428">Library-free analysis possible via</text>
+<text class="sub sum-txt" x="362" y="444">in silico prediction (Prosit, DIA-NN)</text>
+<text class="sub sum-txt" x="362" y="464">Depth: greater, esp. low-abundance</text>
+</svg>

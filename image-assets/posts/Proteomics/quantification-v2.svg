@@ -1,0 +1,249 @@
+<svg width="100%" viewBox="0 0 720 570" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5"
+    markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      .bg-card { fill: #2a2a28; stroke: #444441; }
+      .bg-band { fill: #323230; stroke: #444441; }
+      .div-ln  { stroke: #444441; }
+      .tx-p    { fill: #e8e6de; }
+      .tx-s    { fill: #9c9a92; }
+      .la      { fill: #26215C; stroke: #7F77DD; }
+      .lb      { fill: #3C3489; stroke: #AFA9EC; }
+      .lbar    { fill: #7F77DD; }
+      .lout    { fill: #26215C; stroke: #7F77DD; }
+      .lt      { fill: #CECBF6; }
+      .sl      { fill: #04342C; stroke: #5DCAA5; }
+      .sh      { fill: #0F6E56; stroke: #9FE1CB; }
+      .smx     { fill: #085041; stroke: #5DCAA5; }
+      .sbl     { fill: #5DCAA5; }
+      .sbh     { fill: #9FE1CB; }
+      .so      { fill: #04342C; stroke: #5DCAA5; }
+      .st      { fill: #9FE1CB; }
+      .sht     { fill: #E1F5EE; }
+      .ta      { fill: #412402; stroke: #EF9F27; }
+      .ttg     { fill: #854F0B; }
+      .tmx     { fill: #633806; stroke: #EF9F27; }
+      .tbar    { fill: #EF9F27; }
+      .to      { fill: #412402; stroke: #EF9F27; }
+      .tt      { fill: #FAC775; }
+      .tht     { fill: #FAEEDA; }
+      .arl     { stroke: #7F77DD; }
+      .ars     { stroke: #1D9E75; }
+      .art     { stroke: #EF9F27; }
+    }
+    @media (prefers-color-scheme: light) {
+      .bg-card { fill: #f8f7f3; stroke: #D3D1C7; }
+      .bg-band { fill: #F1EFE8; stroke: #D3D1C7; }
+      .div-ln  { stroke: #D3D1C7; }
+      .tx-p    { fill: #1a1a1a; }
+      .tx-s    { fill: #5f5e5a; }
+      .la      { fill: #EEEDFE; stroke: #7F77DD; }
+      .lb      { fill: #CECBF6; stroke: #534AB7; }
+      .lbar    { fill: #534AB7; }
+      .lout    { fill: #EEEDFE; stroke: #534AB7; }
+      .lt      { fill: #26215C; }
+      .sl      { fill: #E1F5EE; stroke: #0F6E56; }
+      .sh      { fill: #085041; stroke: #9FE1CB; }
+      .smx     { fill: #1D9E75; stroke: #0F6E56; }
+      .sbl     { fill: #1D9E75; }
+      .sbh     { fill: #085041; }
+      .so      { fill: #E1F5EE; stroke: #0F6E56; }
+      .st      { fill: #085041; }
+      .sht     { fill: #E1F5EE; }
+      .ta      { fill: #FAEEDA; stroke: #BA7517; }
+      .ttg     { fill: #EF9F27; }
+      .tmx     { fill: #BA7517; stroke: #633806; }
+      .tbar    { fill: #BA7517; }
+      .to      { fill: #FAEEDA; stroke: #BA7517; }
+      .tt      { fill: #412402; }
+      .tht     { fill: #FAEEDA; }
+      .arl     { stroke: #7F77DD; }
+      .ars     { stroke: #0F6E56; }
+      .art     { stroke: #BA7517; }
+    }
+    .lbl  { font: 500 13px "Helvetica Neue", Arial, sans-serif; }
+    .sub  { font: 400 11px "Helvetica Neue", Arial, sans-serif; }
+    .head { font: 500 14px "Helvetica Neue", Arial, sans-serif; }
+  </style>
+</defs>
+
+<!-- viewBox 720 wide: LFQ x=0..240, SILAC x=240..480, TMT x=480..720 -->
+
+<!-- Column headers -->
+<text class="head lt"  x="120" y="18" text-anchor="middle">Label-free (LFQ)</text>
+<text class="head st"  x="360" y="18" text-anchor="middle">SILAC</text>
+<text class="head tt"  x="600" y="18" text-anchor="middle">TMT isobaric labelling</text>
+
+<!-- Dividers -->
+<line x1="240" y1="24" x2="240" y2="500" class="div-ln" stroke-width="0.5"/>
+<line x1="480" y1="24" x2="480" y2="500" class="div-ln" stroke-width="0.5"/>
+
+<!-- ════ LFQ COLUMN (centre x=120) ════ -->
+<rect x="18" y="28" width="204" height="36" rx="6" class="la" stroke-width="0.5"/>
+<text class="lbl lt" x="120" y="44" text-anchor="middle" dominant-baseline="central">Sample A — no label</text>
+<text class="sub lt" x="120" y="58" text-anchor="middle" dominant-baseline="central">digest separately</text>
+
+<rect x="18" y="78" width="204" height="36" rx="6" class="lb" stroke-width="0.5"/>
+<text class="lbl lt" x="120" y="94" text-anchor="middle" dominant-baseline="central">Sample B — no label</text>
+<text class="sub lt" x="120" y="108" text-anchor="middle" dominant-baseline="central">digest separately</text>
+
+<text class="sub tx-s" x="120" y="126" text-anchor="middle">↓ separate LC-MS runs</text>
+<line x1="120" y1="130" x2="120" y2="144" class="arl" stroke-width="1.5" marker-end="url(#arr)"/>
+
+<!-- Two mini spectra -->
+<rect x="18"  y="148" width="90" height="64" rx="4" class="bg-card" stroke-width="0.5"/>
+<rect x="132" y="148" width="90" height="64" rx="4" class="bg-card" stroke-width="0.5"/>
+<text class="sub tx-s" x="63"  y="162" text-anchor="middle">Run A</text>
+<text class="sub tx-s" x="177" y="162" text-anchor="middle">Run B</text>
+<rect x="28"  y="177" width="7" height="28" rx="1" class="lbar" opacity="0.9"/>
+<rect x="39"  y="183" width="7" height="22" rx="1" class="lbar" opacity="0.65"/>
+<rect x="50"  y="170" width="7" height="35" rx="1" class="lbar" opacity="0.95"/>
+<rect x="61"  y="179" width="7" height="26" rx="1" class="lbar" opacity="0.70"/>
+<rect x="72"  y="187" width="7" height="18" rx="1" class="lbar" opacity="0.50"/>
+<rect x="142" y="181" width="7" height="24" rx="1" class="lbar" opacity="0.70"/>
+<rect x="153" y="165" width="7" height="40" rx="1" class="lbar" opacity="0.95"/>
+<rect x="164" y="174" width="7" height="31" rx="1" class="lbar" opacity="0.75"/>
+<rect x="175" y="184" width="7" height="21" rx="1" class="lbar" opacity="0.55"/>
+<rect x="186" y="168" width="7" height="37" rx="1" class="lbar" opacity="0.80"/>
+
+<text class="sub tx-s" x="120" y="226" text-anchor="middle">↓ MaxLFQ normalisation</text>
+<line x1="120" y1="230" x2="120" y2="244" class="arl" stroke-width="1.5" marker-end="url(#arr)"/>
+
+<rect x="38" y="248" width="164" height="24" rx="5" class="lout" stroke-width="0.5"/>
+<text class="sub lt" x="120" y="262" text-anchor="middle" dominant-baseline="central">intensity ratio = fold change</text>
+
+<!-- LFQ characteristics -->
+<rect x="18" y="290" width="204" height="126" rx="6" class="bg-band" stroke-width="0.5"/>
+<text class="sub tx-s" x="30" y="308">No chemical modification</text>
+<text class="sub tx-s" x="30" y="324">Any sample type or organism</text>
+<text class="sub tx-s" x="30" y="340">Run-to-run variance present</text>
+<text class="sub tx-s" x="30" y="356">CV ~20–30% DDA; ~5–15% DIA</text>
+<text class="sub tx-s" x="30" y="372">No upper multiplex limit</text>
+<text class="sub tx-s" x="30" y="388">Tools: MaxLFQ, IonQuant, DIA-NN</text>
+
+<!-- ════ SILAC COLUMN (centre x=360, width=220 for each box) ════ -->
+<!-- Light sample — wider box to fit superscript text -->
+<rect x="250" y="28" width="220" height="40" rx="6" class="sl" stroke-width="0.5"/>
+<text class="lbl st" x="360" y="44" text-anchor="middle" dominant-baseline="central">Sample A — light</text>
+<text class="sub st" x="360" y="60" text-anchor="middle" dominant-baseline="central">¹²C-Lys (Lys-0) · ¹²C-Arg (Arg-0)</text>
+
+<!-- Heavy sample — wider box -->
+<rect x="250" y="82" width="220" height="40" rx="6" class="sh" stroke-width="1"/>
+<text class="lbl sht" x="360" y="98" text-anchor="middle" dominant-baseline="central">Sample B — heavy</text>
+<text class="sub sht" x="360" y="114" text-anchor="middle" dominant-baseline="central">¹³C₆-Lys (+6 Da) · ¹³C₆-Arg (+6 Da)</text>
+
+<text class="sub tx-s" x="360" y="134" text-anchor="middle">↓ mix at protein level</text>
+<line x1="360" y1="138" x2="360" y2="152" class="ars" stroke-width="1.5" marker-end="url(#arr)"/>
+<circle cx="360" cy="170" r="16" class="smx" stroke-width="1"/>
+<text class="lbl sht" x="360" y="175" text-anchor="middle">MIX</text>
+
+<text class="sub tx-s" x="360" y="199" text-anchor="middle">↓ single LC-MS run</text>
+<line x1="360" y1="203" x2="360" y2="216" class="ars" stroke-width="1.5" marker-end="url(#arr)"/>
+
+<!-- MS1 doublet spectrum box -->
+<rect x="258" y="220" width="204" height="72" rx="4" class="bg-card" stroke-width="0.5"/>
+<text class="sub tx-s" x="360" y="234" text-anchor="middle">MS1 — light/heavy doublets co-elute</text>
+
+<!-- Three doublet pairs (L+H, +3 m/z for z=2) -->
+<!-- Pair 1 -->
+<rect x="272" y="242" width="7" height="36" rx="1" class="sbl" opacity="0.95"/>
+<rect x="290" y="254" width="7" height="24" rx="1" class="sbh" opacity="0.90"/>
+<!-- Pair 2 -->
+<rect x="316" y="246" width="7" height="32" rx="1" class="sbl" opacity="0.90"/>
+<rect x="334" y="256" width="7" height="22" rx="1" class="sbh" opacity="0.85"/>
+<!-- Pair 3 -->
+<rect x="374" y="240" width="7" height="38" rx="1" class="sbl" opacity="0.95"/>
+<rect x="392" y="250" width="7" height="28" rx="1" class="sbh" opacity="0.80"/>
+
+<!-- L/H labels below bars -->
+<text class="sub st"  x="276" y="282" text-anchor="middle">L</text>
+<text class="sub tx-s" x="294" y="282" text-anchor="middle">H</text>
+<text class="sub st"  x="320" y="282" text-anchor="middle">L</text>
+<text class="sub tx-s" x="338" y="282" text-anchor="middle">H</text>
+<text class="sub st"  x="378" y="282" text-anchor="middle">L</text>
+<text class="sub tx-s" x="396" y="282" text-anchor="middle">H</text>
+
+<!-- +3 m/z annotation — above the first pair, clear of bars -->
+<line x1="276" y1="238" x2="294" y2="238" class="div-ln" stroke-width="0.5" stroke-dasharray="2 2"/>
+<text class="sub st" x="285" y="234" text-anchor="middle">+3 m/z (z=2)</text>
+
+<line x1="360" y1="294" x2="360" y2="308" class="ars" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="286" y="312" width="148" height="24" rx="5" class="so" stroke-width="0.5"/>
+<text class="sub st" x="360" y="327" text-anchor="middle" dominant-baseline="central">H/L ratio = fold change</text>
+
+<!-- SILAC characteristics -->
+<rect x="250" y="354" width="220" height="126" rx="6" class="bg-band" stroke-width="0.5"/>
+<text class="sub tx-s" x="262" y="372">Metabolic labelling in cell culture</text>
+<text class="sub tx-s" x="262" y="388">Cell culture only (in vivo possible)</text>
+<text class="sub tx-s" x="262" y="404">Lowest technical variance</text>
+<text class="sub tx-s" x="262" y="420">CV &lt;5% (gold standard)</text>
+<text class="sub tx-s" x="262" y="436">2-plex standard; 3-plex triple-SILAC</text>
+<text class="sub tx-s" x="262" y="452">Tools: MaxQuant, MSFragger</text>
+
+<!-- ════ TMT COLUMN (centre x=600) ════ -->
+<rect x="490" y="28" width="212" height="40" rx="6" class="ta" stroke-width="0.5"/>
+<text class="lbl tt" x="596" y="44" text-anchor="middle" dominant-baseline="central">Samples 1 – 18</text>
+<text class="sub tt" x="596" y="60" text-anchor="middle" dominant-baseline="central">digest each separately</text>
+
+<text class="sub tx-s" x="596" y="82" text-anchor="middle">↓ label N-termini + Lys with unique tag</text>
+<line x1="596" y1="86" x2="596" y2="96" class="art" stroke-width="1.5" marker-end="url(#arr)"/>
+
+<!-- 5 TMT tag swatches evenly spaced -->
+<rect x="499" y="100" width="24" height="16" rx="3" class="ttg" opacity="1.0"/>
+<rect x="527" y="100" width="24" height="16" rx="3" class="ttg" opacity="0.80"/>
+<rect x="555" y="100" width="24" height="16" rx="3" class="ttg" opacity="0.62"/>
+<rect x="583" y="100" width="24" height="16" rx="3" class="ttg" opacity="0.46"/>
+<rect x="611" y="100" width="24" height="16" rx="3" class="ttg" opacity="0.30"/>
+
+<text class="sub tx-s" x="596" y="130" text-anchor="middle">↓ pool all labelled samples</text>
+<line x1="596" y1="134" x2="596" y2="148" class="art" stroke-width="1.5" marker-end="url(#arr)"/>
+<circle cx="596" cy="166" r="16" class="tmx" stroke-width="1"/>
+<text class="lbl tht" x="596" y="171" text-anchor="middle">MIX</text>
+
+<text class="sub tx-s" x="596" y="195" text-anchor="middle">↓ single LC-MS run</text>
+<line x1="596" y1="199" x2="596" y2="212" class="art" stroke-width="1.5" marker-end="url(#arr)"/>
+
+<!-- MS2 reporter ion spectrum -->
+<rect x="490" y="216" width="212" height="72" rx="4" class="bg-card" stroke-width="0.5"/>
+<text class="sub tx-s" x="596" y="230" text-anchor="middle">MS2 — reporter ions (low-mass region)</text>
+<!-- Reporter bars + m/z labels below -->
+<rect x="505" y="238" width="10" height="38" rx="1" class="tbar" opacity="0.90"/>
+<rect x="522" y="244" width="10" height="32" rx="1" class="tbar" opacity="0.75"/>
+<rect x="539" y="235" width="10" height="41" rx="1" class="tbar" opacity="0.85"/>
+<rect x="556" y="248" width="10" height="28" rx="1" class="tbar" opacity="0.65"/>
+<rect x="573" y="241" width="10" height="35" rx="1" class="tbar" opacity="0.80"/>
+<!-- m/z labels — 14px spacing, centred on each bar -->
+<text class="sub tx-s" x="510" y="281" text-anchor="middle">126</text>
+<text class="sub tx-s" x="527" y="281" text-anchor="middle">127</text>
+<text class="sub tx-s" x="544" y="281" text-anchor="middle">128</text>
+<text class="sub tx-s" x="561" y="281" text-anchor="middle">129</text>
+<text class="sub tx-s" x="578" y="281" text-anchor="middle">130</text>
+
+<line x1="596" y1="290" x2="596" y2="304" class="art" stroke-width="1.5" marker-end="url(#arr)"/>
+<rect x="514" y="308" width="164" height="24" rx="5" class="to" stroke-width="0.5"/>
+<text class="sub tt" x="596" y="323" text-anchor="middle" dominant-baseline="central">reporter ratio = fold change</text>
+
+<!-- TMT characteristics -->
+<rect x="490" y="354" width="212" height="126" rx="6" class="bg-band" stroke-width="0.5"/>
+<text class="sub tx-s" x="502" y="372">Chemical labelling (N-term + Lys)</text>
+<text class="sub tx-s" x="502" y="388">Any sample type</text>
+<text class="sub tx-s" x="502" y="404">Zero between-run variance</text>
+<text class="sub tx-s" x="502" y="420">Up to 18-plex (TMTpro 18)</text>
+<text class="sub tx-s" x="502" y="436">Ratio compression at MS2 level</text>
+<text class="sub tx-s" x="502" y="452">MS3 or FAIMS reduces this</text>
+
+<!-- When-to-use footer -->
+<rect x="10" y="496" width="700" height="64" rx="7" class="bg-band" stroke-width="0.5"/>
+<text class="lbl tx-p" x="360" y="514" text-anchor="middle">When to use each</text>
+<text class="sub lt" x="120" y="530" text-anchor="middle">Discovery, clinical, tissue,</text>
+<text class="sub lt" x="120" y="545" text-anchor="middle">any organism — no modification</text>
+<text class="sub st" x="360" y="530" text-anchor="middle">Cell culture, precise comparisons,</text>
+<text class="sub st" x="360" y="545" text-anchor="middle">lowest technical CV</text>
+<text class="sub tt" x="596" y="530" text-anchor="middle">Large cohorts, clinical trials,</text>
+<text class="sub tt" x="596" y="545" text-anchor="middle">maximum throughput</text>
+</svg>

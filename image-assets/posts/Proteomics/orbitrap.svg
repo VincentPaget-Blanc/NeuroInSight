@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 680 560" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g transform="matrix(1,0,0,1,340,18)">
+        <text x="-130.419px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:13px;fill:rgb(232,230,222);">Orbitrap mass analyser — operating principle</text>
+    </g>
+    <path d="M62,42C48.667,55.333 41.333,88.667 40,142C41.333,195.333 48.667,228.667 62,242L106,238C92.667,224.667 85.333,192.667 84,142C85.333,91.333 92.667,59.333 106,46L62,42Z" style="fill:rgb(46,46,44);fill-rule:nonzero;stroke:rgb(136,135,128);stroke-width:2px;"/>
+    <path d="M316,46C329.333,59.333 336.667,91.333 338,142C336.667,192.667 329.333,224.667 316,238L272,242C285.333,226 292.667,192.667 294,142C292.667,91.333 285.333,59.333 272,46L316,46Z" style="fill:rgb(46,46,44);fill-rule:nonzero;stroke:rgb(136,135,128);stroke-width:2px;"/>
+    <path d="M106,142L272,142" style="fill:none;fill-rule:nonzero;stroke:rgb(95,94,90);stroke-width:0.5px;stroke-dasharray:4,3;"/>
+    <path d="M190,48C211.333,57.333 223.333,76.667 226,106C227.333,120.667 228,132.667 228,142C228,151.333 227.333,163.333 226,178C223.333,207.333 211.333,226.667 190,236C168.667,226.667 156.667,207.333 154,178C152.667,163.333 152,151.333 152,142C152,132.667 152.667,120.667 154,106C156.667,76.667 168.667,57.333 190,48Z" style="fill:rgb(65,36,2);fill-rule:nonzero;stroke:rgb(239,159,39);stroke-width:1.5px;"/>
+    <g transform="matrix(0.951057,-0.309017,0.309017,0.951057,-34.5812,65.6632)">
+        <ellipse cx="190" cy="142" rx="60" ry="20" style="fill:none;stroke:rgb(55,138,221);stroke-width:1.5px;stroke-dasharray:6,3;"/>
+    </g>
+    <g transform="matrix(0.951057,0.309017,-0.309017,0.951057,53.1797,-51.7633)">
+        <ellipse cx="190" cy="142" rx="60" ry="20" style="fill:none;stroke:rgb(55,138,221);stroke-opacity:0.5;stroke-width:1px;stroke-dasharray:4,4;"/>
+    </g>
+    <circle cx="248" cy="122" r="5" style="fill:rgb(55,138,221);"/>
+    <path d="M26,70L26,215" style="fill:none;fill-rule:nonzero;stroke:rgb(55,138,221);stroke-width:1.2px;"/>
+    <path d="M26,215L26,70" style="fill:none;fill-rule:nonzero;stroke:rgb(55,138,221);stroke-width:1.2px;"/>
+    <g transform="matrix(1,0,0,1,26,58)">
+        <text x="-20.891px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(181,212,244);">z-axis</text>
+    </g>
+    <g transform="matrix(1,0,0,1,26,230)">
+        <text x="-14.695px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(181,212,244);">ω_z</text>
+    </g>
+    <g transform="matrix(1,0,0,1,26,246)">
+        <text x="-23.109px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(181,212,244);">→ m/z</text>
+    </g>
+    <path d="M340,142L366,142" style="fill:none;fill-rule:nonzero;stroke:rgb(95,94,90);stroke-width:1.2px;"/>
+    <g transform="matrix(1,0,0,0.378049,0,208.976)">
+        <path d="M356,267.226C356,259.926 353.76,254 351,254L27,254C24.24,254 22,259.926 22,267.226L22,322.774C22,330.074 24.24,336 27,336L351,336C353.76,336 356,330.074 356,322.774L356,267.226Z"/>
+    </g>
+    <g transform="matrix(0.362275,0,0,0.585366,14.0299,105.317)">
+        <path d="M356,262.542C356,257.827 349.816,254 342.198,254L35.802,254C28.184,254 22,257.827 22,262.542L22,327.458C22,332.173 28.184,336 35.802,336L342.198,336C349.816,336 356,332.173 356,327.458L356,262.542Z"/>
+    </g>
+    <g transform="matrix(0.278443,0,0,0.585366,141.874,105.317)">
+        <path d="M356,262.542C356,257.827 347.954,254 338.043,254L39.957,254C30.046,254 22,257.827 22,262.542L22,327.458C22,332.173 30.046,336 39.957,336L338.043,336C347.954,336 356,332.173 356,327.458L356,262.542Z"/>
+    </g>
+    <g transform="matrix(0.323353,0,0,0.585366,240.886,105.317)">
+        <path d="M356,262.542C356,257.827 349.071,254 340.537,254L37.463,254C28.929,254 22,257.827 22,262.542L22,327.458C22,332.173 28.929,336 37.463,336L340.537,336C349.071,336 356,332.173 356,327.458L356,262.542Z"/>
+    </g>
+    <path d="M72,238L72,258" style="fill:none;fill-rule:nonzero;stroke:rgb(95,94,90);stroke-width:0.8px;stroke-dasharray:3,2;"/>
+    <circle cx="72" cy="238" r="2" style="fill:rgb(136,135,128);stroke:rgb(95,94,90);stroke-width:1px;"/>
+    <g transform="matrix(1,0,0,1,-0.0617895,-2.75832)">
+        <g transform="matrix(0.788342,0,0,0.788342,39.049,272.566)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Outer electrode</text>
+        </g>
+        <g transform="matrix(0.788342,0,0,0.788342,27.7104,284.026)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">barrel-like, 2 halves</text>
+        </g>
+        <g transform="matrix(0.788342,0,0,0.788342,44.7244,295.486)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">virtual ground</text>
+        </g>
+    </g>
+    <path d="M190,238L190,258" style="fill:none;fill-rule:nonzero;stroke:rgb(95,94,90);stroke-width:0.8px;stroke-dasharray:3,2;"/>
+    <circle cx="190" cy="238" r="2" style="fill:rgb(186,117,23);stroke:rgb(95,94,90);stroke-width:1px;"/>
+    <g transform="matrix(1,0,0,1,4.84613,-2.59121)">
+        <g transform="matrix(0.788342,0,0,0.788342,153.215,272.566)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(250,199,117);">Inner spindle</text>
+        </g>
+        <g transform="matrix(0.788342,0,0,0.788342,152.047,285.026)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(250,199,117);">spool-shaped</text>
+        </g>
+        <g transform="matrix(0.788342,0,0,0.788342,151.487,297.486)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(250,199,117);">+3.5 or +5 kV</text>
+        </g>
+    </g>
+    <path d="M248,122L280,258" style="fill:none;fill-rule:nonzero;stroke:rgb(95,94,90);stroke-width:0.8px;stroke-dasharray:3,2;"/>
+    <circle cx="248" cy="122" r="2" style="fill:rgb(24,95,165);stroke:rgb(95,94,90);stroke-width:1px;"/>
+    <g transform="matrix(1,0,0,1,6.29876,-1.58813)">
+        <g transform="matrix(0.788342,0,0,0.788342,272.371,272.566)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(181,212,244);">Ion orbit</text>
+        </g>
+        <g transform="matrix(0.788342,0,0,0.788342,252.087,284.026)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(181,212,244);">rotation + radial</text>
+        </g>
+        <g transform="matrix(0.788342,0,0,0.788342,250.202,295.486)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(181,212,244);">not used for m/z</text>
+        </g>
+    </g>
+    <g transform="matrix(0.788342,0,0,0.788342,189.228,323.764)">
+        <text x="-146.746px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">— — —  insulating gap (equatorial plane)</text>
+    </g>
+    <path d="M356,344C356,340.689 353.311,338 350,338L28,338C24.689,338 22,340.689 22,344L22,374C22,377.311 24.689,380 28,380L350,380C353.311,380 356,377.311 356,374L356,344Z" style="fill:rgb(38,33,92);stroke:rgb(127,119,221);stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,189,356)">
+        <text x="-62.414px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(232,230,222);">ω_z = √(k / (m/z))</text>
+    </g>
+    <g transform="matrix(0.740783,0,0,0.808944,189.543,372.59)">
+        <text x="-218.375px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">axial frequency: independent of ion energy and spatial spread</text>
+    </g>
+    <path d="M356,394C356,390.689 353.311,388 350,388L28,388C24.689,388 22,390.689 22,394L22,434C22,437.311 24.689,440 28,440L350,440C353.311,440 356,437.311 356,434L356,394Z"/>
+    <g transform="matrix(1,0,0,1,189,406)">
+        <text x="-85.367px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(232,230,222);">Ion injection from C-trap</text>
+    </g>
+    <g transform="matrix(0.740783,0,0,0.808944,42.2404,420.037)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Ions squeezed tangentially via rapidly-changing ﬁeld</text>
+    </g>
+    <g transform="matrix(0.740783,0,0,0.808944,42.2404,431.363)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">(&quot;electrodynamic squeezing&quot;) → stable orbital trajectories</text>
+    </g>
+    <path d="M642,35C642,31.137 638.863,28 635,28L377,28C373.137,28 370,31.137 370,35L370,77C370,80.863 373.137,84 377,84L635,84C638.863,84 642,80.863 642,77L642,35Z" style="fill:rgb(4,52,44);stroke:rgb(93,202,165);stroke-width:0.8px;"/>
+    <g transform="matrix(1,0,0,1,506,48)">
+        <text x="-22.227px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(159,225,203);">C-trap</text>
+    </g>
+    <g transform="matrix(0.738348,0,0,0.738348,499.297,64.5533)">
+        <text x="-127.637px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">RF guide, curved axis · ~1 mT<tspan x="85.332px 94.23px " y="0px 0px ">or</tspan>r N</text>
+        <text x="120.887px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:16px;fill:rgb(156,154,146);">₂</text>
+    </g>
+    <g transform="matrix(0.738348,0,0,0.738348,499.297,73.4135)">
+        <text x="-126.523px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">collisional cooling + pulsed injection</text>
+    </g>
+    <path d="M370,56L336,110" style="fill:none;fill-rule:nonzero;stroke:rgb(55,138,221);stroke-width:1.5px;"/>
+    <g transform="matrix(0.699323,0,0,0.699323,366.669,44.8233)">
+        <text x="-52.926px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(181,212,244);">pulsed</text>
+        <text x="-58.703px" y="16px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(181,212,244);">injection</text>
+    </g>
+    <path d="M642,107C642,103.137 638.863,100 635,100L377,100C373.137,100 370,103.137 370,107L370,159C370,162.863 373.137,166 377,166L635,166C638.863,166 642,162.863 642,159L642,107Z"/>
+    <g transform="matrix(1,0,0,1,506,120)">
+        <text x="-84.047px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(232,230,222);">Image current detection</text>
+    </g>
+    <g transform="matrix(0.738348,0,0,0.738348,378.742,138.453)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Split outer electrode → dif<tspan x="183.805px 188.25px " y="0px 0px ">fe</tspan>rential ampliﬁer</text>
+    </g>
+    <g transform="matrix(0.738348,0,0,0.738348,378.742,148.79)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">All ions detected simultaneously · non-destructive</text>
+    </g>
+    <g transform="matrix(1,0,0,2.11538,0,-176.846)">
+        <path d="M642,173.891C642,172.847 640.208,172 638,172L374,172C371.792,172 370,172.847 370,173.891L370,196.109C370,197.153 371.792,198 374,198L638,198C640.208,198 642,197.153 642,196.109L642,173.891Z"/>
+    </g>
+    <g transform="matrix(1.33333,0,0,2.71429,-126,-282.143)">
+        <path d="M378,185C382.667,180.333 388,180.333 394,185C400,189.667 406,189.667 412,185C418,180.333 424,180.333 430,185C436,189.667 442,189.667 448,185C454,180.333 460,180.333 466,185C472,189.667 478,189.667 484,185C490,180.333 496,180.333 502,185C508,189.667 514,189.667 520,185C526,180.333 532,180.333 538,185C544,189.667 550,189.667 556,185C561.333,181 566,181 570,185" style="fill:none;fill-rule:nonzero;stroke:rgb(127,119,221);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.648083,0,0,0.648083,456.095,202.651)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">time-domain transient</text>
+    </g>
+    <g transform="matrix(1,0,0,0.9,0,65)">
+        <path d="M506,200L506,300" style="fill:none;fill-rule:nonzero;stroke:rgb(95,94,90);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,119)">
+        <path d="M642,225C642,221.137 638.863,218 635,218L377,218C373.137,218 370,221.137 370,225L370,255C370,258.863 373.137,262 377,262L635,262C638.863,262 642,258.863 642,255L642,225Z" style="fill:rgb(38,33,92);stroke:rgb(127,119,221);stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,506,357)">
+        <text x="-81.352px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(232,230,222);">Fast Fourier <tspan x="9.047px 18.227px 23.555px " y="0px 0px 0px ">Tra</tspan>nsform</text>
+    </g>
+    <g transform="matrix(0.738348,0,0,0.738348,504.297,371.578)">
+        <text x="-126.273px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">time domain → frequency spectrum</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,119)">
+        <path d="M506,264L506,278" style="fill:none;fill-rule:nonzero;stroke:rgb(95,94,90);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,109)">
+        <path d="M642,289C642,285.137 638.863,282 635,282L377,282C373.137,282 370,285.137 370,289L370,319C370,322.863 373.137,326 377,326L635,326C638.863,326 642,322.863 642,319L642,289Z" style="fill:rgb(4,44,83);stroke:rgb(55,138,221);stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,506,411)">
+        <text x="-54.234px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(181,212,244);">Mass spectrum</text>
+    </g>
+    <g transform="matrix(0.738348,0,0,0.738348,504.297,425.832)">
+        <text x="-168.082px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">m/z from ω_z · resolution up to 500,000 FWHM</text>
+    </g>
+    <path d="M342,142L368,142" style="fill:none;fill-rule:nonzero;stroke:rgb(95,94,90);stroke-width:1.2px;"/>
+    <g transform="matrix(0.502805,0,0,0.502805,353.599,137.674)">
+        <text x="-28.016px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">i_image</text>
+    </g>
+    <path d="M664,456C664,452.689 661.311,450 658,450L22,450C18.689,450 16,452.689 16,456L16,544C16,547.311 18.689,550 22,550L658,550C661.311,550 664,547.311 664,544L664,456Z"/>
+    <g transform="matrix(1,0,0,1,340,468)">
+        <text x="-111.639px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:13px;fill:rgb(232,230,222);">Key properties of the Orbitrap analyser</text>
+    </g>
+    <g transform="matrix(0.740783,0,0,0.808944,42.4037,486.342)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Electrode geometry: barrel-like outer (2 cups, split at equator) + spool-shaped inner spindle</text>
+    </g>
+    <g transform="matrix(0.740783,0,0,0.808944,42.2358,499.668)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Ion conﬁnement: pure electrostatic ﬁeld — no magnetic or RF ﬁeld in the analyser itself</text>
+    </g>
+    <g transform="matrix(0.740783,0,0,0.808944,43.0634,512.993)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Three ion motions: rotation, radial oscillation, axial oscillation (ω_z used for m/z)</text>
+    </g>
+    <g transform="matrix(0.740783,0,0,0.808944,42.4615,526.318)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Mass accuracy: &lt;2 ppm (internal calib.) · Resolution up to ~500,000 FWHM · V<tspan x="558.156px 567.055px " y="0px 0px ">ac</tspan>uum: ~10</text>
+        <text x="642.211px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:16px;fill:rgb(156,154,146);">⁻</text>
+        <text x="648.961px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">¹</text>
+        <text x="654.289px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:16px;fill:rgb(156,154,146);">⁰</text>
+        <text x="665.484px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">mbar</text>
+    </g>
+    <g transform="matrix(0.740783,0,0,0.808944,42.4268,539.643)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Detection: broadband image current — all m/z simultaneously<tspan x="435.469px 439.914px " y="0px 0px ">, </tspan>non-destructive · Resolution</text>
+        <text x="648.016px" y="0px" style="font-family:'AppleSymbols', 'Apple Symbols';font-size:16px;fill:rgb(156,154,146);">∝</text>
+        <text x="660.758px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">√(transient time)</text>
+    </g>
+</svg>

@@ -1,0 +1,153 @@
+<svg width="100%" viewBox="0 0 680 580" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5"
+    markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      .col-lbl  { fill: #e8e6de; }
+      .arr-neu  { stroke: #5f5e5a; }
+      .bridge   { stroke: #888780; }
+      .b-teal   { fill: #04342C; stroke: #5DCAA5; }
+      .t-teal-h { fill: #9FE1CB; }
+      .t-teal-s { fill: #5DCAA5; }
+      .b-purp   { fill: #26215C; stroke: #AFA9EC; }
+      .t-purp-h { fill: #CECBF6; }
+      .t-purp-s { fill: #AFA9EC; }
+      .b-amb    { fill: #412402; stroke: #EF9F27; }
+      .t-amb-h  { fill: #FAC775; }
+      .t-amb-s  { fill: #EF9F27; }
+      .b-cor    { fill: #4A1B0C; stroke: #F0997B; }
+      .t-cor-h  { fill: #F5C4B3; }
+      .t-cor-s  { fill: #F0997B; }
+      .leg-txt  { fill: #9c9a92; }
+      .gap-lbl  { fill: #5f5e5a; }
+    }
+    @media (prefers-color-scheme: light) {
+      .col-lbl  { fill: #1a1a1a; }
+      .arr-neu  { stroke: #B4B2A9; }
+      .bridge   { stroke: #888780; }
+      .b-teal   { fill: #E1F5EE; stroke: #0F6E56; }
+      .t-teal-h { fill: #085041; }
+      .t-teal-s { fill: #0F6E56; }
+      .b-purp   { fill: #EEEDFE; stroke: #7F77DD; }
+      .t-purp-h { fill: #26215C; }
+      .t-purp-s { fill: #534AB7; }
+      .b-amb    { fill: #FAEEDA; stroke: #BA7517; }
+      .t-amb-h  { fill: #412402; }
+      .t-amb-s  { fill: #633806; }
+      .b-cor    { fill: #FAECE7; stroke: #D85A30; }
+      .t-cor-h  { fill: #4A1B0C; }
+      .t-cor-s  { fill: #712B13; }
+      .leg-txt  { fill: #5f5e5a; }
+      .gap-lbl  { fill: #B4B2A9; }
+    }
+    .lbl { font: 500 13px "Helvetica Neue", Arial, sans-serif; }
+    .sub { font: 400 11px "Helvetica Neue", Arial, sans-serif; }
+  </style>
+</defs>
+
+<!-- Column labels -->
+<text class="lbl col-lbl" x="150" y="16" text-anchor="middle">Wet lab</text>
+<text class="lbl col-lbl" x="530" y="16" text-anchor="middle">Computational</text>
+
+<!-- ── LEFT COLUMN (x=60..240) ── -->
+<!-- Row 1 y=28 -->
+<rect x="60" y="28" width="180" height="52" rx="7" class="b-teal" stroke-width="0.5"/>
+<text class="lbl t-teal-h" x="150" y="51" text-anchor="middle" dominant-baseline="central">Sample collection</text>
+<text class="sub t-teal-s" x="150" y="67" text-anchor="middle" dominant-baseline="central">Cells, tissue, biofluid</text>
+
+<!-- Row 2 y=110 -->
+<rect x="60" y="110" width="180" height="52" rx="7" class="b-teal" stroke-width="0.5"/>
+<text class="lbl t-teal-h" x="150" y="133" text-anchor="middle" dominant-baseline="central">Protein extraction</text>
+<text class="sub t-teal-s" x="150" y="149" text-anchor="middle" dominant-baseline="central">Lysis · reduction · alkylation</text>
+
+<!-- Row 3 y=192 -->
+<rect x="60" y="192" width="180" height="52" rx="7" class="b-teal" stroke-width="0.5"/>
+<text class="lbl t-teal-h" x="150" y="215" text-anchor="middle" dominant-baseline="central">Enzymatic digestion</text>
+<text class="sub t-teal-s" x="150" y="231" text-anchor="middle" dominant-baseline="central">Trypsin cleaves after K, R</text>
+
+<!-- Row 4 y=274 -->
+<rect x="60" y="274" width="180" height="52" rx="7" class="b-teal" stroke-width="0.5"/>
+<text class="lbl t-teal-h" x="150" y="297" text-anchor="middle" dominant-baseline="central">Desalting / cleanup</text>
+<text class="sub t-teal-s" x="150" y="313" text-anchor="middle" dominant-baseline="central">StageTip · SP3 · S-Trap</text>
+
+<!-- Row 5 y=356 -->
+<rect x="60" y="356" width="180" height="52" rx="7" class="b-purp" stroke-width="0.5"/>
+<text class="lbl t-purp-h" x="150" y="379" text-anchor="middle" dominant-baseline="central">LC separation</text>
+<text class="sub t-purp-s" x="150" y="395" text-anchor="middle" dominant-baseline="central">Reversed-phase C18</text>
+
+<!-- Row 6 y=438 -->
+<rect x="60" y="438" width="180" height="52" rx="7" class="b-purp" stroke-width="0.5"/>
+<text class="lbl t-purp-h" x="150" y="461" text-anchor="middle" dominant-baseline="central">ESI + MS acquisition</text>
+<text class="sub t-purp-s" x="150" y="477" text-anchor="middle" dominant-baseline="central">MS1 survey → MS2 fragmentation</text>
+
+<!-- Left column arrows -->
+<line x1="150" y1="80"  x2="150" y2="108"  class="arr-neu" stroke-width="1.5" marker-end="url(#arr)"/>
+<line x1="150" y1="162" x2="150" y2="190"  class="arr-neu" stroke-width="1.5" marker-end="url(#arr)"/>
+<line x1="150" y1="244" x2="150" y2="272"  class="arr-neu" stroke-width="1.5" marker-end="url(#arr)"/>
+<line x1="150" y1="326" x2="150" y2="354"  class="arr-neu" stroke-width="1.5" marker-end="url(#arr)"/>
+<line x1="150" y1="408" x2="150" y2="436"  class="arr-neu" stroke-width="1.5" marker-end="url(#arr)"/>
+
+<!-- ── RIGHT COLUMN (x=440..620) ── -->
+<!-- Row 1 y=28 -->
+<rect x="440" y="28" width="180" height="52" rx="7" class="b-amb" stroke-width="0.5"/>
+<text class="lbl t-amb-h" x="530" y="51" text-anchor="middle" dominant-baseline="central">Database search</text>
+<text class="sub t-amb-s" x="530" y="67" text-anchor="middle" dominant-baseline="central">PSM matching · 1% FDR</text>
+
+<!-- Row 2 y=110 -->
+<rect x="440" y="110" width="180" height="52" rx="7" class="b-amb" stroke-width="0.5"/>
+<text class="lbl t-amb-h" x="530" y="133" text-anchor="middle" dominant-baseline="central">Protein inference</text>
+<text class="sub t-amb-s" x="530" y="149" text-anchor="middle" dominant-baseline="central">Parsimony grouping</text>
+
+<!-- Row 3 y=192 -->
+<rect x="440" y="192" width="180" height="52" rx="7" class="b-amb" stroke-width="0.5"/>
+<text class="lbl t-amb-h" x="530" y="215" text-anchor="middle" dominant-baseline="central">Quantification</text>
+<text class="sub t-amb-s" x="530" y="231" text-anchor="middle" dominant-baseline="central">LFQ / SILAC / TMT</text>
+
+<!-- Row 4 y=274 -->
+<rect x="440" y="274" width="180" height="52" rx="7" class="b-cor" stroke-width="0.5"/>
+<text class="lbl t-cor-h" x="530" y="297" text-anchor="middle" dominant-baseline="central">Normalisation</text>
+<text class="sub t-cor-s" x="530" y="313" text-anchor="middle" dominant-baseline="central">VSN · median · mode-between</text>
+
+<!-- Row 5 y=356 -->
+<rect x="440" y="356" width="180" height="52" rx="7" class="b-cor" stroke-width="0.5"/>
+<text class="lbl t-cor-h" x="530" y="379" text-anchor="middle" dominant-baseline="central">Differential analysis</text>
+<text class="sub t-cor-s" x="530" y="395" text-anchor="middle" dominant-baseline="central">DEqMS · MSqRob · limma</text>
+
+<!-- Right column arrows -->
+<line x1="530" y1="80"  x2="530" y2="108"  class="arr-neu" stroke-width="1.5" marker-end="url(#arr)"/>
+<line x1="530" y1="162" x2="530" y2="190"  class="arr-neu" stroke-width="1.5" marker-end="url(#arr)"/>
+<line x1="530" y1="244" x2="530" y2="272"  class="arr-neu" stroke-width="1.5" marker-end="url(#arr)"/>
+<line x1="530" y1="326" x2="530" y2="354"  class="arr-neu" stroke-width="1.5" marker-end="url(#arr)"/>
+
+<!-- ── Bridge: ESI+MS row-6 right edge → Database search row-1 ──
+     Safe path: exit right of ESI box (x=240, y=464),
+     run horizontally to x=340 (midpoint gap),
+     then vertically up to y=54,
+     then right to Database search left edge (x=440, y=54). -->
+<path d="M 240 464 L 340 464 L 340 54 L 438 54"
+  fill="none" class="bridge" stroke-width="1"
+  stroke-dasharray="5 4" marker-end="url(#arr)"/>
+<!-- Label centred on the vertical segment, offset right of the path -->
+<text class="sub leg-txt" x="352" y="270" text-anchor="start">raw data</text>
+
+<!-- ── Legend ── -->
+<rect x="60"  y="514" width="11" height="11" rx="2" class="b-teal" stroke-width="0.5"/>
+<text class="sub leg-txt" x="76"  y="523">Sample prep</text>
+<rect x="170" y="514" width="11" height="11" rx="2" class="b-purp" stroke-width="0.5"/>
+<text class="sub leg-txt" x="186" y="523">LC / MS</text>
+<rect x="272" y="514" width="11" height="11" rx="2" class="b-amb" stroke-width="0.5"/>
+<text class="sub leg-txt" x="288" y="523">Identification &amp; quant</text>
+<rect x="430" y="514" width="11" height="11" rx="2" class="b-cor" stroke-width="0.5"/>
+<text class="sub leg-txt" x="446" y="523">Statistics</text>
+
+<!-- Note: right column (5 steps) maps to rows 1–5; LC/MS steps (rows 5–6 left)
+     have no direct right-column counterpart — they produce the raw data
+     that feeds the database search. -->
+<text class="sub gap-lbl" x="340" y="554" text-anchor="middle">
+  LC/MS output (raw data) feeds all downstream computational steps
+</text>
+</svg>
