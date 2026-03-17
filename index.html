@@ -1349,7 +1349,8 @@ Colgren JJ &amp; Burkhardt P. <em>The evolutionary origins of synaptic proteins
     </div>
   `,
 },
-    // ── NANOSCOPY POST ─────────────────────────────────────────────────────────
+
+// ── NANOSCOPY POST ─────────────────────────────────────────────────────────
 {
   type: "excerpt",
   slug: "nanoscopy-dstorm-sted-dnapaint",
@@ -1393,13 +1394,29 @@ Colgren JJ &amp; Burkhardt P. <em>The evolutionary origins of synaptic proteins
   wave optics. For a century it was considered inviolable.
 </p>
 <p>
-The key conceptual shift that enabled super-resolution was recognising that
+  The key conceptual shift that enabled super-resolution was recognising that
   the Abbe limit applies to <em>ensembles</em> of simultaneously emitting fluorophores,
   not to individual molecules. If you can control which molecules are emitting
   at any given moment — either by spatially engineering the emission volume, or
   by separating emitters stochastically in time — you can reconstruct images far
   below the diffraction limit.
 </p>
+
+<figure>
+  <img src="image-assets/posts/nanoscopy-dstorm-sted-dnapaint/01_diffraction_barrier.svg"
+       alt="Two overlapping PSFs unresolved by confocal vs two clearly separated PSFs in super-resolution, with the Abbe formula and the two strategies for breaking the diffraction limit." />
+  <figcaption style="margin-top: 0.75rem; font-size: 0.78rem;
+    color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
+    line-height: 1.6;">
+    Left: two fluorophores ~200 nm apart produce a single blurred spot in
+    confocal microscopy — their PSFs overlap and cannot be distinguished.
+    Right: the same two emitters are clearly resolved once the effective PSF is
+    shrunk to ~20 nm. Bottom: the Abbe formula sets the diffraction floor at
+    ~200 nm laterally for visible light. The two conceptual routes around it are
+    spatial confinement of the emission volume (STED) and stochastic temporal
+    separation of individual emitters (dSTORM, DNA-PAINT).
+  </figcaption>
+</figure>
 
 <h2>STED: Engineering the Emission Volume</h2>
 <p>
@@ -1424,7 +1441,7 @@ The key conceptual shift that enabled super-resolution was recognising that
   signal.
 </p>
 <p>
-The effective resolution is no longer determined by diffraction alone but by
+  The effective resolution is no longer determined by diffraction alone but by
   the intensity of the STED beam relative to the saturation intensity I<sub>s</sub> of the
   fluorophore. The effective PSF narrows according to:
 </p>
@@ -1432,7 +1449,7 @@ The effective resolution is no longer determined by diffraction alone but by
 d<sub>eff</sub> ≈ λ / (2·NA · √(1 + I<sub>STED</sub>/I<sub>s</sub>))
 </p>
 <p>
-As I<sub>STED</sub> increases, d<sub>eff</sub> shrinks without bound in principle. In practice,
+  As I<sub>STED</sub> increases, d<sub>eff</sub> shrinks without bound in principle. In practice,
   modern STED microscopes routinely achieve 20–50 nm lateral resolution in fixed
   tissue and 50–80 nm in living cells, sufficient to resolve individual synaptic
   nano-domains, vesicle pools and scaffold protein clusters. STED operates in a
@@ -1443,6 +1460,24 @@ As I<sub>STED</sub> increases, d<sub>eff</sub> shrinks without bound in principl
   accelerate photobleaching, particularly in live preparations.
 </p>
 
+<figure>
+  <img src="image-assets/posts/nanoscopy-dstorm-sted-dnapaint/02_sted_principle.svg"
+       alt="STED principle: excitation Gaussian beam, toroidal STED depletion beam with central zero, resulting sub-diffraction emission volume, Jablonski energy level diagram, and resolution formula." />
+  <figcaption style="margin-top: 0.75rem; font-size: 0.78rem;
+    color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
+    line-height: 1.6;">
+    The STED beam (centre) is shaped into a toroid whose zero-intensity node
+    falls exactly at the focal centre. It drives all surrounding fluorophores to
+    the ground state via stimulated emission, leaving only the molecules inside
+    the central zero free to emit spontaneously (right). The energy level
+    diagram (bottom left) shows the excitation transition to S₁, the competing
+    STED-driven depletion back to S₀, and the residual spontaneous fluorescence
+    from the allowed zone. The resolution formula (bottom right) shows that
+    d_eff shrinks continuously as I_STED increases relative to the saturation
+    intensity I_s of the fluorophore — yielding 20–80 nm in practice.
+  </figcaption>
+</figure>
+
 <div class="tip-box">
   <div class="tip-label">Foundational Reference — STED</div>
   <p style="margin:0;line-height:1.75;">
@@ -1452,7 +1487,7 @@ Hell SW &amp; Wichmann J. Breaking the diffraction resolution limit by
   target="_blank" rel="noopener noreferrer"
   style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains
   Mono',monospace;font-size:0.8rem;">https://doi.org/10.1364/OL.19.000780</a>
-</p>
+  </p>
 </div>
 
 <div class="tip-box">
@@ -1460,11 +1495,10 @@ Hell SW &amp; Wichmann J. Breaking the diffraction resolution limit by
   <p style="margin:0;line-height:1.75;">
 Klar TA &amp; Hell SW. Subdiffraction resolution in far-field fluorescence
   microscopy. <em>Opt Lett.</em> 1999;24(14):954–956.<br> <a
-  href="https://doi.org/10.1364/OL.24.000954" target="_blank" rel="noopener
-  noreferrer"
+  href="https://doi.org/10.1364/OL.24.000954" target="_blank" rel="noopener noreferrer"
   style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains
   Mono',monospace;font-size:0.8rem;">https://doi.org/10.1364/OL.24.000954</a>
-</p>
+  </p>
 </div>
 
 <h2>dSTORM: Stochastic Single-Molecule Localisation</h2>
@@ -1496,6 +1530,25 @@ Klar TA &amp; Hell SW. Subdiffraction resolution in far-field fluorescence
   N is the number of detected photons. With bright dyes yielding 1,000–5,000
   photons per localisation, precisions of 10–30 nm are routinely achieved.
 </p>
+
+<figure>
+  <img src="image-assets/posts/nanoscopy-dstorm-sted-dnapaint/03_dstorm_principle.svg"
+       alt="dSTORM acquisition: three camera frames showing sparse single-molecule blinking, Gaussian localisation precision formula, buffer chemistry components, and the photoswitching cycle." />
+  <figcaption style="margin-top: 0.75rem; font-size: 0.78rem;
+    color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
+    line-height: 1.6;">
+    In each camera frame only one or a few molecules are fluorescent (ON); the
+    rest are held in a dark thiol-adduct state by the imaging buffer. Each
+    isolated emitter is fitted with a 2D Gaussian to yield a sub-diffraction
+    position (σ ≈ s/√N, where N is detected photons). Accumulating 10⁵–10⁷
+    localisations across 10,000–50,000 frames reconstructs a super-resolution
+    image with ~20–50 nm effective resolution. Bottom row: the photoswitching
+    cycle — 647 nm illumination plus MEA drives cyanine dyes into a dark
+    thiol-adduct state that reverts spontaneously, enabling hundreds to thousands
+    of ON–OFF cycles per molecule before permanent bleaching.
+  </figcaption>
+</figure>
+
 <p>
   The photoswitching in dSTORM is achieved chemically. The sample is imaged in
   a carefully formulated aqueous buffer containing a thiol reducing agent —
@@ -1512,23 +1565,32 @@ Klar TA &amp; Hell SW. Subdiffraction resolution in far-field fluorescence
   generating the large localisation datasets needed to reconstruct a super-
   resolution image.
 </p>
-<p>
-  A full dSTORM acquisition typically comprises 10,000–50,000 frames at 10–50
-  ms exposure, yielding 10⁵–10⁷ localisations that are rendered into an image
-  with effective resolution of 20–50 nm. The technique requires no specialised
-  light source beyond a high-power continuous-wave laser and a sensitive sCMOS
-  or EMCCD camera, making it accessible on most modern single-molecule setups.
-  Its principal limitation is temporal: the lengthy acquisition means it
-  cannot capture dynamic processes directly, and it is primarily applied to
-  fixed samples.
-</p>
+
+<figure>
+  <img src="image-assets/posts/nanoscopy-dstorm-sted-dnapaint/03b_dstorm_buffer_chemistry.svg"
+       alt="dSTORM buffer chemistry: four-state photoswitching diagram for AF647/Cy5, buffer component roles, and linear thiol-adduct reaction mechanism." />
+  <figcaption style="margin-top: 0.75rem; font-size: 0.78rem;
+    color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
+    line-height: 1.6;">
+    Left: the four-state cycle for cyanine dyes (AF647, Cy5). Intense 647 nm
+    illumination populates S₁, from which intersystem crossing (ISC) produces
+    the long-lived T₁ triplet. MEA reacts with T₁ to form a covalent
+    thiol-adduct (dark/OFF state) that reverts spontaneously to S₀ in 10–100 ms.
+    O₂ competes for T₁ and causes irreversible bleaching; the glucose oxidase +
+    catalase system (GLOX) removes dissolved O₂ to suppress this pathway and
+    extend molecule lifetime. Right: buffer component roles at a glance. Bottom:
+    the linear reaction mechanism — sp³ rehybridisation at the meso-carbon of
+    the cyanine bridge disrupts the extended π-conjugation, abolishing
+    fluorescence until spontaneous elimination of the thioether restores S₀.
+  </figcaption>
+</figure>
 
 <blockquote>
   <p>
   The ability to count individual scaffold proteins and resolve their
   nanoscale arrangement within a single synapse changed the way we think about
   synaptic heterogeneity — it is not noise, it is structure.
-</p>
+  </p>
 </blockquote>
 
 <div class="tip-box">
@@ -1540,7 +1602,7 @@ Heilemann M, van de Linde S, Schüttpelz M, et al. Subdiffraction-resolution
   target="_blank" rel="noopener noreferrer"
   style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains
   Mono',monospace;font-size:0.8rem;">https://doi.org/10.1002/anie.200802376</a>
-</p>
+  </p>
 </div>
 
 <div class="tip-box">
@@ -1552,7 +1614,7 @@ van de Linde S, Löschberger A, Klein T, et al. Direct stochastic optical
   target="_blank" rel="noopener noreferrer"
   style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains
   Mono',monospace;font-size:0.8rem;">https://doi.org/10.1038/nprot.2011.336</a>
-</p>
+  </p>
 </div>
 
 <h2>DNA-PAINT: Programmable Transient Binding</h2>
@@ -1581,6 +1643,30 @@ van de Linde S, Löschberger A, Klein T, et al. Direct stochastic optical
   arbitrarily long acquisitions and, in principle, unlimited localisation
   counts per target.
 </p>
+
+<figure>
+  <img src="image-assets/posts/nanoscopy-dstorm-sted-dnapaint/04_dnapaint_principle.svg"
+       alt="DNA-PAINT: three molecular states showing labelled target dark, imager hybridised and fluorescent, and imager dissociated with intact docking strand; plus a single-molecule intensity trace and Exchange-PAINT multiplexing workflow." />
+  <figcaption style="margin-top: 0.75rem; font-size: 0.78rem;
+    color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
+    line-height: 1.6;">
+    Steps 1–3 (top): the target is labelled via a primary + secondary antibody
+    complex, with a short ssDNA docking strand of unique sequence conjugated to
+    the secondary antibody. In step 1 no imager is present and the target is
+    dark. In step 2 a fluorescently tagged imager strand from solution hybridises
+    to the docking strand via an 8–10 nt binding region for 0.5–3 s, producing
+    one fluorescent ON event that is Gaussian-fitted to a single coordinate.
+    In step 3 the imager dissociates; the docking strand is intact and ready for
+    the next event. Because docking strands survive indefinitely, there is no
+    bleaching ceiling. The intensity trace shows discrete ON pulses at a single
+    docking site — each pulse is one independent localisation. Bottom:
+    Exchange-PAINT sequences imager strands of distinct sequences through the
+    same sample with wash steps between rounds, imaging a different molecular
+    target each time with a single dye and laser — enabling in-principle
+    unlimited multiplexing with zero spectral crosstalk between rounds.
+  </figcaption>
+</figure>
+
 <p>
   The programmability of DNA sequences makes DNA-PAINT uniquely suited to
   multiplexed imaging through a scheme called Exchange-PAINT, described by
@@ -1610,11 +1696,10 @@ van de Linde S, Löschberger A, Klein T, et al. Direct stochastic optical
 Jungmann R, Steinhauer C, Scheible M, Kuzyk A, Tinnefeld P, Simmel FC.
   Single-molecule kinetics and super-resolution microscopy by fluorescence
   imaging of transient binding on DNA origami. <em>Nano Lett.</em> 2010;10(11):4756–4761.<br>
-  <a href="https://doi.org/10.1021/nl103427w" target="_blank" rel="noopener
-  noreferrer"
+  <a href="https://doi.org/10.1021/nl103427w" target="_blank" rel="noopener noreferrer"
   style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains
   Mono',monospace;font-size:0.8rem;">https://doi.org/10.1021/nl103427w</a>
-</p>
+  </p>
 </div>
 
 <div class="tip-box">
@@ -1626,7 +1711,7 @@ Jungmann R, Avendaño MS, Woehrstein JB, Dai M, Shih WM, Yin P. Multiplexed 3D
   target="_blank" rel="noopener noreferrer"
   style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-family:'JetBrains
   Mono',monospace;font-size:0.8rem;">https://doi.org/10.1038/nmeth.2835</a>
-</p>
+  </p>
 </div>
 
 <h2>Choosing the Right Tool</h2>
@@ -1656,6 +1741,25 @@ Jungmann R, Avendaño MS, Woehrstein JB, Dai M, Shih WM, Yin P. Multiplexed 3D
   from a single preparation is without parallel. The cost is throughput:
   exchange cycles, washing and re-imaging add substantial time per sample.
 </p>
+
+<figure>
+  <img src="image-assets/posts/nanoscopy-dstorm-sted-dnapaint/05_technique_comparison.svg"
+       alt="Nine-row comparison table of STED, dSTORM and DNA-PAINT covering working principle, lateral resolution, live-cell imaging, image formation, multiplexing, molecule counting, key limitation, best use case, and preferred fluorophores." />
+  <figcaption style="margin-top: 0.75rem; font-size: 0.78rem;
+    color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
+    line-height: 1.6;">
+    Property matrix for the three nanoscopy workhorses. STED is the only method
+    compatible with live-cell imaging and produces images directly without a
+    reconstruction step. dSTORM is the most accessible entry point for fixed
+    tissue, using standard organic dyes and widely available open-source
+    analysis software. DNA-PAINT achieves the highest resolution in biological
+    samples, supports unlimited multiplexing via Exchange-PAINT, and enables
+    absolute molecule counting via qPAINT — at the cost of sequential
+    acquisition time. The bottom strip shows the lateral resolution ranges
+    relative to the ~200 nm confocal limit.
+  </figcaption>
+</figure>
+
 <p>
   In practice, the techniques are increasingly used in combination or in
   parallel with cryo-electron tomography — as we did in our own work on

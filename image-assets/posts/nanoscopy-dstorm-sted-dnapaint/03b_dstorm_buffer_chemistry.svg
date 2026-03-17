@@ -1,0 +1,217 @@
+<svg width="100%" viewBox="0 0 680 480" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      .ttl  { fill: #e8e6de; }
+      .frm  { fill: none; stroke: rgba(222,220,209,0.22); }
+      .cap  { fill: #9c9a92; }
+      .dim  { fill: #5f5e5a; }
+      .div  { stroke: rgba(222,220,209,0.18); }
+      .box  { fill: none; stroke: rgba(222,220,209,0.20); }
+      .son  { fill: rgba(29,158,117,0.20);  stroke: #1D9E75; }
+      .str  { fill: rgba(224,160,60,0.20);  stroke: #E0A03C; }
+      .sof  { fill: rgba(83,74,183,0.20);   stroke: #7F77DD; }
+      .sbl  { fill: rgba(90,88,86,0.20);    stroke: #5f5e5a; }
+      .ton  { fill: #1D9E75; }
+      .ttr  { fill: #E0A03C; }
+      .tof  { fill: #AFA9EC; }
+      .tbl  { fill: #5f5e5a; }
+      .aon  { stroke: #1D9E75; }
+      .atr  { stroke: #E0A03C; }
+      .aof  { stroke: #7F77DD; }
+      .abl  { stroke: #5f5e5a; }
+      .mlb  { fill: rgba(29,158,117,0.12);  stroke: #1D9E75; }
+      .mlt  { fill: #5DCAA5; }
+      .olb  { fill: rgba(226,75,74,0.12);   stroke: #E24B4A; }
+      .olt  { fill: #F09595; }
+      .llb  { fill: rgba(224,160,60,0.14);  stroke: #E0A03C; }
+      .llt  { fill: #E0A03C; }
+    }
+    @media (prefers-color-scheme: light) {
+      .ttl  { fill: #1a1a1a; }
+      .frm  { fill: none; stroke: #D3D1C7; }
+      .cap  { fill: #5f5e5a; }
+      .dim  { fill: #B4B2A9; }
+      .div  { stroke: #D3D1C7; }
+      .box  { fill: none; stroke: #D3D1C7; }
+      .son  { fill: rgba(15,110,86,0.10);   stroke: #0F6E56; }
+      .str  { fill: rgba(180,110,10,0.10);  stroke: #B46E0A; }
+      .sof  { fill: rgba(83,74,183,0.10);   stroke: #534AB7; }
+      .sbl  { fill: rgba(180,178,170,0.25); stroke: #B4B2A9; }
+      .ton  { fill: #0F6E56; }
+      .ttr  { fill: #B46E0A; }
+      .tof  { fill: #534AB7; }
+      .tbl  { fill: #B4B2A9; }
+      .aon  { stroke: #0F6E56; }
+      .atr  { stroke: #B46E0A; }
+      .aof  { stroke: #534AB7; }
+      .abl  { stroke: #B4B2A9; }
+      .mlb  { fill: rgba(15,110,86,0.08);   stroke: #0F6E56; }
+      .mlt  { fill: #0F6E56; }
+      .olb  { fill: rgba(200,50,50,0.08);   stroke: #C83232; }
+      .olt  { fill: #C83232; }
+      .llb  { fill: rgba(180,110,10,0.08);  stroke: #B46E0A; }
+      .llt  { fill: #B46E0A; }
+    }
+    .hd { font: 600 13px "Helvetica Neue",Arial,sans-serif; }
+    .lb { font: 500 12px "Helvetica Neue",Arial,sans-serif; }
+    .sb { font: 400 11px "Helvetica Neue",Arial,sans-serif; }
+    .mn { font: 400 11px "JetBrains Mono","Courier New",monospace; }
+  </style>
+  <marker id="am" viewBox="0 0 10 10" refX="8" refY="5"
+    markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+
+<text class="hd ttl" x="340" y="20" text-anchor="middle">dSTORM — Photoswitching Buffer Chemistry</text>
+
+<!-- ══════════════════════════════════════════
+     LEFT PANEL: Four-state diagram
+     x=20–335  y=30–295
+     Four state boxes arranged in a square:
+       ON (top-left), T1 (top-right)
+       OFF (bottom-right), Bleached (bottom-left)
+     ════════════════════════════════════════ -->
+<rect x="20" y="30" width="315" height="265" rx="5" class="frm" stroke-width="0.5"/>
+<text class="lb cap" x="177" y="50" text-anchor="middle">Photoswitching cycle (AF647 / Cy5)</text>
+
+<!-- State boxes: 108 wide × 46 tall -->
+<!-- ON -->
+<rect x="40"  y="60" width="108" height="46" rx="5" class="son" stroke-width="1"/>
+<text class="lb ton" x="94"  y="78"  text-anchor="middle">S₀ Fluorescent</text>
+<text class="sb ton" x="94"  y="92"  text-anchor="middle">(ON state)</text>
+<!-- T1 -->
+<rect x="180" y="60" width="108" height="46" rx="5" class="str" stroke-width="1"/>
+<text class="lb ttr" x="234" y="78"  text-anchor="middle">T₁ Triplet</text>
+<text class="sb ttr" x="234" y="92"  text-anchor="middle">(excited state)</text>
+<!-- OFF -->
+<rect x="180" y="200" width="108" height="46" rx="5" class="sof" stroke-width="1"/>
+<text class="lb tof" x="234" y="218" text-anchor="middle">Thiol-adduct</text>
+<text class="sb tof" x="234" y="232" text-anchor="middle">(OFF, dark)</text>
+<!-- Bleached -->
+<rect x="40"  y="200" width="108" height="46" rx="5" class="sbl" stroke-width="1"/>
+<text class="lb tbl" x="94"  y="218" text-anchor="middle">Photobleached</text>
+<text class="sb tbl" x="94"  y="232" text-anchor="middle">(irreversible)</text>
+
+<!-- Arrows -->
+<!-- ON → T1 (ISC, 647 nm) -->
+<line x1="148" y1="76" x2="178" y2="76" class="atr" stroke-width="1.4" marker-end="url(#am)"/>
+<text class="sb ttr" x="163" y="70"  text-anchor="middle">647 nm / ISC</text>
+
+<!-- T1 → OFF (MEA) -->
+<line x1="234" y1="108" x2="234" y2="198" class="aof" stroke-width="1.4" marker-end="url(#am)"/>
+<text class="sb tof" x="258" y="150" text-anchor="start">+ MEA</text>
+<text class="sb tof" x="258" y="163" text-anchor="start">→ adduct</text>
+
+<!-- OFF → ON (thermal reversion) -->
+<line x1="178" y1="222" x2="150" y2="222" class="aon" stroke-width="1.4" marker-end="url(#am)"/>
+<text class="sb ton" x="163" y="216" text-anchor="middle">thermal</text>
+<text class="mn ton" x="163" y="228" text-anchor="middle">10–100 ms</text>
+<text class="sb ton" x="163" y="240" text-anchor="middle">→ ON again</text>
+
+<!-- ON → Bleached (O₂, dashed) -->
+<line x1="94" y1="108" x2="94" y2="198" class="abl" stroke-width="1.2"
+  stroke-dasharray="4 2" marker-end="url(#am)"/>
+<text class="sb tbl" x="28"  y="152" text-anchor="start">O₂</text>
+<text class="sb tbl" x="28"  y="164" text-anchor="start">oxidation</text>
+
+<!-- T1 → Bleached (diagonal, dashed, faint) -->
+<line x1="182" y1="103" x2="150" y2="198" class="abl" stroke-width="0.8"
+  stroke-dasharray="3 2" marker-end="url(#am)" opacity="0.40"/>
+
+<!-- Cycle annotation -->
+<text class="sb ton" x="177" y="270" text-anchor="middle">ON ↔ OFF repeats 100s–1000s × per molecule</text>
+<text class="sb cap" x="177" y="284" text-anchor="middle">O₂ scavenging suppresses the bleaching pathway</text>
+
+<!-- ══════════════════════════════════════════
+     RIGHT PANEL: Buffer components
+     x=345–660  y=30–295
+     ════════════════════════════════════════ -->
+<rect x="345" y="30" width="315" height="265" rx="5" class="frm" stroke-width="0.5"/>
+<text class="lb cap" x="502" y="50" text-anchor="middle">Buffer components and roles</text>
+
+<!-- Laser box  y=58–106 -->
+<rect x="358" y="58" width="289" height="48" rx="5" class="llb" stroke-width="0.8"/>
+<text class="lb llt" x="502" y="76"  text-anchor="middle">647 nm CW laser (high power)</text>
+<text class="sb cap" x="502" y="91"  text-anchor="middle">Excites dye to S₁ → ISC to T₁</text>
+<text class="sb cap" x="502" y="103" text-anchor="middle">Dense illumination keeps most dyes dark</text>
+
+<!-- MEA box  y=116–178 -->
+<rect x="358" y="116" width="289" height="62" rx="5" class="mlb" stroke-width="0.8"/>
+<text class="lb mlt" x="502" y="134" text-anchor="middle">β-mercaptoethylamine (MEA)</text>
+<text class="mn cap" x="502" y="149" text-anchor="middle">50–100 mM · pH 7.4</text>
+<text class="sb cap" x="502" y="163" text-anchor="middle">Thiol group reacts with T₁ triplet</text>
+<text class="sb cap" x="502" y="175" text-anchor="middle">→ covalent thiol-adduct (dark state)</text>
+
+<!-- O2 scavenger box  y=188–260 -->
+<rect x="358" y="188" width="289" height="72" rx="5" class="olb" stroke-width="0.8"/>
+<text class="lb olt" x="502" y="206" text-anchor="middle">O₂-scavenging system (GLOX)</text>
+<text class="sb cap" x="502" y="221" text-anchor="middle">Glucose oxidase + catalase</text>
+<text class="sb cap" x="502" y="235" text-anchor="middle">Removes dissolved O₂ from buffer</text>
+<text class="sb cap" x="502" y="248" text-anchor="middle">→ prevents oxidative bleaching</text>
+<text class="sb cap" x="502" y="260" text-anchor="middle">→ prolongs dark state lifetime</text>
+
+<!-- Note below -->
+<text class="sb olt" x="502" y="280" text-anchor="middle">Without GLOX: O₂ bleaches dyes</text>
+<text class="sb olt" x="502" y="292" text-anchor="middle">from T₁ → far fewer localisations</text>
+
+<!-- ══════════════════════════════════════════
+     BOTTOM: Linear mechanism strip
+     y=305–480
+     Four state boxes + transition labels
+     ════════════════════════════════════════ -->
+<rect x="20" y="305" width="640" height="160" rx="5" class="box" stroke-width="0.5"/>
+<text class="hd ttl" x="340" y="324" text-anchor="middle">Thiol-adduct Mechanism</text>
+<line x1="40" y1="330" x2="640" y2="330" class="div" stroke-width="0.5"/>
+
+<!-- Four boxes: 118 wide, centred at 94, 248, 402, 556 -->
+<!-- Box 1: S0 fluorescent -->
+<rect x="35"  y="342" width="118" height="50" rx="5" class="son" stroke-width="0.8"/>
+<text class="sb ton" x="94"  y="359" text-anchor="middle">Cyanine dye</text>
+<text class="sb ton" x="94"  y="372" text-anchor="middle">S₀ ground state</text>
+<text class="sb ton" x="94"  y="385" text-anchor="middle">(fluorescent)</text>
+
+<!-- Arrow 1 -->
+<line x1="155" y1="367" x2="185" y2="367" class="atr" stroke-width="1.3" marker-end="url(#am)"/>
+<text class="sb ttr" x="170" y="360" text-anchor="middle">647 nm</text>
+<text class="sb ttr" x="170" y="373" text-anchor="middle">ISC</text>
+
+<!-- Box 2: T1 triplet -->
+<rect x="189" y="342" width="118" height="50" rx="5" class="str" stroke-width="0.8"/>
+<text class="sb ttr" x="248" y="359" text-anchor="middle">T₁ triplet</text>
+<text class="sb ttr" x="248" y="372" text-anchor="middle">long-lived</text>
+<text class="sb ttr" x="248" y="385" text-anchor="middle">reactive</text>
+
+<!-- Arrow 2 -->
+<line x1="309" y1="367" x2="339" y2="367" class="aof" stroke-width="1.3" marker-end="url(#am)"/>
+<text class="sb tof" x="324" y="360" text-anchor="middle">+ MEA</text>
+<text class="sb tof" x="324" y="373" text-anchor="middle">thiol-SH</text>
+
+<!-- Box 3: Thiol-adduct OFF -->
+<rect x="343" y="342" width="118" height="50" rx="5" class="sof" stroke-width="0.8"/>
+<text class="sb tof" x="402" y="359" text-anchor="middle">Thiol-adduct</text>
+<text class="sb tof" x="402" y="372" text-anchor="middle">sp³ at bridge C</text>
+<text class="sb tof" x="402" y="385" text-anchor="middle">π-system broken</text>
+
+<!-- Arrow 3 -->
+<line x1="463" y1="367" x2="493" y2="367" class="aon" stroke-width="1.3" marker-end="url(#am)"/>
+<text class="sb ton" x="478" y="360" text-anchor="middle">thermal</text>
+<text class="sb ton" x="478" y="373" text-anchor="middle">reversion</text>
+
+<!-- Box 4: S0 restored -->
+<rect x="497" y="342" width="118" height="50" rx="5" class="son" stroke-width="0.8"/>
+<text class="sb ton" x="556" y="359" text-anchor="middle">S₀ restored</text>
+<text class="sb ton" x="556" y="372" text-anchor="middle">π-system intact</text>
+<text class="sb ton" x="556" y="385" text-anchor="middle">(fluorescent)</text>
+
+<!-- Explanation lines -->
+<line x1="40" y1="405" x2="640" y2="405" class="div" stroke-width="0.4"/>
+<text class="sb cap" x="340" y="422" text-anchor="middle">The dark state arises from sp³ rehybridisation of the meso-carbon in the cyanine polymethine bridge.</text>
+<text class="sb cap" x="340" y="437" text-anchor="middle">This disrupts the extended π-conjugation responsible for fluorescence. The adduct reverts</text>
+<text class="sb cap" x="340" y="452" text-anchor="middle">spontaneously (or via mild oxidation by residual O₂) restoring the fluorescent ground state.</text>
+<text class="sb ton" x="340" y="467" text-anchor="middle">O₂ scavenging (GLOX) competes with adduct reversion, extending the dark state and reducing</text>
+<text class="sb cap" x="340" y="479" text-anchor="middle">irreversible bleaching → more localisations per molecule per acquisition.</text>
+
+</svg>
