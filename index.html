@@ -529,6 +529,459 @@ const CONFIG = {
   },
   /*  POSTS  (type: 'post' | 'excerpt' | 'gallery' | 'tool')  */
   posts: [
+
+  // ── ANALYTICAL TOOL POST ────────────────────────────────────────────────
+    {
+      type: "tool",
+      slug: "vflow-flow-cytometry-analysis-suite",
+      title: "vFlow: An Open-Source Desktop Suite for"
+           + " Flow Cytometry-Style Analysis of Image Data",
+      excerpt:
+          "A complete walkthrough of vFlow, an open-source Python"
+        + " desktop application for interactive gating, density"
+        + " visualisation, automatic threshold detection, batch"
+        + " statistics, and vector/polar analysis of multi-channel"
+        + " image-cytometry data — built for labs where not every"
+        + " collaborator has access to paid flow-cytometry licences.",
+      date: "01 Mar, 2026",
+      readTime: "16 min read",
+      tag: "Analytical Tools",
+      emoji: "",
+      imageUrl: "image-assets/posts/vFlow/fig2_density.png",
+      content: `
+
+<p>
+  Modern fluorescence microscopy pipelines routinely produce per-object
+  tables — one row per synaptophysin punctum, per nucleus, per cell — that
+  encode channel intensities, spatial coordinates, morphological features,
+  and inter-channel distances.  Analysing that kind of data calls for the
+  same interactive gating and population-statistics workflow that flow
+  cytometrists have relied on for decades.  The problem is that the
+  canonical tools (FlowJo, FCS Express, Cytobank) are licensed per-seat,
+  and in a multi-institution collaboration the bottleneck is rarely the
+  experiment — it is waiting for someone with the right licence to open
+  the file.
+</p>
+<p>
+  vFlow was written specifically for this context.  The immediate use case
+  was colocalization analysis of two fluorescent markers measured at the
+  level of individual puncta by a segmentation pipeline exporting CSV
+  results tables, but the application is general to any tabular dataset
+  with numeric columns.  It reads both CSV and FCS 2.0/3.x files natively,
+  runs entirely on a laptop without a server or cloud account, and is
+  distributed both as a standalone desktop application for macOS Apple
+  Silicon and Windows, and as a single Python script for anyone who
+  prefers to run from source.
+</p>
+<p>
+  Three principles shaped every design decision.
+  <strong>Zero install friction</strong>: pre-built binaries for macOS
+  Apple Silicon and Windows mean most collaborators can open the tool with
+  a double-click; for anyone running from source, a single
+  <code>pip install</code> of five packages covers all dependencies.
+  <strong>Reproducibility by default</strong>: gates are serialised to
+  and loaded from a human-readable JSON file so that exact thresholds
+  can be shared alongside the data and re-applied to new acquisitions
+  months later.
+  <strong>No data-size ceiling</strong>: scatter rendering is capped at
+  50 000 points per file for speed while statistical computations always
+  run on the full dataset.
+</p>
+<div class="tip-box">
+  <div class="tip-label">Repository &amp; Archive</div>
+  <p style="margin:0;line-height:1.75;">
+    Citable release, source code and example datasets are available
+    via Zenodo.<br>
+    <a href="https://zenodo.org/records/19091293"
+       target="_blank" rel="noopener noreferrer"
+       style="color:var(--accent);text-decoration:underline;
+              text-underline-offset:3px;
+              font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
+      https://zenodo.org/records/19091293
+    </a>
+  </p>
+</div>
+
+<h2>Getting Started</h2>
+<div class="tip-box">
+  <div class="tip-label">Standalone App — macOS Apple Silicon &amp; Windows</div>
+  <p style="margin:0;line-height:1.75;font-size:0.9rem;">
+    Pre-built binaries are available on the Zenodo archive — no Python
+    installation required.  Download the
+    <code>.dmg</code> (macOS Apple Silicon) or
+    <code>.exe</code> (Windows) for your platform, open it, and launch
+    vFlow directly.  A splash screen tracks the startup sequence while
+    the bundled runtime initialises.
+  </p>
+</div>
+<div class="tip-box">
+  <div class="tip-label">Run from Source — any platform</div>
+  <p style="margin:0;line-height:1.75;font-size:0.9rem;">
+    Install dependencies once:
+    <br><br>
+    <code
+      style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;
+             background:var(--code-bg,#111);padding:0.2em 0.5em;
+             border-radius:4px;">
+      pip install matplotlib numpy pandas scipy scikit-learn
+    </code>
+    <br><br>
+    Then launch:
+    <br><br>
+    <code
+      style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;
+             background:var(--code-bg,#111);padding:0.2em 0.5em;
+             border-radius:4px;">
+      python vFlow_v3_9_9.py
+    </code>
+  </p>
+</div>
+
+<h2>The Interface</h2>
+<p>
+  The application opens as a 1500 × 960 window split into a scrollable
+  sidebar on the left and a matplotlib canvas on the right.  A tab bar
+  across the top holds the main session plus any number of sub-gate tabs,
+  each a fully independent analysis instance with its own axes, scale,
+  gate set, and statistics.  Dark and light themes are switchable at
+  runtime and update all artists and widgets atomically.
+</p>
+<p>
+  The sidebar follows a natural analysis order: load files, choose axes
+  and scale, pick a plot mode, draw or auto-detect gates, inspect
+  statistics, and export.  The canvas hosts the matplotlib navigation
+  toolbar for panning and zooming, and a status bar at the bottom reports
+  the current file count, total event number, and active gate label.
+</p>
+
+<h2>Visualisation</h2>
+<p>
+  vFlow offers three plot modes, all sharing optional marginal histograms
+  along the top and right edges of the main axes.  The mode is selected
+  from a sidebar dropdown and updates the canvas immediately without
+  reloading data.
+</p>
+
+<h3>Dot Plot</h3>
+<p>
+  Each row in the loaded files is drawn as a point.  When multiple files
+  are open, each receives a distinct colour from a ten-colour palette with
+  its own legend entry.  Two view modes are available: <em>overlay</em>
+  draws all files simultaneously, while <em>cycle-through</em> renders
+  one file at a time with ◀ Prev / Next ▶ navigation.  Rendering is
+  rasterised by default for speed; exporting to PDF or SVG automatically
+  switches every scatter collection back to true vector output so figures
+  remain crisp at any zoom level.
+</p>
+<img
+  src="image-assets/posts/vFlow/fig1_dotplot.png"
+  alt="Dot Plot — three files overlaid with per-file colours and
+       marginal histograms"
+  style="width:100%;border-radius:6px;margin:1.2rem 0;"
+/>
+
+<h3>Density Plot</h3>
+<p>
+  Each point is coloured by the local Gaussian KDE value at its position,
+  with points sorted by increasing density so the most populated regions
+  sit on top.  The colour map defaults to <code>plasma</code> with a
+  continuous colorbar.  The KDE is fitted on a subsample of up to 30 000
+  points for speed and then evaluated at all plotted positions, keeping
+  interactive response times well below one second even on large datasets.
+</p>
+<img
+  src="image-assets/posts/vFlow/fig2_density.png"
+  alt="Density Plot — KDE colour-mapped scatter with marginal histograms"
+  style="width:100%;border-radius:6px;margin:1.2rem 0;"
+/>
+
+<h3>Contour Plot</h3>
+<p>
+  The KDE is evaluated on a 200 × 200 grid and rendered as filled contour
+  bands overlaid with white contour lines.  A sparse scatter of the raw
+  points is drawn on top at low opacity to reveal outlier objects that
+  fall between contour levels.  The number of iso-density levels is
+  controlled by the <em>Contour Probability</em> dropdown
+  (2 %, 5 %, 10 %, 20 %).
+</p>
+<img
+  src="image-assets/posts/vFlow/fig3_contour.png"
+  alt="Contour Plot — filled KDE contours with scatter overlay"
+  style="width:100%;border-radius:6px;margin:1.2rem 0;"
+/>
+
+<h2>Axis Scales</h2>
+<p>
+  Background-corrected fluorescence intensities span several decades and
+  include negative values where local background exceeds signal.  vFlow
+  ships four custom matplotlib scales registered at startup — in addition
+  to standard linear and log — so they work transparently with all
+  existing matplotlib functionality including figure export.  X and Y
+  scales are set independently; the cofactor for asinh and logicle is
+  adjustable via a sidebar entry and updates the axis live.
+</p>
+<ul>
+  <li>
+    <strong>asinh</strong> — <code>arcsinh(x / c)</code> with adjustable
+    cofactor <code>c</code> (default 150).  Symmetric around zero, linear
+    near the origin, logarithmic in the tails.  The standard choice for
+    background-corrected data.
+  </li>
+  <li>
+    <strong>biexp</strong> —
+    <code>sign(x) · log1p(|x| / t) · t</code>.  Similar shape to asinh;
+    useful when data has already been biexponentially pre-processed by
+    the acquisition software.
+  </li>
+  <li>
+    <strong>logicle</strong> —
+    <code>sign(x) · log10(1 + |x| / c)</code>.  Preserves the intuitive
+    decade labelling (10², 10³ …) familiar to flow cytometrists.
+  </li>
+  <li>
+    <strong>log</strong> — standard base-10 logarithm for non-negative
+    data where a strict log axis is preferred.
+  </li>
+</ul>
+
+<h2>Gating</h2>
+<p>
+  Gate draw mode is toggled in the sidebar; once active, left-dragging on
+  the canvas creates a gate of the selected type.  Right-dragging on any
+  handle always reshapes the gate regardless of mode.  Four gate types are
+  available: a <strong>Crosshair</strong> places one or more vertical
+  thresholds on X combined with one or more horizontal thresholds on Y,
+  creating a grid of rectangular regions with individually toggleable
+  lines; a <strong>Rectangle</strong> is an axis-aligned bounding box
+  resizable by dragging its corner or edge handles; an
+  <strong>Ellipse</strong> uses the same handle system; and a
+  <strong>Polygon</strong> lets the user click to add vertices one by one,
+  with a live outline preview, sealed by clicking <em>Close Polygon</em>.
+</p>
+<p>
+  Every gate is named and stored in the Gate Manager list, which supports
+  multiple independent gates coexisting on the same plot.  Once applied,
+  the Statistics treeview shows per-region cell counts and percentages in
+  either per-file or merged mode; the same values appear as floating label
+  boxes directly on the canvas.  Double-clicking a region label (with draw
+  mode off) opens that population in a new sub-gate tab for further
+  analysis with its own independent gate set.
+</p>
+<img
+  src="image-assets/posts/vFlow/fig5_crosshair.png"
+  alt="Crosshair gate — auto-detected thresholds dividing the scatter
+       into four quadrants with percentage labels and marginal gate lines"
+  style="width:100%;border-radius:6px;margin:1.2rem 0;"
+/>
+
+<h2>Auto-Gating</h2>
+<p>
+  Manually placing thresholds is subjective and slow when dozens of files
+  need to be processed consistently.  vFlow provides five automated
+  algorithms, all operating in the current axis-transform space so that
+  a threshold found on an arcsinh-scaled axis maps correctly back to the
+  raw intensity value.  A sensitivity slider (1–10) controls
+  algorithm-specific parameters and live re-runs the last used algorithm
+  with 350 ms debouncing.  The figure below shows the four
+  threshold-based methods side by side on the same 1D distribution —
+  GMM Multi resolves three populations and places two thresholds; GMM
+  Classic collapses the lower two into a single negative class; KDE
+  Valley sits at the deepest density gap; Otsu maximises class variance
+  and produces the most conservative split.  Choosing the right method
+  depends on the shape of the data and the biological question being
+  asked.
+</p>
+<img
+  src="image-assets/posts/vFlow/fig4_autogates_v2.png"
+  alt="Four auto-gate methods on the same Ch1 distribution: GMM Multi
+       (3-component, two thresholds), GMM Classic (2-component, one
+       threshold), KDE Valley (smoothed density, deepest gap annotated),
+       and Otsu (max between-class variance). Region percentages and
+       cell counts shown in each panel."
+  style="width:100%;border-radius:6px;margin:1.2rem 0;"
+/>
+
+<h3>GMM Multi</h3>
+<p>
+  Fits a Gaussian Mixture Model independently on both the X and Y
+  projections of the data.  The number of components on each axis is
+  chosen by minimising the Bayesian Information Criterion up to a
+  user-set maximum (configurable separately for X and Y via sidebar
+  spinboxes).  Valley thresholds are placed at the density minima between
+  adjacent Gaussian components, searched over a 3σ-widened window to
+  handle asymmetric distributions.  When both axes yield multiple
+  components the result is a full N×M crosshair gate — the most
+  expressive of the five methods and the only one that gates both axes
+  simultaneously based on data-driven population structure.
+</p>
+<img
+  src="image-assets/posts/vFlow/fig_gmm_multi.png"
+  alt="GMM Multi auto-gate — 3-component fit on each axis independently,
+       with valley thresholds creating a 3×3 region grid. Dashed
+       component curves and per-component weights are shown in the
+       marginal histograms."
+  style="width:100%;border-radius:6px;margin:1.2rem 0;"
+/>
+
+<h3>GMM Classic</h3>
+<p>
+  A constrained variant that caps the BIC search at two components and
+  operates on both axes independently, producing a single
+  positive/negative threshold on each.  This is the right choice when the
+  channels do not show more than two distinct populations, or when a
+  simple split on each marker is all that is needed.  It is faster than
+  GMM Multi and easier to verify manually.
+</p>
+<img
+  src="image-assets/posts/vFlow/fig_gmm_classic.png"
+  alt="GMM Classic auto-gate — BIC-best 2-component fit on Ch1 and Ch2
+       independently, producing one threshold per axis and a 2×2 region
+       grid. Component curves shown in the marginal histograms."
+  style="width:100%;border-radius:6px;margin:1.2rem 0;"
+/>
+
+<h3>KDE Valley</h3>
+<p>
+  Computes a Gaussian KDE on each axis independently, smooths the density
+  curve with a Savitzky-Golay filter, and locates all local minima via
+  sign changes of the first derivative.  A valley is accepted only when
+  both flanking peaks are at least 5× taller than the valley, ensuring the
+  gap represents a genuine population separation rather than a shoulder or
+  noise artefact.  The valley chosen is the one closest to the midpoint
+  between its two flanking peaks — a deterministic rule that avoids
+  instability in flat-floor regions between well-separated populations.
+  Falls back to a 5 % peak-height walk for unimodal data.
+</p>
+<img
+  src="image-assets/posts/vFlow/fig_kde_valley.png"
+  alt="KDE Valley auto-gate — smoothed density curve on Ch1 and Ch2
+       with annotated valley points and a 2×2 region grid."
+  style="width:100%;border-radius:6px;margin:1.2rem 0;"
+/>
+
+<h3>Otsu</h3>
+<p>
+  Maximises between-class variance over a 512-bin histogram of the
+  transformed data — the classic Otsu threshold in
+  O(<em>n</em><sub>bins</sub>) time.  No distributional assumptions; works
+  for any bimodal shape and is more robust than KDE for very unequal
+  population splits such as 5 % / 95 %.
+</p>
+<img
+  src="image-assets/posts/vFlow/fig_otsu.png"
+  alt="Otsu auto-gate — maximum between-class variance threshold on
+       Ch1 and Ch2, with KDE overlay for reference and a 2×2 region
+       grid."
+  style="width:100%;border-radius:6px;margin:1.2rem 0;"
+/>
+
+<h3>Mixed and Cluster Polygons</h3>
+<p>
+  <em>Mixed</em> applies GMM on the X axis and KDE Valley on the Y axis
+  simultaneously, useful when the two channels favour different detection
+  strategies.
+</p>
+<img
+  src="image-assets/posts/vFlow/fig_mixed.png"
+  alt="Mixed auto-gate — GMM on Ch1 (X axis) combined with KDE Valley
+       on Ch2 (Y axis), each method applied where it fits the channel
+       distribution best."
+  style="width:100%;border-radius:6px;margin:1.2rem 0;"
+/>
+<p>
+  <em>Cluster Polygons</em> runs a 2D HDBSCAN clustering on a subsampled
+  scatter and wraps each discovered cluster in a convex hull polygon gate.
+  It is the only method that does not assume axis-aligned separations,
+  making it well suited to populations with diagonal or irregular
+  boundaries in 2D space.  Each polygon is drawn directly on the scatter
+  and the marginal histograms are coloured by cluster membership, giving
+  an immediate visual read on how cleanly the populations separate along
+  each axis.
+</p>
+<img
+  src="image-assets/posts/vFlow/fig_cluster_polygons.png"
+  alt="Cluster Polygons auto-gate — HDBSCAN 2D clustering with convex
+       hull polygon gates drawn around each discovered cluster. Marginal
+       histograms coloured by cluster membership."
+  style="width:100%;border-radius:6px;margin:1.2rem 0;"
+/>
+
+<h2>Batch Processing</h2>
+<p>
+  Once a gate set has been validated on a representative sample it can be
+  applied to an entire folder in one step.  The <em>Batch Stats →
+  Folder</em> dialog takes a root directory, an optional filename-suffix
+  filter, and a file-type selector (CSV, FCS, or both); it previews
+  matching files in real time and on confirmation writes a single output
+  CSV with one row per file-and-region combination, covering file name,
+  gate label, region label, cell count, and percentage.
+</p>
+<p>
+  The <em>Load from Folder</em> dialog doubles as a concatenation tool:
+  selected files are vertically stacked into a single DataFrame with a
+  <code>Source_File</code> column prepended, saved to a specified path,
+  and optionally loaded into the session immediately — a common preparation
+  step when individual acquisition files need to be pooled before gating.
+</p>
+<img
+  src="image-assets/posts/vFlow/fig7_batch.png"
+  alt="Batch stats output: per-sample distance distribution as violin
+       plots (left) and quadrant population percentages as a stacked
+       bar chart per file (right)"
+  style="width:100%;border-radius:6px;margin:1.2rem 0;"
+/>
+
+<h2>Vector / Polar Analysis</h2>
+<p>
+  A dedicated satellite window computes and visualises the spatial
+  relationship between two fluorescent channels at the level of individual
+  objects.  The original use case is synaptophysin colocalization: each
+  row supplies the X/Y centroid of the same punctum detected in two
+  channels, and the angle of the vector joining those centroids encodes
+  the spatial offset direction.  Opening the window and mapping the four
+  coordinate columns (X/Y for each channel) is all that is required;
+  auto-detection reads the DataFrame headers and fills the dropdowns
+  automatically.
+</p>
+<p>
+  The window renders a polar rose histogram (default 36 bins) with
+  per-file coloured bars and a mean-direction arrow for each file.  The
+  arrow is suppressed when the Mean Resultant Length (MRL) falls below a
+  user-set threshold, preventing spurious arrows on uniformly distributed
+  data.  Circular statistics follow Zar (2010) §27.2: MRL as a
+  concentration measure, a finite-sample-corrected Rayleigh p-value, and
+  a significance flag requiring <em>both</em> p &lt; 0.05 and MRL ≥
+  threshold — the dual criterion prevents large-<em>n</em> samples with
+  trivially small MRL from being flagged as significant, and guards
+  against underpowered small-<em>n</em> samples with spuriously high MRL.
+  The gate and region dropdowns mirror the main window, so the analysis
+  can be restricted to any previously defined sub-population.
+</p>
+<img
+  src="image-assets/posts/vFlow/fig6_polar.png"
+  alt="Vector / Polar Analysis window — rose histogram with per-file
+       mean-direction arrows and a statistics table showing N, MRL,
+       Rayleigh p-value, mean direction and significance per file"
+  style="width:100%;border-radius:6px;margin:1.2rem 0;"
+/>
+
+<h2>Export and Reproducibility</h2>
+<p>
+  Every output in vFlow is designed to be self-contained and re-runnable
+  without the application being open.  Gates are saved to and loaded from
+  a JSON file that captures type, threshold values, toggle states, and
+  vertex coordinates; this file can be committed to a repository alongside
+  the raw data and reloaded into any compatible session.  Four data exports
+  are available from the sidebar: per-region statistics CSV, full
+  gated-data CSV (one file per region), batch folder stats CSV covering an
+  entire directory, and polar vector stats CSV from the analysis window.
+  Figures are exported at 300 dpi in PDF, SVG, or PNG; for vector formats,
+  rasterisation is automatically disabled on export so every scatter point
+  is a true vector object at any zoom level.
+</p>
+      `,
+    },
+    
     // ── FIBER PHOTOMETRY POST ──────────────────────────────────────────
     {
       type: "excerpt",
@@ -3964,53 +4417,7 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
 </div>
 `,
 },
-    // ── ANALYTICAL TOOL POST ──────────────────────────────────────────────
-    {
-      type: "tool",
-      slug: "fiberflow-photometry-analysis-suite",
-      title: "FiberFlow: An Open-Source Pipeline for Fiber Photometry Analysis",
-      excerpt:
-        "A step-by-step walkthrough of FiberFlow, our in-house Python toolkit"
-        + " for preprocessing, isosbestic correction, event-triggered averaging,"
-        + " and behavioural alignment of fiber photometry data. Includes"
-        + " interactive Jupyter notebooks and worked examples with GCaMP6f and"
-        + " GRAB sensor recordings.",
-      date: "01 Mar, 2026",
-      readTime: "12 min read",
-      tag: "Analytical Tools",
-      emoji: "📊",
-      imageUrl: "image-assets/gallery-strip/data-analysis-suite/data_analysis.svg",
-      content: `
-<p>
-  Fiber photometry generates clean, continuous fluorescence traces — but
-  translating those traces into interpretable neuroscience requires a
-  surprisingly large number of choices: how to correct for motion artefacts,
-  which baseline period to use for ΔF/F normalisation, how to handle
-  recordings that drift over hours, and how to align neural signals to
-  behavioural events with sub-second precision. FiberFlow is our attempt to
-  make those choices explicit, reproducible, and easy to modify.
-</p>
-<h2>Pipeline Overview</h2>
-<p>
-  The pipeline runs in five modular stages: (1) raw data import and metadata
-  parsing, (2) low-pass filtering and photobleach correction, (3) isosbestic
-  regression, (4) ΔF/F computation and z-score normalisation, and (5) event-
-  triggered averaging aligned to behavioural timestamps. Each stage writes a
-  standardised HDF5 output so that downstream modules can be swapped
-  independently.
-</p>
-<div class="tip-box">
-  <div class="tip-label">Repository</div>
-  <p style="margin:0;line-height:1.75;">
-Source code, documentation and example datasets are available on GitHub.<br> <a
-  href="https://github.com/placeholder/fiberflow" target="_blank" rel="noopener
-  noreferrer" style="color:var(--accent);text-decoration:underline;
-  text-underline-offset:3px;font-family:'JetBrains Mono',monospace;
-  font-size:0.8rem;"> https://github.com/placeholder/fiberflow </a>
-</p>
-</div>
-      `,
-    },
+
 
     {
       type:"gallery", slug:"lab-confocal-images",
