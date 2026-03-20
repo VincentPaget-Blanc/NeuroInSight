@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+     fill="none" stroke="currentColor" stroke-width="1.8"
+     stroke-linecap="round" stroke-linejoin="round"
+     role="img" aria-label="Analytical Tool">
+  <title>Analytical Tool</title>
+  <!-- Axes -->
+  <polyline points="4,4 4,19 21,19"/>
+  <!-- Line trace -->
+  <polyline points="6,15 9,11 12,13 15,7 19,9"/>
+  <!-- Data points -->
+  <circle cx="6"  cy="15" r="1.2" fill="currentColor" stroke="none"/>
+  <circle cx="9"  cy="11" r="1.2" fill="currentColor" stroke="none"/>
+  <circle cx="12" cy="13" r="1.2" fill="currentColor" stroke="none"/>
+  <circle cx="15" cy="7"  r="1.2" fill="currentColor" stroke="none"/>
+  <circle cx="19" cy="9"  r="1.2" fill="currentColor" stroke="none"/>
+</svg>

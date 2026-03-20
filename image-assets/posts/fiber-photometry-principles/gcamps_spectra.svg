@@ -1,0 +1,201 @@
+<svg width="100%" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      .panel-hd  { fill: #e8e6de; }
+      .sub-lbl   { fill: #9c9a92; }
+      .axis-line { stroke: rgba(222,220,209,0.35); }
+      .grid-line { stroke: rgba(222,220,209,0.10); }
+      .plot-bg   { fill: rgba(222,220,209,0.03); stroke: rgba(222,220,209,0.18); }
+      .exc-lbl   { fill: #64A0F0; }
+      .trnx-exc  { stroke: #64A0F0; }
+      .ref-lbl   { fill: #A078DC; }
+      .trnx-ref  { stroke: #A078DC; }
+      .eff-lbl   { fill: #1D9E75; }
+      .trnx-eff  { stroke: #1D9E75; }
+      .iso-dot   { fill: #e8e6de; stroke: rgba(222,220,209,0.6); }
+      .band-fill { fill: rgba(29,158,117,0.07); }
+      .vline-exc { stroke: rgba(100,160,240,0.40); }
+      .vline-ref { stroke: rgba(160,120,220,0.40); }
+      .sum-box   { fill: none; stroke: rgba(222,220,209,0.20); }
+      .apo-curve { stroke: #9c9a92; }
+    }
+    @media (prefers-color-scheme: light) {
+      .panel-hd  { fill: #1a1a1a; }
+      .sub-lbl   { fill: #5f5e5a; }
+      .axis-line { stroke: #B4B2A9; }
+      .grid-line { stroke: rgba(0,0,0,0.07); }
+      .plot-bg   { fill: rgba(0,0,0,0.015); stroke: #D3D1C7; }
+      .exc-lbl   { fill: #2864C8; }
+      .trnx-exc  { stroke: #2864C8; }
+      .ref-lbl   { fill: #7846BE; }
+      .trnx-ref  { stroke: #7846BE; }
+      .eff-lbl   { fill: #0F6E56; }
+      .trnx-eff  { stroke: #0F6E56; }
+      .iso-dot   { fill: #1a1a1a; stroke: rgba(0,0,0,0.4); }
+      .band-fill { fill: rgba(15,110,86,0.06); }
+      .vline-exc { stroke: rgba(40,100,200,0.35); }
+      .vline-ref { stroke: rgba(120,70,190,0.35); }
+      .sum-box   { fill: none; stroke: #D3D1C7; }
+      .apo-curve { stroke: #888780; }
+    }
+    .hd  { font: 600 13px "Helvetica Neue", Arial, sans-serif; }
+    .lbl { font: 500 12px "Helvetica Neue", Arial, sans-serif; }
+    .sub { font: 400 11px "Helvetica Neue", Arial, sans-serif; }
+    .mono{ font: 400 10px "JetBrains Mono","Courier New",monospace; }
+  </style>
+</defs>
+
+<!-- TITLE -->
+<text class="hd panel-hd" x="340" y="18" text-anchor="middle">GCaMP Excitation Spectra — Isosbestic Point</text>
+
+<!-- Plot background -->
+<!-- X axis: 360–540 nm → SVG x = 60 + (nm-360)×3.22  (px/nm)
+     Y axis: 0–1.0 norm → SVG y = 52 + (1-norm)×240  (plot height = 240px)  -->
+<rect x="60" y="52" width="580" height="240" rx="3" class="plot-bg" stroke-width="0.5"/>
+
+<!-- ── Emission band shading ≥500 nm (x=60+(500-360)*3.22 = 60+451 = 511) -->
+<rect x="511" y="52" width="129" height="240" class="band-fill"/>
+
+<!-- ── Grid lines (horizontal) ──
+     y=0   → SVG y=292,  y=0.25→229,  y=0.5→172,  y=0.75→112,  y=1.0→52 -->
+<line x1="60" y1="292" x2="640" y2="292" class="axis-line" stroke-width="1.2"/>
+<line x1="60" y1="232" x2="640" y2="232" class="grid-line" stroke-width="0.7"/>
+<line x1="60" y1="172" x2="640" y2="172" class="grid-line" stroke-width="0.7"/>
+<line x1="60" y1="112" x2="640" y2="112" class="grid-line" stroke-width="0.7"/>
+<line x1="60" y1="52"  x2="640" y2="52"  class="grid-line" stroke-width="0.7"/>
+<!-- Vertical axis -->
+<line x1="60" y1="52" x2="60" y2="292" class="axis-line" stroke-width="1.2"/>
+
+<!-- ── Vertical marker: 405 nm → x = 60+(405-360)*3.22 = 60+145 = 205 -->
+<line x1="205" y1="52" x2="205" y2="292" class="vline-ref" stroke-width="1" stroke-dasharray="5 3"/>
+<!-- ── Vertical marker: 470 nm → x = 60+(470-360)*3.22 = 60+354 = 414 -->
+<line x1="414" y1="52" x2="414" y2="292" class="vline-exc" stroke-width="1" stroke-dasharray="5 3"/>
+
+<!-- ── Ca²⁺-FREE (apo) curve — dashed neutral
+     Key (nm → norm): 360→0, 375→0.04, 390→0.52, 400→0.62, 405→0.48,
+                       415→0.32, 430→0.18, 450→0.09, 480→0.05, 540→0.02
+     SVG x = 60+(nm-360)*3.22,  SVG y = 292 - norm*240
+     360 x=60  y=292
+     375 x=108 y=282
+     390 x=157 y=167  (y=292-0.52*240=167)
+     400 x=189 y=143  (y=292-0.62*240=143)
+     405 x=205 y=176  (y=292-0.48*240=176) ← isosbestic
+     415 x=237 y=215  (y=292-0.32*240=215)
+     430 x=286 y=249  (y=292-0.18*240=249)
+     450 x=350 y=270  (y=292-0.09*240=270)
+     480 x=450 y=280
+     540 x=641 y=287
+-->
+<path d="M60,292 C78,291 90,285 108,282
+         C124,279 138,200 157,167
+         C168,152 180,144 189,143
+         C197,143 201,157 205,176
+         C210,196 220,212 237,215
+         C258,220 270,240 286,249
+         C308,259 328,268 350,270
+         C390,273 420,278 450,280
+         C520,283 580,285 641,287"
+      class="apo-curve" stroke-width="2" fill="none" stroke-dasharray="8 4"/>
+
+<!-- ── Ca²⁺-BOUND (holo) curve — solid blue
+     Key (nm → norm): 360→0.02, 380→0.08, 400→0.30, 405→0.48,
+                       415→0.60, 440→0.82, 460→0.94, 488→1.0,
+                       505→0.90, 520→0.68, 535→0.42, 540→0.30
+     SVG x and y:
+     360 x=60   y=287
+     380 x=124  y=273
+     400 x=189  y=220  (y=292-0.30*240=220)
+     405 x=205  y=176  ← isosbestic, same y as apo
+     415 x=237  y=148  (y=292-0.60*240=148)
+     440 x=317  y=95   (y=292-0.82*240=95)
+     460 x=382  y=67   (y=292-0.94*240=67)
+     488 x=472  y=52   (y=292-1.0*240=52) ← peak
+     505 x=526  y=76   (y=292-0.90*240=76)
+     520 x=575  y=129  (y=292-0.68*240=129)
+     535 x=623  y=191  (y=292-0.42*240=191)
+     540 x=641  y=220
+-->
+<path d="M60,287 C82,284 100,277 124,273
+         C145,269 168,232 189,220
+         C197,214 200,190 205,176
+         C210,162 218,153 237,148
+         C262,140 290,110 317,95
+         C340,83 360,72 382,67
+         C416,59 448,52 472,52
+         C492,52 510,60 526,76
+         C548,97 562,113 575,129
+         C596,156 614,174 623,191
+         C633,208 638,216 641,220"
+      class="trnx-exc" stroke-width="2.5" fill="none"/>
+
+<!-- ── ISOSBESTIC POINT dot at (205, 176) -->
+<circle cx="205" cy="176" r="7" class="iso-dot" stroke-width="1.5"/>
+<circle cx="205" cy="176" r="3" class="iso-dot"/>
+
+<!-- Annotation leader for isosbestic -->
+<path d="M205,169 L205,140 L228,118" fill="none" class="apo-curve" stroke-width="0.8" stroke-dasharray="2 2"/>
+<text class="sub panel-hd" x="230" y="115" style="font-size:10.5px;font-weight:600;">Isosbestic point</text>
+<text class="sub sub-lbl" x="230" y="128" style="font-size:9px;">~405–410 nm</text>
+<text class="sub sub-lbl" x="230" y="140" style="font-size:9px;">Ca²⁺-independent excitation</text>
+
+<!-- ── 405 nm label (top of dashed vline) -->
+<text class="sub ref-lbl" x="205" y="46" text-anchor="middle" style="font-size:9.5px;font-weight:600;">405 nm</text>
+
+<!-- ── 470 nm label (top of dashed vline) -->
+<text class="sub exc-lbl" x="414" y="46" text-anchor="middle" style="font-size:9.5px;font-weight:600;">470 nm</text>
+
+<!-- ── Emission band label -->
+<text class="sub eff-lbl" x="575" y="74" text-anchor="middle" style="font-size:9px;">GFP</text>
+<text class="sub eff-lbl" x="575" y="86" text-anchor="middle" style="font-size:9px;">emission</text>
+<text class="sub eff-lbl" x="575" y="98" text-anchor="middle" style="font-size:9px;">~510–540</text>
+
+<!-- ── Y-axis labels -->
+<text class="mono sub-lbl" x="54" y="296" text-anchor="end">0</text>
+<text class="mono sub-lbl" x="54" y="236" text-anchor="end">0.25</text>
+<text class="mono sub-lbl" x="54" y="176" text-anchor="end">0.5</text>
+<text class="mono sub-lbl" x="54" y="116" text-anchor="end">0.75</text>
+<text class="mono sub-lbl" x="54" y="56"  text-anchor="end">1.0</text>
+
+<!-- Y-axis title -->
+<text class="sub sub-lbl" x="14" y="172" text-anchor="middle"
+  transform="rotate(-90,14,172)" style="font-size:10px;">Norm. excitation</text>
+
+<!-- ── X-axis tick labels
+     360→x=60, 380→x=124, 400→x=189, 420→x=254, 440→x=318,
+     460→x=382, 480→x=447, 500→x=511, 520→x=576, 540→x=640 -->
+<line x1="60"  y1="292" x2="60"  y2="298" class="axis-line" stroke-width="1"/>
+<line x1="124" y1="292" x2="124" y2="298" class="axis-line" stroke-width="1"/>
+<line x1="189" y1="292" x2="189" y2="298" class="axis-line" stroke-width="1"/>
+<line x1="254" y1="292" x2="254" y2="298" class="axis-line" stroke-width="1"/>
+<line x1="318" y1="292" x2="318" y2="298" class="axis-line" stroke-width="1"/>
+<line x1="382" y1="292" x2="382" y2="298" class="axis-line" stroke-width="1"/>
+<line x1="447" y1="292" x2="447" y2="298" class="axis-line" stroke-width="1"/>
+<line x1="511" y1="292" x2="511" y2="298" class="axis-line" stroke-width="1"/>
+<line x1="576" y1="292" x2="576" y2="298" class="axis-line" stroke-width="1"/>
+<line x1="640" y1="292" x2="640" y2="298" class="axis-line" stroke-width="1"/>
+
+<text class="mono sub-lbl" x="60"  y="310" text-anchor="middle" style="font-size:9px;">360</text>
+<text class="mono sub-lbl" x="124" y="310" text-anchor="middle" style="font-size:9px;">380</text>
+<text class="mono sub-lbl" x="189" y="310" text-anchor="middle" style="font-size:9px;">400</text>
+<text class="mono sub-lbl" x="254" y="310" text-anchor="middle" style="font-size:9px;">420</text>
+<text class="mono sub-lbl" x="318" y="310" text-anchor="middle" style="font-size:9px;">440</text>
+<text class="mono sub-lbl" x="382" y="310" text-anchor="middle" style="font-size:9px;">460</text>
+<text class="mono sub-lbl" x="447" y="310" text-anchor="middle" style="font-size:9px;">480</text>
+<text class="mono sub-lbl" x="511" y="310" text-anchor="middle" style="font-size:9px;">500</text>
+<text class="mono sub-lbl" x="576" y="310" text-anchor="middle" style="font-size:9px;">520</text>
+<text class="mono sub-lbl" x="640" y="310" text-anchor="middle" style="font-size:9px;">540</text>
+
+<!-- X-axis title -->
+<text class="sub sub-lbl" x="350" y="332" text-anchor="middle" style="font-size:10px;">Excitation wavelength (nm)</text>
+
+<!-- ── LEGEND -->
+<rect x="60" y="350" width="560" height="40" rx="4" class="sum-box" stroke-width="0.5"/>
+<line x1="90"  y1="370" x2="118" y2="370" class="apo-curve" stroke-width="2" stroke-dasharray="7 3"/>
+<text class="sub sub-lbl" x="124" y="374" style="font-size:10px;">Ca²⁺-free (apo)</text>
+<line x1="296" y1="370" x2="324" y2="370" class="trnx-exc" stroke-width="2.5"/>
+<text class="sub exc-lbl" x="330" y="374" style="font-size:10px;">Ca²⁺-bound (holo)</text>
+<circle cx="490" cy="370" r="5.5" class="iso-dot" stroke-width="1.3"/>
+<circle cx="490" cy="370" r="2.5" class="iso-dot"/>
+<text class="sub panel-hd" x="500" y="374" style="font-size:10px;">Isosbestic point</text>
+</svg>

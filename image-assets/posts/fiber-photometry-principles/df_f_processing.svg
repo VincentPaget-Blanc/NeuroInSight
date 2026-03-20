@@ -1,0 +1,190 @@
+<svg width="100%" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      .panel-hd  { fill: #e8e6de; }
+      .sub-lbl   { fill: #9c9a92; }
+      .frame     { fill: rgba(222,220,209,0.03); stroke: rgba(222,220,209,0.22); }
+      .axis-line { stroke: rgba(222,220,209,0.30); }
+      .base-line { stroke: rgba(222,220,209,0.14); }
+      .grid-v    { stroke: rgba(222,220,209,0.08); }
+      .exc-lbl   { fill: #64A0F0; }
+      .trnx-exc  { stroke: #64A0F0; }
+      .exc-band  { fill: rgba(100,160,240,0.10); }
+      .ref-lbl   { fill: #A078DC; }
+      .trnx-ref  { stroke: #A078DC; }
+      .eff-lbl   { fill: #1D9E75; }
+      .trnx-eff  { stroke: #1D9E75; }
+      .sted-lbl  { fill: #E24B4A; }
+      .sted-band { fill: rgba(226,75,74,0.10); stroke: rgba(226,75,74,0.40); }
+      .sum-box   { fill: none; stroke: rgba(222,220,209,0.20); }
+    }
+    @media (prefers-color-scheme: light) {
+      .panel-hd  { fill: #1a1a1a; }
+      .sub-lbl   { fill: #5f5e5a; }
+      .frame     { fill: rgba(0,0,0,0.015); stroke: #D3D1C7; }
+      .axis-line { stroke: #B4B2A9; }
+      .base-line { stroke: #D3D1C7; }
+      .grid-v    { stroke: rgba(0,0,0,0.06); }
+      .exc-lbl   { fill: #2864C8; }
+      .trnx-exc  { stroke: #2864C8; }
+      .exc-band  { fill: rgba(40,100,200,0.07); }
+      .ref-lbl   { fill: #7846BE; }
+      .trnx-ref  { stroke: #7846BE; }
+      .eff-lbl   { fill: #0F6E56; }
+      .trnx-eff  { stroke: #0F6E56; }
+      .sted-lbl  { fill: #C83232; }
+      .sted-band { fill: rgba(200,50,50,0.07); stroke: rgba(200,50,50,0.35); }
+      .sum-box   { fill: none; stroke: #D3D1C7; }
+    }
+    .hd  { font: 600 13px "Helvetica Neue", Arial, sans-serif; }
+    .lbl { font: 500 12px "Helvetica Neue", Arial, sans-serif; }
+    .sub { font: 400 11px "Helvetica Neue", Arial, sans-serif; }
+    .mono{ font: 400 10px "JetBrains Mono","Courier New",monospace; }
+  </style>
+</defs>
+
+<!-- TITLE -->
+<text class="hd panel-hd" x="340" y="18" text-anchor="middle">Dual-Channel Recording and ΔF/F Correction</text>
+
+<!-- ══════════════════════════════════
+  Three stacked panels. Left margin x=68, right x=640, width=572px.
+  Panel heights: 80px each, gaps: 22px between panels.
+  Panel 1 (F470):  y=30..110 , baseline y=70
+  Panel 2 (F405):  y=132..212, baseline y=172
+  Panel 3 (ΔF/F):  y=234..314, baseline y=274
+  Time axis: x=68..640 → 572px for 120s → 4.77px/s
+  Neural transients at t=18s (x=154), t=52s (x=316), t=90s (x=497)
+  Motion artefact at t=72s (x=411)
+════════════════════════════════════ -->
+
+<!-- ── PANEL 1: F470 ── -->
+<rect x="68" y="30" width="572" height="80" rx="3" class="frame" stroke-width="0.5"/>
+<!-- Neural transient shading in F470 -->
+<rect x="136" y="30" width="36" height="80" class="exc-band"/>
+<rect x="298" y="30" width="36" height="80" class="exc-band"/>
+<rect x="479" y="30" width="36" height="80" class="exc-band"/>
+<!-- Motion artefact band (shared across all panels — drawn separately per panel) -->
+<rect x="396" y="30" width="30" height="80" class="sted-band" stroke-width="0.5" stroke-dasharray="0"/>
+
+<!-- Baseline in panel 1 -->
+<line x1="68" y1="70" x2="640" y2="70" class="base-line" stroke-width="0.8" stroke-dasharray="3 3"/>
+
+<!-- F470 TRACE: baseline y=70, transient peaks y=38, motion spike y=36, slow drift (y increases ~4px by end) -->
+<path d="M68,71
+         C90,71 120,71 136,71
+         C140,68 144,56 148,44 C152,38 156,38 160,46 C164,56 168,68 172,71
+         C200,71 280,71 298,71
+         C302,68 306,56 310,44 C314,38 318,38 322,46 C326,56 330,68 334,71
+         C358,71 390,71 396,71
+         C399,55 403,38 411,36 C416,36 419,55 423,71
+         C440,71 460,71 479,71
+         C483,68 487,56 491,44 C495,38 499,38 503,46 C507,56 511,68 515,71
+         C560,72 600,73 640,74"
+      class="trnx-exc" stroke-width="2" fill="none"/>
+
+<!-- Panel label -->
+<text class="lbl exc-lbl" x="74" y="45" style="font-size:10.5px;font-weight:600;">F₄₇₀</text>
+<text class="sub sub-lbl" x="74" y="57" style="font-size:9px;">470 nm raw</text>
+<!-- Drift indicator -->
+<text class="sub sub-lbl" x="634" y="78" text-anchor="end" style="font-size:8.5px;">drift →</text>
+
+<!-- ── PANEL 2: F405 ── -->
+<rect x="68" y="132" width="572" height="80" rx="3" class="frame" stroke-width="0.5"/>
+<!-- Motion artefact in F405 (same position) -->
+<rect x="396" y="132" width="30" height="80" class="sted-band" stroke-width="0.5"/>
+
+<line x1="68" y1="172" x2="640" y2="172" class="base-line" stroke-width="0.8" stroke-dasharray="3 3"/>
+
+<!-- F405 TRACE: baseline y=172, NO neural transients, motion spike y=138, same slow drift -->
+<path d="M68,173
+         C180,173 350,174 396,174
+         C399,158 403,140 411,138 C416,138 419,158 423,174
+         C460,175 560,176 640,177"
+      class="trnx-ref" stroke-width="2" fill="none"/>
+
+<text class="lbl ref-lbl" x="74" y="147" style="font-size:10.5px;font-weight:600;">F₄₀₅</text>
+<text class="sub sub-lbl" x="74" y="159" style="font-size:9px;">405 nm reference</text>
+<text class="sub sub-lbl" x="634" y="180" text-anchor="end" style="font-size:8.5px;">drift →</text>
+
+<!-- Annotation: "no neural signal" -->
+<text class="sub ref-lbl" x="290" y="148" text-anchor="middle" style="font-size:8.5px;">no neural transients</text>
+<line x1="290" y1="150" x2="290" y2="170" class="base-line" stroke-width="0.7" stroke-dasharray="2 2"/>
+
+<!-- ── REGRESSION + SUBTRACTION LABEL (between panels 2 and 3) ── -->
+<text class="sub sub-lbl" x="354" y="227" text-anchor="middle" style="font-size:9.5px;">regression + subtraction → ΔF/F = (F₄₇₀ − F₀) / F₀</text>
+<!-- Small down arrow -->
+<line x1="354" y1="215" x2="354" y2="230" class="base-line" stroke-width="1"/>
+<polygon points="350,228 354,234 358,228" class="eff-lbl" style="fill:currentColor"/>
+
+<!-- ── PANEL 3: ΔF/F ── -->
+<rect x="68" y="236" width="572" height="80" rx="3" class="frame" stroke-width="0.5"/>
+<!-- Neural transient shading in ΔF/F (same positions) -->
+<rect x="136" y="236" width="36" height="80" class="exc-band"/>
+<rect x="298" y="236" width="36" height="80" class="exc-band"/>
+<rect x="479" y="236" width="36" height="80" class="exc-band"/>
+<!-- NO motion artefact shading in corrected ΔF/F -->
+
+<line x1="68" y1="276" x2="640" y2="276" class="base-line" stroke-width="0.8" stroke-dasharray="3 3"/>
+
+<!-- ΔF/F TRACE: clean transients, no motion spike, no drift -->
+<path d="M68,276
+         C90,276 120,276 136,276
+         C140,273 144,262 148,250 C152,244 156,244 160,251 C164,262 168,274 172,276
+         C200,276 280,276 298,276
+         C302,273 306,262 310,250 C314,244 318,244 322,251 C326,262 330,274 334,276
+         C380,276 396,276 411,276 C426,276 460,276 479,276
+         C483,273 487,262 491,250 C495,244 499,244 503,251 C507,262 511,274 515,276
+         C560,276 600,276 640,276"
+      class="trnx-eff" stroke-width="2.2" fill="none"/>
+
+<text class="lbl eff-lbl" x="74" y="251" style="font-size:10.5px;font-weight:600;">ΔF/F</text>
+<text class="sub sub-lbl" x="74" y="263" style="font-size:9px;">corrected signal</text>
+
+<!-- ══ X-AXIS (time) ══ -->
+<line x1="68" y1="318" x2="642" y2="318" class="axis-line" stroke-width="1.2"/>
+<!-- Arrow at end -->
+<polygon points="638,315 644,318 638,321" class="sub-lbl" style="fill:currentColor"/>
+
+<!-- Time ticks: 0,20,40,60,80,100,120s -->
+<!-- 0s: x=68, 20s: x=68+20*4.77=163, 40s: x=258, 60s: x=354, 80s: x=449, 100s: x=545, 120s: x=640 -->
+<line x1="68"  y1="318" x2="68"  y2="324" class="axis-line" stroke-width="1"/>
+<line x1="163" y1="318" x2="163" y2="324" class="axis-line" stroke-width="1"/>
+<line x1="258" y1="318" x2="258" y2="324" class="axis-line" stroke-width="1"/>
+<line x1="354" y1="318" x2="354" y2="324" class="axis-line" stroke-width="1"/>
+<line x1="449" y1="318" x2="449" y2="324" class="axis-line" stroke-width="1"/>
+<line x1="545" y1="318" x2="545" y2="324" class="axis-line" stroke-width="1"/>
+<line x1="640" y1="318" x2="640" y2="324" class="axis-line" stroke-width="1"/>
+<text class="mono sub-lbl" x="68"  y="334" text-anchor="middle" style="font-size:9px;">0</text>
+<text class="mono sub-lbl" x="163" y="334" text-anchor="middle" style="font-size:9px;">20</text>
+<text class="mono sub-lbl" x="258" y="334" text-anchor="middle" style="font-size:9px;">40</text>
+<text class="mono sub-lbl" x="354" y="334" text-anchor="middle" style="font-size:9px;">60</text>
+<text class="mono sub-lbl" x="449" y="334" text-anchor="middle" style="font-size:9px;">80</text>
+<text class="mono sub-lbl" x="545" y="334" text-anchor="middle" style="font-size:9px;">100</text>
+<text class="mono sub-lbl" x="640" y="334" text-anchor="middle" style="font-size:9px;">120</text>
+<text class="sub sub-lbl" x="354" y="350" text-anchor="middle" style="font-size:10px;">Time (s)</text>
+
+<!-- ══ ANNOTATIONS above the panels ══ -->
+<!-- Neural transient label -->
+<line x1="154" y1="28" x2="154" y2="20" class="base-line" stroke-width="0.8" stroke-dasharray="2 2"/>
+<text class="sub exc-lbl" x="154" y="16" text-anchor="middle" style="font-size:8.5px;">neural transient</text>
+
+<!-- Motion artefact label -->
+<line x1="411" y1="28" x2="411" y2="20" class="base-line" stroke-width="0.8" stroke-dasharray="2 2"/>
+<text class="sub sted-lbl" x="411" y="16" text-anchor="middle" style="font-size:8.5px;">motion artefact</text>
+
+<!-- ══ LEGEND ══ -->
+<rect x="68" y="362" width="572" height="48" rx="4" class="sum-box" stroke-width="0.5"/>
+<line x1="90"  y1="386" x2="116" y2="386" class="trnx-exc" stroke-width="2"/>
+<text class="sub exc-lbl" x="122" y="390" style="font-size:10px;">F₄₇₀ — 470 nm raw</text>
+<line x1="264" y1="386" x2="290" y2="386" class="trnx-ref" stroke-width="2"/>
+<text class="sub ref-lbl" x="296" y="390" style="font-size:10px;">F₄₀₅ — isosbestic reference</text>
+<line x1="470" y1="386" x2="496" y2="386" class="trnx-eff" stroke-width="2.2"/>
+<text class="sub eff-lbl" x="502" y="390" style="font-size:10px;">ΔF/F corrected</text>
+
+<!-- Legend notes row 2 -->
+<rect x="90" y="398" width="12" height="8" class="exc-band"/>
+<text class="sub sub-lbl" x="107" y="407" style="font-size:8.5px;">neural transient</text>
+<rect x="264" y="398" width="12" height="8" class="sted-band" stroke-width="0.5"/>
+<text class="sub sub-lbl" x="281" y="407" style="font-size:8.5px;">motion artefact (removed in ΔF/F)</text>
+</svg>

@@ -1,0 +1,190 @@
+<svg width="100%" viewBox="0 0 680 500" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      .panel-hd  { fill: #e8e6de; }
+      .frame     { fill: none; stroke: rgba(222,220,209,0.25); }
+      .sub-lbl   { fill: #9c9a92; }
+      .sum-box   { fill: none; stroke: rgba(222,220,209,0.20); }
+      .exc-fill  { fill: rgba(100,160,240,0.13); stroke: #64A0F0; }
+      .exc-lbl   { fill: #64A0F0; }
+      .trnx-exc  { stroke: #64A0F0; }
+      .ref-fill  { fill: rgba(160,120,220,0.13); stroke: #A078DC; }
+      .ref-lbl   { fill: #A078DC; }
+      .trnx-ref  { stroke: #A078DC; }
+      .eff-fill  { fill: rgba(29,158,117,0.17); stroke: #1D9E75; }
+      .eff-lbl   { fill: #1D9E75; }
+      .trnx-eff  { stroke: #1D9E75; }
+      .comp-box  { fill: rgba(222,220,209,0.05); stroke: rgba(222,220,209,0.28); }
+      .mirror    { stroke: rgba(222,220,209,0.65); }
+      .skull-box { fill: rgba(222,220,209,0.07); stroke: rgba(222,220,209,0.32); }
+      .brain-box { fill: rgba(100,160,240,0.04); stroke: rgba(100,160,240,0.22); }
+      .fiber-shp { fill: rgba(222,220,209,0.20); stroke: rgba(222,220,209,0.48); }
+      .cone-shp  { fill: rgba(100,160,240,0.07); stroke: rgba(100,160,240,0.22); }
+      .neuron    { fill: #1D9E75; }
+      .divider   { stroke: rgba(222,220,209,0.20); }
+    }
+    @media (prefers-color-scheme: light) {
+      .panel-hd  { fill: #1a1a1a; }
+      .frame     { fill: none; stroke: #D3D1C7; }
+      .sub-lbl   { fill: #5f5e5a; }
+      .sum-box   { fill: none; stroke: #D3D1C7; }
+      .exc-fill  { fill: rgba(40,100,200,0.08); stroke: #2864C8; }
+      .exc-lbl   { fill: #2864C8; }
+      .trnx-exc  { stroke: #2864C8; }
+      .ref-fill  { fill: rgba(120,70,190,0.08); stroke: #7846BE; }
+      .ref-lbl   { fill: #7846BE; }
+      .trnx-ref  { stroke: #7846BE; }
+      .eff-fill  { fill: rgba(15,110,86,0.10); stroke: #0F6E56; }
+      .eff-lbl   { fill: #0F6E56; }
+      .trnx-eff  { stroke: #0F6E56; }
+      .comp-box  { fill: rgba(0,0,0,0.02); stroke: #C8C6BE; }
+      .mirror    { stroke: rgba(0,0,0,0.45); }
+      .skull-box { fill: rgba(0,0,0,0.04); stroke: #B8B6AC; }
+      .brain-box { fill: rgba(40,100,200,0.03); stroke: #B8C8DC; }
+      .fiber-shp { fill: rgba(0,0,0,0.10); stroke: rgba(0,0,0,0.30); }
+      .cone-shp  { fill: rgba(40,100,200,0.05); stroke: rgba(40,100,200,0.18); }
+      .neuron    { fill: #0F6E56; }
+      .divider   { stroke: #D3D1C7; }
+    }
+    .hd  { font: 600 13px "Helvetica Neue", Arial, sans-serif; }
+    .lbl { font: 500 12px "Helvetica Neue", Arial, sans-serif; }
+    .sub { font: 400 11px "Helvetica Neue", Arial, sans-serif; }
+    .mono{ font: 400 10px "JetBrains Mono","Courier New",monospace; }
+  </style>
+  <marker id="arr-g" viewBox="0 0 10 10" refX="8" refY="5"
+    markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+
+<!-- TITLE -->
+<text class="hd panel-hd" x="340" y="18" text-anchor="middle">Fiber Photometry — Optical Setup</text>
+
+<!-- ═══ BENCHTOP FRAME ═══ -->
+<rect x="30" y="26" width="465" height="196" rx="6" class="frame" stroke-width="0.5" stroke-dasharray="5 3"/>
+<text class="sub sub-lbl" x="42" y="40" style="font-size:9px;letter-spacing:1.5px;">BENCHTOP OPTICS</text>
+
+<!-- LED 470 nm  (box x=44..124, y=58..94, center 84,76) -->
+<rect x="44" y="58" width="80" height="36" rx="4" class="exc-fill" stroke-width="1.2"/>
+<text class="lbl exc-lbl" x="84" y="73" text-anchor="middle">LED</text>
+<text class="sub exc-lbl" x="84" y="85" text-anchor="middle">470 nm</text>
+
+<!-- LED 405 nm  (box x=44..124, y=108..144, center 84,126) -->
+<rect x="44" y="108" width="80" height="36" rx="4" class="ref-fill" stroke-width="1.2"/>
+<text class="lbl ref-lbl" x="84" y="123" text-anchor="middle">LED</text>
+<text class="sub ref-lbl" x="84" y="135" text-anchor="middle">405 nm</text>
+
+<!-- 470 nm → combiner (L-bend: right then down) -->
+<polyline points="124,76 180,76 180,104" class="trnx-exc" stroke-width="1.8" fill="none" marker-end="url(#arr-g)"/>
+<!-- 405 nm → combiner (L-bend: right then up) -->
+<polyline points="124,126 180,126 180,113" class="trnx-ref" stroke-width="1.8" fill="none" marker-end="url(#arr-g)"/>
+
+<!-- Combiner dot (cx=180, cy=108) -->
+<circle cx="180" cy="108" r="5" class="comp-box" stroke-width="1.3"/>
+<text class="sub sub-lbl" x="190" y="122" style="font-size:9px;">combiner</text>
+
+<!-- Combiner → dichroic -->
+<line x1="185" y1="108" x2="220" y2="108" class="trnx-exc" stroke-width="1.8" marker-end="url(#arr-g)"/>
+
+<!-- DICHROIC BLOCK  (x=220..278, y=74..142, center 249,108) -->
+<rect x="220" y="74" width="58" height="68" rx="4" class="comp-box" stroke-width="1"/>
+<!-- 45° mirror line: bottom-left (220,142) to top-right (278,74) -->
+<line x1="220" y1="142" x2="278" y2="74" class="mirror" stroke-width="2.2" stroke-linecap="round"/>
+<!-- Hatch marks parallel to mirror -->
+<line x1="226" y1="140" x2="276" y2="80" class="mirror" stroke-width="0.7" opacity="0.4"/>
+<line x1="232" y1="140" x2="278" y2="84" class="mirror" stroke-width="0.7" opacity="0.4"/>
+<text class="sub sub-lbl" x="249" y="66" text-anchor="middle" style="font-size:9px;">Dichroic</text>
+
+<!-- Excitation REFLECTED DOWN from dichroic: (249,142) → (249,213) -->
+<line x1="249" y1="142" x2="249" y2="210" class="trnx-exc" stroke-width="1.8" marker-end="url(#arr-g)"/>
+<text class="sub exc-lbl" x="257" y="185" style="font-size:9px;">excitation</text>
+
+<!-- Emission RETURN UP from coupler to dichroic: offset to left (244) -->
+<line x1="244" y1="210" x2="244" y2="144" class="trnx-eff" stroke-width="1.6" stroke-dasharray="5 2.5" marker-end="url(#arr-g)"/>
+<text class="sub eff-lbl" x="234" y="185" text-anchor="end" style="font-size:9px;">emission</text>
+
+<!-- Emission TRANSMITTED RIGHT through dichroic → filter -->
+<line x1="278" y1="108" x2="302" y2="108" class="trnx-eff" stroke-width="1.8" stroke-dasharray="5 2.5" marker-end="url(#arr-g)"/>
+
+<!-- EMISSION FILTER  (x=302..362, y=82..134, center 332,108) -->
+<rect x="302" y="82" width="60" height="52" rx="4" class="eff-fill" stroke-width="1.2"/>
+<text class="lbl eff-lbl" x="332" y="105" text-anchor="middle">Em.</text>
+<text class="sub eff-lbl" x="332" y="118" text-anchor="middle">Filter</text>
+
+<!-- Filter → APD -->
+<line x1="362" y1="108" x2="390" y2="108" class="trnx-eff" stroke-width="1.8" stroke-dasharray="5 2.5" marker-end="url(#arr-g)"/>
+
+<!-- APD DETECTOR  (x=390..482, y=78..138, center 436,108) -->
+<rect x="390" y="78" width="92" height="60" rx="4" class="comp-box" stroke-width="1.2"/>
+<text class="lbl panel-hd" x="436" y="105" text-anchor="middle">APD</text>
+<text class="sub sub-lbl" x="436" y="118" text-anchor="middle">Detector</text>
+
+<!-- FIBER COUPLER  (x=223..275, y=210..236, center 249,223) -->
+<rect x="223" y="210" width="52" height="26" rx="4" class="comp-box" stroke-width="1"/>
+<text class="sub sub-lbl" x="249" y="226" text-anchor="middle" style="font-size:9px;">coupler</text>
+
+<!-- ═══ IN-VIVO FRAME ═══ -->
+<rect x="30" y="244" width="465" height="240" rx="6" class="frame" stroke-width="0.5" stroke-dasharray="5 3"/>
+<text class="sub sub-lbl" x="42" y="258" style="font-size:9px;letter-spacing:1.5px;">IN VIVO</text>
+
+<!-- Patch cable (wavy from coupler bottom y=236 to skull y=270) -->
+<path d="M249,236 Q240,247 249,255 Q258,263 249,270" fill="none" class="trnx-exc" stroke-width="3" stroke-linecap="round"/>
+<text class="sub sub-lbl" x="262" y="256" style="font-size:9px;">patch cable</text>
+
+<!-- SKULL BAND  (x=178..320, y=270..286) -->
+<rect x="178" y="270" width="142" height="16" rx="2" class="skull-box" stroke-width="1"/>
+<text class="sub sub-lbl" x="328" y="281" style="font-size:9px;">skull / dental cement</text>
+
+<!-- IMPLANTED FIBER STUB  (x=246..254, y=286..352) -->
+<rect x="246" y="286" width="6" height="66" rx="2" class="fiber-shp" stroke-width="0.8"/>
+
+<!-- Excitation beam down inside fiber -->
+<line x1="251" y1="288" x2="251" y2="348" class="trnx-exc" stroke-width="1.3"/>
+<!-- Emission return up inside fiber -->
+<line x1="247" y1="350" x2="247" y2="290" class="trnx-eff" stroke-width="1.3" stroke-dasharray="4 2" marker-end="url(#arr-g)"/>
+
+<!-- BRAIN  (cx=320, cy=420, rx=196, ry=62) -->
+<ellipse cx="320" cy="420" rx="196" ry="62" class="brain-box" stroke-width="1.2"/>
+
+<!-- SAMPLING VOLUME CONE (apex at fiber tip 249,352; base at y=420, half-width=36) -->
+<polygon points="249,352 213,420 285,420" class="cone-shp" stroke-width="1" stroke-dasharray="3 2.5"/>
+
+<!-- Neurons inside sampling volume -->
+<circle cx="231" cy="390" r="4.5" class="neuron" opacity="0.90"/>
+<circle cx="249" cy="406" r="5"   class="neuron" opacity="0.95"/>
+<circle cx="264" cy="394" r="4"   class="neuron" opacity="0.85"/>
+<circle cx="241" cy="417" r="4.5" class="neuron" opacity="0.80"/>
+<circle cx="261" cy="414" r="4"   class="neuron" opacity="0.82"/>
+<circle cx="248" cy="378" r="3.5" class="neuron" opacity="0.70"/>
+<!-- A few dimmer neurons outside cone but in brain -->
+<circle cx="310" cy="406" r="4"   class="neuron" opacity="0.32"/>
+<circle cx="350" cy="416" r="4"   class="neuron" opacity="0.28"/>
+<circle cx="380" cy="400" r="3.5" class="neuron" opacity="0.24"/>
+
+<!-- Brain / sampling labels -->
+<text class="sub sub-lbl" x="320" y="450" text-anchor="middle" style="font-size:9px;">Striatum — GCaMP-expressing neurons</text>
+<text class="sub eff-lbl" x="290" y="382" text-anchor="middle" style="font-size:9px;">sampling</text>
+<text class="sub eff-lbl" x="290" y="394" text-anchor="middle" style="font-size:9px;">volume</text>
+
+<!-- ═══ LEGEND  (right column, x=510..660) ═══ -->
+<rect x="508" y="72" width="158" height="120" rx="5" class="sum-box" stroke-width="0.5"/>
+<text class="sub panel-hd" x="587" y="88" text-anchor="middle" style="font-size:10px;font-weight:600;">Legend</text>
+
+<!-- exc line -->
+<line x1="520" y1="105" x2="548" y2="105" class="trnx-exc" stroke-width="2"/>
+<text class="sub exc-lbl" x="554" y="109" style="font-size:9.5px;">470 + 405 nm excitation</text>
+
+<!-- eff dashed line -->
+<line x1="520" y1="125" x2="548" y2="125" class="trnx-eff" stroke-width="2" stroke-dasharray="5 2.5"/>
+<text class="sub eff-lbl" x="554" y="129" style="font-size:9.5px;">~520 nm emission</text>
+
+<!-- neuron dot -->
+<circle cx="534" cy="148" r="5" class="neuron"/>
+<text class="sub eff-lbl" x="554" y="152" style="font-size:9.5px;">GCaMP neuron</text>
+
+<!-- Sampling volume label with arrow -->
+<line x1="300" y1="395" x2="290" y2="406" class="divider" stroke-width="0.8" stroke-dasharray="2 2"/>
+
+</svg>
