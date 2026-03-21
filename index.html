@@ -68,8 +68,36 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .btn-sm{font-size:11.5px;padding:6px 16px;}
 
 /* ═══════════════════════════════════════════════════
-   THEME TOGGLE
+   FLOATING SOCIAL BAR
 ═══════════════════════════════════════════════════ */
+#floating-social{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:var(--nav-bg);
+  border-top:1px solid var(--border);
+  padding:10px 24px;
+  z-index:150;
+  backdrop-filter:blur(20px);
+  transition:opacity .35s ease, transform .35s ease;
+}
+#floating-social.hidden{
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(100%);
+}
+#floating-social .float-copy{
+  font-size:.8rem;
+  color:var(--text-dim);
+}
+#floating-social .float-icons{
+  display:flex;
+  gap:10px;
+}
 #theme-toggle{display:flex;align-items:center;justify-content:center;width:38px;height:38px;background:var(--bg3);border:1px solid var(--border);border-radius:50%;cursor:pointer;color:var(--text-dim);font-size:15px;flex-shrink:0;transition:color .2s,border-color .2s,background .2s,transform .3s;}
 #theme-toggle:hover{color:var(--accent);border-color:var(--accent);transform:rotate(18deg);}
 
@@ -501,7 +529,7 @@ const CONFIG = {
     tagline:     " Proteins · Synapse · Neuromodulation · Neural Circuits · Behavioral Neuroscience",
     bio:         "I research how neuromodulatory systems influence and interact with synapses to modulate behavior, trying to link molecular mechanisms to circuit function, with the ultimate goal to understand how these processes are affected in mood disorders.",
     avatarUrl:   "image-assets/hero/portrait.jpg",
-    avatarEmoji: "🧠",
+    avatarEmoji: "",
     ctaLink:     "#contact",
     ctaText:     "Collaborate",
   },
@@ -519,12 +547,12 @@ const CONFIG = {
   galleryStrip: {
     title: "The tools",
     items: [
-      { imageUrl: "image-assets/gallery-strip/proteomics/proteomics.svg",                       emoji: "💉", label: "Proteomics" },
-      { imageUrl: "image-assets/gallery-strip/nanoscopy/nanoscopy.svg",                         emoji: "🔬", label: "Nanoscopy" },
-      { imageUrl: "image-assets/gallery-strip/fass/fass.svg",                                   emoji: "🧲", label: "FASS" },
-      { imageUrl: "image-assets/gallery-strip/behavioural-rigs/behavioural_rigs.svg",           emoji: "🐭", label: "Behavioural Rigs" },
-      { imageUrl: "image-assets/gallery-strip/fiber-photometry/fiber_photometry.svg",           emoji: "⚡", label: "Fiber Photometry" },
-      { imageUrl: "image-assets/gallery-strip/data-analysis-suite/data_analysis.svg",           emoji: "💻", label: "Data Analysis Suite" },
+      { imageUrl: "image-assets/gallery-strip/proteomics/proteomics.svg",                       emoji: "", label: "Proteomics" },
+      { imageUrl: "image-assets/gallery-strip/nanoscopy/nanoscopy.svg",                         emoji: "", label: "Nanoscopy" },
+      { imageUrl: "image-assets/gallery-strip/fass/fass.svg",                                   emoji: "", label: "FASS" },
+      { imageUrl: "image-assets/gallery-strip/behavioural-rigs/behavioural_rigs.svg",           emoji: "", label: "Behavioural Rigs" },
+      { imageUrl: "image-assets/gallery-strip/fiber-photometry/fiber_photometry.svg",           emoji: "", label: "Fiber Photometry" },
+      { imageUrl: "image-assets/gallery-strip/data-analysis-suite/data_analysis.svg",           emoji: "", label: "Data Analysis Suite" },
     ],
   },
   /*  POSTS  (type: 'post' | 'excerpt' | 'gallery' | 'tool')  */
@@ -547,7 +575,7 @@ const CONFIG = {
       readTime: "16 min read",
       tag: "Analytical Tools",
       emoji: "",
-      imageUrl: "image-assets/posts/vFlow/fig2_density.png",
+      imageUrl: "image-assets/posts/vFlow/fig3_contour.png",
       content: `
 
 <p>
@@ -955,7 +983,7 @@ const CONFIG = {
     
     // ── FIBER PHOTOMETRY POST ──────────────────────────────────────────
     {
-      type: "excerpt",
+      type: "breakdown",
       slug: "fiber-photometry-principles",
       title: "Light Through a Wire: The Principles of Fiber Photometry",
       excerpt: `
@@ -967,9 +995,9 @@ const CONFIG = {
       `,
       date: "16 Mar, 2026",
       readTime: "15 min read",
-      tag: "Literature Excerpt",
+      tag: "Technique Breakdown",
       emoji: "",
-      imageUrl: "image-assets/gallery-strip/photometry/photometry.svg",
+      imageUrl: "image-assets/posts/fiber-photometry-principles/fp_system_setup.svg",
       content: `
 
     <!-- ═══════════════════════════════════════════════════════════════
@@ -1832,14 +1860,14 @@ Colgren JJ &amp; Burkhardt P. <em>The evolutionary origins of synaptic proteins
 
 // ── NANOSCOPY POST ─────────────────────────────────────────────────────────
 {
-  type: "excerpt",
+  type: "breakdown",
   slug: "nanoscopy-dstorm-sted-dnapaint",
   title: "Seeing in Nanoscale: Principles of dSTORM, STED and DNA-PAINT",
   excerpt: "Conventional fluorescence microscopy cannot resolve synaptic substructure — the diffraction limit sits at ~200 nm while the structures that matter are 20–100 nm. Here is how three super-resolution techniques break that barrier, and why each one matters for neuroscience.",
   date: "11 Mar, 2025",
   readTime: "10 min read",
-  tag: "Literature Excerpt",
-  emoji: "🔬",
+  tag: "Technique Breakdown",
+  emoji: "",
   imageUrl: "image-assets/gallery-strip/nanoscopy/nanoscopy.svg",
   content: `
 <p>
@@ -2261,7 +2289,7 @@ Jungmann R, Avendaño MS, Woehrstein JB, Dai M, Shih WM, Yin P. Multiplexed 3D
   date: "13 Dec, 2025",
   readTime: "8 min read",
   tag: "Dopamine",
-  emoji: "🔬",
+  emoji: "",
   imageUrl: "",
   content: `
 <p>
@@ -2497,7 +2525,7 @@ Lapios P, Anger R, Paget-Blanc V, Marza E, Lučić V, Fronzes R, Herzog E &amp;
 },
 
 {
-  type: "excerpt",
+  type: "breakdown",
   slug: "mass-spectrometry-proteomics-principles",
   title: "Peptides to Proteins: The Principles and Practice of"
     + " Mass Spectrometry-Based Proteomics",
@@ -2511,7 +2539,7 @@ Lapios P, Anger R, Paget-Blanc V, Marza E, Lučić V, Fronzes R, Herzog E &amp;
   `,
   date: "16 Mar, 2026",
   readTime: "25 min read",
-  tag: "Literature Excerpt",
+  tag: "Technique Breakdown",
   emoji: "",
   imageUrl: "",
   content: `
@@ -3636,7 +3664,7 @@ Lapios P, Anger R, Paget-Blanc V, Marza E, Lučić V, Fronzes R, Herzog E &amp;
   date: "03 Jun, 2022",
   readTime: "8 min read",
   tag: "Dopamine",
-  emoji: "🧫",
+  emoji: "",
   imageUrl: "",
   content: `
 <p>
@@ -3865,7 +3893,7 @@ Paget-Blanc V*, Pfeffer ME*, Pronot M*, Lapios P, Angelo MF, Walle R,
   date: "31 Oct, 2025",
   readTime: "10 min read",
   tag: "Synaptic Plasticity",
-  emoji: "🔬",
+  emoji: "",
   imageUrl: "",
   content: `
 <p>
@@ -4188,7 +4216,7 @@ Paget-Blanc V*, Zöldi M*, Cavaccini A*, Miczán V, Dudok B, Katona I &amp;
   date: "29 Jul, 2025",
   readTime: "10 min read",
   tag: "Synaptic Plasticity",
-  emoji: "🧠",
+  emoji: "",
   imageUrl: "",
   content: `
 <p>
@@ -4450,28 +4478,28 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
       type:"gallery", slug:"lab-confocal-images",
       title:"Confocal Microscopy: Neurons in Detail",
       excerpt:"Fluorescently labelled hippocampal neurons, dendritic spines, and synaptic puncta — images from our 2024 imaging campaigns.",
-      date:"05 Jan, 2025", tag:"Imaging", imageUrl:"", emoji:"🔬",
+      date:"05 Jan, 2025", tag:"Imaging", imageUrl:"", emoji:"",
       galleryDescription:"A selection of confocal and two-photon microscopy images from the lab — hippocampal slices, cortical dendrites, and whole-brain iDISCO-cleared tissue stained for c-Fos, GCaMP, and synaptic markers.",
     },
     {
       type:"gallery", slug:"sfn-2024",
       title:"Society for Neuroscience 2024",
       excerpt:"Photos from SfN Annual Meeting in Chicago — posters, talks, and the team.",
-      date:"20 Nov, 2024", tag:"Conference", imageUrl:"", emoji:"🏙️",
+      date:"20 Nov, 2024", tag:"Conference", imageUrl:"", emoji:"",
       galleryDescription:"The lab at SfN 2024 in Chicago. Three posters, two oral presentations, and a lot of coffee.",
     },
     {
       type:"gallery", slug:"lab-life",
       title:"Lab Life",
       excerpt:"Behind the scenes — the everyday reality of working in a neuroscience research lab.",
-      date:"01 Oct, 2024", tag:"Lab", imageUrl:"", emoji:"🧪",
+      date:"01 Oct, 2024", tag:"Lab", imageUrl:"", emoji:"",
       galleryDescription:"From early morning slice preparation to late-night recording sessions — what it actually looks like to run a memory and circuits lab.",
     },
     {
       type:"gallery", slug:"fens-2024-rome",
       title:"FENS Forum 2024 — Rome",
       excerpt:"European Neuroscience at its largest gathering — five days in Rome with 7,000 researchers.",
-      date:"28 Jun, 2024", tag:"Conference", imageUrl:"", emoji:"🇮🇹",
+      date:"28 Jun, 2024", tag:"Conference", imageUrl:"", emoji:"",
       galleryDescription:"FENS Forum 2024, Rome. Two talks from the lab, endless conversations, and the occasional gelato between sessions.",
     },
   ],
@@ -4490,6 +4518,7 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
     { label: "Synaptic Plasticity", tag: "Synaptic Plasticity" },
     { label: "Imaging",           tag: "Imaging" },
     { label: "Literature Excerpt",        tag: "Literature Excerpt" },
+    { label: "Technique Breakdown",       tag: "Technique Breakdown" },
     { label: "Conference",        tag: "Conference" },
     { label: "Lab",               tag: "Lab" },
   ],
@@ -4709,30 +4738,28 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
       name: "Dopamine", icon: "<img src='image-assets/icons/ui/icon-flask.svg' class='icon-img' alt=''>", topic: "Dopamine",
       posts: [
         { title: "Sorting Dopamine Synapses: How We Found That They Almost Never Work Alone",       slug: "synaptomic-analysis-dopamine-hub-synapses" },
-        { title: "How We Froze Dopamine in Time and What We Found Inside",                         slug: "dopamine-hub-synapses-cryo-et" },
+        { title: "The Ultrastructure of the Dopamine synapse",                                      slug: "dopamine-hub-synapses-cryo-et" },
       ],
     },
     {
       name: "Synaptic Plasticity", icon: "<img src='image-assets/icons/ui/icon-brain.svg' class='icon-img' alt=''>", topic: "Synaptic Plasticity",
       posts: [
-        { title: "How Repetition Silences a Receptor: The Molecular Mechanism Behind Habitual Inflexibility",  slug: "mglur5-overtraining-behavioral-inflexibility-dls" },
-        { title: "Seen at 91 Nanometres: The Molecular Portrait of a Flexible Brain",                          slug: "nanoscale-remodeling-corticostriatal-flexibility-storm" },
+        { title: "The Molecular Mechanism Behind Habitual Inflexibility",                                          slug: "mglur5-overtraining-behavioral-inflexibility-dls" },
+        { title: "The Molecular Portrait of a Flexible Brain",                                                     slug: "nanoscale-remodeling-corticostriatal-flexibility-storm" },
       ],
     },
     {
-      name: "Analytical Tools", icon: "<img src='image-assets/icons/ui/icon-microscope.svg' class='icon-img' alt=''>", topic: "Imaging",
+      name: "Analytical Tools", icon: "<img src='image-assets/icons/ui/icon-microscope.svg' class='icon-img' alt=''>", topic: "Analytical Tools",
       posts: [
-        { title: "Seeing the Nanoscale Synapse: Principles of dSTORM, STED and DNA-PAINT",                     slug: "nanoscopy-dstorm-sted-dnapaint" },
-        { title: "FASS: Fluorescence-Activated Synaptosome Sorting",                                           slug: "synaptomic-analysis-dopamine-hub-synapses" },
-        { title: "Cryo-CLEM and Cryo-ET of Dopaminergic Terminals",                                            slug: "dopamine-hub-synapses-cryo-et" },
-        { title: "STORM Super-Resolution Imaging of Corticostriatal Synapses",                                  slug: "nanoscale-remodeling-corticostriatal-flexibility-storm" },
+        { title: "vFlow: An Open-Source Desktop Suite for Flow Cytometry-Style Analysis of Image Data",            slug: "vflow-flow-cytometry-analysis-suite" },
       ],
     },
     {
-      name: "Literature Excerpts", icon: "<img src='image-assets/icons/ui/icon-publication.svg' class='icon-img' alt=''>", topic: "Literature Excerpt",
+      name: "Technique Breakdowns", icon: "<img src='image-assets/icons/ui/icon-microscope.svg' class='icon-img' alt=''>", topic: "Technique Breakdown",
       posts: [
-        { title: "Before the First Neuron: The Ancient Origins of the Synaptic Toolkit",                        slug: "evolutionary-origins-of-synapses" },
-        { title: "Seeing the Nanoscale Synapse: Principles of dSTORM, STED and DNA-PAINT",                     slug: "nanoscopy-dstorm-sted-dnapaint" },
+        { title: "Light Through a Wire: The Principles of Fiber Photometry",                                    slug: "fiber-photometry-principles" },
+        { title: "Seeing in Nanoscale: Principles of dSTORM, STED and DNA-PAINT",                              slug: "nanoscopy-dstorm-sted-dnapaint" },
+        { title: "Peptides to Proteins: The Principles and Practice of Mass Spectrometry-Based Proteomics",    slug: "mass-spectrometry-proteomics-principles" },
       ],
     },
   ],
@@ -4747,7 +4774,7 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
 
   /* ── Footer ── */
   footer: {
-    about: "Studying neuromodulation of synaptic function, and its role in shaping behavior and mood disorders. Open to collaborations, media, job offers.",
+    about: "",
     menuLinks: [
       { label: "Home",         href: "#home" },
       { label: "Research",     href: "#journal" },
@@ -4763,7 +4790,7 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
       { icon: "<img src='image-assets/icons/social/icon-bluesky.svg'  class='icon-img' alt='Bluesky'>",   label: "Bluesky",       href: "https://bsky.app/profile/vincentpb.bsky.social" },
       { icon: "<img src='image-assets/icons/social/icon-twitter.svg'  class='icon-img' alt='Twitter'>",   label: "Twitter / X",   href: "https://x.com/VincentPB_" },
       { icon: "<img src='image-assets/icons/social/icon-orcid.svg'    class='icon-img' alt='ORCID'>",     label: "Orcid",         href: "https://orcid.org/0000-0001-8773-3538" },
-      { icon: "🔬",                                                                                         label: "ResearchGate",  href: "https://www.researchgate.net/profile/Vincent-Paget-Blanc" },
+      { icon: "<img src='image-assets/icons/social/icon-researchgate.svg' class='icon-img' alt='ResearchGate'>", label: "ResearchGate",  href: "https://www.researchgate.net/profile/Vincent-Paget-Blanc" },
       { icon: "<img src='image-assets/icons/social/icon-linkedin.svg' class='icon-img' alt='LinkedIn'>",  label: "LinkedIn",      href: "https://fr.linkedin.com/in/vincent-paget-blanc-16949b77" },
     ],
   },
@@ -5005,7 +5032,6 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
       </div>
       <div class="footer-bottom">
         <span id="footer-copy"></span>
-        <div class="footer-social-row" id="footer-social-icons"></div>
       </div>
     </div>
   </footer>
@@ -5022,6 +5048,8 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
 <!-- ══════════════════════════════════════════════════
      RENDER ENGINE
      ══════════════════════════════════════════════════ -->
+
+<div id="floating-social"></div>
 
 <script>
 /* ── Helpers ── */
@@ -5130,10 +5158,11 @@ CONFIG.galleryStrip.items.forEach(item=>{
 
 /* ── Posts List ── */
 const POST_TYPE_ICONS={
-  post:    `<img src="image-assets/icons/ui/icon-publication.svg" class="icon-img" alt="post">`,
-  gallery: `<img src="image-assets/icons/ui/icon-gallery.svg" class="icon-img" alt="gallery">`,
-  excerpt: `<img src="image-assets/icons/ui/icon-post.svg" class="icon-img" alt="excerpt">`,
-  tool:    `<img src="image-assets/icons/ui/icon-tool.svg" class="icon-img" alt="tool">`,
+  post:      `<img src="image-assets/icons/ui/icon-publication.svg" class="icon-img" alt="post">`,
+  gallery:   `<img src="image-assets/icons/ui/icon-gallery.svg" class="icon-img" alt="gallery">`,
+  excerpt:   `<img src="image-assets/icons/ui/icon-post.svg" class="icon-img" alt="excerpt">`,
+  tool:      `<img src="image-assets/icons/ui/icon-tool.svg" class="icon-img" alt="tool">`,
+  breakdown: `<img src="image-assets/icons/ui/icon-microscope.svg" class="icon-img" alt="breakdown">`,
 };
 const postsList=el('posts-list');
 let visiblePosts=3;
@@ -5321,12 +5350,24 @@ CONFIG.footer.socialLinks.forEach(s=>{
   a.onmouseenter=()=>a.style.color='var(--text-head)';a.onmouseleave=()=>a.style.color='';
   fsoc.appendChild(a);
 });
-const fi=el('footer-social-icons');
+el('footer-copy').textContent=`${CONFIG.site.year} © ${CONFIG.site.name}. All rights reserved.`;
+
+/* ── Floating Bandeau ── */
+const floatBar=el('floating-social');
+const floatCopy=make('span','float-copy');
+floatCopy.textContent=`${CONFIG.site.year} © ${CONFIG.site.name}. All rights reserved.`;
+floatBar.appendChild(floatCopy);
+const floatIcons=make('div','float-icons');
 CONFIG.footer.socialLinks.forEach(s=>{
   const a=make('a','social-btn');a.href=s.href;a.target='_blank';a.rel='noopener noreferrer';
-  a.title=s.label;a.innerHTML=s.icon;fi.appendChild(a);
+  a.title=s.label;a.innerHTML=s.icon;floatIcons.appendChild(a);
 });
-el('footer-copy').textContent=`${CONFIG.site.year} © ${CONFIG.site.name}. All rights reserved.`;
+floatBar.appendChild(floatIcons);
+const footerEl=document.querySelector('footer');
+const floatObserver=new IntersectionObserver(entries=>{
+  floatBar.classList.toggle('hidden',entries[0].isIntersecting);
+},{threshold:0, rootMargin:'0px'});
+floatObserver.observe(footerEl);
 
 /* ── Lightbox ── */
 function openLightbox(src){el('lightbox-img').src=src;el('lightbox').classList.add('open');}
@@ -5386,9 +5427,9 @@ function renderPostDetail(post){
   const dc=el('detail-content');dc.innerHTML='';
   const hero=make('div','post-detail-hero');
   if(post.imageUrl){const img=make('img');img.src=post.imageUrl;img.alt=post.title;hero.appendChild(img);}
-  const heroEmoji=make('div','post-detail-hero-emoji');heroEmoji.textContent=post.emoji||'🧠';
   const heroOverlay=make('div','post-detail-hero-overlay');
-  hero.appendChild(heroEmoji);hero.appendChild(heroOverlay);dc.appendChild(hero);
+  if(post.emoji){const heroEmoji=make('div','post-detail-hero-emoji');heroEmoji.textContent=post.emoji;hero.appendChild(heroEmoji);}
+  hero.appendChild(heroOverlay);dc.appendChild(hero);
   const wrap=make('div','post-detail-container');
   const header=make('div','post-detail-header');
   const meta=make('div','post-detail-meta');
@@ -5596,11 +5637,12 @@ function renderJournalArchive(){
   const cnt=make('div','archive-count');cnt.textContent=CONFIG.posts.length+' entries';hdr.appendChild(cnt);
   const filters=make('div','archive-filters');
   const types=[
-    {label:'All',      icon:null,                                          val:''},
-    {label:'Articles', icon:'image-assets/icons/ui/icon-publication.svg', val:'post'},
-    {label:'Galleries',icon:'image-assets/icons/ui/icon-gallery.svg',     val:'gallery'},
-    {label:'Excerpts', icon:'image-assets/icons/ui/icon-post.svg',        val:'excerpt'},
-    {label:'Tools',    icon:'image-assets/icons/ui/icon-tool.svg',         val:'tool'},
+    {label:'All',        icon:null,                                                val:''},
+    {label:'Articles',   icon:'image-assets/icons/ui/icon-publication.svg',       val:'post'},
+    {label:'Galleries',  icon:'image-assets/icons/ui/icon-gallery.svg',           val:'gallery'},
+    {label:'Excerpts',   icon:'image-assets/icons/ui/icon-post.svg',              val:'excerpt'},
+    {label:'Breakdowns', icon:'image-assets/icons/ui/icon-microscope.svg',        val:'breakdown'},
+    {label:'Tools',      icon:'image-assets/icons/ui/icon-tool.svg',              val:'tool'},
   ];
   let activeFilter='';
   types.forEach(f=>{
