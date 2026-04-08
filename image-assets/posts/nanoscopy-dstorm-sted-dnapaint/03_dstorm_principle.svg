@@ -1,255 +1,330 @@
-<svg width="100%" viewBox="0 0 680 490" xmlns="http://www.w3.org/2000/svg">
-<defs>
-  <style>
-    @media (prefers-color-scheme: dark) {
-      .panel-hd  { fill: #e8e6de; }
-      .frame     { fill: none; stroke: rgba(222,220,209,0.25); }
-      .sub-lbl   { fill: #9c9a92; }
-      .divider   { stroke: rgba(222,220,209,0.18); }
-      .sum-box   { fill: none; stroke: rgba(222,220,209,0.2); }
-      .sum-hd    { fill: #e8e6de; }
-      .sum-txt   { fill: #9c9a92; }
-      .bg-cell   { fill: rgba(222,220,209,0.04); }
-      /* fluorophore ON — teal/cyan */
-      .fl-on     { fill: #1D9E75; }
-      .fl-on-glow{ fill: rgba(29,158,117,0.25); }
-      .lbl-on    { fill: #1D9E75; }
-      /* fluorophore OFF — muted */
-      .fl-off    { fill: #3a3a38; stroke: rgba(222,220,209,0.2); }
-      .lbl-off   { fill: #5f5e5a; }
-      /* PSF halo */
-      .psf-halo  { fill: rgba(29,158,117,0.15); }
-      /* Localisation dot */
-      .loc-dot   { fill: #1D9E75; }
-      /* Buffer chemistry */
-      .chem-mea  { fill: rgba(83,74,183,0.20); stroke: #7F77DD; }
-      .chem-ox   { fill: rgba(226,75,74,0.15);  stroke: #E24B4A; }
-      .lbl-mea   { fill: #AFA9EC; }
-      .lbl-ox    { fill: #E24B4A; }
-      /* arrows */
-      .arr-proc  { stroke: #5f5e5a; }
-      .arr-on    { stroke: #1D9E75; }
-    }
-    @media (prefers-color-scheme: light) {
-      .panel-hd  { fill: #1a1a1a; }
-      .frame     { fill: none; stroke: #D3D1C7; }
-      .sub-lbl   { fill: #5f5e5a; }
-      .divider   { stroke: #D3D1C7; }
-      .sum-box   { fill: none; stroke: #D3D1C7; }
-      .sum-hd    { fill: #1a1a1a; }
-      .sum-txt   { fill: #5f5e5a; }
-      .bg-cell   { fill: rgba(0,0,0,0.02); }
-      .fl-on     { fill: #0F6E56; }
-      .fl-on-glow{ fill: rgba(15,110,86,0.15); }
-      .lbl-on    { fill: #0F6E56; }
-      .fl-off    { fill: #e0ded6; stroke: #D3D1C7; }
-      .lbl-off   { fill: #B4B2A9; }
-      .psf-halo  { fill: rgba(15,110,86,0.10); }
-      .loc-dot   { fill: #0F6E56; }
-      .chem-mea  { fill: rgba(83,74,183,0.08); stroke: #534AB7; }
-      .chem-ox   { fill: rgba(200,50,50,0.08);  stroke: #C83232; }
-      .lbl-mea   { fill: #534AB7; }
-      .lbl-ox    { fill: #C83232; }
-      .arr-proc  { stroke: #B4B2A9; }
-      .arr-on    { stroke: #0F6E56; }
-    }
-    .hd  { font: 600 13px "Helvetica Neue", Arial, sans-serif; }
-    .lbl { font: 500 12px "Helvetica Neue", Arial, sans-serif; }
-    .sub { font: 400 11px "Helvetica Neue", Arial, sans-serif; }
-    .mono{ font: 400 11px "JetBrains Mono", "Courier New", monospace; }
-  </style>
-  <marker id="arr-p" viewBox="0 0 10 10" refX="8" refY="5"
-    markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </marker>
-</defs>
-
-<!-- TITLE -->
-<text class="hd panel-hd" x="340" y="22" text-anchor="middle">dSTORM — Stochastic Single-Molecule Localisation</text>
-
-<!-- ══════════════════════════════════
-     TOP ROW: Three frames showing sparse blinking
-     ════════════════════════════════ -->
-
-<!-- Frame labels -->
-<text class="sub sub-lbl" x="340" y="42" text-anchor="middle">Camera records 10,000–50,000 frames — only sparse subsets of molecules emit per frame</text>
-
-<!-- Frame 1 -->
-<rect x="20" y="50" width="186" height="130" rx="4" class="frame" stroke-width="0.5"/>
-<rect x="20" y="50" width="186" height="130" rx="4" class="bg-cell" stroke-width="0"/>
-<text class="sub sub-lbl" x="113" y="66" text-anchor="middle">Frame 1</text>
-<!-- OFF molecules (grey dots) -->
-<circle cx="55"  cy="110" r="5" class="fl-off" stroke-width="0.8"/>
-<circle cx="90"  cy="85"  r="5" class="fl-off" stroke-width="0.8"/>
-<circle cx="135" cy="125" r="5" class="fl-off" stroke-width="0.8"/>
-<circle cx="170" cy="95"  r="5" class="fl-off" stroke-width="0.8"/>
-<circle cx="75"  cy="145" r="5" class="fl-off" stroke-width="0.8"/>
-<circle cx="155" cy="150" r="5" class="fl-off" stroke-width="0.8"/>
-<!-- ONE ON molecule with PSF halo -->
-<circle cx="112" cy="108" r="22" class="psf-halo"/>
-<circle cx="112" cy="108" r="6"  class="fl-on"/>
-<text class="sub lbl-on" x="113" y="172" text-anchor="middle">1 molecule ON → fit Gaussian</text>
-
-<!-- Frame 2 -->
-<rect x="247" y="50" width="186" height="130" rx="4" class="frame" stroke-width="0.5"/>
-<rect x="247" y="50" width="186" height="130" rx="4" class="bg-cell" stroke-width="0"/>
-<text class="sub sub-lbl" x="340" y="66" text-anchor="middle">Frame 2</text>
-<circle cx="282" cy="110" r="5" class="fl-off" stroke-width="0.8"/>
-<circle cx="317" cy="85"  r="5" class="fl-off" stroke-width="0.8"/>
-<circle cx="362" cy="125" r="5" class="fl-off" stroke-width="0.8"/>
-<circle cx="302" cy="145" r="5" class="fl-off" stroke-width="0.8"/>
-<circle cx="382" cy="95"  r="5" class="fl-off" stroke-width="0.8"/>
-<!-- TWO ON molecules -->
-<circle cx="262" cy="90"  r="20" class="psf-halo"/>
-<circle cx="262" cy="90"  r="6"  class="fl-on"/>
-<circle cx="370" cy="148" r="20" class="psf-halo"/>
-<circle cx="370" cy="148" r="6"  class="fl-on"/>
-<text class="sub lbl-on" x="340" y="172" text-anchor="middle">2 molecules ON → 2 positions</text>
-
-<!-- Frame 3: reconstructed -->
-<rect x="474" y="50" width="186" height="130" rx="4" class="frame" stroke-width="0.5"/>
-<rect x="474" y="50" width="186" height="130" rx="4" class="bg-cell" stroke-width="0"/>
-<text class="sub sub-lbl" x="567" y="66" text-anchor="middle">After 30,000 frames</text>
-<!-- Dense localisation map - many small dots -->
-<circle cx="509" cy="100" r="2.5" class="loc-dot" opacity="0.9"/>
-<circle cx="515" cy="105" r="2"   class="loc-dot" opacity="0.7"/>
-<circle cx="511" cy="112" r="2.5" class="loc-dot" opacity="0.8"/>
-<circle cx="530" cy="90"  r="2"   class="loc-dot" opacity="0.6"/>
-<circle cx="525" cy="98"  r="2.5" class="loc-dot" opacity="0.9"/>
-<circle cx="540" cy="80"  r="2"   class="loc-dot" opacity="0.7"/>
-<circle cx="545" cy="88"  r="2.5" class="loc-dot" opacity="0.85"/>
-<circle cx="538" cy="95"  r="2"   class="loc-dot" opacity="0.65"/>
-<circle cx="555" cy="75"  r="2.5" class="loc-dot" opacity="0.9"/>
-<circle cx="560" cy="83"  r="2"   class="loc-dot" opacity="0.7"/>
-<circle cx="552" cy="92"  r="2.5" class="loc-dot" opacity="0.8"/>
-<circle cx="570" cy="100" r="2"   class="loc-dot" opacity="0.6"/>
-<circle cx="575" cy="108" r="2.5" class="loc-dot" opacity="0.9"/>
-<circle cx="565" cy="115" r="2"   class="loc-dot" opacity="0.7"/>
-<circle cx="580" cy="85"  r="2.5" class="loc-dot" opacity="0.8"/>
-<circle cx="586" cy="93"  r="2"   class="loc-dot" opacity="0.65"/>
-<circle cx="592" cy="78"  r="2.5" class="loc-dot" opacity="0.9"/>
-<circle cx="598" cy="120" r="2"   class="loc-dot" opacity="0.7"/>
-<circle cx="520" cy="130" r="2.5" class="loc-dot" opacity="0.85"/>
-<circle cx="528" cy="138" r="2"   class="loc-dot" opacity="0.7"/>
-<circle cx="535" cy="144" r="2.5" class="loc-dot" opacity="0.9"/>
-<circle cx="544" cy="135" r="2"   class="loc-dot" opacity="0.6"/>
-<circle cx="550" cy="125" r="2.5" class="loc-dot" opacity="0.8"/>
-<circle cx="558" cy="133" r="2"   class="loc-dot" opacity="0.7"/>
-<circle cx="567" cy="140" r="2.5" class="loc-dot" opacity="0.9"/>
-<circle cx="575" cy="148" r="2"   class="loc-dot" opacity="0.65"/>
-<circle cx="583" cy="130" r="2.5" class="loc-dot" opacity="0.8"/>
-<circle cx="590" cy="138" r="2"   class="loc-dot" opacity="0.7"/>
-<text class="sub lbl-on" x="567" y="172" text-anchor="middle">Super-resolution image ~20–50 nm</text>
-
-<!-- Arrows between frames -->
-<line x1="209" y1="115" x2="244" y2="115" class="arr-proc" stroke-width="1.2"
-  marker-end="url(#arr-p)"/>
-<line x1="436" y1="115" x2="471" y2="115" class="arr-proc" stroke-width="1.2"
-  marker-end="url(#arr-p)"/>
-
-<!-- ══════════════════════════════════
-     MIDDLE: Localisation precision schematic
-     ════════════════════════════════ -->
-<rect x="20" y="188" width="300" height="130" rx="5" class="sum-box" stroke-width="0.5"/>
-<text class="hd sum-hd" x="170" y="208" text-anchor="middle">Localisation Precision</text>
-
-<!-- Gaussian fit illustration -->
-<!-- PSF blob -->
-<ellipse cx="110" cy="268" rx="46" ry="35" opacity="0.18" class="fl-on-glow"/>
-<ellipse cx="110" cy="268" rx="26" ry="20" opacity="0.30" class="fl-on-glow"/>
-<ellipse cx="110" cy="268" rx="12" ry="9"  class="frame" stroke-width="0.8" stroke-dasharray="3 2"/>
-<circle  cx="110" cy="268" r="3"   class="loc-dot"/>
-
-<!-- Precision annotation -->
-<line x1="100" y1="268" x2="70" y2="250" class="arr-proc" stroke-width="0.8"
-  marker-end="url(#arr-p)"/>
-<text class="sub lbl-on" x="65" y="245" text-anchor="end">localised</text>
-<text class="sub lbl-on" x="65" y="257" text-anchor="end">position</text>
-
-<!-- Formula -->
-<text class="mono sum-txt" x="215" y="248" text-anchor="middle">σ ≈ s / √N</text>
-<text class="sub sub-lbl"  x="215" y="265" text-anchor="middle">s = PSF std dev (~130 nm)</text>
-<text class="sub sub-lbl"  x="215" y="280" text-anchor="middle">N = detected photons</text>
-<text class="sub lbl-on"   x="215" y="298" text-anchor="middle">1000–5000 photons → 10–30 nm</text>
-
-<!-- ══════════════════════════════════
-     MIDDLE RIGHT: Photoswitching buffer chemistry
-     ════════════════════════════════ -->
-<rect x="340" y="188" width="320" height="130" rx="5" class="sum-box" stroke-width="0.5"/>
-<text class="hd sum-hd" x="500" y="208" text-anchor="middle">Photoswitching Buffer</text>
-
-<!-- MEA box -->
-<rect x="358" y="218" width="130" height="36" rx="4" class="chem-mea" stroke-width="0.8"/>
-<text class="lbl lbl-mea" x="423" y="232" text-anchor="middle">MEA (50–100 mM)</text>
-<text class="sub lbl-mea" x="423" y="247" text-anchor="middle">thiol reducing agent</text>
-
-<!-- Glucose oxidase box -->
-<rect x="502" y="218" width="140" height="36" rx="4" class="chem-ox" stroke-width="0.8"/>
-<text class="lbl lbl-ox"  x="572" y="232" text-anchor="middle">Glucose oxidase</text>
-<text class="sub lbl-ox"  x="572" y="247" text-anchor="middle">+ catalase (O₂ scavenger)</text>
-
-<!-- Mechanism description -->
-<text class="sub sub-lbl" x="500" y="276" text-anchor="middle">MEA reacts with excited triplet → dark thiol-adduct</text>
-<text class="sub sub-lbl" x="500" y="291" text-anchor="middle">reverts spontaneously (10s–100s ms) → ON state</text>
-<text class="sub sub-lbl" x="500" y="306" text-anchor="middle">O₂ scavenger prolongs dark state, reduces bleaching</text>
-
-<!-- ══════════════════════════════════
-     BOTTOM: Acquisition summary
-     ════════════════════════════════ -->
-<rect x="20" y="332" width="640" height="80" rx="6" class="sum-box" stroke-width="0.5"/>
-<text class="hd sum-hd" x="340" y="352" text-anchor="middle">Typical dSTORM Acquisition</text>
-<line x1="40" y1="358" x2="640" y2="358" class="divider" stroke-width="0.5"/>
-
-<!-- Four stats -->
-<text class="mono lbl-on"  x="120" y="376" text-anchor="middle">10,000–50,000</text>
-<text class="sub sub-lbl"  x="120" y="391" text-anchor="middle">camera frames</text>
-
-<line x1="240" y1="360" x2="240" y2="400" class="divider" stroke-width="0.5" stroke-dasharray="3 2"/>
-
-<text class="mono lbl-on"  x="340" y="376" text-anchor="middle">10⁵ – 10⁷</text>
-<text class="sub sub-lbl"  x="340" y="391" text-anchor="middle">localisations</text>
-
-<line x1="440" y1="360" x2="440" y2="400" class="divider" stroke-width="0.5" stroke-dasharray="3 2"/>
-
-<text class="mono lbl-on"  x="560" y="376" text-anchor="middle">20–50 nm</text>
-<text class="sub sub-lbl"  x="560" y="391" text-anchor="middle">effective resolution</text>
-
-<!-- ══════════════════════════════════
-     Photoswitching cycle diagram (bottom)
-     ════════════════════════════════ -->
-<rect x="20" y="424" width="640" height="52" rx="6" class="sum-box" stroke-width="0.5"/>
-<text class="sub sub-lbl" x="80"  y="444" text-anchor="middle">Fluorescent (ON)</text>
-<circle cx="80" cy="458" r="8" class="fl-on"/>
-
-<!-- arrow ON→OFF -->
-<line x1="100" y1="458" x2="190" y2="458" class="arr-proc" stroke-width="1.2"
-  marker-end="url(#arr-p)"/>
-<text class="sub sub-lbl" x="145" y="452" text-anchor="middle">647 nm laser</text>
-<text class="sub sub-lbl" x="145" y="464" text-anchor="middle">+ MEA triplet quench</text>
-
-<text class="sub lbl-off" x="255" y="444" text-anchor="middle">Dark (OFF)</text>
-<circle cx="255" cy="458" r="8" class="fl-off" stroke-width="1"/>
-
-<!-- arrow OFF→ON -->
-<line x1="275" y1="458" x2="365" y2="458" class="arr-on" stroke-width="1.2"
-  marker-end="url(#arr-p)"/>
-<text class="sub lbl-on" x="320" y="452" text-anchor="middle">spontaneous</text>
-<text class="sub lbl-on" x="320" y="464" text-anchor="middle">reversion</text>
-
-<text class="sub lbl-on" x="430" y="444" text-anchor="middle">Fluorescent (ON)</text>
-<circle cx="430" cy="458" r="8" class="fl-on"/>
-
-<!-- arrow repeats -->
-<line x1="450" y1="458" x2="530" y2="458" class="arr-proc" stroke-width="1.2"
-  marker-end="url(#arr-p)"/>
-<text class="sub sub-lbl" x="490" y="452" text-anchor="middle">cycle repeats</text>
-<text class="sub sub-lbl" x="490" y="464" text-anchor="middle">100s–1000s times</text>
-
-<!-- Bleached end state -->
-<text class="sub lbl-off" x="595" y="444" text-anchor="middle">Bleached</text>
-<circle cx="595" cy="458" r="8" class="fl-off" stroke-width="1"/>
-<line x1="584" y1="450" x2="606" y2="466" class="lbl-off" stroke-width="1.5"/>
-<line x1="606" y1="450" x2="584" y2="466" class="lbl-off" stroke-width="1.5"/>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 680 490" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g transform="matrix(1,0,0,1,340,22)">
+        <g>
+            <g transform="matrix(1,0,0,1,-198.551,0)">
+                <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:16px;fill:rgb(168,168,168);">dST</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-168.621,0)">
+                <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:16px;fill:rgb(168,168,168);">ORM — Stochastic Single-Molecule Localisation</text>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,16.293,42)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Camera records 10,000–50,000 frames — only sparse subsets of molecules emit per frame</text>
+    </g>
+    <path d="M206,54C206,51.792 204.208,50 202,50L24,50C21.792,50 20,51.792 20,54L20,176C20,178.208 21.792,180 24,180L202,180C204.208,180 206,178.208 206,176L206,54Z" style="fill:none;stroke:rgb(222,220,209);stroke-opacity:0.25;stroke-width:0.5px;"/>
+    <path d="M206,54C206,51.792 204.208,50 202,50L24,50C21.792,50 20,51.792 20,54L20,176C20,178.208 21.792,180 24,180L202,180C204.208,180 206,178.208 206,176L206,54Z" style="fill:rgb(222,220,209);fill-opacity:0.04;stroke:rgb(156,154,146);stroke-opacity:0.7;stroke-width:0.8px;stroke-linejoin:round;stroke-miterlimit:2;"/>
+    <g transform="matrix(1,0,0,1,83.215,66)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Frame 1</text>
+    </g>
+    <g>
+        <circle cx="55" cy="110" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="90" cy="85" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="135" cy="125" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="170" cy="95" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="75" cy="145" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="155" cy="150" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="112" cy="108" r="22" style="fill:rgb(15,110,86);fill-opacity:0.1;"/>
+        <circle cx="112" cy="108" r="6" style="fill:rgb(15,110,86);"/>
+    </g>
+    <g>
+        <circle cx="55" cy="110" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="90" cy="85" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="135" cy="125" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="170" cy="95" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="75" cy="145" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="155" cy="150" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="112" cy="108" r="22" style="fill:rgb(15,110,86);fill-opacity:0.1;"/>
+        <circle cx="112" cy="108" r="6" style="fill:rgb(15,110,86);"/>
+    </g>
+    <g>
+        <circle cx="55" cy="110" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="90" cy="85" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="135" cy="125" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="170" cy="95" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="75" cy="145" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="155" cy="150" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+        <circle cx="112" cy="108" r="22" style="fill:rgb(15,110,86);fill-opacity:0.1;"/>
+        <circle cx="112" cy="108" r="6" style="fill:rgb(15,110,86);"/>
+    </g>
+    <path d="M433,54C433,51.792 431.208,50 429,50L251,50C248.792,50 247,51.792 247,54L247,176C247,178.208 248.792,180 251,180L429,180C431.208,180 433,178.208 433,176L433,54Z" style="fill:rgb(222,220,209);fill-opacity:0.04;"/>
+    <path d="M433,54C433,51.792 431.208,50 429,50L251,50C248.792,50 247,51.792 247,54L247,176C247,178.208 248.792,180 251,180L429,180C431.208,180 433,178.208 433,176L433,54Z" style="fill:none;stroke:rgb(156,154,146);stroke-opacity:0.7;stroke-width:0.8px;"/>
+    <g transform="matrix(1,0,0,1,310.215,66)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Frame 2</text>
+        <g transform="matrix(1,0,0,1,-291.215,-45)">
+            <circle cx="262" cy="90" r="20" style="fill:rgb(15,110,86);fill-opacity:0.1;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-291.215,-45)">
+            <circle cx="262" cy="90" r="6" style="fill:rgb(15,110,86);"/>
+        </g>
+    </g>
+    <circle cx="317" cy="85" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+    <g transform="matrix(1,0,0,1,21,22)">
+        <circle cx="317" cy="85" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+    </g>
+    <circle cx="362" cy="125" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+    <circle cx="302" cy="145" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+    <g transform="matrix(1,0,0,1,14,0)">
+        <circle cx="382" cy="95" r="5" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,11,1)">
+        <circle cx="370" cy="148" r="20" style="fill:rgb(15,110,86);fill-opacity:0.1;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,11,1)">
+        <circle cx="370" cy="148" r="6" style="fill:rgb(15,110,86);"/>
+    </g>
+    <path d="M660,54C660,51.792 658.208,50 656,50L478,50C475.792,50 474,51.792 474,54L474,176C474,178.208 475.792,180 478,180L656,180C658.208,180 660,178.208 660,176L660,54Z" style="fill:none;stroke:rgb(222,220,209);stroke-opacity:0.25;stroke-width:0.5px;"/>
+    <path d="M660,54C660,51.792 658.208,50 656,50L478,50C475.792,50 474,51.792 474,54L474,176C474,178.208 475.792,180 478,180L656,180C658.208,180 660,178.208 660,176L660,54Z" style="fill:rgb(222,220,209);fill-opacity:0.04;stroke:rgb(156,154,146);stroke-opacity:0.7;stroke-width:0.8px;stroke-linejoin:round;stroke-miterlimit:2;"/>
+    <g transform="matrix(1,0,0,1,496.742,66)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">After 30,000 frames</text>
+    </g>
+    <circle cx="509" cy="100" r="2.5" style="fill:rgb(15,110,86);fill-opacity:0.9;"/>
+    <circle cx="515" cy="105" r="2" style="fill:rgb(15,110,86);fill-opacity:0.7;"/>
+    <circle cx="511" cy="112" r="2.5" style="fill:rgb(15,110,86);fill-opacity:0.8;"/>
+    <circle cx="530" cy="90" r="2" style="fill:rgb(15,110,86);fill-opacity:0.6;"/>
+    <circle cx="525" cy="98" r="2.5" style="fill:rgb(15,110,86);fill-opacity:0.9;"/>
+    <circle cx="540" cy="80" r="2" style="fill:rgb(15,110,86);fill-opacity:0.7;"/>
+    <circle cx="545" cy="88" r="2.5" style="fill:rgb(15,110,86);fill-opacity:0.85;"/>
+    <circle cx="538" cy="95" r="2" style="fill:rgb(15,110,86);fill-opacity:0.65;"/>
+    <circle cx="555" cy="75" r="2.5" style="fill:rgb(15,110,86);fill-opacity:0.9;"/>
+    <circle cx="560" cy="83" r="2" style="fill:rgb(15,110,86);fill-opacity:0.7;"/>
+    <circle cx="552" cy="92" r="2.5" style="fill:rgb(15,110,86);fill-opacity:0.8;"/>
+    <circle cx="570" cy="100" r="2" style="fill:rgb(15,110,86);fill-opacity:0.6;"/>
+    <circle cx="575" cy="108" r="2.5" style="fill:rgb(15,110,86);fill-opacity:0.9;"/>
+    <circle cx="565" cy="115" r="2" style="fill:rgb(15,110,86);fill-opacity:0.7;"/>
+    <circle cx="580" cy="85" r="2.5" style="fill:rgb(15,110,86);fill-opacity:0.8;"/>
+    <circle cx="586" cy="93" r="2" style="fill:rgb(15,110,86);fill-opacity:0.65;"/>
+    <circle cx="592" cy="78" r="2.5" style="fill:rgb(15,110,86);fill-opacity:0.9;"/>
+    <circle cx="598" cy="120" r="2" style="fill:rgb(15,110,86);fill-opacity:0.7;"/>
+    <circle cx="520" cy="130" r="2.5" style="fill:rgb(15,110,86);fill-opacity:0.85;"/>
+    <circle cx="528" cy="138" r="2" style="fill:rgb(15,110,86);fill-opacity:0.7;"/>
+    <circle cx="535" cy="144" r="2.5" style="fill:rgb(15,110,86);fill-opacity:0.9;"/>
+    <circle cx="544" cy="135" r="2" style="fill:rgb(15,110,86);fill-opacity:0.6;"/>
+    <circle cx="550" cy="125" r="2.5" style="fill:rgb(15,110,86);fill-opacity:0.8;"/>
+    <circle cx="558" cy="133" r="2" style="fill:rgb(15,110,86);fill-opacity:0.7;"/>
+    <circle cx="567" cy="140" r="2.5" style="fill:rgb(15,110,86);fill-opacity:0.9;"/>
+    <circle cx="575" cy="148" r="2" style="fill:rgb(15,110,86);fill-opacity:0.65;"/>
+    <circle cx="583" cy="130" r="2.5" style="fill:rgb(15,110,86);fill-opacity:0.8;"/>
+    <circle cx="590" cy="138" r="2" style="fill:rgb(15,110,86);fill-opacity:0.7;"/>
+    <path d="M209,115L244,115" style="fill:none;fill-rule:nonzero;stroke:rgb(180,178,169);stroke-width:1.2px;"/>
+    <path d="M436,115L471,115" style="fill:none;fill-rule:nonzero;stroke:rgb(180,178,169);stroke-width:1.2px;"/>
+    <path d="M320,193C320,190.24 317.76,188 315,188L25,188C22.24,188 20,190.24 20,193L20,313C20,315.76 22.24,318 25,318L315,318C317.76,318 320,315.76 320,313L320,193Z" style="fill:none;stroke:rgb(156,154,146);stroke-opacity:0.7;stroke-width:0.8px;"/>
+    <g transform="matrix(1,0,0,1,92.625,208)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Localisation Precision</text>
+    </g>
+    <ellipse cx="110" cy="268" rx="46" ry="35" style="fill:rgb(29,158,117);fill-opacity:0.04;"/>
+    <ellipse cx="110" cy="268" rx="26" ry="20" style="fill:rgb(29,158,117);fill-opacity:0.07;"/>
+    <ellipse cx="110" cy="268" rx="12" ry="9" style="fill:none;stroke:rgb(222,220,209);stroke-opacity:0.25;stroke-width:0.8px;stroke-dasharray:3,2;"/>
+    <circle cx="110" cy="268" r="3" style="fill:rgb(15,110,86);"/>
+    <g transform="matrix(1,0,0,1,6,-1)">
+        <path d="M100,268L70,250" style="fill:none;fill-rule:nonzero;stroke:rgb(180,178,169);stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,33.742,228)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">localised</text>
+    </g>
+    <g transform="matrix(1,0,0,1,40.852,240)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">position</text>
+    </g>
+    <g transform="matrix(0.872204,0,0,0.872204,196.859,254.796)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">σ ≈ s / √N</text>
+    </g>
+    <g transform="matrix(0.872204,0,0,0.872204,143.664,269.624)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">s = PSF std dev (~130 nm)</text>
+    </g>
+    <g transform="matrix(0.872204,0,0,0.872204,160.516,282.707)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">N = detected photons</text>
+    </g>
+    <g transform="matrix(0.872204,0,0,0.872204,61.4603,308.406)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">1000–5000 photons → 10–30 nm</text>
+    </g>
+    <path d="M660,193C660,190.24 657.76,188 655,188L345,188C342.24,188 340,190.24 340,193L340,313C340,315.76 342.24,318 345,318L655,318C657.76,318 660,315.76 660,313L660,193Z" style="fill:none;stroke:rgb(156,154,146);stroke-opacity:0.7;stroke-width:0.8px;"/>
+    <g transform="matrix(1,0,0,1,500,208)">
+        <g>
+            <g transform="matrix(1,0,0,1,-77.23,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Photoswitching Buf</text>
+            </g>
+            <g transform="matrix(1,0,0,1,58.559,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">fer</text>
+            </g>
+        </g>
+    </g>
+    <path d="M488,222C488,219.792 486.208,218 484,218L362,218C359.792,218 358,219.792 358,222L358,250C358,252.208 359.792,254 362,254L484,254C486.208,254 488,252.208 488,250L488,222Z" style="fill:rgb(83,74,183);fill-opacity:0.08;stroke:rgb(83,74,183);stroke-width:0.8px;"/>
+    <g transform="matrix(1,0,0,1,-0.584814,1.00712)">
+        <g transform="matrix(0.69126,0,0,0.69126,423.528,232.671)">
+            <g>
+                <g transform="matrix(1,0,0,1,-66.691,0)">
+                    <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(175,169,236);">MEA</text>
+                </g>
+                <g transform="matrix(1,0,0,1,-32.902,0)">
+                    <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(175,169,236);">(50–100 mM)</text>
+                </g>
+            </g>
+        </g>
+        <g transform="matrix(0.69126,0,0,0.69126,375.259,243.04)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(175,169,236);">thiol reducing agent</text>
+        </g>
+    </g>
+    <path d="M642,222C642,219.792 640.208,218 638,218L506,218C503.792,218 502,219.792 502,222L502,250C502,252.208 503.792,254 506,254L638,254C640.208,254 642,252.208 642,250L642,222Z" style="fill:rgb(226,75,74);fill-opacity:0.15;stroke:rgb(226,75,74);stroke-width:0.8px;"/>
+    <g transform="matrix(1,0,0,1,1.36612,1.00712)">
+        <g transform="matrix(0.69126,0,0,0.69126,529.641,232.671)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(226,75,74);">Glucose oxidase</text>
+        </g>
+        <g transform="matrix(0.69126,0,0,0.69126,570.526,243.04)">
+            <g transform="matrix(1,0,0,1,-92.973,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(226,75,74);">+ catalase (O</text>
+            </g>
+            <g transform="matrix(1,0,0,1,2.629,0)">
+                <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:16px;fill:rgb(226,75,74);">₂</text>
+            </g>
+            <g transform="matrix(1,0,0,1,13.824,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(226,75,74);">scavenger)</text>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(0.810615,0,0,0.810615,498.472,282.319)">
+        <g>
+            <g transform="matrix(1,0,0,1,-178.297,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">MEA</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-144.508,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">reacts with excited triplet → dark thiol-adduct</text>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(0.810615,0,0,0.810615,354.661,294.478)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">reverts spontaneously (10s–100s ms) → ON state</text>
+    </g>
+    <g transform="matrix(0.810615,0,0,0.810615,498.472,306.638)">
+        <g transform="matrix(1,0,0,1,-188.371,0)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">O</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-175.926,0)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:16px;fill:rgb(156,154,146);">₂</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-164.73,0)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">scavenger prolongs dark state, reduces bleaching</text>
+        </g>
+    </g>
+    <path d="M660,338C660,334.689 657.311,332 654,332L26,332C22.689,332 20,334.689 20,338L20,406C20,409.311 22.689,412 26,412L654,412C657.311,412 660,409.311 660,406L660,338Z" style="fill:none;stroke:rgb(156,154,146);stroke-opacity:0.8;stroke-width:0.8px;"/>
+    <g transform="matrix(1,0,0,1,340,352)">
+        <g>
+            <g transform="matrix(1,0,0,1,-100.781,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">T</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-91.891,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">ypical dST</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-17.484,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">ORM</text>
+            </g>
+            <g transform="matrix(1,0,0,1,23.406,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Acquisition</text>
+            </g>
+        </g>
+    </g>
+    <path d="M40,358L640,358" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-opacity:0.8;stroke-width:0.8px;"/>
+    <g transform="matrix(1,0,0,1,66.613,376)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">10,000–50,000</text>
+    </g>
+    <g transform="matrix(1,0,0,1,66.652,391)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">camera frames</text>
+    </g>
+    <path d="M240,360L240,400" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-opacity:0.8;stroke-width:0.8px;stroke-dasharray:4.8,3.2;"/>
+    <g transform="matrix(1,0,0,1,340,376)">
+        <g transform="matrix(1,0,0,1,-33.441,0)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">10</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-15.645,0)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:16px;fill:rgb(29,158,117);">⁵</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-4.449,0)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">– 10</text>
+        </g>
+        <g transform="matrix(1,0,0,1,26.691,0)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:16px;fill:rgb(29,158,117);">⁷</text>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,296.422,391)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">localisations</text>
+    </g>
+    <path d="M440,360L440,400" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-opacity:0.8;stroke-width:0.8px;stroke-dasharray:4.8,3.2;"/>
+    <g transform="matrix(1,0,0,1,524.418,376)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">20–50 nm</text>
+    </g>
+    <g transform="matrix(1,0,0,1,560,391)">
+        <g>
+            <g transform="matrix(1,0,0,1,-66.559,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">ef</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-53.504,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">fective resolution</text>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1.13462,0,-64.0769)">
+        <path d="M660,429.288C660,426.37 657.311,424 654,424L26,424C22.689,424 20,426.37 20,429.288L20,470.712C20,473.63 22.689,476 26,476L654,476C657.311,476 660,473.63 660,470.712L660,429.288Z" style="fill:none;stroke:rgb(156,154,146);stroke-opacity:0.8;stroke-width:0.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,23.652,435)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">Fluorescent (ON)</text>
+    </g>
+    <circle cx="80" cy="458" r="8" style="fill:rgb(15,110,86);"/>
+    <g transform="matrix(1,0,0,1,22,0)">
+        <path d="M100,458L190,458" style="fill:none;fill-rule:nonzero;stroke:rgb(180,178,169);stroke-width:1.2px;"/>
+    </g>
+    <g transform="matrix(0.875639,0,0,0.875639,118.408,453.888)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">647 nm laser</text>
+    </g>
+    <g transform="matrix(0.875639,0,0,0.875639,158.903,470.395)">
+        <g>
+            <g transform="matrix(1,0,0,1,-74.043,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">+ MEA</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-26.465,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">triplet quench</text>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,214.562,435)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(95,94,90);">Dark (OFF)</text>
+    </g>
+    <circle cx="255" cy="458" r="8" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:1px;"/>
+    <g transform="matrix(1,0,0,1,15,0)">
+        <path d="M275,458L365,458" style="fill:none;fill-rule:nonzero;stroke:rgb(29,158,117);stroke-width:1.2px;"/>
+    </g>
+    <g transform="matrix(0.875639,0,0,0.875639,287.021,453.888)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">spontaneous</text>
+    </g>
+    <g transform="matrix(0.875639,0,0,0.875639,298.329,472.395)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">reversion</text>
+    </g>
+    <g transform="matrix(1,0,0,1,368.652,435)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">Fluorescent (ON)</text>
+    </g>
+    <circle cx="430" cy="458" r="8" style="fill:rgb(15,110,86);"/>
+    <g transform="matrix(1,0,0,1,20,0)">
+        <path d="M450,458L530,458" style="fill:none;fill-rule:nonzero;stroke:rgb(180,178,169);stroke-width:1.2px;"/>
+    </g>
+    <g transform="matrix(0.875639,0,0,0.875639,467.727,453.888)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">cycle repeats</text>
+    </g>
+    <g transform="matrix(0.875639,0,0,0.875639,452.143,470.395)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">100s–1000s times</text>
+    </g>
+    <g transform="matrix(1,0,0,1,561.641,435)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(95,94,90);">Bleached</text>
+    </g>
+    <circle cx="595" cy="458" r="8" style="fill:rgb(224,222,214);stroke:rgb(211,209,199);stroke-width:1px;"/>
+    <path d="M584,450L606,466" style="fill:none;fill-rule:nonzero;"/>
+    <path d="M606,450L584,466" style="fill:none;fill-rule:nonzero;"/>
+    <g transform="matrix(0.731145,0,0,0.731145,30.8703,176.224)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">1 molecule ON → ﬁt Gaussian</text>
+    </g>
+    <g transform="matrix(0.731145,0,0,0.731145,259.253,174.042)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">2 molecules ON → 2 positions</text>
+    </g>
+    <g transform="matrix(0.731145,0,0,0.731145,474.849,173.905)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">Super-resolution image ~20–50 nm</text>
+    </g>
 </svg>

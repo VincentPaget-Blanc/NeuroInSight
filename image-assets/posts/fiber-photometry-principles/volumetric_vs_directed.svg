@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 680 700" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <path d="M310,24C310,19.585 306.415,16 302,16L28,16C23.585,16 20,19.585 20,24L20,44C20,48.415 23.585,52 28,52L302,52C306.415,52 310,48.415 310,44L310,24Z" style="fill:rgb(250,236,231);stroke:rgb(240,153,123);stroke-width:1px;"/>
+    <g transform="matrix(1,0,0,1,165,38)">
+        <text x="-66.793px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:13px;fill:rgb(113,43,19);">Volumetric signalling</text>
+    </g>
+    <path d="M650,24C650,19.585 646.415,16 642,16L368,16C363.585,16 360,19.585 360,24L360,44C360,48.415 363.585,52 368,52L642,52C646.415,52 650,48.415 650,44L650,24Z" style="fill:rgb(230,241,251);stroke:rgb(133,183,235);stroke-width:1px;"/>
+    <g transform="matrix(1,0,0,1,505,38)">
+        <text x="-97.186px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:13px;fill:rgb(12,68,124);">Directed synaptic transmission</text>
+    </g>
+    <g transform="matrix(1,0,0,1,165,63)">
+        <text x="-95.313px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(136,135,128);">Sponges, placozoans — no neurons</text>
+    </g>
+    <g transform="matrix(1,0,0,1,505,63)">
+        <text x="-90.495px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(136,135,128);">Cnidarians, bilaterians — neurons</text>
+    </g>
+    <path d="M310,78C310,72.481 305.519,68 300,68L30,68C24.481,68 20,72.481 20,78L20,353C20,358.519 24.481,363 30,363L300,363C305.519,363 310,358.519 310,353L310,78Z" style="fill:rgb(250,250,249);stroke:rgb(232,232,230);stroke-width:0.8px;"/>
+    <path d="M650,78C650,72.481 645.519,68 640,68L370,68C364.481,68 360,72.481 360,78L360,353C360,358.519 364.481,363 370,363L640,363C645.519,363 650,358.519 650,353L650,78Z" style="fill:rgb(250,250,249);stroke:rgb(232,232,230);stroke-width:0.8px;"/>
+    <path d="M335,16L335,375" style="fill:none;fill-rule:nonzero;stroke:rgb(224,224,222);stroke-width:0.8px;stroke-dasharray:5,4;"/>
+    <ellipse cx="165" cy="160" rx="55" ry="38" style="fill:rgb(250,236,231);stroke:rgb(216,90,48);stroke-width:1.5px;"/>
+    <g transform="matrix(1,0,0,1,165,166)">
+        <text x="-44.32px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:12px;fill:rgb(113,43,19);">Peptidergic cell</text>
+    </g>
+    <g transform="matrix(1,0,0,1,165,182)">
+        <text x="-33.567px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(153,60,29);">(no synapse)</text>
+    </g>
+    <circle cx="148" cy="144" r="9" style="fill:rgb(240,153,123);stroke:rgb(216,90,48);stroke-width:1px;"/>
+    <circle cx="165" cy="138" r="9" style="fill:rgb(240,153,123);stroke:rgb(216,90,48);stroke-width:1px;"/>
+    <circle cx="182" cy="144" r="9" style="fill:rgb(240,153,123);stroke:rgb(216,90,48);stroke-width:1px;"/>
+    <path d="M165,165Z"/>
+    <circle cx="165" cy="165" r="60" style="fill:none;stroke:rgb(216,90,48);stroke-opacity:0.55;stroke-width:0.8px;stroke-dasharray:5,4;"/>
+    <circle cx="165" cy="165" r="88" style="fill:none;stroke:rgb(216,90,48);stroke-opacity:0.35;stroke-width:0.6px;stroke-dasharray:5,4;"/>
+    <circle cx="165" cy="165" r="114" style="fill:none;stroke:rgb(216,90,48);stroke-opacity:0.2;stroke-width:0.4px;stroke-dasharray:5,4;"/>
+    <circle cx="218" cy="142" r="5" style="fill:rgb(239,159,39);fill-opacity:0.85;"/>
+    <circle cx="228" cy="174" r="5" style="fill:rgb(239,159,39);fill-opacity:0.75;"/>
+    <circle cx="212" cy="206" r="4" style="fill:rgb(239,159,39);fill-opacity:0.6;"/>
+    <circle cx="165" cy="222" r="4" style="fill:rgb(239,159,39);fill-opacity:0.55;"/>
+    <circle cx="118" cy="206" r="4" style="fill:rgb(239,159,39);fill-opacity:0.6;"/>
+    <circle cx="102" cy="172" r="5" style="fill:rgb(239,159,39);fill-opacity:0.75;"/>
+    <circle cx="112" cy="140" r="5" style="fill:rgb(239,159,39);fill-opacity:0.85;"/>
+    <circle cx="240" cy="158" r="3" style="fill:rgb(239,159,39);fill-opacity:0.4;"/>
+    <circle cx="88" cy="158" r="3" style="fill:rgb(239,159,39);fill-opacity:0.4;"/>
+    <circle cx="200" cy="236" r="3" style="fill:rgb(239,159,39);fill-opacity:0.3;"/>
+    <circle cx="132" cy="238" r="3" style="fill:rgb(239,159,39);fill-opacity:0.3;"/>
+    <g transform="matrix(1,0,0,1,0,-10)">
+        <ellipse cx="90" cy="320" rx="38" ry="22" style="fill:rgb(225,245,238);stroke:rgb(29,158,117);stroke-width:1.2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,90,310)">
+        <text x="-15.584px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(8,80,65);">Cell A</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,-10)">
+        <ellipse cx="165" cy="332" rx="38" ry="22" style="fill:rgb(225,245,238);stroke:rgb(29,158,117);stroke-width:1.2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,165,322)">
+        <text x="-14.953px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(8,80,65);">Cell B</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,-10)">
+        <ellipse cx="240" cy="320" rx="38" ry="22" style="fill:rgb(225,245,238);stroke:rgb(29,158,117);stroke-width:1.2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,240,310)">
+        <text x="-15.595px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(8,80,65);">Cell C</text>
+    </g>
+    <g transform="matrix(1,0,0,0.921739,0,15.1043)">
+        <clipPath id="_clip1">
+            <path d="M142.354,192.653L95.354,295.653L96.646,296.347L143.646,193.347L142.354,192.653Z"/>
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <g transform="matrix(1,-0,-0,1.08491,0,-16.3868)">
+                <use xlink:href="#_Image2" x="96.75" y="193.528" width="48.293px" height="95.579px" transform="matrix(0.985566,0,0,0.995616,0,0)"/>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,0.921739,0,15.1043)">
+        <clipPath id="_clip3">
+            <path d="M164.279,198L164.279,308L165.721,308L165.721,198L164.279,198Z"/>
+        </clipPath>
+        <g clip-path="url(#_clip3)">
+            <g transform="matrix(1,-0,-0,1.08491,0,-16.3868)">
+                <use xlink:href="#_Image4" x="227.77" y="198.795" width="1.442px" height="101.391px" transform="matrix(0.72125,0,0,0.994032,0,0)"/>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,0.921739,0,15.1043)">
+        <clipPath id="_clip5">
+            <path d="M186.354,193.347L233.354,296.347L234.646,295.653L187.646,192.653L186.354,193.347Z"/>
+        </clipPath>
+        <g clip-path="url(#_clip5)">
+            <g transform="matrix(1,-0,-0,1.08491,0,-16.3868)">
+                <use xlink:href="#_Image2" x="189.083" y="193.528" width="48.293px" height="95.579px" transform="matrix(0.985566,0,0,0.995616,0,0)"/>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,165,358)">
+        <text x="-76.216px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(136,135,128);">Diﬀuse · slow · many targets</text>
+    </g>
+    <ellipse cx="505" cy="128" rx="66" ry="44" style="fill:rgb(230,241,251);stroke:rgb(24,95,165);stroke-width:1.5px;"/>
+    <g transform="matrix(1,0,0,1,505,118)">
+        <text x="-55.726px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:12px;fill:rgb(12,68,124);">Presynaptic neuron</text>
+    </g>
+    <circle cx="479" cy="156" r="14" style="fill:rgb(181,212,244);stroke:rgb(24,95,165);stroke-width:1px;"/>
+    <circle cx="505" cy="153" r="14" style="fill:rgb(181,212,244);stroke:rgb(24,95,165);stroke-width:1px;"/>
+    <circle cx="531" cy="156" r="14" style="fill:rgb(181,212,244);stroke:rgb(24,95,165);stroke-width:1px;"/>
+    <path d="M543,171C543,169.344 541.656,168 540,168L470,168C468.344,168 467,169.344 467,171L467,172C467,173.656 468.344,175 470,175L540,175C541.656,175 543,173.656 543,172L543,171Z" style="fill:rgb(121,31,31);fill-opacity:0.8;"/>
+    <path d="M485,168C485,166.896 484.104,166 483,166L477,166C475.896,166 475,166.896 475,168L475,173C475,174.104 475.896,175 477,175L483,175C484.104,175 485,174.104 485,173L485,168Z" style="fill:rgb(239,159,39);stroke:rgb(186,117,23);stroke-width:0.8px;"/>
+    <path d="M508,168C508,166.896 507.104,166 506,166L500,166C498.896,166 498,166.896 498,168L498,173C498,174.104 498.896,175 500,175L506,175C507.104,175 508,174.104 508,173L508,168Z" style="fill:rgb(239,159,39);stroke:rgb(186,117,23);stroke-width:0.8px;"/>
+    <path d="M531,168C531,166.896 530.104,166 529,166L523,166C521.896,166 521,166.896 521,168L521,173C521,174.104 521.896,175 523,175L529,175C530.104,175 531,174.104 531,173L531,168Z" style="fill:rgb(239,159,39);stroke:rgb(186,117,23);stroke-width:0.8px;"/>
+    <path d="M583,180C583,177.792 581.208,176 579,176L431,176C428.792,176 427,177.792 427,180L427,202C427,204.208 428.792,206 431,206L579,206C581.208,206 583,204.208 583,202L583,180Z" style="fill:rgb(250,238,218);stroke:rgb(186,117,23);stroke-width:0.8px;"/>
+    <g transform="matrix(1,0,0,1,612,189)">
+        <text x="-12.539px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(133,79,11);">Cleft</text>
+        <text x="-24.299px" y="11px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(133,79,11);">(~20 nm)</text>
+    </g>
+    <path d="M465,176L465,188" style="fill:none;fill-rule:nonzero;stroke:rgb(186,117,23);stroke-width:1.8px;"/>
+    <ellipse cx="465" cy="190" rx="8" ry="5" style="fill:rgb(239,159,39);stroke:rgb(186,117,23);stroke-width:0.8px;"/>
+    <path d="M505,176L505,188" style="fill:none;fill-rule:nonzero;stroke:rgb(186,117,23);stroke-width:1.8px;"/>
+    <ellipse cx="505" cy="190" rx="8" ry="5" style="fill:rgb(239,159,39);stroke:rgb(186,117,23);stroke-width:0.8px;"/>
+    <path d="M545,176L545,188" style="fill:none;fill-rule:nonzero;stroke:rgb(186,117,23);stroke-width:1.8px;"/>
+    <ellipse cx="545" cy="190" rx="8" ry="5" style="fill:rgb(239,159,39);stroke:rgb(186,117,23);stroke-width:0.8px;"/>
+    <path d="M465,206L465,196" style="fill:none;fill-rule:nonzero;stroke:rgb(153,53,86);stroke-width:1.8px;"/>
+    <ellipse cx="465" cy="194" rx="8" ry="5" style="fill:rgb(250,199,117);stroke:rgb(153,53,86);stroke-width:0.8px;"/>
+    <path d="M505,206L505,196" style="fill:none;fill-rule:nonzero;stroke:rgb(153,53,86);stroke-width:1.8px;"/>
+    <ellipse cx="505" cy="194" rx="8" ry="5" style="fill:rgb(250,199,117);stroke:rgb(153,53,86);stroke-width:0.8px;"/>
+    <path d="M545,206L545,196" style="fill:none;fill-rule:nonzero;stroke:rgb(153,53,86);stroke-width:1.8px;"/>
+    <ellipse cx="545" cy="194" rx="8" ry="5" style="fill:rgb(250,199,117);stroke:rgb(153,53,86);stroke-width:0.8px;"/>
+    <path d="M583,208C583,206.896 582.104,206 581,206L429,206C427.896,206 427,206.896 427,208L427,211C427,212.104 427.896,213 429,213L581,213C582.104,213 583,212.104 583,211L583,208Z" style="fill:rgb(212,83,126);fill-opacity:0.7;"/>
+    <path d="M459,208C459,205.792 457.208,204 455,204L439,204C436.792,204 435,205.792 435,208L435,234C435,236.208 436.792,238 439,238L455,238C457.208,238 459,236.208 459,234L459,208Z" style="fill:rgb(237,147,177);stroke:rgb(153,53,86);stroke-width:1.2px;"/>
+    <path d="M487,208C487,205.792 485.208,204 483,204L467,204C464.792,204 463,205.792 463,208L463,234C463,236.208 464.792,238 467,238L483,238C485.208,238 487,236.208 487,234L487,208Z" style="fill:rgb(237,147,177);stroke:rgb(153,53,86);stroke-width:1.2px;"/>
+    <path d="M529,208C529,205.792 527.208,204 525,204L507,204C504.792,204 503,205.792 503,208L503,240C503,242.208 504.792,244 507,244L525,244C527.208,244 529,242.208 529,240L529,208Z" style="fill:rgb(212,83,126);stroke:rgb(114,36,62);stroke-width:1.2px;"/>
+    <path d="M559,208C559,205.792 557.208,204 555,204L537,204C534.792,204 533,205.792 533,208L533,240C533,242.208 534.792,244 537,244L555,244C557.208,244 559,242.208 559,240L559,208Z" style="fill:rgb(212,83,126);stroke:rgb(114,36,62);stroke-width:1.2px;"/>
+    <path d="M583,246C583,243.792 581.208,242 579,242L431,242C428.792,242 427,243.792 427,246L427,247C427,249.208 428.792,251 431,251L579,251C581.208,251 583,249.208 583,247L583,246Z" style="fill:rgb(212,83,126);fill-opacity:0.85;"/>
+    <path d="M440,251L440,274" style="fill:none;fill-rule:nonzero;stroke:rgb(212,83,126);stroke-width:4px;stroke-linecap:round;"/>
+    <path d="M458,251L458,274" style="fill:none;fill-rule:nonzero;stroke:rgb(212,83,126);stroke-width:4px;stroke-linecap:round;"/>
+    <path d="M476,251L476,274" style="fill:none;fill-rule:nonzero;stroke:rgb(212,83,126);stroke-width:4px;stroke-linecap:round;"/>
+    <path d="M494,251L494,274" style="fill:none;fill-rule:nonzero;stroke:rgb(212,83,126);stroke-width:4px;stroke-linecap:round;"/>
+    <path d="M512,251L512,274" style="fill:none;fill-rule:nonzero;stroke:rgb(212,83,126);stroke-width:4px;stroke-linecap:round;"/>
+    <path d="M530,251L530,274" style="fill:none;fill-rule:nonzero;stroke:rgb(212,83,126);stroke-width:4px;stroke-linecap:round;"/>
+    <path d="M548,251L548,274" style="fill:none;fill-rule:nonzero;stroke:rgb(212,83,126);stroke-width:4px;stroke-linecap:round;"/>
+    <path d="M436,274L552,274" style="fill:none;fill-rule:nonzero;stroke:rgb(212,83,126);stroke-width:3.5px;stroke-linecap:round;"/>
+    <g transform="matrix(1,0,0,1,505,286)">
+        <text x="-42.963px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(114,36,62);">PSD-95 scaﬀold</text>
+    </g>
+    <path d="M575,299C575,296.24 572.76,294 570,294L440,294C437.24,294 435,296.24 435,299L435,307C435,309.76 437.24,312 440,312L570,312C572.76,312 575,309.76 575,307L575,299Z" style="fill:rgb(240,153,123);stroke:rgb(153,60,29);stroke-width:1px;"/>
+    <g transform="matrix(1,0,0,1,505,306)">
+        <text x="-37.396px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(74,27,12);">GKAP / SAPAP</text>
+    </g>
+    <path d="M569,323C569,320.24 566.76,318 564,318L446,318C443.24,318 441,320.24 441,323L441,331C441,333.76 443.24,336 446,336L564,336C566.76,336 569,333.76 569,331L569,323Z" style="fill:rgb(216,90,48);stroke:rgb(113,43,19);stroke-width:1px;"/>
+    <g transform="matrix(1,0,0,1,505,331)">
+        <text x="-42.891px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(250,236,231);">Shank → Homer</text>
+    </g>
+    <g transform="matrix(1,0,0,1,505,358)">
+        <text x="-72.518px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(136,135,128);">Precise · fast · single target</text>
+    </g>
+    <rect x="20" y="382" width="140" height="34" style="fill:rgb(242,242,240);stroke:rgb(208,208,204);stroke-width:0.6px;"/>
+    <rect x="162" y="382" width="246" height="34" style="fill:rgb(254,248,245);stroke:rgb(208,208,204);stroke-width:0.6px;"/>
+    <rect x="410" y="382" width="248" height="34" style="fill:rgb(239,244,252);stroke:rgb(208,208,204);stroke-width:0.6px;"/>
+    <g transform="matrix(1,0,0,1,91,399)">
+        <text x="-24.41px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:12px;fill:rgb(102,102,102);">Property</text>
+    </g>
+    <g transform="matrix(1,0,0,1,285,399)">
+        <text x="-31.518px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:12px;fill:rgb(113,43,19);">Volumetric</text>
+    </g>
+    <g transform="matrix(1,0,0,1,534,399)">
+        <text x="-50.42px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:12px;fill:rgb(12,68,124);">Directed synaptic</text>
+    </g>
+    <path d="M20,382L20,698" style="fill:none;fill-rule:nonzero;stroke:rgb(208,208,204);stroke-width:0.6px;"/>
+    <path d="M161,382L161,698" style="fill:none;fill-rule:nonzero;stroke:rgb(208,208,204);stroke-width:0.6px;"/>
+    <path d="M409,382L409,698" style="fill:none;fill-rule:nonzero;stroke:rgb(208,208,204);stroke-width:0.6px;"/>
+    <path d="M658,382L658,698" style="fill:none;fill-rule:nonzero;stroke:rgb(208,208,204);stroke-width:0.6px;"/>
+    <path d="M20,416L658,416" style="fill:none;fill-rule:nonzero;stroke:rgb(232,232,230);stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,91,436)">
+        <text x="-16.014px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(136,136,136);">Speed</text>
+    </g>
+    <g transform="matrix(1,0,0,1,285,436)">
+        <text x="-52.293px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(153,60,29);">Seconds to minutes</text>
+    </g>
+    <g transform="matrix(1,0,0,1,534,436)">
+        <text x="-53.381px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(24,95,165);">0.5 – 5 milliseconds</text>
+    </g>
+    <path d="M20,456L658,456" style="fill:none;fill-rule:nonzero;stroke:rgb(232,232,230);stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,91,476)">
+        <text x="-20.12px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(136,136,136);">Targets</text>
+    </g>
+    <g transform="matrix(1,0,0,1,285,476)">
+        <text x="-64.633px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(153,60,29);">Many cells, non-speciﬁc</text>
+    </g>
+    <g transform="matrix(1,0,0,1,534,476)">
+        <text x="-49.382px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(24,95,165);">Single cell, precise</text>
+    </g>
+    <path d="M20,496L658,496" style="fill:none;fill-rule:nonzero;stroke:rgb(232,232,230);stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,91,516)">
+        <text x="-16.022px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(136,136,136);">Signal</text>
+    </g>
+    <g transform="matrix(1,0,0,1,285,516)">
+        <text x="-99.158px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(153,60,29);">Neuropeptides, ATP, small molecules</text>
+    </g>
+    <g transform="matrix(1,0,0,1,534,516)">
+        <text x="-90.884px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(24,95,165);">Glutamate, GABA, ACh + peptides</text>
+    </g>
+    <path d="M20,536L658,536" style="fill:none;fill-rule:nonzero;stroke:rgb(232,232,230);stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,91,556)">
+        <text x="-21.793px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(136,136,136);">Junction</text>
+    </g>
+    <g transform="matrix(1,0,0,1,285,556)">
+        <text x="-13.919px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(153,60,29);">None</text>
+    </g>
+    <g transform="matrix(1,0,0,1,534,556)">
+        <text x="-68.296px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(24,95,165);">Active zone + cleft + PSD</text>
+    </g>
+    <path d="M20,576L658,576" style="fill:none;fill-rule:nonzero;stroke:rgb(232,232,230);stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,91,596)">
+        <text x="-38.441px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(136,136,136);">Cleft adhesion</text>
+    </g>
+    <g transform="matrix(1,0,0,1,285,596)">
+        <text x="-18.595px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(153,60,29);">Absent</text>
+    </g>
+    <g transform="matrix(1,0,0,1,534,596)">
+        <text x="-76.592px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(24,95,165);">Neurexin – neuroligin bridge</text>
+    </g>
+    <path d="M20,616L658,616" style="fill:none;fill-rule:nonzero;stroke:rgb(232,232,230);stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,91,636)">
+        <text x="-51.74px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(136,136,136);">Receptor clustering</text>
+    </g>
+    <g transform="matrix(1,0,0,1,285,636)">
+        <text x="-90.605px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(153,60,29);">Intrinsic topology (cilia, microvilli)</text>
+    </g>
+    <g transform="matrix(1,0,0,1,534,636)">
+        <text x="-95.511px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(24,95,165);">PSD-95 → GKAP → Shank → Homer</text>
+    </g>
+    <path d="M20,656L658,656" style="fill:none;fill-rule:nonzero;stroke:rgb(232,232,230);stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,91,676)">
+        <text x="-20.448px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(136,136,136);">Ecology</text>
+    </g>
+    <g transform="matrix(1,0,0,1,285,676)">
+        <text x="-98.812px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(153,60,29);">Sessile, ﬁlter-feeding, microbial prey</text>
+    </g>
+    <g transform="matrix(1,0,0,1,534,676)">
+        <text x="-100.115px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(24,95,165);">Free-living predator, 3D environment</text>
+    </g>
+    <path d="M20,696L658,696" style="fill:none;fill-rule:nonzero;stroke:rgb(208,208,204);stroke-width:0.6px;"/>
+    <defs>
+        <image id="_Image2" width="49px" height="96px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAABgCAYAAAC0TppOAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAjElEQVR4nO3PAQ2AMADAsHMzl40hvGDhJp5QklXBdr33esbPza8DTmhC0YSiCUUTiiYUTSiaUDShaELRhKIJRROKJhRNKJpQNKFoQtGEoglFE4omFE0omlA0oWhC0YSiCUUTiiYUTSiaUDShaELRhKIJRROKJhRNKJpQNKFoQtGEoglFE4omFE0omlBs/loDQX0yh5cAAAAASUVORK5CYII="/>
+        <image id="_Image4" width="2px" height="102px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAABmCAYAAADh00BoAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAHUlEQVQokWN8P1/9DAMDAwMTAxSMMkYZo4yBZQAAZrQDTaQH9AAAAAAASUVORK5CYII="/>
+    </defs>
+</svg>

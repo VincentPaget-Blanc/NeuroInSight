@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 680 860" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g id="g2" transform="matrix(1.01,0,0,1.03,-1.77,-24.83)">
+        <g transform="matrix(0.91,0,0,0.94,339.728,47.4476)">
+            <text x="-170.273px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:15px;fill:rgb(26,26,26);">Origins of the synaptic toolkit across evolution</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,339.728,62.4876)">
+            <text x="-166.759px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(136,135,128);">After Colgren &amp; Burkhardt, Nature Reviews Neuroscience 2025</text>
+        </g>
+        <g transform="matrix(0.91,0,0,1.08563,7.36,15.3119)">
+            <path d="M57.24,59.04L57.24,799.04" style="fill:none;fill-rule:nonzero;stroke:rgb(204,204,204);stroke-width:0.8px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,55.8084,107.608)">
+            <text x="-46.852px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(170,170,170);">~800 Ma</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,55.8084,148.968)">
+            <text x="-46.852px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(170,170,170);">~700 Ma</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,55.8084,271.785)">
+            <text x="-46.852px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(170,170,170);">~650 Ma</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,55.8084,404.325)">
+            <text x="-46.852px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(170,170,170);">~620 Ma</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,55.8084,508.665)">
+            <text x="-46.852px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(170,170,170);">~580 Ma</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,55.8084,622.182)">
+            <text x="-46.852px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(170,170,170);">~500 Ma</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,7.36,23.91)">
+            <path d="M54.24,129.04L60.24,129.04" style="fill:none;fill-rule:nonzero;stroke:rgb(204,204,204);stroke-width:0.7px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,7.36,43.3275)">
+            <path d="M54.24,239.04L60.24,239.04" style="fill:none;fill-rule:nonzero;stroke:rgb(204,204,204);stroke-width:0.7px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,7.36,43.3275)">
+            <path d="M54.24,380.04L60.24,380.04" style="fill:none;fill-rule:nonzero;stroke:rgb(204,204,204);stroke-width:0.7px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,7.36,43.3275)">
+            <path d="M54.24,491.04L60.24,491.04" style="fill:none;fill-rule:nonzero;stroke:rgb(204,204,204);stroke-width:0.7px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,7.36,-81.9152)">
+            <path d="M54.24,745.04L60.24,745.04" style="fill:none;fill-rule:nonzero;stroke:rgb(204,204,204);stroke-width:0.7px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,84.9284,92.5676)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:12px;fill:rgb(136,135,128);">Pre-animal ancestor</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,84.9284,105.728)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(170,170,170);">SNAREs · GPCRs · iGluRs · Shank · Homer · DLG already present</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,7.36,23.91)">
+            <path d="M81.24,99.04L81.24,900.04" style="fill:none;fill-rule:nonzero;stroke:rgb(136,135,128);stroke-width:2.5px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,7.36,23.91)">
+            <circle cx="81.24" cy="129.04" r="5" style="fill:rgb(136,135,128);"/>
+        </g>
+        <g transform="matrix(0.588218,0,0,0.94,33.5016,23.91)">
+            <path d="M81.24,129.04L121.24,129.04" style="fill:none;fill-rule:nonzero;stroke:rgb(24,95,165);stroke-width:2.5px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,-6.50139,23.91)">
+            <path d="M121.24,129.04L121.24,892.04" style="fill:none;fill-rule:nonzero;stroke:rgb(24,95,165);stroke-width:2.5px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,7.36,43.3275)">
+            <circle cx="81.24" cy="239.04" r="5" style="fill:rgb(136,135,128);"/>
+        </g>
+        <g transform="matrix(0.749109,0,0,0.94,20.4308,43.3275)">
+            <path d="M81.24,239.04L161.24,239.04" style="fill:none;fill-rule:nonzero;stroke:rgb(212,83,126);stroke-width:2.5px;stroke-dasharray:8,4;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,-6.50139,42.3566)">
+            <path d="M161.24,239.04L161.24,904.04" style="fill:none;fill-rule:nonzero;stroke:rgb(212,83,126);stroke-width:2.5px;stroke-dasharray:8,4;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,7.36,43.3275)">
+            <circle cx="81.24" cy="380.04" r="5" style="fill:rgb(136,135,128);"/>
+        </g>
+        <g transform="matrix(0.802739,0,0,0.94,16.0739,43.3275)">
+            <path d="M81.24,380.04L201.24,380.04" style="fill:none;fill-rule:nonzero;stroke:rgb(29,158,117);stroke-width:2.5px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,-6.50139,43.3275)">
+            <path d="M201.24,380.04L201.24,889.04" style="fill:none;fill-rule:nonzero;stroke:rgb(29,158,117);stroke-width:2.5px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,7.36,43.3275)">
+            <circle cx="81.24" cy="491.04" r="5" style="fill:rgb(136,135,128);"/>
+        </g>
+        <g transform="matrix(0.829554,0,0,0.94,13.8954,43.3275)">
+            <path d="M81.24,491.04L241.24,491.04" style="fill:none;fill-rule:nonzero;stroke:rgb(216,90,48);stroke-width:2.5px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,-6.50139,42.3566)">
+            <path d="M241.24,491.04L241.24,891.04" style="fill:none;fill-rule:nonzero;stroke:rgb(216,90,48);stroke-width:2.5px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,7.36,43.3275)">
+            <circle cx="81.24" cy="611.04" r="5" style="fill:rgb(136,135,128);"/>
+        </g>
+        <g transform="matrix(0.845644,0,0,0.94,12.5883,43.3275)">
+            <path d="M81.24,611.04L281.24,611.04" style="fill:none;fill-rule:nonzero;stroke:rgb(83,74,183);stroke-width:2.5px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,-6.50139,42.3566)">
+            <path d="M281.24,611.04L281.24,891.04" style="fill:none;fill-rule:nonzero;stroke:rgb(83,74,183);stroke-width:2.5px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,107.467,125.468)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:13px;fill:rgb(12,68,124);">Choanoﬂagellates</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,107.467,138.628)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(24,95,165);">~700 Ma · unicellular · e.g. Monosiga brevicollis</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,-6.50139,23.91)">
+            <path d="M673.24,135.163C673.24,130.602 669.34,126.9 664.536,126.9L133.944,126.9C129.14,126.9 125.24,130.602 125.24,135.163L125.24,214.637C125.24,219.198 129.14,222.9 133.944,222.9L664.536,222.9C669.34,222.9 673.24,219.198 673.24,214.637L673.24,135.163Z" style="fill:rgb(230,241,251);stroke:rgb(24,95,165);stroke-width:1px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,118.387,159.308)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(12,68,124);">● SNAREs (synaptobrevin, SNAP25, syntaxin), Unc13, complexin, synaptotagmin</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,118.387,174.348)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(12,68,124);">● Shank, DLG present (non-synaptic roles); Homer localises to nucleus</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,118.387,189.388)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(12,68,124);">● Apical vesicle pool near feeding collar; co-deployment of presynaptic genes</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,118.387,204.428)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(24,95,165);">○ No neurexin / neuroligin  ·  ○ No postsynaptic co-deployment or clustering</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,118.387,219.468)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(55,138,221);">○ No synaptic ultrastructure</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,143.867,249.455)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:13px;fill:rgb(114,36,62);">Ctenophora  (comb jellies)</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,143.867,263.555)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(212,83,126);">~650 Ma · neurons present · possible independent origin · e.g. Mnemiopsis leidyi</text>
+        </g>
+        <g transform="matrix(0.787212,0,0,0.94,13.7881,20.9974)">
+            <path d="M673.24,270.303C673.24,265.742 668.731,262.04 663.178,262.04L175.302,262.04C169.749,262.04 165.24,265.742 165.24,270.303L165.24,363.777C165.24,368.338 169.749,372.04 175.302,372.04L663.178,372.04C668.731,372.04 673.24,368.338 673.24,363.777L673.24,270.303Z" style="fill:rgb(251,234,240);stroke:rgb(212,83,126);stroke-width:1px;stroke-dasharray:7,4;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,154.787,284.235)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(114,36,62);">● SNAREs, Unc13, complexin, synaptotagmin 7 (not synaptotagmin 1)</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,154.787,299.275)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(114,36,62);">● Synapses present: nerve net → eﬀector cells only</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,154.787,314.315)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(153,53,86);">● Nerve net is a syncytium — neurons share continuous cytoplasm</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,154.787,329.355)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(153,53,86);">○ No true neuroligin; neurexins expressed only in non-neuronal cells</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,154.787,344.395)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(212,83,126);">○ No postsynaptic scaﬀolding proteins  ·  ○ No morphologically deﬁned PSD</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,154.787,361.315)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(212,83,126);">○ No neuron–neuron chemical synapses</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,180.267,383.906)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:13px;fill:rgb(8,80,65);">Porifera  (sponges)</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,180.267,396.126)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(15,110,86);">~620 Ma · no neurons · e.g. Ephydatia muelleri</text>
+        </g>
+        <g transform="matrix(1.0794,0,0,0.94,-44.4982,24.8809)">
+            <path d="M639.27,408.213C639.27,403.652 635.982,399.95 631.932,399.95L219.948,399.95C215.898,399.95 212.61,403.652 212.61,408.213L212.61,470.397C212.61,474.958 215.898,478.66 219.948,478.66L631.932,478.66C635.982,478.66 639.27,474.958 639.27,470.397L639.27,408.213Z" style="fill:rgb(225,245,238);stroke:rgb(29,158,117);stroke-width:1px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,189.207,413.768)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(8,80,65);">● Presynaptic genes (Unc13, Rab3, SNAREs) in neuroid cells; protrusions contact choanocytes</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,189.207,430.058)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(8,80,65);">● Postsynaptic genes (Shank, Homer, DLG) enriched in choanocytes — bipartite distribution</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,189.207,445.098)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(15,110,86);">● Volumetric coordination via glutamate and ATP (sponge &quot;sneezing&quot;)</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,189.207,460.138)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(29,158,117);">○ No synaptic ultrastructure  ·  ○ No neurexin / neuroligin</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,216.667,488.308)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:13px;fill:rgb(113,43,19);">Placozoa</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,216.667,501.468)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(153,60,29);">~580 Ma · no neurons · e.g. Trichoplax adhaerens</text>
+        </g>
+        <g transform="matrix(0.92388,0,0,0.94,-9.90529,23.91)">
+            <path d="M673.24,520.303C673.24,515.742 669.398,512.04 664.667,512.04L253.813,512.04C249.082,512.04 245.24,515.742 245.24,520.303L245.24,583.777C245.24,588.338 249.082,592.04 253.813,592.04L664.667,592.04C669.398,592.04 673.24,588.338 673.24,583.777L673.24,520.303Z" style="fill:rgb(250,236,231);stroke:rgb(216,90,48);stroke-width:1px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,227.587,522.148)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(113,43,19);">● Full presynaptic secretory machinery: SNAREs, Unc13, RIM, synaptotagmin</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,227.587,537.188)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(113,43,19);">● Neuropeptides regulate behaviour; GPCRs co-expressed in peptidergic cells</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,227.587,552.228)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(153,60,29);">○ Shank, DLG absent from peptidergic cells  ·  ○ No neuroligin</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,227.587,567.268)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(216,90,48);">○ No postsynaptic density ultrastructure  ·  Volumetric paracrine signalling</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,253.067,597.162)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:13px;fill:rgb(60,52,137);">Cnidaria + Bilateria</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,253.067,610.322)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(83,74,183);">~500 Ma · neurons + synapses · e.g. Nematostella, Hydra</text>
+        </g>
+        <g transform="matrix(0.937416,0,0,0.984789,-14.4953,-13.5496)">
+            <path d="M724.95,649.157C724.95,644.804 721.164,641.27 716.5,641.27L300.03,641.27C295.366,641.27 291.58,644.804 291.58,649.157L291.58,698.413C291.58,702.766 295.366,706.3 300.03,706.3L716.5,706.3C721.164,706.3 724.95,702.766 724.95,698.413L724.95,649.157Z" style="fill:rgb(238,237,254);stroke:rgb(83,74,183);stroke-width:1.5px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,263.987,630.031)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(60,52,137);">● Neurexin (neuronal) + neuroligin assembled — cleft geometry deﬁned (~20 nm)</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,263.987,645.071)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(60,52,137);">● PSD-95 / DLG → GKAP → Shank → Homer: full postsynaptic density assembled</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,263.987,660.111)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(83,74,183);">● AMPA-R + NMDA-R clustered opposite active zone</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,263.987,675.151)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(83,74,183);">● Fast NT (Glu, GABA, glycine) + neuropeptides; associative learning described</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,-6.50139,43.3275)">
+            <path d="M298.58,776.06L338.58,776.06" style="fill:none;fill-rule:nonzero;stroke:rgb(136,135,128);stroke-width:2.5px;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,308.886,776.584)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(68,68,65);">Shared ancestry</text>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,-6.50139,43.3275)">
+            <path d="M300.31,758.03L340.31,758.03" style="fill:none;fill-rule:nonzero;stroke:rgb(212,83,126);stroke-width:2.5px;stroke-dasharray:8,4;"/>
+        </g>
+        <g transform="matrix(0.91,0,0,0.94,310.461,758.696)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:11px;fill:rgb(68,68,65);">Possible independent origin (convergent evolution in ctenophores)</text>
+        </g>
+    </g>
+</svg>

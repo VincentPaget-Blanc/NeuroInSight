@@ -1,190 +1,130 @@
-<svg width="100%" viewBox="0 0 680 480" xmlns="http://www.w3.org/2000/svg">
-<defs>
-  <style>
-    @media (prefers-color-scheme: dark) {
-      .panel-hd  { fill: #e8e6de; }
-      .frame     { fill: none; stroke: rgba(222,220,209,0.25); }
-      .sub-lbl   { fill: #9c9a92; }
-      .divider   { stroke: rgba(222,220,209,0.18); }
-      .sum-box   { fill: none; stroke: rgba(222,220,209,0.2); }
-      .sum-hd    { fill: #e8e6de; }
-      .sum-txt   { fill: #9c9a92; }
-      .arr-neu   { stroke: #5f5e5a; }
-      /* excitation — cyan-blue */
-      .exc-fill  { fill: rgba(100,160,240,0.22); stroke: #64A0F0; }
-      .exc-lbl   { fill: #64A0F0; }
-      /* STED beam — red-orange doughnut */
-      .sted-fill { fill: rgba(226,75,74,0.22); stroke: #E24B4A; }
-      .sted-zero { fill: rgba(0,0,0,0); }
-      .sted-lbl  { fill: #E24B4A; }
-      /* effective PSF — teal */
-      .eff-fill  { fill: rgba(29,158,117,0.30); stroke: #1D9E75; }
-      .eff-lbl   { fill: #1D9E75; }
-      /* fluorophore states */
-      .fl-on     { fill: #64A0F0; }
-      .fl-off    { fill: #5f5e5a; }
-      .fl-dep    { fill: #E24B4A; }
-      .arrow-proc { stroke: #9c9a92; }
-      .energy-bg { fill: rgba(222,220,209,0.05); stroke: rgba(222,220,209,0.15); }
-      .level-s0  { stroke: #5DCAA5; }
-      .level-s1  { stroke: #64A0F0; }
-      .level-vib { stroke: rgba(222,220,209,0.35); }
-      .state-lbl { fill: #9c9a92; }
-      .trnx-exc  { stroke: #64A0F0; }
-      .trnx-sted { stroke: #E24B4A; }
-      .trnx-flu  { stroke: #5DCAA5; }
-    }
-    @media (prefers-color-scheme: light) {
-      .panel-hd  { fill: #1a1a1a; }
-      .frame     { fill: none; stroke: #D3D1C7; }
-      .sub-lbl   { fill: #5f5e5a; }
-      .divider   { stroke: #D3D1C7; }
-      .sum-box   { fill: none; stroke: #D3D1C7; }
-      .sum-hd    { fill: #1a1a1a; }
-      .sum-txt   { fill: #5f5e5a; }
-      .arr-neu   { stroke: #B4B2A9; }
-      .exc-fill  { fill: rgba(40,100,200,0.10); stroke: #2864C8; }
-      .exc-lbl   { fill: #2864C8; }
-      .sted-fill { fill: rgba(200,50,50,0.12); stroke: #C83232; }
-      .sted-zero { fill: rgba(0,0,0,0); }
-      .sted-lbl  { fill: #C83232; }
-      .eff-fill  { fill: rgba(15,110,86,0.15); stroke: #0F6E56; }
-      .eff-lbl   { fill: #0F6E56; }
-      .fl-on     { fill: #2864C8; }
-      .fl-off    { fill: #888780; }
-      .fl-dep    { fill: #C83232; }
-      .arrow-proc { stroke: #888780; }
-      .energy-bg { fill: rgba(0,0,0,0.02); stroke: #D3D1C7; }
-      .level-s0  { stroke: #0F6E56; }
-      .level-s1  { stroke: #2864C8; }
-      .level-vib { stroke: #D3D1C7; }
-      .state-lbl { fill: #888780; }
-      .trnx-exc  { stroke: #2864C8; }
-      .trnx-sted { stroke: #C83232; }
-      .trnx-flu  { stroke: #0F6E56; }
-    }
-    .hd  { font: 600 13px "Helvetica Neue", Arial, sans-serif; }
-    .lbl { font: 500 12px "Helvetica Neue", Arial, sans-serif; }
-    .sub { font: 400 11px "Helvetica Neue", Arial, sans-serif; }
-    .mono{ font: 400 11px "JetBrains Mono", "Courier New", monospace; }
-  </style>
-  <marker id="arr-g" viewBox="0 0 10 10" refX="8" refY="5"
-    markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </marker>
-  <!-- Radial gradient for STED doughnut -->
-  <radialGradient id="donut-dark" cx="50%" cy="50%" r="50%">
-    <stop offset="0%"   stop-color="#E24B4A" stop-opacity="0"/>
-    <stop offset="40%"  stop-color="#E24B4A" stop-opacity="0"/>
-    <stop offset="60%"  stop-color="#E24B4A" stop-opacity="0.5"/>
-    <stop offset="100%" stop-color="#E24B4A" stop-opacity="0.15"/>
-  </radialGradient>
-  <radialGradient id="donut-light" cx="50%" cy="50%" r="50%">
-    <stop offset="0%"   stop-color="#C83232" stop-opacity="0"/>
-    <stop offset="40%"  stop-color="#C83232" stop-opacity="0"/>
-    <stop offset="60%"  stop-color="#C83232" stop-opacity="0.45"/>
-    <stop offset="100%" stop-color="#C83232" stop-opacity="0.10"/>
-  </radialGradient>
-</defs>
-
-<!-- TITLE -->
-<text class="hd panel-hd" x="340" y="22" text-anchor="middle">STED Microscopy — Principle</text>
-
-<!-- ══════════════════════════════════
-     THREE BEAM PANELS  y=35–230
-     Each panel: 180 wide  (col centres: 100, 340, 580)
-     ════════════════════════════════ -->
-
-<!-- ─── Panel A: Excitation beam (Gaussian PSF) ─── -->
-<rect x="20" y="32" width="193" height="198" rx="5" class="frame" stroke-width="0.5"/>
-<text class="lbl sub-lbl" x="116" y="50" text-anchor="middle">① Excitation beam</text>
-
-<!-- Gaussian spot -->
-<ellipse cx="116" cy="135" rx="52" ry="39" class="exc-fill" stroke-width="0" opacity="0.4"/>
-<ellipse cx="116" cy="135" rx="36" ry="27" class="exc-fill" stroke-width="0" opacity="0.6"/>
-<ellipse cx="116" cy="135" rx="20" ry="15" class="exc-fill" stroke-width="1"/>
-<circle  cx="116" cy="135" r="4"  class="fl-on"/>
-
-<text class="sub exc-lbl" x="116" y="215" text-anchor="middle">diffraction-limited spot</text>
-<text class="mono sub-lbl" x="116" y="228" text-anchor="middle">FWHM ~200–250 nm</text>
-
-<!-- ─── Panel B: STED doughnut ─── -->
-<rect x="243" y="32" width="193" height="198" rx="5" class="frame" stroke-width="0.5"/>
-<text class="lbl sub-lbl" x="339" y="50" text-anchor="middle">② STED depletion beam</text>
-
-<!-- Doughnut shape: outer filled ring with empty centre -->
-<circle cx="339" cy="135" r="60" fill="url(#donut-dark)" stroke="none"/>
-<circle cx="339" cy="135" r="60" class="sted-fill" fill="none" stroke-width="1"/>
-<!-- Dark centre zero-intensity node -->
-<circle cx="339" cy="135" r="20" class="sted-zero" stroke-width="0"/>
-
-<text class="sub sted-lbl" x="339" y="215" text-anchor="middle">toroidal "doughnut" profile</text>
-<text class="sub sub-lbl"  x="339" y="228" text-anchor="middle">zero intensity at centre</text>
-
-<!-- ─── Panel C: Effective PSF ─── -->
-<rect x="466" y="32" width="193" height="198" rx="5" class="frame" stroke-width="0.5"/>
-<text class="lbl sub-lbl" x="562" y="50" text-anchor="middle">③ Effective fluorescence</text>
-
-<!-- Suppressed ring -->
-<ellipse cx="562" cy="135" rx="60" ry="45" class="sted-fill" stroke-width="0.6" stroke-dasharray="3 2" opacity="0.35"/>
-<!-- Tiny allowed PSF in centre -->
-<ellipse cx="562" cy="135" rx="12" ry="9"  class="eff-fill" stroke-width="1.2"/>
-<circle  cx="562" cy="135" r="3.5" class="fl-on"/>
-
-<text class="sub eff-lbl" x="562" y="215" text-anchor="middle">sub-diffraction emission zone</text>
-<text class="mono sub-lbl" x="562" y="228" text-anchor="middle">FWHM 20–50 nm</text>
-
-<!-- Plus / equals signs between panels -->
-<text class="hd sub-lbl" x="230" y="140" text-anchor="middle">+</text>
-<text class="hd sub-lbl" x="453" y="140" text-anchor="middle">=</text>
-
-<!-- ══════════════════════════════════
-     ENERGY DIAGRAM   y=248–390
-     ════════════════════════════════ -->
-<rect x="20" y="246" width="380" height="158" rx="6" class="sum-box" stroke-width="0.5"/>
-<text class="hd sum-hd" x="210" y="266" text-anchor="middle">Energy Level Diagram</text>
-
-<!-- S0 ground state -->
-<line x1="45" y1="375" x2="185" y2="375" class="level-s0" stroke-width="2"/>
-<text class="sub state-lbl" x="40" y="379" text-anchor="end">S₀</text>
-<!-- S1 excited state -->
-<line x1="45" y1="300" x2="185" y2="300" class="level-s1" stroke-width="2"/>
-<text class="sub state-lbl" x="40" y="304" text-anchor="end">S₁</text>
-<!-- Vibrational sub-levels -->
-<line x1="45" y1="315" x2="185" y2="315" class="level-vib" stroke-width="0.8" stroke-dasharray="2 2"/>
-<line x1="45" y1="330" x2="185" y2="330" class="level-vib" stroke-width="0.8" stroke-dasharray="2 2"/>
-<line x1="45" y1="359" x2="185" y2="359" class="level-vib" stroke-width="0.8" stroke-dasharray="2 2"/>
-
-<!-- Transition arrows -->
-<!-- Excitation upward -->
-<line x1="90" y1="370" x2="90" y2="305" class="trnx-exc" stroke-width="2"
-  marker-end="url(#arr-g)"/>
-<text class="sub exc-lbl" x="74" y="338" text-anchor="middle">exc</text>
-
-<!-- Spontaneous fluorescence (green) -->
-<line x1="125" y1="305" x2="125" y2="362" class="trnx-flu" stroke-width="2" stroke-dasharray="4 2"
-  marker-end="url(#arr-g)"/>
-<text class="sub eff-lbl" x="145" y="335" text-anchor="start">fluor.</text>
-
-<!-- STED stimulated emission (red) — fast downward -->
-<line x1="160" y1="305" x2="160" y2="362" class="trnx-sted" stroke-width="2"
-  marker-end="url(#arr-g)"/>
-<text class="sub sted-lbl" x="175" y="335" text-anchor="start">STED</text>
-
-<!-- ══════════════════════════════════
-     RESOLUTION FORMULA   right  
-     ════════════════════════════════ -->
-<rect x="420" y="246" width="240" height="158" rx="6" class="sum-box" stroke-width="0.5"/>
-<text class="hd sum-hd" x="540" y="266" text-anchor="middle">Resolution Formula</text>
-
-<text class="mono sum-txt" x="540" y="298" text-anchor="middle">d_eff ≈</text>
-<text class="mono eff-lbl" x="540" y="316" text-anchor="middle">λ</text>
-<line x1="490" y1="320" x2="590" y2="320" class="divider" stroke-width="1"/>
-<text class="mono eff-lbl" x="540" y="338" text-anchor="middle">2 · NA · √(1 + I_STED / I_s)</text>
-
-<text class="sub sum-txt" x="540" y="362" text-anchor="middle">As I_STED ↑  →  d_eff ↓</text>
-<text class="sub sum-txt" x="540" y="378" text-anchor="middle">No theoretical lower bound</text>
-<text class="sub eff-lbl" x="540" y="394" text-anchor="middle">practical: 20–80 nm in cells</text>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 680 480" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g transform="matrix(1,0,0,1,339.973,22)">
+        <text x="-108.914px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:16px;fill:rgb(123,123,123);">STED Microscopy - Principle</text>
+    </g>
+    <path d="M213,37C213,34.24 210.76,32 208,32L25,32C22.24,32 20,34.24 20,37L20,225C20,227.76 22.24,230 25,230L208,230C210.76,230 213,227.76 213,225L213,37Z" style="fill:none;stroke:rgb(222,220,209);stroke-opacity:0.25;stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,116,50)">
+        <text x="-67.141px" y="0px" style="font-family:'STHeitiSC-Medium', 'Heiti SC';font-size:16px;fill:rgb(156,154,146);">①</text>
+        <text x="-46.695px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Excitation beam</text>
+    </g>
+    <ellipse cx="116" cy="135" rx="52" ry="39" style="fill:rgb(40,100,200);fill-opacity:0.04;"/>
+    <ellipse cx="116" cy="135" rx="36" ry="27" style="fill:rgb(40,100,200);fill-opacity:0.06;"/>
+    <ellipse cx="116" cy="135" rx="20" ry="15" style="fill:rgb(40,100,200);fill-opacity:0.1;stroke:rgb(40,100,200);stroke-width:1px;"/>
+    <circle cx="116" cy="135" r="4" style="fill:rgb(40,100,200);"/>
+    <g transform="matrix(1,0,0,1,116,215)">
+        <text x="-77.664px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(100,160,240);">dif<tspan x="-61.055px -56.609px " y="0px 0px ">fr</tspan>action-limited spot</text>
+    </g>
+    <g transform="matrix(1,0,0,1,116,228)">
+        <text x="-76.254px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">FWHM ~200–250 nm</text>
+    </g>
+    <path d="M436,37C436,34.24 433.76,32 431,32L248,32C245.24,32 243,34.24 243,37L243,225C243,227.76 245.24,230 248,230L431,230C433.76,230 436,227.76 436,225L436,37Z" style="fill:none;stroke:rgb(222,220,209);stroke-opacity:0.25;stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,339,50)">
+        <text x="-88.488px" y="0px" style="font-family:'STHeitiSC-Medium', 'Heiti SC';font-size:16px;fill:rgb(156,154,146);">②</text>
+        <text x="-68.043px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">STED depletion beam</text>
+    </g>
+    <circle cx="339" cy="135" r="60" style="fill:url(#_Radial1);"/>
+    <circle cx="339" cy="135" r="60" style="fill:none;stroke:rgb(200,50,50);stroke-width:1px;"/>
+    <circle cx="339" cy="135" r="20" style="fill-opacity:0;"/>
+    <g transform="matrix(1,0,0,1,339,215)">
+        <text x="-91.52px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(226,75,74);">toroidal &quot;doughnut&quot; proﬁle</text>
+    </g>
+    <g transform="matrix(1,0,0,1,339,228)">
+        <text x="-80.484px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">zero intensity at centre</text>
+    </g>
+    <path d="M659,37C659,34.24 656.76,32 654,32L471,32C468.24,32 466,34.24 466,37L466,225C466,227.76 468.24,230 471,230L654,230C656.76,230 659,227.76 659,225L659,37Z" style="fill:none;stroke:rgb(222,220,209);stroke-opacity:0.25;stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,562,50)">
+        <text x="-88.34px" y="0px" style="font-family:'STHeitiSC-Medium', 'Heiti SC';font-size:16px;fill:rgb(156,154,146);">③</text>
+        <text x="-67.895px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Ef<tspan x="-53.066px -48.621px " y="0px 0px ">fe</tspan>ctive ﬂuorescence</text>
+    </g>
+    <use xlink:href="#_Image2" x="502.914" y="89.268" width="122.474px" height="92.474px" transform="matrix(0.995722,0,0,0.994343,0,0)"/>
+    <ellipse cx="562" cy="135" rx="12" ry="9" style="fill:rgb(15,110,86);fill-opacity:0.15;stroke:rgb(15,110,86);stroke-width:1.2px;"/>
+    <circle cx="562" cy="135" r="3.5" style="fill:rgb(40,100,200);"/>
+    <g transform="matrix(1,0,0,1,562,215)">
+        <text x="-103.461px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">sub-dif<tspan x="-55.727px -51.281px " y="0px 0px ">fr</tspan>action emission zone</text>
+    </g>
+    <g transform="matrix(1,0,0,1,562,228)">
+        <text x="-62.684px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">FWHM 20–50 nm</text>
+    </g>
+    <g transform="matrix(1,0,0,1,230,140)">
+        <text x="-4.672px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">+</text>
+    </g>
+    <g transform="matrix(1,0,0,1,453,140)">
+        <text x="-4.672px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">=</text>
+    </g>
+    <path d="M400,252C400,248.689 397.311,246 394,246L26,246C22.689,246 20,248.689 20,252L20,398C20,401.311 22.689,404 26,404L394,404C397.311,404 400,401.311 400,398L400,252Z" style="fill:none;stroke:rgb(222,220,209);stroke-opacity:0.2;stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,210,266)">
+        <text x="-79.148px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(232,230,222);">Energy Level Diagram</text>
+    </g>
+    <g transform="matrix(1,0,0,1,9.94141,0)">
+        <g transform="matrix(1,0,0,1,80,0)">
+            <path d="M45,375L185,375" style="fill:none;fill-rule:nonzero;stroke:rgb(93,202,165);stroke-width:2px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,120,379)">
+            <text x="-17.422px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">S</text>
+            <text x="-6.75px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:16px;fill:rgb(156,154,146);">₀</text>
+        </g>
+        <g transform="matrix(1,0,0,1,80,0)">
+            <path d="M45,300L185,300" style="fill:none;fill-rule:nonzero;stroke:rgb(100,160,240);stroke-width:2px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,120,304)">
+            <text x="-17.422px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">S</text>
+            <text x="-6.75px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:16px;fill:rgb(156,154,146);">₁</text>
+        </g>
+        <g transform="matrix(1,0,0,1,80,0)">
+            <path d="M45,315L185,315" style="fill:none;fill-rule:nonzero;stroke:rgb(222,220,209);stroke-opacity:0.35;stroke-width:0.8px;stroke-dasharray:2,2;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,80,0)">
+            <path d="M45,330L185,330" style="fill:none;fill-rule:nonzero;stroke:rgb(222,220,209);stroke-opacity:0.35;stroke-width:0.8px;stroke-dasharray:2,2;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,80,0)">
+            <path d="M45,359L185,359" style="fill:none;fill-rule:nonzero;stroke:rgb(222,220,209);stroke-opacity:0.35;stroke-width:0.8px;stroke-dasharray:2,2;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,80,0)">
+            <path d="M90,370L90,305" style="fill:none;fill-rule:nonzero;stroke:rgb(100,160,240);stroke-width:2px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,154,338)">
+            <text x="-12.449px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(100,160,240);">exc</text>
+        </g>
+        <g transform="matrix(1,0,0,1,75,0)">
+            <path d="M125,305L125,362" style="fill:none;fill-rule:nonzero;stroke:rgb(93,202,165);stroke-width:2px;stroke-dasharray:4,2;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,203,335)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">ﬂuor<tspan x="30.242px " y="0px ">.</tspan></text>
+        </g>
+        <g transform="matrix(1,0,0,1,85,0)">
+            <path d="M160,305L160,362" style="fill:none;fill-rule:nonzero;stroke:rgb(226,75,74);stroke-width:2px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,255,335)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(226,75,74);">STED</text>
+        </g>
+    </g>
+    <path d="M660,252C660,248.689 657.311,246 654,246L426,246C422.689,246 420,248.689 420,252L420,398C420,401.311 422.689,404 426,404L654,404C657.311,404 660,401.311 660,398L660,252Z" style="fill:none;stroke:rgb(222,220,209);stroke-opacity:0.2;stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,540,266)">
+        <text x="-69.363px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(232,230,222);">Resolution Formula</text>
+    </g>
+    <g transform="matrix(1,0,0,1,540,298)">
+        <text x="-24.262px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">d_ef<tspan x="6.59px 11.035px " y="0px 0px ">f </tspan>≈</text>
+    </g>
+    <g transform="matrix(1,0,0,1,540,316)">
+        <text x="-4px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">λ</text>
+    </g>
+    <path d="M490,320L590,320" style="fill:none;fill-rule:nonzero;stroke:rgb(222,220,209);stroke-opacity:0.18;stroke-width:1px;"/>
+    <g transform="matrix(1,0,0,1,540,338)">
+        <text x="-97.973px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">2 · NA<tspan x="-53.512px -49.066px " y="0px 0px "> ·</tspan> √(1 + I_STED / I_s)</text>
+    </g>
+    <g transform="matrix(1,0,0,1,540,362)">
+        <text x="-86.551px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">As I_STED ↑  →  d_ef<tspan x="69.66px 74.105px " y="0px 0px ">f </tspan>↓</text>
+    </g>
+    <g transform="matrix(1,0,0,1,540,378)">
+        <text x="-95.168px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">No theoretical lower bound</text>
+    </g>
+    <g transform="matrix(1,0,0,1,540,394)">
+        <text x="-96.492px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">practical: 20–80 nm in cells</text>
+    </g>
+    <defs>
+        <radialGradient id="_Radial1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(60,0,0,60,339,135)"><stop offset="0" style="stop-color:rgb(226,75,74);stop-opacity:0"/><stop offset="0.4" style="stop-color:rgb(226,75,74);stop-opacity:0"/><stop offset="0.6" style="stop-color:rgb(226,75,74);stop-opacity:0.5"/><stop offset="1" style="stop-color:rgb(226,75,74);stop-opacity:0.15"/></radialGradient>
+        <image id="_Image2" width="123px" height="93px" xlink:href="data:image/png;base64,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"/>
+    </defs>
 </svg>

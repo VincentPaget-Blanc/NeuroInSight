@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" viewBox="0 0 680 660" style="font-family: system-ui, -apple-system, sans-serif; background: white;">
+
+<!-- COLUMN HEADER ROW -->
+<rect x="16"  y="32" width="132" height="30" fill="#f2f2f0" stroke="#d0d0cc" stroke-width="0.6"/>
+<rect x="152" y="32" width="222" height="30" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.6"/>
+<rect x="378" y="32" width="146" height="30" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.6"/>
+<rect x="528" y="32" width="134" height="30" fill="#FBEAF0" stroke="#D4537E" stroke-width="0.6"/>
+<text font-size="12" font-weight="500" fill="#666" x="82"  y="47" text-anchor="middle" dominant-baseline="central">Lineage</text>
+<text font-size="12" font-weight="500" fill="#0C447C" x="263" y="47" text-anchor="middle" dominant-baseline="central">Presynaptic module</text>
+<text font-size="12" font-weight="500" fill="#854F0B" x="451" y="47" text-anchor="middle" dominant-baseline="central">Cleft adhesion</text>
+<text font-size="12" font-weight="500" fill="#72243E" x="595" y="47" text-anchor="middle" dominant-baseline="central">Postsynaptic / PSD</text>
+
+<!-- VERTICAL DIVIDERS -->
+<line x1="16"  y1="32" x2="16"  y2="582" stroke="#d0d0cc" stroke-width="0.6"/>
+<line x1="150" y1="32" x2="150" y2="582" stroke="#d0d0cc" stroke-width="0.6"/>
+<line x1="376" y1="32" x2="376" y2="582" stroke="#d0d0cc" stroke-width="0.6"/>
+<line x1="526" y1="32" x2="526" y2="582" stroke="#d0d0cc" stroke-width="0.6"/>
+<line x1="662" y1="32" x2="662" y2="582" stroke="#d0d0cc" stroke-width="0.6"/>
+
+<!-- ROW 1: CHOANOFLAGELLATES y=62..172 -->
+<line x1="16" y1="62" x2="662" y2="62" stroke="#d0d0cc" stroke-width="0.6"/>
+<rect x="16" y="62" width="134" height="110" fill="#F8FBFF"/>
+<rect x="150" y="62" width="226" height="110" fill="#F8FBFF"/>
+<rect x="376" y="62" width="150" height="110" fill="#F8FBFF"/>
+<rect x="526" y="62" width="136" height="110" fill="#F8FBFF"/>
+<text font-size="12" font-weight="500" fill="#0C447C" x="22" y="80">Choanoflagellates</text>
+<text font-size="11" fill="#666" x="22" y="95">~700 Ma</text>
+<text font-size="11" fill="#aaa" x="22" y="110">unicellular</text>
+<text font-size="11" fill="#085041" x="158" y="80">● SNAREs, Unc13, complexin,</text>
+<text font-size="11" fill="#085041" x="158" y="95">  synaptotagmin</text>
+<text font-size="11" fill="#085041" x="158" y="110">● Apical vesicle pool at collar</text>
+<text font-size="11" fill="#085041" x="158" y="125">● Shank, DLG (non-synaptic)</text>
+<text font-size="11" fill="#aaa" x="158" y="140">Homer → nucleus (non-synaptic)</text>
+<text font-size="11" fill="#aaa" x="384" y="80">○ Absent</text>
+<text font-size="11" fill="#aaa" x="384" y="95">No neurexin or</text>
+<text font-size="11" fill="#aaa" x="384" y="110">neuroligin</text>
+<text font-size="11" fill="#854F0B" x="534" y="80">◑ Partial</text>
+<text font-size="11" fill="#854F0B" x="534" y="95">Shank, DLG present</text>
+<text font-size="11" fill="#aaa" x="534" y="110">(non-synaptic roles)</text>
+<text font-size="11" fill="#aaa" x="534" y="125">No receptor clustering</text>
+
+<!-- ROW 2: CTENOPHORES y=172..282 -->
+<line x1="16" y1="172" x2="662" y2="172" stroke="#d0d0cc" stroke-width="0.6"/>
+<rect x="16" y="172" width="134" height="110" fill="#FDF5F8"/>
+<rect x="150" y="172" width="226" height="110" fill="#FDF5F8"/>
+<rect x="376" y="172" width="150" height="110" fill="#FDF5F8"/>
+<rect x="526" y="172" width="136" height="110" fill="#FDF5F8"/>
+<text font-size="12" font-weight="500" fill="#72243E" x="22" y="190">Ctenophores</text>
+<text font-size="11" fill="#666" x="22" y="205">~650 Ma</text>
+<text font-size="11" fill="#D4537E" x="22" y="220">independent?</text>
+<text font-size="11" fill="#854F0B" x="158" y="190">◑ Present, diverged</text>
+<text font-size="11" fill="#085041" x="158" y="205">● SNAREs, Unc13, complexin</text>
+<text font-size="11" fill="#085041" x="158" y="220">● Synaptotagmin 7 (not syn1)</text>
+<text font-size="11" fill="#085041" x="158" y="235">● Synapses: net → effectors only</text>
+<text font-size="11" fill="#aaa" x="158" y="250">Syncytial nerve net</text>
+<text font-size="11" fill="#854F0B" x="384" y="190">◑ Partial</text>
+<text font-size="11" fill="#085041" x="384" y="205">● Neurexin 1 &amp; 3</text>
+<text font-size="11" fill="#aaa" x="384" y="220">(non-neuronal cells)</text>
+<text font-size="11" fill="#aaa" x="384" y="235">○ No neuroligin</text>
+<text font-size="11" fill="#aaa" x="534" y="190">○ Absent</text>
+<text font-size="11" fill="#aaa" x="534" y="205">No scaffolding</text>
+<text font-size="11" fill="#aaa" x="534" y="220">proteins</text>
+<text font-size="11" fill="#aaa" x="534" y="235">No defined PSD</text>
+<!-- Dashed border for ctenophore convergence -->
+<rect x="17" y="173" width="644" height="108" fill="none" stroke="#D4537E" stroke-width="1" stroke-dasharray="6 3"/>
+
+<!-- ROW 3: SPONGES y=282..382 -->
+<line x1="16" y1="282" x2="662" y2="282" stroke="#d0d0cc" stroke-width="0.6"/>
+<rect x="16" y="282" width="134" height="100" fill="#F4FCF8"/>
+<rect x="150" y="282" width="226" height="100" fill="#F4FCF8"/>
+<rect x="376" y="282" width="150" height="100" fill="#F4FCF8"/>
+<rect x="526" y="282" width="136" height="100" fill="#F4FCF8"/>
+<text font-size="12" font-weight="500" fill="#085041" x="22" y="300">Sponges</text>
+<text font-size="11" fill="#666" x="22" y="315">~620 Ma</text>
+<text font-size="11" fill="#aaa" x="22" y="330">no neurons</text>
+<text font-size="11" fill="#085041" x="158" y="300">● Presyn. genes in neuroid cells</text>
+<text font-size="11" fill="#085041" x="158" y="315">  (Unc13, Rab3, SNAREs)</text>
+<text font-size="11" fill="#085041" x="158" y="330">● Protrusions contact choanocytes</text>
+<text font-size="11" fill="#aaa" x="158" y="345">Volumetric: glutamate + ATP</text>
+<text font-size="11" fill="#aaa" x="384" y="300">○ Absent</text>
+<text font-size="11" fill="#aaa" x="384" y="315">No neurexin or</text>
+<text font-size="11" fill="#aaa" x="384" y="330">neuroligin</text>
+<text font-size="11" fill="#854F0B" x="534" y="300">◑ Bipartite</text>
+<text font-size="11" fill="#085041" x="534" y="315">● Shank, Homer, DLG</text>
+<text font-size="11" fill="#aaa" x="534" y="330">in choanocytes</text>
+<text font-size="11" fill="#aaa" x="534" y="345">No junctional structure</text>
+
+<!-- ROW 4: PLACOZOANS y=382..482 -->
+<line x1="16" y1="382" x2="662" y2="382" stroke="#d0d0cc" stroke-width="0.6"/>
+<rect x="16" y="382" width="134" height="100" fill="#FEF8F5"/>
+<rect x="150" y="382" width="226" height="100" fill="#FEF8F5"/>
+<rect x="376" y="382" width="150" height="100" fill="#FEF8F5"/>
+<rect x="526" y="382" width="136" height="100" fill="#FEF8F5"/>
+<text font-size="12" font-weight="500" fill="#712B13" x="22" y="400">Placozoans</text>
+<text font-size="11" fill="#666" x="22" y="415">~580 Ma</text>
+<text font-size="11" fill="#aaa" x="22" y="430">no neurons</text>
+<text font-size="11" fill="#085041" x="158" y="400">● Full secretory machinery</text>
+<text font-size="11" fill="#085041" x="158" y="415">  SNAREs, Unc13, RIM, synaptotagmin</text>
+<text font-size="11" fill="#085041" x="158" y="430">● GPCRs co-expressed</text>
+<text font-size="11" fill="#085041" x="158" y="445">● Neuropeptides drive behaviour</text>
+<text font-size="11" fill="#aaa" x="158" y="460">Volumetric / paracrine</text>
+<text font-size="11" fill="#aaa" x="384" y="400">○ Absent</text>
+<text font-size="11" fill="#aaa" x="384" y="415">No neurexin or</text>
+<text font-size="11" fill="#aaa" x="384" y="430">neuroligin</text>
+<text font-size="11" fill="#aaa" x="534" y="400">○ Absent</text>
+<text font-size="11" fill="#aaa" x="534" y="415">Shank, DLG missing</text>
+<text font-size="11" fill="#aaa" x="534" y="430">from peptidergic cells</text>
+<text font-size="11" fill="#aaa" x="534" y="445">No PSD ultrastructure</text>
+
+<!-- ROW 5: CNIDARIANS y=482..582 -->
+<line x1="16" y1="482" x2="662" y2="482" stroke="#d0d0cc" stroke-width="0.6"/>
+<rect x="16" y="482" width="134" height="100" fill="#F5F4FE"/>
+<rect x="150" y="482" width="226" height="100" fill="#F5F4FE"/>
+<rect x="376" y="482" width="150" height="100" fill="#F5F4FE"/>
+<rect x="526" y="482" width="136" height="100" fill="#F5F4FE"/>
+<text font-size="12" font-weight="500" fill="#3C3489" x="22" y="500">Cnidarians</text>
+<text font-size="11" fill="#666" x="22" y="515">~500 Ma</text>
+<text font-size="11" fill="#534AB7" x="22" y="530">neurons +</text>
+<text font-size="11" fill="#534AB7" x="22" y="545">synapses</text>
+<text font-size="11" fill="#085041" x="158" y="500">● Complete: SNAREs, Unc13, RIM,</text>
+<text font-size="11" fill="#085041" x="158" y="515">  Rab3, complexin, synaptotagmin 1</text>
+<text font-size="11" fill="#085041" x="158" y="530">● Neuron–neuron chemical synapses</text>
+<text font-size="11" fill="#085041" x="158" y="545">● Fast NT (Glu, GABA) + neuropeptides</text>
+<text font-size="11" fill="#085041" x="384" y="500">● Complete</text>
+<text font-size="11" fill="#085041" x="384" y="515">● Neurexin (neuronal)</text>
+<text font-size="11" fill="#085041" x="384" y="530">● Neuroligin assembled</text>
+<text font-size="11" fill="#085041" x="384" y="545">Cleft geometry set</text>
+<text font-size="11" fill="#085041" x="534" y="500">● Complete</text>
+<text font-size="11" fill="#085041" x="534" y="515">● PSD-95 → GKAP</text>
+<text font-size="11" fill="#085041" x="534" y="530">● Shank → Homer</text>
+<text font-size="11" fill="#085041" x="534" y="545">● AMPA-R + NMDA-R</text>
+
+<!-- BOTTOM BORDER -->
+<line x1="16" y1="582" x2="662" y2="582" stroke="#d0d0cc" stroke-width="0.6"/>
+
+<!-- LEGEND -->
+<text font-size="11" fill="#444" x="20"  y="608">● Present / functional</text>
+<text font-size="11" fill="#444" x="168" y="608">◑ Partial / repurposed</text>
+<text font-size="11" fill="#444" x="330" y="608">○ Absent</text>
+<line x1="430" y1="608" x2="464" y2="608" stroke="#D4537E" stroke-width="2" stroke-dasharray="6 3"/>
+<text font-size="11" fill="#444" x="470" y="608">Dashed row = convergent origin</text>
+</svg>

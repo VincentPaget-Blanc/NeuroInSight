@@ -547,11 +547,11 @@ const CONFIG = {
   galleryStrip: {
     title: "The tools",
     items: [
-      { imageUrl: "image-assets/gallery-strip/proteomics/proteomics.svg",                       emoji: "", label: "Proteomics" },
-      { imageUrl: "image-assets/gallery-strip/nanoscopy/nanoscopy.svg",                         emoji: "", label: "Nanoscopy" },
-      { imageUrl: "image-assets/gallery-strip/fass/fass.svg",                                   emoji: "", label: "FASS" },
       { imageUrl: "image-assets/gallery-strip/behavioural-rigs/behavioural_rigs.svg",           emoji: "", label: "Behavioural Rigs" },
       { imageUrl: "image-assets/gallery-strip/fiber-photometry/fiber_photometry.svg",           emoji: "", label: "Fiber Photometry" },
+      { imageUrl: "image-assets/gallery-strip/fass/fass.svg",                                   emoji: "", label: "FASS" },
+      { imageUrl: "image-assets/gallery-strip/nanoscopy/nanoscopy.svg",                         emoji: "", label: "Nanoscopy" },
+      { imageUrl: "image-assets/gallery-strip/proteomics/proteomics.svg",                       emoji: "", label: "Proteomics" },
       { imageUrl: "image-assets/gallery-strip/data-analysis-suite/data_analysis.svg",           emoji: "", label: "Data Analysis Suite" },
     ],
   },
@@ -620,12 +620,12 @@ const CONFIG = {
   <p style="margin:0;line-height:1.75;">
     Citable release, source code and example datasets are available
     via Zenodo.<br>
-    <a href="https://zenodo.org/records/19091293"
+    <a href="https://zenodo.org/records/19353234"
        target="_blank" rel="noopener noreferrer"
        style="color:var(--accent);text-decoration:underline;
               text-underline-offset:3px;
               font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
-      https://zenodo.org/records/19091293
+      https://zenodo.org/records/19353234
     </a>
   </p>
 </div>
@@ -1699,12 +1699,14 @@ const CONFIG = {
 
       `,
     },
+
 {
   type: "excerpt", slug: "evolutionary-origins-of-synapses",
   title: "Before the First Neuron: The Ancient Origins of the Synaptic Toolkit",
   excerpt: "A landmark review traces synaptic proteins back hundreds of millions of years — long before neurons existed. What does this tell us about how the nervous system first evolved?",
   date: "10 Jan, 2025", readTime: "7 min read", tag: "Literature Excerpt",
-  imageUrl: "", emoji: "",
+  imageUrl: "image-assets/posts/evolutionary-origins-of-synapses/synapse_anatomy.svg",
+  emoji: "",
   content: `
     <p>
 One of the deepest questions in neuroscience is not how brains process
@@ -1735,6 +1737,14 @@ One of the deepest questions in neuroscience is not how brains process
   question of how the first true synapses evolved.
 </p></blockquote>
 
+    <figure>
+      <img
+        src="image-assets/posts/evolutionary-origins-of-synapses/synapse_anatomy.svg"
+        alt="Labeled cross-section of a chemical synapse showing the presynaptic terminal with reserve pool and readily releasable vesicles, active zone proteins (Bassoon, RIM, Unc13, VGCCs), neurexin–neuroligin adhesion across the cleft, and the layered postsynaptic density (PSD-95, GKAP, Shank, Homer)"
+      />
+      <figcaption>The chemical synapse as a layered molecular machine. The presynaptic active zone docks vesicles for fast Ca²⁺-triggered release; neurexin–neuroligin pairs bridge the ~20 nm cleft; and the postsynaptic density (PSD-95 → GKAP → Shank → Homer) clusters receptors opposite the release site.</figcaption>
+    </figure>
+
     <h2>Choanoflagellates: A Primordial Neurosecretory Apparatus</h2>
     <p>
   Choanoflagellates are the closest living unicellular relatives of animals.
@@ -1751,6 +1761,14 @@ One of the deepest questions in neuroscience is not how brains process
   coordinated arrest of flagellar beating that can synchronise across an
   entire colony, a form of collective behaviour that echoes what neurons do.
 </p>
+
+    <figure>
+      <img
+        src="image-assets/posts/evolutionary-origins-of-synapses/evolutionary_lineage.svg"
+        alt="Phylogenetic tree showing the stepwise appearance of synaptic proteins across choanoflagellates, ctenophores, sponges, placozoans, and cnidarians, with annotated cards per lineage"
+      />
+      <figcaption>Evolutionary origins of the synaptic toolkit. Each card lists the protein modules present, partial, or absent in that lineage. The dashed ctenophore branch reflects the contested independent origin of their nervous system. After Colgren &amp; Burkhardt, <em>Nature Reviews Neuroscience</em> 2025.</figcaption>
+    </figure>
 
     <h2>Sponges and Placozoans: Synaptic Genes Without Synapses</h2>
     <p>
@@ -1785,6 +1803,14 @@ One of the deepest questions in neuroscience is not how brains process
   presynaptic module into cellular protrusions, regulated by electrical
   signalling.
 </p></blockquote>
+
+    <figure>
+      <img
+        src="image-assets/posts/evolutionary-origins-of-synapses/volumetric_vs_directed.svg"
+        alt="Side-by-side comparison of volumetric peptidergic signalling (slow, diffuse, no junctional structure) versus directed chemical synaptic transmission (fast, precise, neurexin–neuroligin cleft, full PSD)"
+      />
+      <figcaption>Volumetric versus directed signalling. Early animals coordinated behaviour through diffuse peptide release reaching many cells non-specifically. The evolution of the synaptic cleft adhesion complex and postsynaptic density shifted communication to fast, point-to-point transmission.</figcaption>
+    </figure>
 
     <h2>Ctenophores: An Independent Evolutionary Experiment</h2>
     <p>
@@ -1843,6 +1869,14 @@ Burkhardt et al. (2023), <em>Science</em>: Syncytial nerve net in a ctenophore a
   cells, later co-opted for neurotransmission.
 </p></blockquote>
 
+    <figure>
+      <img
+        src="image-assets/posts/evolutionary-origins-of-synapses/modular_assembly.svg"
+        alt="Table showing which synaptic protein modules — presynaptic, cleft adhesion, postsynaptic PSD — are present, partial, or absent in each animal lineage from choanoflagellates to cnidarians"
+      />
+      <figcaption>Stepwise co-option of synaptic modules. Each row is a lineage; each column a functional module. The table makes visible the key asymmetry: the presynaptic secretory machinery is ancient and broadly conserved, while the cleft adhesion complex and postsynaptic scaffolding proteins are late arrivals, appearing fully assembled only in the cnidarian–bilaterian ancestor.</figcaption>
+    </figure>
+
     <div class="tip-box">
       <div class="tip-label">Source</div>
       <p style="margin:0;line-height:1.75;">
@@ -1863,7 +1897,7 @@ Colgren JJ &amp; Burkhardt P. <em>The evolutionary origins of synaptic proteins
   type: "breakdown",
   slug: "nanoscopy-dstorm-sted-dnapaint",
   title: "Seeing in Nanoscale: Principles of dSTORM, STED and DNA-PAINT",
-  excerpt: "Conventional fluorescence microscopy cannot resolve synaptic substructure — the diffraction limit sits at ~200 nm while the structures that matter are 20–100 nm. Here is how three super-resolution techniques break that barrier, and why each one matters for neuroscience.",
+  excerpt: "Conventional fluorescence microscopy cannot resolve synaptic substructure, the diffraction limit sits at ~200 nm while in synapses, the structures that matter are 20–100 nm apart. Here is how three super-resolution techniques break that barrier, and why each one matters for neuroscience.",
   date: "11 Mar, 2025",
   readTime: "10 min read",
   tag: "Technique Breakdown",
@@ -1874,7 +1908,7 @@ Colgren JJ &amp; Burkhardt P. <em>The evolutionary origins of synaptic proteins
   The chemical synapse is, by the standards of cell biology, a remarkably
   small object. The postsynaptic density of a glutamatergic synapse spans
   roughly 300–400 nm in diameter. The synaptic cleft is 20 nm wide. The
-  scaffold proteins — PSD-95, Shank, Homer — organise into nanoscale domains
+  scaffold proteins (PSD-95, Shank, Homer) organise into nanoscale domains
   of 70–100 nm that determine receptor numbers and synaptic strength. None of
   this can be resolved by a conventional confocal microscope, which is
   constrained by the Abbe diffraction limit to a lateral resolution of
@@ -1883,7 +1917,7 @@ Colgren JJ &amp; Burkhardt P. <em>The evolutionary origins of synaptic proteins
   actually functions was simply invisible to light microscopy.
 </p>
 <p>
-  Super-resolution fluorescence microscopy — or nanoscopy — breaks this
+  Super-resolution fluorescence microscopy, or nanoscopy, breaks this
   constraint. Three techniques have become the workhorses of synaptic
   nanoscale imaging: STED, dSTORM and DNA-PAINT. Each uses a fundamentally
   different physical principle to circumvent diffraction, and each comes with
@@ -1898,15 +1932,15 @@ Colgren JJ &amp; Burkhardt P. <em>The evolutionary origins of synaptic proteins
   λ is the wavelength, n the refractive index and sinα the half-angle of the
   objective's acceptance cone. With high numerical-aperture objectives and
   visible light, this places a hard floor at roughly 200 nm laterally and ~500
-  nm axially. This is not an engineering limitation — it is a consequence of
+  nm axially. This is not an engineering limitation, it is a consequence of
   wave optics. For a century it was considered inviolable.
 </p>
 <p>
   The key conceptual shift that enabled super-resolution was recognising that
   the Abbe limit applies to <em>ensembles</em> of simultaneously emitting fluorophores,
   not to individual molecules. If you can control which molecules are emitting
-  at any given moment — either by spatially engineering the emission volume, or
-  by separating emitters stochastically in time — you can reconstruct images far
+  at any given moment, either by spatially engineering the emission volume, or
+  by separating emitters stochastically in time, you can reconstruct images far
   below the diffraction limit.
 </p>
 
@@ -1917,7 +1951,8 @@ Colgren JJ &amp; Burkhardt P. <em>The evolutionary origins of synaptic proteins
     color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
     line-height: 1.6;">
     Left: two fluorophores ~200 nm apart produce a single blurred spot in
-    confocal microscopy — their PSFs overlap and cannot be distinguished.
+    confocal microscopy, their point spread function (PSFs) overlap and cannot 
+    be distinguished.
     Right: the same two emitters are clearly resolved once the effective PSF is
     shrunk to ~20 nm. Bottom: the Abbe formula sets the diffraction floor at
     ~200 nm laterally for visible light. The two conceptual routes around it are
@@ -1936,7 +1971,7 @@ Colgren JJ &amp; Burkhardt P. <em>The evolutionary origins of synaptic proteins
 </p>
 <p>
   In a STED microscope, a conventional diffraction-limited excitation beam is
-  superimposed with a second, red-shifted beam — the STED beam — shaped into a
+  superimposed with a second, red-shifted beam, the STED beam, shaped into a
   toroid (a "doughnut") with a zero-intensity point at its centre. This
   doughnut beam drives fluorophores at the periphery of the excitation spot
   into their ground state via stimulated emission before they can
@@ -1944,8 +1979,8 @@ Colgren JJ &amp; Burkhardt P. <em>The evolutionary origins of synaptic proteins
   incoming photons from the STED beam stimulate the excited fluorophore to
   emit a photon of identical wavelength to the STED beam, which is then
   spectrally rejected, returning the molecule to the ground state. Only
-  fluorophores located within the central zero of the doughnut — where STED
-  intensity is insufficient to deplete — can contribute to the detected
+  fluorophores located within the central zero of the doughnut, where STED
+  intensity is insufficient to deplete, can contribute to the detected
   signal.
 </p>
 <p>
@@ -1961,8 +1996,8 @@ d<sub>eff</sub> ≈ λ / (2·NA · √(1 + I<sub>STED</sub>/I<sub>s</sub>))
   modern STED microscopes routinely achieve 20–50 nm lateral resolution in fixed
   tissue and 50–80 nm in living cells, sufficient to resolve individual synaptic
   nano-domains, vesicle pools and scaffold protein clusters. STED operates in a
-  point-scanning mode and produces images directly — there is no reconstruction
-  step — making it well-suited to live imaging and time-lapse experiments where
+  point-scanning mode and produces images directly, there is no reconstruction
+  step, making it well-suited to live imaging and time-lapse experiments where
   temporal fidelity matters. The principal trade-off is photodamage: the high
   STED intensities required (typically 10–100 MW/cm²) can be phototoxic and
   accelerate photobleaching, particularly in live preparations.
@@ -1982,7 +2017,7 @@ d<sub>eff</sub> ≈ λ / (2·NA · √(1 + I<sub>STED</sub>/I<sub>s</sub>))
     STED-driven depletion back to S₀, and the residual spontaneous fluorescence
     from the allowed zone. The resolution formula (bottom right) shows that
     d_eff shrinks continuously as I_STED increases relative to the saturation
-    intensity I_s of the fluorophore — yielding 20–80 nm in practice.
+    intensity I_s of the fluorophore, yielding 20–80 nm in practice.
   </figcaption>
 </figure>
 
@@ -1999,7 +2034,7 @@ Hell SW &amp; Wichmann J. Breaking the diffraction resolution limit by
 </div>
 
 <div class="tip-box">
-  <div class="tip-label">First Experimental Demonstration — STED</div>
+  <div class="tip-label">First Experimental Demonstration - STED</div>
   <p style="margin:0;line-height:1.75;">
 Klar TA &amp; Hell SW. Subdiffraction resolution in far-field fluorescence
   microscopy. <em>Opt Lett.</em> 1999;24(14):954–956.<br> <a
@@ -2012,7 +2047,7 @@ Klar TA &amp; Hell SW. Subdiffraction resolution in far-field fluorescence
 <h2>dSTORM: Stochastic Single-Molecule Localisation</h2>
 <p>
   Direct Stochastic Optical Reconstruction Microscopy belongs to a family of
-  techniques — alongside STORM, PALM and PAINT variants — in which super-
+  techniques, alongside STORM, PALM and PAINT variants, in which super-
   resolution images are built up from the localised positions of individual
   fluorescent molecules detected one sparse subset at a time across thousands
   of camera frames. The principle was first demonstrated with paired
@@ -2051,7 +2086,7 @@ Klar TA &amp; Hell SW. Subdiffraction resolution in far-field fluorescence
     position (σ ≈ s/√N, where N is detected photons). Accumulating 10⁵–10⁷
     localisations across 10,000–50,000 frames reconstructs a super-resolution
     image with ~20–50 nm effective resolution. Bottom row: the photoswitching
-    cycle — 647 nm illumination plus MEA drives cyanine dyes into a dark
+    cycle, 647 nm illumination plus MEA drives cyanine dyes into a dark
     thiol-adduct state that reverts spontaneously, enabling hundreds to thousands
     of ON–OFF cycles per molecule before permanent bleaching.
   </figcaption>
@@ -2059,8 +2094,8 @@ Klar TA &amp; Hell SW. Subdiffraction resolution in far-field fluorescence
 
 <p>
   The photoswitching in dSTORM is achieved chemically. The sample is imaged in
-  a carefully formulated aqueous buffer containing a thiol reducing agent —
-  typically β-mercaptoethylamine (MEA) at 50–100 mM — and an enzymatic oxygen-
+  a carefully formulated aqueous buffer containing a thiol reducing agent,
+  typically β-mercaptoethylamine (MEA) at 50–100 mM, and an enzymatic oxygen-
   scavenging system (commonly glucose oxidase with catalase). Under intense
   647 nm illumination, cyanine dyes such as Alexa Fluor 647 and Cy5 enter a
   long-lived dark state via a thiol-adduct mechanism: the reducing agent
@@ -2068,7 +2103,7 @@ Klar TA &amp; Hell SW. Subdiffraction resolution in far-field fluorescence
   species that spontaneously reverts to the fluorescent ground state on a
   timescale of tens to hundreds of milliseconds. The oxygen-scavenging system
   prolongs the dark state and reduces photobleaching by limiting oxidative
-  recovery pathways. This photoswitching cycle — on, off, on — can be repeated
+  recovery pathways. This photoswitching cycle (on, off, on) can be repeated
   hundreds to thousands of times per molecule before permanent bleaching,
   generating the large localisation datasets needed to reconstruct a super-
   resolution image.
@@ -2087,7 +2122,7 @@ Klar TA &amp; Hell SW. Subdiffraction resolution in far-field fluorescence
     O₂ competes for T₁ and causes irreversible bleaching; the glucose oxidase +
     catalase system (GLOX) removes dissolved O₂ to suppress this pathway and
     extend molecule lifetime. Right: buffer component roles at a glance. Bottom:
-    the linear reaction mechanism — sp³ rehybridisation at the meso-carbon of
+    the linear reaction mechanism, sp³ rehybridisation at the meso-carbon of
     the cyanine bridge disrupts the extended π-conjugation, abolishing
     fluorescence until spontaneous elimination of the thioether restores S₀.
   </figcaption>
@@ -2097,12 +2132,12 @@ Klar TA &amp; Hell SW. Subdiffraction resolution in far-field fluorescence
   <p>
   The ability to count individual scaffold proteins and resolve their
   nanoscale arrangement within a single synapse changed the way we think about
-  synaptic heterogeneity — it is not noise, it is structure.
+  synaptic heterogeneity.
   </p>
 </blockquote>
 
 <div class="tip-box">
-  <div class="tip-label">Foundational Reference — dSTORM</div>
+  <div class="tip-label">Foundational Reference: dSTORM</div>
   <p style="margin:0;line-height:1.75;">
 Heilemann M, van de Linde S, Schüttpelz M, et al. Subdiffraction-resolution
   fluorescence imaging with conventional fluorescent probes. <em>Angew Chem Int Ed.</em>
@@ -2133,7 +2168,7 @@ van de Linde S, Löschberger A, Klein T, et al. Direct stochastic optical
   microscopy. Rather than relying on photoswitching of a covalently attached
   fluorophore, DNA-PAINT creates transient fluorescent events through the
   reversible hybridisation of short, fluorescently labelled DNA strands from
-  solution — "imager strands" — to complementary "docking strands" conjugated
+  solution, "imager strands", to complementary "docking strands" conjugated
   to the target molecule.
 </p>
 <p>
@@ -2167,10 +2202,10 @@ van de Linde S, Löschberger A, Klein T, et al. Direct stochastic optical
     In step 3 the imager dissociates; the docking strand is intact and ready for
     the next event. Because docking strands survive indefinitely, there is no
     bleaching ceiling. The intensity trace shows discrete ON pulses at a single
-    docking site — each pulse is one independent localisation. Bottom:
+    docking site, each pulse is one independent localisation. Bottom:
     Exchange-PAINT sequences imager strands of distinct sequences through the
     same sample with wash steps between rounds, imaging a different molecular
-    target each time with a single dye and laser — enabling in-principle
+    target each time with a single dye and laser, enabling in-principle
     unlimited multiplexing with zero spectral crosstalk between rounds.
   </figcaption>
 </figure>
@@ -2183,7 +2218,7 @@ van de Linde S, Löschberger A, Klein T, et al. Direct stochastic optical
   sequentially with matched imager strands, washing the flow chamber between
   rounds. Because docking strands are chemically inert during imaging, there
   is no crosstalk between rounds and no need for spectrally distinct
-  fluorophores — any single dye (typically Atto 655 or Cy3B) can be used
+  fluorophores, any single dye (typically Atto 655 or Cy3B) can be used
   throughout. This allows in principle unlimited multiplexing, constrained
   only by the number of orthogonal DNA sequences available, far exceeding what
   is achievable with spectral separation alone.
@@ -2194,7 +2229,7 @@ van de Linde S, Löschberger A, Klein T, et al. Direct stochastic optical
   origami structures. In biological samples, practical resolution is typically
   10–20 nm, limited by the size of the antibody-docking strand linkage and
   residual drift. Quantitative analysis of binding event frequency can also
-  yield absolute molecule counts — an application called qPAINT — enabling
+  yield absolute molecule counts, an application called qPAINT, enabling
   stoichiometric mapping of synaptic proteins at nanoscale resolution.
 </p>
 
@@ -2225,7 +2260,7 @@ Jungmann R, Avendaño MS, Woehrstein JB, Dai M, Shih WM, Yin P. Multiplexed 3D
 <h2>Choosing the Right Tool</h2>
 <p>
   Each technique occupies a different niche. STED is the method of choice when
-  temporal resolution matters — its direct, scanning-based image formation is
+  temporal resolution matters, its direct, scanning-based image formation is
   compatible with live-cell imaging at speeds approaching video rate, and
   gated CW-STED implementations have substantially reduced phototoxicity. The
   requirement for bright, photostable fluorophores that survive the STED beam
@@ -2262,7 +2297,7 @@ Jungmann R, Avendaño MS, Woehrstein JB, Dai M, Shih WM, Yin P. Multiplexed 3D
     tissue, using standard organic dyes and widely available open-source
     analysis software. DNA-PAINT achieves the highest resolution in biological
     samples, supports unlimited multiplexing via Exchange-PAINT, and enables
-    absolute molecule counting via qPAINT — at the cost of sequential
+    absolute molecule counting via qPAINT, at the cost of sequential
     acquisition time. The bottom strip shows the lateral resolution ranges
     relative to the ~200 nm confocal limit.
   </figcaption>
@@ -2270,8 +2305,7 @@ Jungmann R, Avendaño MS, Woehrstein JB, Dai M, Shih WM, Yin P. Multiplexed 3D
 
 <p>
   In practice, the techniques are increasingly used in combination or in
-  parallel with cryo-electron tomography — as we did in our own work on
-  dopaminergic terminals — to link molecular identity with true nanometre-
+  parallel with cryo-electron tomography to link molecular identity with true nanometre-
   scale ultrastructure. The synapse is finally visible at the scale at which
   it works, and what it reveals continues to surprise.
 </p>
@@ -2284,8 +2318,7 @@ Jungmann R, Avendaño MS, Woehrstein JB, Dai M, Shih WM, Yin P. Multiplexed 3D
   title: "The Ultrastructure of the Dopamine synapse",
   excerpt:
     "Using cryo-electron tomography, we imaged dopaminergic nerve terminals in"
-    + " near-native conditions for the first time and discovered that dopamine"
-    + " doesn't work the way textbooks assume.",
+    + " near-native conditions for the first time",
   date: "13 Dec, 2025",
   readTime: "8 min read",
   tag: "Dopamine",
@@ -2326,10 +2359,9 @@ A few years ago, we showed that most dopaminergic terminals in the striatum
 <blockquote>
   <p>
   When Paul started this project, I had a simple-sounding question: what does
-  a dopamine synapse actually look like, not in a diagram, not in a cartoon,
-  but in genuine molecular detail? After several years of work, I think we
-  finally have an answer. And it is stranger, and more interesting, than we
-  expected.
+  a dopamine synapse actually look like,
+  in genuine molecular detail? After several years of work, I think we
+  finally have an answer.
 </p>
 </blockquote>
 
@@ -2361,7 +2393,7 @@ A few years ago, we showed that most dopaminergic terminals in the striatum
 
 <figure style="margin:2.5rem 0; text-align:center;">
   <img
-    src="lapios2025-fig1-cryo-clem.png"
+    src="image-assets/posts/dopamine-hub-synapses-cryo-et/Fig1.svg"
     alt="Figure 1 from Lapios et al. 2025 — Cryo-CLEM workflow and representative
          tomograms of GLU, DA and DHS synaptosomes"
     style="width:100%;max-width:860px;border-radius:10px;
@@ -2387,8 +2419,8 @@ A few years ago, we showed that most dopaminergic terminals in the striatum
 <h2>Dopamine Terminals Are Nothing Like Glutamate Synapses</h2>
 
 <p>
-  The first thing that struck us when we segmented the tomograms was sheer
-  scarcity. Where a typical glutamate terminal holds around 191 vesicles on
+  The first thing that struck us was sheer
+  vesicular scarcity. Where a typical glutamate terminal holds around 191 vesicles on
   average, a dopamine terminal holds only about 28, and a quarter of them have
   fewer than five vesicles altogether. Taking into account that dopamine
   terminals are also physically smaller, this translates to roughly ten times
@@ -2398,14 +2430,6 @@ A few years ago, we showed that most dopaminergic terminals in the striatum
   are frequently elongated or pleomorphic.
 </p>
 
-<blockquote>
-  <p>
-  This heterogeneity was striking. Some dopamine terminals were almost empty,
-  ghost-like structures with a handful of vesicles scattered in a sea of
-  cytoplasm. Others were densely packed. This could suggest functional
-  diversity across dopamine varicosities...
-</p>
-</blockquote>
 
 <h2>Tethered but Not Primed: A Fundamental Asymmetry</h2>
 
@@ -2426,8 +2450,7 @@ A few years ago, we showed that most dopaminergic terminals in the striatum
   those terminals were tethered. More significantly: we found virtually no
   vesicles within 5 nm of the plasma membrane, just one, out of 135
   candidates. The hallmark of the primed state (three tethers) was essentially
-  absent. Dopamine vesicles are tethered, but they seem to have not taken that
-  final step toward fusion readiness.
+  absent.
 </p>
 
 <div class="tip-box">
@@ -2501,8 +2524,7 @@ A few years ago, we showed that most dopaminergic terminals in the striatum
   molecules, is associated with a structural state of the glutamate terminal
   that suggests enhanced release probability. Whether this requires dopamine
   secretion, or whether trans-synaptic adhesion signals alone are sufficient
-  to alter the glutamate partner, remains an open question we are actively
-  pursuing.
+  to alter the glutamate partner, remains an open question.
 </p>
 
 <div class="tip-box">
@@ -3782,7 +3804,7 @@ To characterise these structures systematically, we immunolabelled the sorted
 
 <figure style="margin:2.5rem 0; text-align:center;">
   <img
-    src="paget2022-fig6-hub-model.png"
+    src="image-assets/posts/synaptomic-analysis-dopamine-hub-synapses/figure6.svg"
     alt="Figure 6 from Paget-Blanc et al. 2022, Spatial organisation of
          dopaminergic synaptic hubs, showing STED images and the hub model
          diagram"
@@ -4473,42 +4495,20 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
 `,
 },
 
-
     {
-      type:"gallery", slug:"lab-confocal-images",
-      title:"Confocal Microscopy: Neurons in Detail",
-      excerpt:"Fluorescently labelled hippocampal neurons, dendritic spines, and synaptic puncta — images from our 2024 imaging campaigns.",
-      date:"05 Jan, 2025", tag:"Imaging", imageUrl:"", emoji:"",
-      galleryDescription:"A selection of confocal and two-photon microscopy images from the lab — hippocampal slices, cortical dendrites, and whole-brain iDISCO-cleared tissue stained for c-Fos, GCaMP, and synaptic markers.",
-    },
-    {
-      type:"gallery", slug:"sfn-2024",
-      title:"Society for Neuroscience 2024",
-      excerpt:"Photos from SfN Annual Meeting in Chicago — posters, talks, and the team.",
-      date:"20 Nov, 2024", tag:"Conference", imageUrl:"", emoji:"",
-      galleryDescription:"The lab at SfN 2024 in Chicago. Three posters, two oral presentations, and a lot of coffee.",
-    },
-    {
-      type:"gallery", slug:"lab-life",
-      title:"Lab Life",
-      excerpt:"Behind the scenes — the everyday reality of working in a neuroscience research lab.",
-      date:"01 Oct, 2024", tag:"Lab", imageUrl:"", emoji:"",
-      galleryDescription:"From early morning slice preparation to late-night recording sessions — what it actually looks like to run a memory and circuits lab.",
-    },
-    {
-      type:"gallery", slug:"fens-2024-rome",
-      title:"FENS Forum 2024 — Rome",
-      excerpt:"European Neuroscience at its largest gathering — five days in Rome with 7,000 researchers.",
-      date:"28 Jun, 2024", tag:"Conference", imageUrl:"", emoji:"",
-      galleryDescription:"FENS Forum 2024, Rome. Two talks from the lab, endless conversations, and the occasional gelato between sessions.",
+      type:"gallery", slug:"fens-2024-Vienna",
+      title:"FENS Forum 2024 - Vienna",
+      excerpt:"European Neuroscience at its largest gathering, five days in Vienna.",
+      date:"25-29 Jun, 2024", tag:"Conference", imageUrl:"image-assets/galleries/fens-2024-Vienna", emoji:"",
+      galleryDescription:"FENS Forum 2024, Vienna. One poster presentations, endless conversations, and the occasional goodies hunt.",
     },
   ],
 
   /* ── Featured Posts (sidebar) ── */
   featuredPosts: [
-    "evolutionary-origins-of-synapses",
+    "vflow-flow-cytometry-analysis-suite",
     "synaptomic-analysis-dopamine-hub-synapses",
-    "lab-confocal-images",
+    "fens-2024-Vienna",
   ],
 
   /* ── Topics ── */
@@ -4525,10 +4525,7 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
 
   /* ── Featured Galleries ── */
   featuredGalleries: [
-    "lab-confocal-images",
-    "sfn-2024",
-    "lab-life",
-    "fens-2024-rome",
+    "fens-2024-Vienna",
   ],
 
   /* ─────────────────────────────────────────────────
@@ -4972,22 +4969,25 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
           <div class="inquiries-details" id="inquiries-details"></div>
         </div>
         <form class="inquiry-form" onsubmit="handleInquiry(event)">
-          <div class="form-row">
-            <div class="form-field">
-              <label>Your Name</label>
-              <input type="text" placeholder="Dr. Alex Kim" required />
-            </div>
-            <div class="form-field">
-              <label>Email</label>
-              <input type="email" placeholder="you@university.edu" required />
-            </div>
-          </div>
-          <div class="form-field">
-            <label>Enquiry Type</label>
-            <select id="project-type-select">
-              <option value="" disabled selected>Select an enquiry type…</option>
-            </select>
-          </div>
+  <input type="hidden" name="access_key" value="d5884bc5-524e-4d92-b807-e32d3467c2e9" />
+  <input type="hidden" name="_gotcha" value="" />
+  <div class="form-row">
+    <div class="form-field">
+      <label>Your Name</label>
+      <input type="text" name="name" placeholder="Dr. Alex Kim" required />
+    </div>
+    <div class="form-field">
+      <label>Email</label>
+      <input type="email" name="email" placeholder="you@university.edu" required />
+    </div>
+  </div>
+  <div class="form-field">
+    <label>Enquiry Type</label>
+    <select id="project-type-select" name="enquiry_type">
+  <div class="form-field">
+    <label>Tell me about your project</label>
+    <textarea name="message" placeholder="A brief description…" required></textarea>
+  </div>
           <div class="form-field">
             <label>Tell me about your project</label>
             <textarea placeholder="A brief description — your research group, the collaboration idea, or the talk topic you have in mind…" required></textarea>
@@ -5316,11 +5316,44 @@ const psel=el('project-type-select');
 CONFIG.inquiries.projectTypes.forEach(pt=>{
   const opt=document.createElement('option');opt.value=pt;opt.textContent=pt;psel.appendChild(opt);
 });
-function handleInquiry(e){
+async function handleInquiry(e) {
   e.preventDefault();
-  const btn=e.target.querySelector('button[type=submit]');
-  btn.textContent='✓ Enquiry Sent!';btn.style.background='#22c55e';
-  setTimeout(()=>{btn.textContent='Send Enquiry →';btn.style.background='';e.target.reset();},3500);
+  const btn = e.target.querySelector('button[type=submit]');
+  const originalText = btn.textContent;
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  const data = Object.fromEntries(new FormData(e.target));
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    const json = await res.json();
+
+    if (json.success) {
+      btn.textContent = '✓ Enquiry Sent!';
+      btn.style.background = '#22c55e';
+      e.target.reset();
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3500);
+    } else {
+      throw new Error(json.message);
+    }
+  } catch {
+    btn.textContent = '✗ Failed — try again';
+    btn.style.background = '#ef4444';
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 3500);
+  }
 }
 
 /* ── Categories ── */

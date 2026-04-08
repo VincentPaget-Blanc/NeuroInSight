@@ -1,150 +1,80 @@
-<svg width="100%" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
-<defs>
-  <style>
-    @media (prefers-color-scheme: dark) {
-      .panel-hd  { fill: #e8e6de; }
-      .frame     { fill: none; stroke: rgba(222,220,209,0.25); }
-      .sub-lbl   { fill: #9c9a92; }
-      .axis-lbl  { fill: #5f5e5a; }
-      .divider   { stroke: rgba(222,220,209,0.18); }
-      .sum-box   { fill: none; stroke: rgba(222,220,209,0.2); }
-      .sum-hd    { fill: #e8e6de; }
-      .sum-txt   { fill: #9c9a92; }
-      /* confocal — warm amber */
-      .psf-conf-a  { fill: rgba(224,160,60,0.18); stroke: #E0A03C; }
-      .psf-conf-b  { fill: rgba(224,160,60,0.10); stroke: #E0A03C; }
-      .peak-conf { fill: #E0A03C; }
-      .lbl-conf  { fill: #E0A03C; }
-      /* super-res — teal */
-      .psf-sr-a  { fill: rgba(29,158,117,0.25); stroke: #1D9E75; }
-      .psf-sr-b  { fill: rgba(29,158,117,0.15); stroke: #1D9E75; }
-      .peak-sr   { fill: #1D9E75; }
-      .lbl-sr    { fill: #1D9E75; }
-      /* scale bars */
-      .scale-bar { stroke: #e8e6de; }
-      .scale-txt { fill: #9c9a92; }
-      .arr-dim   { stroke: #5f5e5a; }
-      .dim-txt   { fill: #5f5e5a; }
-    }
-    @media (prefers-color-scheme: light) {
-      .panel-hd  { fill: #1a1a1a; }
-      .frame     { fill: none; stroke: #D3D1C7; }
-      .sub-lbl   { fill: #5f5e5a; }
-      .axis-lbl  { fill: #B4B2A9; }
-      .divider   { stroke: #D3D1C7; }
-      .sum-box   { fill: none; stroke: #D3D1C7; }
-      .sum-hd    { fill: #1a1a1a; }
-      .sum-txt   { fill: #5f5e5a; }
-      .psf-conf-a  { fill: rgba(180,110,10,0.12); stroke: #B46E0A; }
-      .psf-conf-b  { fill: rgba(180,110,10,0.06); stroke: #B46E0A; }
-      .peak-conf { fill: #B46E0A; }
-      .lbl-conf  { fill: #B46E0A; }
-      .psf-sr-a  { fill: rgba(15,110,86,0.15); stroke: #0F6E56; }
-      .psf-sr-b  { fill: rgba(15,110,86,0.08); stroke: #0F6E56; }
-      .peak-sr   { fill: #0F6E56; }
-      .lbl-sr    { fill: #0F6E56; }
-      .scale-bar { stroke: #1a1a1a; }
-      .scale-txt { fill: #5f5e5a; }
-      .arr-dim   { stroke: #B4B2A9; }
-      .dim-txt   { fill: #B4B2A9; }
-    }
-    .hd  { font: 600 13px "Helvetica Neue", Arial, sans-serif; }
-    .lbl { font: 500 12px "Helvetica Neue", Arial, sans-serif; }
-    .sub { font: 400 11px "Helvetica Neue", Arial, sans-serif; }
-    .mono{ font: 400 11px "JetBrains Mono", "Courier New", monospace; }
-  </style>
-  <marker id="arr-d" viewBox="0 0 10 10" refX="8" refY="5"
-    markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </marker>
-</defs>
-
-<!-- ═══ TITLE ═══ -->
-<text class="hd panel-hd" x="340" y="22" text-anchor="middle">The Diffraction Barrier</text>
-
-<!-- ══════════════════════════════════
-     LEFT PANEL: Confocal — two points unresolved
-     x: 20–320   y: 38–230
-     ════════════════════════════════ -->
-<rect x="20" y="32" width="300" height="198" rx="5" class="frame" stroke-width="0.5"/>
-<text class="lbl sub-lbl" x="170" y="50" text-anchor="middle">Confocal — ~200 nm resolution</text>
-
-<!-- Two overlapping PSF curves rendered as ellipses (cross-section view) -->
-<!-- PSF A centred at x=120, PSF B at x=220 — they overlap because ~200nm -->
-<!-- Outer haloes -->
-<ellipse cx="128" cy="145" rx="80" ry="60" class="psf-conf-b" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.6"/>
-<ellipse cx="222" cy="145" rx="80" ry="60" class="psf-conf-b" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.6"/>
-<!-- Inner cores -->
-<ellipse cx="128" cy="145" rx="44" ry="33" class="psf-conf-a" stroke-width="1"/>
-<ellipse cx="222" cy="145" rx="44" ry="33" class="psf-conf-a" stroke-width="1"/>
-<!-- Peaks -->
-<circle cx="128" cy="145" r="4" class="peak-conf"/>
-<circle cx="222" cy="145" r="4" class="peak-conf"/>
-
-<!-- Separation arrow -->
-<line x1="132" y1="175" x2="218" y2="175" class="arr-dim" stroke-width="1"
-  marker-start="url(#arr-d)" marker-end="url(#arr-d)"/>
-<text class="mono dim-txt" x="175" y="172" text-anchor="middle">~200 nm</text>
-
-<!-- Unresolved label -->
-<text class="sub lbl-conf" x="175" y="215" text-anchor="middle">⚠ two emitters → single blurred spot</text>
-
-<!-- ══════════════════════════════════
-     RIGHT PANEL: Super-res — two points resolved
-     x: 360–660   y: 38–230
-     ════════════════════════════════ -->
-<rect x="360" y="32" width="300" height="198" rx="5" class="frame" stroke-width="0.5"/>
-<text class="lbl sub-lbl" x="510" y="50" text-anchor="middle">Super-resolution — ~20 nm precision</text>
-
-<!-- Two tight PSFs, clearly separated -->
-<!-- PSF A at x=448, PSF B at x=572 -->
-<ellipse cx="448" cy="145" rx="20" ry="15" class="psf-sr-b" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.6"/>
-<ellipse cx="572" cy="145" rx="20" ry="15" class="psf-sr-b" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.6"/>
-<ellipse cx="448" cy="145" rx="10" ry="8" class="psf-sr-a" stroke-width="1"/>
-<ellipse cx="572" cy="145" rx="10" ry="8" class="psf-sr-a" stroke-width="1"/>
-<circle cx="448" cy="145" r="3.5" class="peak-sr"/>
-<circle cx="572" cy="145" r="3.5" class="peak-sr"/>
-
-<!-- Separation arrow -->
-<line x1="452" y1="175" x2="568" y2="175" class="arr-dim" stroke-width="1"
-  marker-start="url(#arr-d)" marker-end="url(#arr-d)"/>
-<text class="mono dim-txt" x="510" y="172" text-anchor="middle">~120 nm</text>
-
-<!-- Resolved label -->
-<text class="sub lbl-sr" x="510" y="215" text-anchor="middle">✓ two distinct molecular positions</text>
-
-<!-- ══════════════════════════════════
-     DIVIDER
-     ════════════════════════════════ -->
-<line x1="340" y1="32" x2="340" y2="230" class="divider" stroke-width="0.5" stroke-dasharray="4 3"/>
-
-<!-- ══════════════════════════════════
-     BOTTOM: Summary table
-     y: 248–390
-     ════════════════════════════════ -->
-<rect x="20" y="248" width="640" height="130" rx="6" class="sum-box" stroke-width="0.5"/>
-<text class="hd sum-hd" x="340" y="268" text-anchor="middle">Abbe Diffraction Limit</text>
-
-<!-- Formula -->
-<text class="mono sum-txt" x="340" y="292" text-anchor="middle">d = λ / (2 · n · sinα)    →    ~200–250 nm lateral, ~500 nm axial (visible light)</text>
-
-<line x1="40" y1="302" x2="640" y2="302" class="divider" stroke-width="0.5"/>
-
-<!-- Three columns: key concept -->
-<text class="sub sum-txt" x="160" y="320" text-anchor="middle">Applies to ensembles of</text>
-<text class="sub sum-txt" x="160" y="335" text-anchor="middle">simultaneously emitting fluorophores</text>
-
-<line x1="340" y1="305" x2="340" y2="368" class="divider" stroke-width="0.5" stroke-dasharray="3 2"/>
-
-<text class="sub sum-txt" x="510" y="320" text-anchor="middle">Control which molecules emit</text>
-<text class="sub sum-txt" x="510" y="335" text-anchor="middle">at any moment → break the limit</text>
-
-<!-- Two strategy labels -->
-<text class="lbl lbl-conf" x="160" y="358" text-anchor="middle">Spatially engineer emission volume</text>
-<text class="lbl lbl-sr"   x="510" y="358" text-anchor="middle">Separate emitters stochastically in time</text>
-
-<text class="sub axis-lbl" x="160" y="373" text-anchor="middle">→ STED</text>
-<text class="sub axis-lbl" x="510" y="373" text-anchor="middle">→ dSTORM · DNA-PAINT</text>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 680 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g transform="matrix(1,0,0,1,340,22)">
+        <text x="-84.906px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:16px;fill:rgb(156,154,146);">The Diffraction Barrier</text>
+    </g>
+    <path d="M320,37C320,34.24 317.76,32 315,32L25,32C22.24,32 20,34.24 20,37L20,225C20,227.76 22.24,230 25,230L315,230C317.76,230 320,227.76 320,225L320,37Z" style="fill:none;stroke:rgb(222,220,209);stroke-opacity:0.25;stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,170,50)">
+        <text x="-112.285px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Confocal — ~200 nm resolution</text>
+    </g>
+    <use xlink:href="#_Image1" x="47.477" y="84.825" width="255.304px" height="121.31px" transform="matrix(0.997281,0,0,0.994343,0,0)"/>
+    <ellipse cx="128" cy="145" rx="44" ry="33" style="fill:rgb(180,110,10);fill-opacity:0.12;stroke:rgb(180,110,10);stroke-width:1px;"/>
+    <ellipse cx="222" cy="145" rx="44" ry="33" style="fill:rgb(180,110,10);fill-opacity:0.12;stroke:rgb(180,110,10);stroke-width:1px;"/>
+    <circle cx="128" cy="145" r="4" style="fill:rgb(224,160,60);"/>
+    <circle cx="222" cy="145" r="4" style="fill:rgb(224,160,60);"/>
+    <path d="M132,175L218,175" style="fill:none;fill-rule:nonzero;stroke:rgb(95,94,90);stroke-width:1px;"/>
+    <g transform="matrix(1,0,0,1,175,172)">
+        <text x="-31.355px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(95,94,90);">~200 nm</text>
+    </g>
+    <g transform="matrix(1,0,0,1,175,215)">
+        <text x="-130.684px" y="0px" style="font-family:'AppleSymbols', 'Apple Symbols';font-size:16px;fill:rgb(224,160,60);">⚠</text>
+        <text x="-111.191px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(224,160,60);">two emitters → single blurred spot</text>
+    </g>
+    <path d="M660,37C660,34.24 657.76,32 655,32L365,32C362.24,32 360,34.24 360,37L360,225C360,227.76 362.24,230 365,230L655,230C657.76,230 660,227.76 660,225L660,37Z" style="fill:none;stroke:rgb(222,220,209);stroke-opacity:0.25;stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,510,50)">
+        <text x="-132.289px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Super-resolution — ~20 nm precision</text>
+    </g>
+    <use xlink:href="#_Image2" x="434.258" y="132.055" width="41.33px" height="31.34px" transform="matrix(0.984056,0,0,0.979367,0,0)"/>
+    <use xlink:href="#_Image2" x="560.267" y="132.055" width="41.33px" height="31.34px" transform="matrix(0.984056,0,0,0.979367,0,0)"/>
+    <ellipse cx="448" cy="145" rx="10" ry="8" style="fill:rgb(15,110,86);fill-opacity:0.15;stroke:rgb(15,110,86);stroke-width:1px;"/>
+    <ellipse cx="572" cy="145" rx="10" ry="8" style="fill:rgb(15,110,86);fill-opacity:0.15;stroke:rgb(15,110,86);stroke-width:1px;"/>
+    <circle cx="448" cy="145" r="3.5" style="fill:rgb(29,158,117);"/>
+    <circle cx="572" cy="145" r="3.5" style="fill:rgb(29,158,117);"/>
+    <path d="M452,175L568,175" style="fill:none;fill-rule:nonzero;stroke:rgb(95,94,90);stroke-width:1px;"/>
+    <g transform="matrix(1,0,0,1,510,172)">
+        <text x="-31.355px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(95,94,90);">~120 nm</text>
+    </g>
+    <g transform="matrix(1,0,0,1,510,215)">
+        <text x="-118.605px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:16px;fill:rgb(29,158,117);">✓</text>
+        <text x="-101.934px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">two distinct molecular positions</text>
+    </g>
+    <path d="M340,32L340,230" style="fill:none;fill-rule:nonzero;stroke:rgb(222,220,209);stroke-opacity:0.18;stroke-width:0.5px;stroke-dasharray:4,3;"/>
+    <path d="M660,254C660,250.689 657.311,248 654,248L26,248C22.689,248 20,250.689 20,254L20,372C20,375.311 22.689,378 26,378L654,378C657.311,378 660,375.311 660,372L660,254Z" style="fill:none;stroke:rgb(222,220,209);stroke-opacity:0.2;stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,340,268)">
+        <text x="-75.887px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Abbe Dif<tspan x="-14.809px -10.363px " y="0px 0px ">fr</tspan>action Limit</text>
+    </g>
+    <g transform="matrix(1,0,0,1,340,292)">
+        <text x="-267.633px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">d = λ / (2 · n · sinα)    →    ~200–250 nm lateral, ~500 nm axial (visible light)</text>
+    </g>
+    <path d="M40,302L640,302" style="fill:none;fill-rule:nonzero;stroke:rgb(222,220,209);stroke-opacity:0.18;stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,160,320)">
+        <text x="-84.938px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Applies to ensembles of</text>
+    </g>
+    <g transform="matrix(1,0,0,1,160,335)">
+        <text x="-129.844px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">simultaneously emitting ﬂuorophores</text>
+    </g>
+    <path d="M340,305L340,368" style="fill:none;fill-rule:nonzero;stroke:rgb(222,220,209);stroke-opacity:0.18;stroke-width:0.5px;stroke-dasharray:3,2;"/>
+    <g transform="matrix(1,0,0,1,510,320)">
+        <text x="-104.039px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">Control which molecules emit</text>
+    </g>
+    <g transform="matrix(1,0,0,1,510,335)">
+        <text x="-115.156px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">at any moment → break the limit</text>
+    </g>
+    <g transform="matrix(1,0,0,1,160,358)">
+        <text x="-125.398px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(224,160,60);">Spatially engineer emission volume</text>
+    </g>
+    <g transform="matrix(1,0,0,1,510,358)">
+        <text x="-138.723px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(29,158,117);">Separate emitters stochastically in time</text>
+    </g>
+    <g transform="matrix(1,0,0,1,160,375)">
+        <text x="-31.559px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(95,94,90);">→ STED</text>
+    </g>
+    <g transform="matrix(1,0,0,1,510,375)">
+        <text x="-93.043px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(95,94,90);">→ dST<tspan x="-43.543px -31.098px " y="0px 0px ">OR</tspan>M · DNA-P<tspan x="56.598px 67.27px " y="0px 0px ">AI</tspan>NT</text>
+    </g>
+    <defs>
+        <image id="_Image1" width="256px" height="122px" xlink:href="data:image/png;base64,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"/>
+        <image id="_Image2" width="42px" height="32px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAgCAYAAABkWOo9AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAC2ElEQVRYhc3YQWtcVRjG8V8mk5Q21aa2g616rSUKgqiIYIkQFAVXLsSNKLrwrPoF7qc4n8G70qIgLlwrihbEEk2g1IVCxZ6i1Wpt1WgTTdrFuZNO2sk4SZrM/OEu5twL5znvOXPe531HbIGiKifwMFq4jK9wFC/gr/r5MIW4VFTlRApxYbNzjWxQWAOP4U7M4kE8gl/r50eM1u93Yw/OYhlv4A6cwzspxMVtEVpU5WEcx/eYw4WNTFTTwN04j2uYxskU4uUtCS2qsokZzGMXmvh3EwK7MYZH8RQ+SyF+0uvjdYUWVTmFV/EtTsrbtx2M4mA9z3IKsWsgugotqnIEz8rbe2mbBHbjJcynEL+8+cUtQouqfAJJXulOM45XMJdC/LjzRaPzR1GVM/KZHN85bWtYwglcqXd1lVWhRVUexHP4wPadx35Ylne0VVTlgfZgZ0QX8Lbb96/eKvfgeH3zZKFFVbYwKWeSYeEn/IAnuRHRIGeTYeMUVqBZVOV9WJRz9bBxBRfJmWavnHmGlamiKhea+A6/D1pND3bjSANTBnO598sltBry3bl/wGJ68QdmG/JhHWahS5hryv5yz4DF9OIodjVSiF/jzKDV9GAaK+0Lv2U4L/xJjKUQz7eF3oVjAxS0Hot4lxspdBb34/CgFHVhDBdSiOeohaYQ/8Nb+HOAwjoZw5ty5kSHzUsh/iyXtvsNNgGM4mV8mkJcdXNrHH4K8RoO4TWDc/kjmE0hfn7z4C0UVXkMT8tlwU5xQC7J5+uAraFXuTwhlwWF7P63s1yewUM4kUI82+2j/+2UFFU5LfeSTuG021eqtJsZ43Jb6KMU4rrB6KulU1TlpLzqM7JJOITf1O57g9yLx3EEsd/G2YaaZG2Kqnxdtof/4D1cxQNyhP6WnflKPbZPPn9f4Bc8LzfKTqcQ+17opoR2CN4nRxhelDPcXrwv+8hn5DN4Ed+kEK9udq7rD/TBJ/t6gM8AAAAASUVORK5CYII="/>
+    </defs>
 </svg>

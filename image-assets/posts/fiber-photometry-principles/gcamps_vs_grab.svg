@@ -1,269 +1,338 @@
-<svg width="100%" viewBox="0 0 680 480" xmlns="http://www.w3.org/2000/svg">
-<defs>
-  <style>
-    @media (prefers-color-scheme: dark) {
-      .panel-hd  { fill: #e8e6de; }
-      .frame     { fill: none; stroke: rgba(222,220,209,0.25); }
-      .sub-lbl   { fill: #9c9a92; }
-      .sum-box   { fill: none; stroke: rgba(222,220,209,0.20); }
-      .sum-hd    { fill: #e8e6de; }
-      .sum-txt   { fill: #9c9a92; }
-      .divider   { stroke: rgba(222,220,209,0.18); }
-      .exc-fill  { fill: rgba(100,160,240,0.20); stroke: #64A0F0; }
-      .exc-lbl   { fill: #64A0F0; }
-      .eff-fill  { fill: rgba(29,158,117,0.25); stroke: #1D9E75; }
-      .eff-lbl   { fill: #1D9E75; }
-      .sted-fill { fill: rgba(226,75,74,0.20); stroke: #E24B4A; }
-      .sted-lbl  { fill: #E24B4A; }
-      .fl-on     { fill: #5DCAA5; }
-      .fl-dim    { fill: rgba(29,158,117,0.25); stroke: #1D9E75; }
-      .cell-bg   { fill: rgba(100,160,240,0.04); stroke: rgba(100,160,240,0.20); }
-      .memb-fill { fill: rgba(222,220,209,0.07); stroke: rgba(222,220,209,0.30); }
-      .tm-fill   { fill: rgba(222,220,209,0.10); stroke: rgba(222,220,209,0.35); }
-      .comp-box  { fill: rgba(222,220,209,0.05); stroke: rgba(222,220,209,0.28); }
-      .arrow-proc { stroke: #9c9a92; }
-      .ca-dot    { fill: #64A0F0; }
-      .da-fill   { fill: rgba(226,75,74,0.30); stroke: #E24B4A; }
-    }
-    @media (prefers-color-scheme: light) {
-      .panel-hd  { fill: #1a1a1a; }
-      .frame     { fill: none; stroke: #D3D1C7; }
-      .sub-lbl   { fill: #5f5e5a; }
-      .sum-box   { fill: none; stroke: #D3D1C7; }
-      .sum-hd    { fill: #1a1a1a; }
-      .sum-txt   { fill: #5f5e5a; }
-      .divider   { stroke: #D3D1C7; }
-      .exc-fill  { fill: rgba(40,100,200,0.10); stroke: #2864C8; }
-      .exc-lbl   { fill: #2864C8; }
-      .eff-fill  { fill: rgba(15,110,86,0.15); stroke: #0F6E56; }
-      .eff-lbl   { fill: #0F6E56; }
-      .sted-fill { fill: rgba(200,50,50,0.12); stroke: #C83232; }
-      .sted-lbl  { fill: #C83232; }
-      .fl-on     { fill: #0F6E56; }
-      .fl-dim    { fill: rgba(15,110,86,0.15); stroke: #0F6E56; }
-      .cell-bg   { fill: rgba(40,100,200,0.03); stroke: #C0CCE0; }
-      .memb-fill { fill: rgba(0,0,0,0.04); stroke: #B8B6AC; }
-      .tm-fill   { fill: rgba(0,0,0,0.06); stroke: #B0AEA6; }
-      .comp-box  { fill: rgba(0,0,0,0.02); stroke: #C8C6BE; }
-      .arrow-proc { stroke: #888780; }
-      .ca-dot    { fill: #2864C8; }
-      .da-fill   { fill: rgba(200,50,50,0.20); stroke: #C83232; }
-    }
-    .hd  { font: 600 13px "Helvetica Neue", Arial, sans-serif; }
-    .lbl { font: 500 12px "Helvetica Neue", Arial, sans-serif; }
-    .sub { font: 400 11px "Helvetica Neue", Arial, sans-serif; }
-    .mono{ font: 400 10px "JetBrains Mono","Courier New",monospace; }
-  </style>
-  <marker id="arr-g" viewBox="0 0 10 10" refX="8" refY="5"
-    markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </marker>
-  <!-- Glow filter for active cpGFP -->
-  <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-    <feGaussianBlur stdDeviation="3" result="blur"/>
-    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-</defs>
-
-<!-- TITLE -->
-<text class="hd panel-hd" x="340" y="18" text-anchor="middle">Genetically Encoded Indicators — Sensing Mechanisms</text>
-
-<!-- ══════════════════════════════
-  LEFT PANEL: GCaMP  x=10..328
-══════════════════════════════ -->
-<rect x="10" y="26" width="318" height="420" rx="6" class="frame" stroke-width="0.5"/>
-<text class="hd exc-lbl" x="169" y="47" text-anchor="middle">GCaMP</text>
-<text class="sub sub-lbl" x="169" y="60" text-anchor="middle">intracellular Ca²⁺ sensor</text>
-
-<!-- Membrane band (y=94..110, x=10..328) -->
-<rect x="10" y="94" width="318" height="16" rx="0" class="memb-fill" stroke-width="0.8"/>
-<!-- Lipid heads (small ovals on both surfaces) -->
-<ellipse cx="26"  cy="97"  rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="42"  cy="104" rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="58"  cy="97"  rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="74"  cy="104" rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="90"  cy="97"  rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="106" cy="104" rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="122" cy="97"  rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="138" cy="104" rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="154" cy="97"  rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="170" cy="104" rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="186" cy="97"  rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="202" cy="104" rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="218" cy="97"  rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="234" cy="104" rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="250" cy="97"  rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="266" cy="104" rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="282" cy="97"  rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="298" cy="104" rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-<ellipse cx="314" cy="97"  rx="6" ry="4" class="comp-box" stroke-width="0.6"/>
-
-<!-- Space labels -->
-<text class="sub sub-lbl" x="20" y="88"  style="font-size:9px;">extracellular</text>
-<text class="sub sub-lbl" x="20" y="126" style="font-size:9px;">cytoplasm</text>
-
-<!-- ── APO STATE (left, x≈65..145) ── -->
-<text class="sub sub-lbl" x="100" y="142" text-anchor="middle" style="font-size:9px;">Ca²⁺-free (apo)</text>
-
-<!-- cpGFP barrel — dim, dashed stroke -->
-<ellipse cx="100" cy="205" rx="22" ry="28"
-  class="fl-dim" stroke-width="1.4" stroke-dasharray="4 3"/>
-<text class="sub sub-lbl" x="100" y="201" text-anchor="middle" style="font-size:9px;">cpGFP</text>
-<text class="sub sub-lbl" x="100" y="213" text-anchor="middle" style="font-size:8.5px;">OFF</text>
-
-<!-- CaM — extended, separate from M13 -->
-<ellipse cx="100" cy="264" rx="16" ry="10" class="comp-box" stroke-width="1"/>
-<text class="sub sub-lbl" x="100" y="268" text-anchor="middle" style="font-size:8.5px;">CaM</text>
-<!-- M13 peptide (wavy, extended) -->
-<path d="M82,282 Q92,290 102,284 Q112,278 122,286"
-  fill="none" class="arrow-proc" stroke-width="1.5" stroke-linecap="round"/>
-<text class="sub sub-lbl" x="100" y="302" text-anchor="middle" style="font-size:8px;">M13 peptide (extended)</text>
-
-<text class="sub sub-lbl" x="100" y="322" text-anchor="middle" style="font-size:9px;">low fluorescence</text>
-
-<!-- ── HOLO STATE (right, x≈200..285) ── -->
-<text class="sub sub-lbl" x="240" y="142" text-anchor="middle" style="font-size:9px;">Ca²⁺-bound (holo)</text>
-
-<!-- Ca²⁺ ions entering -->
-<circle cx="225" cy="156" r="5" class="ca-dot" opacity="0.9"/>
-<circle cx="240" cy="150" r="5" class="ca-dot" opacity="0.85"/>
-<circle cx="255" cy="156" r="5" class="ca-dot" opacity="0.80"/>
-<text class="sub exc-lbl" x="240" y="145" text-anchor="middle" style="font-size:9px;font-weight:600;">Ca²⁺</text>
-<line x1="225" y1="162" x2="225" y2="174" class="arrow-proc" stroke-width="1" marker-end="url(#arr-g)"/>
-<line x1="240" y1="156" x2="240" y2="174" class="arrow-proc" stroke-width="1" marker-end="url(#arr-g)"/>
-<line x1="255" y1="162" x2="255" y2="174" class="arrow-proc" stroke-width="1" marker-end="url(#arr-g)"/>
-
-<!-- cpGFP barrel — bright, glowing -->
-<ellipse cx="240" cy="205" rx="22" ry="28" class="eff-fill" stroke-width="2" filter="url(#glow)"/>
-<text class="sub eff-lbl" x="240" y="200" text-anchor="middle" style="font-size:9px;font-weight:600;">cpGFP</text>
-<text class="sub eff-lbl" x="240" y="213" text-anchor="middle" style="font-size:9px;">ON</text>
-
-<!-- CaM + M13 compact (wrapped together) -->
-<ellipse cx="240" cy="260" rx="22" ry="13" class="comp-box" stroke-width="1.2"/>
-<text class="sub sub-lbl" x="240" y="264" text-anchor="middle" style="font-size:8.5px;">CaM · M13</text>
-<text class="sub sub-lbl" x="240" y="279" text-anchor="middle" style="font-size:8.5px;">(compact)</text>
-
-<!-- Fluorescence emission arrow -->
-<path d="M240,177 L240,164" fill="none" class="eff-lbl" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 2"
-  marker-end="url(#arr-g)"/>
-<text class="sub eff-lbl" x="248" y="162" style="font-size:8.5px;">hν</text>
-
-<text class="sub eff-lbl" x="240" y="302" text-anchor="middle" style="font-size:9px;font-weight:600;">high fluorescence</text>
-<text class="sub sub-lbl" x="240" y="315" text-anchor="middle" style="font-size:8.5px;">ΔF/F ↑</text>
-
-<!-- Transition arrow between states -->
-<path d="M128,218 Q169,204 214,218" fill="none" class="arrow-proc" stroke-width="1.6"
-  marker-end="url(#arr-g)"/>
-<text class="sub sub-lbl" x="169" y="198" text-anchor="middle" style="font-size:8.5px;">+ 4 Ca²⁺</text>
-
-<!-- Summary box -->
-<rect x="22" y="338" width="294" height="46" rx="4" class="sum-box" stroke-width="0.5"/>
-<text class="sub panel-hd" x="169" y="354" text-anchor="middle" style="font-size:10px;font-weight:600;">Reports: intracellular [Ca²⁺]</text>
-<text class="sub sub-lbl" x="169" y="367" text-anchor="middle" style="font-size:9px;">proxy for action potential firing</text>
-<text class="sub sub-lbl" x="169" y="378" text-anchor="middle" style="font-size:9px;">location: cytoplasm</text>
-
-<!-- ══════════════════════════════
-  RIGHT PANEL: GRAB  x=352..670
-══════════════════════════════ -->
-<rect x="352" y="26" width="318" height="420" rx="6" class="frame" stroke-width="0.5"/>
-<text class="hd sted-lbl" x="511" y="47" text-anchor="middle">GRAB Sensor</text>
-<text class="sub sub-lbl" x="511" y="60" text-anchor="middle">extracellular neuromodulator sensor</text>
-
-<!-- Space labels -->
-<text class="sub sub-lbl" x="362" y="88"  style="font-size:9px;">extracellular</text>
-<text class="sub sub-lbl" x="362" y="230" style="font-size:9px;">cytoplasm</text>
-
-<!-- ── GPCR STRUCTURE (centered, x=420..600) ──
-  7 TM helices spanning the membrane band y=94..110,
-  with extracellular loops above and intracellular loops below.
-  Helix spacing: 8px wide, 14px apart, 7 helices → total 7*8+6*14=56+84=140px
-  Start x=431, each TM at x=431+i*22 for i=0..6
-  TM1:x=431, TM2:453, TM3:475, TM4:497, TM5:519, TM6:541, TM7:563 (each 8px wide)
-  TM rects: y=84..120 (36px tall, spanning through membrane) -->
-
-<!-- TM helices (7 rectangles through membrane) -->
-<rect x="431" y="84" width="9" height="36" rx="3" class="tm-fill" stroke-width="0.8"/>
-<rect x="453" y="82" width="9" height="40" rx="3" class="tm-fill" stroke-width="0.8"/>
-<rect x="475" y="84" width="9" height="36" rx="3" class="tm-fill" stroke-width="0.8"/>
-<rect x="497" y="82" width="9" height="40" rx="3" class="tm-fill" stroke-width="0.8"/>
-<rect x="519" y="84" width="9" height="36" rx="3" class="tm-fill" stroke-width="0.8"/>
-<rect x="541" y="82" width="9" height="40" rx="3" class="tm-fill" stroke-width="0.8"/>
-<rect x="563" y="84" width="9" height="36" rx="3" class="tm-fill" stroke-width="0.8"/>
-
-<!-- Membrane band (same y as left panel) -->
-<rect x="352" y="94" width="318" height="16" rx="0" class="memb-fill" stroke-width="0.8" opacity="0.6"/>
-
-<!-- Extracellular loops connecting TM tops -->
-<!-- Loop 1-2 (ECL1): from top of TM1(435,84) to top of TM2(457,82) -->
-<path d="M440,84 Q449,72 458,82" fill="none" class="comp-box" stroke-width="1.2"/>
-<!-- Loop 2-3 (ECL2): TM3-TM4 (binding pocket loop) -->
-<path d="M480,84 Q492,68 502,82" fill="none" class="comp-box" stroke-width="1.5"/>
-<!-- Loop 3-4: TM5-TM6 -->
-<path d="M524,84 Q534,72 546,82" fill="none" class="comp-box" stroke-width="1.2"/>
-<!-- Loop 4: TM6-TM7 -->
-<path d="M546,82 Q556,74 568,84" fill="none" class="comp-box" stroke-width="1"/>
-
-<!-- Intracellular loops: TM2-TM3, TM4-TM5, TM6-TM7 -->
-<path d="M458,122 Q466,132 480,122" fill="none" class="comp-box" stroke-width="1"/>
-<path d="M502,122 Q510,132 524,122" fill="none" class="comp-box" stroke-width="1"/>
-
-<!-- cpGFP in intracellular loop 3 (between TM5 and TM6, x≈519..541, y=120) -->
-<!-- Connection line from ICL3 down to cpGFP -->
-<line x1="530" y1="124" x2="530" y2="158" class="arrow-proc" stroke-width="1.2"/>
-<!-- cpGFP barrel (bright, active) -->
-<ellipse cx="530" cy="186" rx="22" ry="28" class="eff-fill" stroke-width="2" filter="url(#glow)"/>
-<text class="sub eff-lbl" x="530" y="182" text-anchor="middle" style="font-size:9px;font-weight:600;">cpGFP</text>
-<text class="sub eff-lbl" x="530" y="194" text-anchor="middle" style="font-size:9px;">ON</text>
-
-<!-- Fluorescence emission arrow from cpGFP upward -->
-<path d="M530,158 L530,148" fill="none" class="eff-lbl" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#arr-g)"/>
-<text class="sub eff-lbl" x="538" y="146" style="font-size:8.5px;">hν</text>
-
-<!-- DOPAMINE molecule above membrane near ECL2 binding pocket -->
-<circle cx="492" cy="65" r="10" class="sted-fill" stroke-width="1.5"/>
-<text class="sub sted-lbl" x="492" y="69" text-anchor="middle" style="font-size:9px;font-weight:700;">DA</text>
-<!-- Arrow: DA binding into receptor -->
-<line x1="492" y1="75" x2="492" y2="84" class="sted-lbl" stroke="currentColor" stroke-width="1.5" marker-end="url(#arr-g)"/>
-
-<!-- Label: ligand binds orthosteric site -->
-<text class="sub sted-lbl" x="492" y="58" text-anchor="middle" style="font-size:8.5px;">binds orthosteric site</text>
-<line x1="492" y1="50" x2="492" y2="54" class="divider" stroke-width="0.7" stroke-dasharray="2 2"/>
-
-<!-- GPCR conformational change arrow (extracellular loop ECL2 flexes) -->
-<text class="sub sub-lbl" x="492" y="80" text-anchor="middle" style="font-size:7.5px;">ECL2</text>
-
-<!-- cpGFP state label -->
-<text class="sub sub-lbl" x="530" y="228" text-anchor="middle" style="font-size:9px;">intracellular loop 3</text>
-<text class="sub eff-lbl" x="530" y="244" text-anchor="middle" style="font-size:9px;font-weight:600;">high fluorescence</text>
-<text class="sub sub-lbl" x="530" y="257" text-anchor="middle" style="font-size:8.5px;">ΔF/F ↑</text>
-
-<!-- Key difference: location of sensing -->
-<line x1="362" y1="278" x2="660" y2="278" class="divider" stroke-width="0.8" stroke-dasharray="4 3"/>
-<text class="sub sub-lbl" x="511" y="295" text-anchor="middle" style="font-size:9px;">Ligand is detected</text>
-<text class="sub sted-lbl" x="511" y="309" text-anchor="middle" style="font-size:10px;font-weight:600;">in the extracellular space</text>
-<text class="sub sub-lbl" x="511" y="322" text-anchor="middle" style="font-size:9px;">regardless of release origin</text>
-
-<!-- Summary box -->
-<rect x="364" y="338" width="294" height="46" rx="4" class="sum-box" stroke-width="0.5"/>
-<text class="sub panel-hd" x="511" y="354" text-anchor="middle" style="font-size:10px;font-weight:600;">Reports: extracellular [NT]</text>
-<text class="sub sub-lbl" x="511" y="367" text-anchor="middle" style="font-size:9px;">direct neurotransmitter measurement</text>
-<text class="sub sub-lbl" x="511" y="378" text-anchor="middle" style="font-size:9px;">location: plasma membrane (surface)</text>
-
-<!-- VS divider and label -->
-<line x1="340" y1="26" x2="340" y2="446" class="divider" stroke-width="1" stroke-dasharray="1 0"/>
-<rect x="324" y="216" width="32" height="22" rx="4" class="sum-box" stroke-width="0.5"/>
-<text class="sub sub-lbl" x="340" y="231" text-anchor="middle" style="font-size:11px;font-weight:600;">vs</text>
-
-<!-- Bottom key distinction -->
-<rect x="10" y="452" width="660" height="22" rx="4" class="sum-box" stroke-width="0.5"/>
-<text class="sub sub-lbl" x="160" y="467" text-anchor="middle" style="font-size:9.5px;">
-  <tspan class="exc-lbl">GCaMP</tspan>
-</text>
-<text class="sub sum-txt" x="340" y="467" text-anchor="middle" style="font-size:9px;">infers spiking via cytosolic Ca²⁺ · · ·</text>
-<text class="sub sub-lbl" x="520" y="467" text-anchor="middle" style="font-size:9.5px;">
-  <tspan class="sted-lbl">GRAB</tspan>
-</text>
-
-<!-- Rewrite bottom as two text elements to avoid tspan color issues -->
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 680 480" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g transform="matrix(1,0,0,1,132.391,22)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:16px;fill:rgb(156,154,146);">Genetically Encoded Indicators - Sensing Mechanisms</text>
+    </g>
+    <g transform="matrix(1,0,0,0.97381,0,11.681)">
+        <path d="M328,32C328,28.689 325.311,26 322,26L16,26C12.689,26 10,28.689 10,32L10,440C10,443.311 12.689,446 16,446L322,446C325.311,446 328,443.311 328,440L328,32Z" style="fill:none;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:0.5px;"/>
+    </g>
+    <g transform="matrix(0.449686,0,0,1,5.50314,37)">
+        <rect x="10" y="94" width="318" height="16" style="fill:rgb(222,220,209);fill-opacity:0.07;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(0.459119,0,0,1,177.409,37)">
+        <rect x="10" y="94" width="318" height="16" style="fill:rgb(222,220,209);fill-opacity:0.07;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,20,125)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">extracellular</text>
+    </g>
+    <g transform="matrix(1,0,0,1,20,163)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">cytoplasm</text>
+    </g>
+    <g transform="matrix(1,0,0,1,361,163)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">cytoplasm</text>
+    </g>
+    <g transform="matrix(1,0,0,1,100,179)">
+        <g transform="matrix(1,0,0,1,-30.157,0)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">Ca²</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-15.656,0)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:9px;fill:rgb(156,154,146);">⁺</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-11.859,0)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">-free (apo)</text>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,0,37)">
+        <ellipse cx="100" cy="205" rx="22" ry="28" style="fill:rgb(29,158,117);fill-opacity:0.25;stroke:rgb(29,158,117);stroke-width:1.4px;stroke-dasharray:4,3;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,85.997,238)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">cpGFP</text>
+    </g>
+    <g transform="matrix(1,0,0,1,91.502,250)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(156,154,146);">OFF</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,37)">
+        <ellipse cx="100" cy="264" rx="16" ry="10" style="fill:rgb(222,220,209);fill-opacity:0.05;stroke:rgb(222,220,209);stroke-opacity:0.28;stroke-width:1px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,91.027,305)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(156,154,146);">CaM</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,37)">
+        <path d="M82,282C88.667,287.333 95.333,288 102,284C108.667,280 115.333,280.667 122,286" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-width:1.5px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,57.75,339)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8px;fill:rgb(156,154,146);">M13 peptide (extended)</text>
+    </g>
+    <g transform="matrix(1,0,0,1,66.483,359)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">low ﬂuorescence</text>
+    </g>
+    <g transform="matrix(1,0,0,1,240,179)">
+        <g transform="matrix(1,0,0,1,-35.917,0)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">Ca²</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-21.415,0)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:9px;fill:rgb(156,154,146);">⁺</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-17.618,0)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">-bound (holo)</text>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,0,48)">
+        <circle cx="225" cy="156" r="5" style="fill:rgb(100,160,240);fill-opacity:0.9;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,48)">
+        <circle cx="240" cy="150" r="5" style="fill:rgb(100,160,240);fill-opacity:0.85;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,48)">
+        <circle cx="255" cy="156" r="5" style="fill:rgb(100,160,240);fill-opacity:0.8;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,240,192)">
+        <g transform="matrix(1,0,0,1,-9.149,0)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(100,160,240);">Ca²</text>
+        </g>
+        <g transform="matrix(1,0,0,1,5.353,0)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:9px;fill:rgb(100,160,240);">⁺</text>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,0,48)">
+        <path d="M225,162L225,174" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-width:1px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,37,58)">
+        <circle cx="225" cy="156" r="5" style="fill:rgb(100,160,240);fill-opacity:0.9;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,37,58)">
+        <path d="M225,162L225,174" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-width:1px;"/>
+    </g>
+    <g transform="matrix(1,0,0,0.611111,0,108.667)">
+        <path d="M240,156L240,174" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-width:1px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,48)">
+        <path d="M255,162L255,174" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-width:1px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,37)">
+        <ellipse cx="240" cy="205" rx="22" ry="28" style="fill:rgb(29,158,117);fill-opacity:0.25;stroke:rgb(29,158,117);stroke-width:2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,225.997,237)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(29,158,117);">cpGFP</text>
+    </g>
+    <g transform="matrix(1,0,0,1,233.25,250)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(29,158,117);">ON</text>
+    </g>
+    <g transform="matrix(1.11364,0,0,0.884615,-26.7727,68.5)">
+        <ellipse cx="240" cy="260" rx="22" ry="13" style="fill:rgb(222,220,209);fill-opacity:0.05;stroke:rgb(222,220,209);stroke-opacity:0.28;stroke-width:1.2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,218.982,301)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(156,154,146);">CaM · M13</text>
+    </g>
+    <g transform="matrix(1,0,0,1,221.107,316)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(156,154,146);">(compact)</text>
+    </g>
+    <g transform="matrix(1,0,0,1,266,199)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(29,158,117);">hν</text>
+    </g>
+    <g transform="matrix(1,0,0,1,204.727,339)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(29,158,117);">high ﬂuorescence</text>
+    </g>
+    <g transform="matrix(1,0,0,1,227.482,352)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(156,154,146);">ΔF/F ↑</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,37)">
+        <path d="M128,218C155.333,208.667 184,208.667 214,218" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-width:1.6px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,169,235)">
+        <g transform="matrix(1,0,0,1,-15.848,0)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(156,154,146);">+ 4 Ca²</text>
+        </g>
+        <g transform="matrix(1,0,0,1,12.262,0)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:8.5px;fill:rgb(156,154,146);">⁺</text>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1.06522,0,18.9565)">
+        <path d="M316,341.755C316,339.683 314.208,338 312,338L26,338C23.792,338 22,339.683 22,341.755L22,380.245C22,382.317 23.792,384 26,384L312,384C314.208,384 316,382.317 316,380.245L316,341.755Z" style="fill:none;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:0.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,169,391)">
+        <g transform="matrix(1,0,0,1,-60.186,3)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10px;fill:rgb(156,154,146);">Reports: intracellular [Ca²</text>
+        </g>
+        <g transform="matrix(1,0,0,1,53.188,3)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:10px;fill:rgb(156,154,146);">⁺</text>
+        </g>
+        <g transform="matrix(1,0,0,1,57.407,3)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10px;fill:rgb(156,154,146);">]</text>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,108.969,407)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">proxy for action potential ﬁring</text>
+    </g>
+    <g transform="matrix(1,0,0,1,130.732,418)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">location: cytoplasm</text>
+    </g>
+    <g transform="matrix(1,0,0,0.97381,0,11.681)">
+        <path d="M670,32C670,28.689 667.311,26 664,26L358,26C354.689,26 352,28.689 352,32L352,440C352,443.311 354.689,446 358,446L664,446C667.311,446 670,443.311 670,440L670,32Z" style="fill:none;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:0.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,362,125)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">extracellular</text>
+    </g>
+    <g transform="matrix(1,0,0,1,362,267)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">cytoplasm</text>
+    </g>
+    <g transform="matrix(1,0,0,1,-66,37)">
+        <path d="M506,85C506,83.344 504.656,82 503,82L500,82C498.344,82 497,83.344 497,85L497,119C497,120.656 498.344,122 500,122L503,122C504.656,122 506,120.656 506,119L506,85Z" style="fill:rgb(222,220,209);fill-opacity:0.1;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,37)">
+        <path d="M462,85C462,83.344 460.656,82 459,82L456,82C454.344,82 453,83.344 453,85L453,119C453,120.656 454.344,122 456,122L459,122C460.656,122 462,120.656 462,119L462,85Z" style="fill:rgb(222,220,209);fill-opacity:0.1;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,-280,37)">
+        <path d="M462,85C462,83.344 460.656,82 459,82L456,82C454.344,82 453,83.344 453,85L453,119C453,120.656 454.344,122 456,122L459,122C460.656,122 462,120.656 462,119L462,85Z" style="fill:rgb(222,220,209);fill-opacity:0.1;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,-300,37)">
+        <path d="M462,85C462,83.344 460.656,82 459,82L456,82C454.344,82 453,83.344 453,85L453,119C453,120.656 454.344,122 456,122L459,122C460.656,122 462,120.656 462,119L462,85Z" style="fill:rgb(222,220,209);fill-opacity:0.1;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,-22,37)">
+        <path d="M506,85C506,83.344 504.656,82 503,82L500,82C498.344,82 497,83.344 497,85L497,119C497,120.656 498.344,122 500,122L503,122C504.656,122 506,120.656 506,119L506,85Z" style="fill:rgb(222,220,209);fill-opacity:0.1;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,37)">
+        <path d="M506,85C506,83.344 504.656,82 503,82L500,82C498.344,82 497,83.344 497,85L497,119C497,120.656 498.344,122 500,122L503,122C504.656,122 506,120.656 506,119L506,85Z" style="fill:rgb(222,220,209);fill-opacity:0.1;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,-22,37)">
+        <path d="M550,85C550,83.344 548.656,82 547,82L544,82C542.344,82 541,83.344 541,85L541,119C541,120.656 542.344,122 544,122L547,122C548.656,122 550,120.656 550,119L550,85Z" style="fill:rgb(222,220,209);fill-opacity:0.1;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,37)">
+        <path d="M550,85C550,83.344 548.656,82 547,82L544,82C542.344,82 541,83.344 541,85L541,119C541,120.656 542.344,122 544,122L547,122C548.656,122 550,120.656 550,119L550,85Z" style="fill:rgb(222,220,209);fill-opacity:0.1;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,22,37)">
+        <path d="M550,85C550,83.344 548.656,82 547,82L544,82C542.344,82 541,83.344 541,85L541,119C541,120.656 542.344,122 544,122L547,122C548.656,122 550,120.656 550,119L550,85Z" style="fill:rgb(222,220,209);fill-opacity:0.1;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(0.997821,0,0,0.964924,351.349,130.316)">
+        <g>
+            <g id="_Image1_" serif:id="_Image1">
+                <use id="_Image1_1" serif:id="_Image1" xlink:href="#_Image1" x="0" y="0" width="320px" height="18px"/>
+                <rect x="0" y="0" width="320" height="18" style="fill:none;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:1.02px;stroke-linejoin:round;stroke-miterlimit:2;"/>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(-0.991625,-0.12915,0.12915,-0.991625,879.814,299.767)">
+        <path d="M440.129,84.992C446.129,76.992 450.146,76.583 456.146,83.25" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:1.2px;"/>
+    </g>
+    <g transform="matrix(0.996942,-0.0781483,-0.0781483,-0.996942,7.73263,279.806)">
+        <path d="M480,84C488,73.333 495.333,72.667 502,82" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.995818,-0.0913553,-0.0913553,-0.995818,9.61204,290.211)">
+        <path d="M524,84C530.667,76 538,75.333 546,82" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:1.2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,-1,0,241.444)">
+        <g transform="matrix(0.994817,0.101681,0.101681,-0.994817,-5.37185,148.387)">
+            <path d="M546,82C552.667,76.667 560,77.333 568,84" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:1px;"/>
+        </g>
+        <g transform="matrix(0.807823,-0.589425,0.589425,0.807823,76.6252,337.919)">
+            <path d="M546,82C552.667,76.667 560,77.333 568,84" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:1px;"/>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,0,37)">
+        <g transform="matrix(1,0,0,-1,0,204)">
+            <path d="M458,122C463.333,128.667 470.667,128.667 480,122" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:1px;"/>
+        </g>
+        <g transform="matrix(0.792601,0.609741,0.609741,-0.792601,-16.6426,-107.79)">
+            <path d="M458.183,123.402C462.236,120.253 465.423,132.203 474.756,125.536" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:1px;"/>
+        </g>
+    </g>
+    <g transform="matrix(0.997328,0.0730464,0.0730464,-0.997328,-7.72383,203.271)">
+        <path d="M502,122C507.333,128.667 514.667,128.667 524,122" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:1px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,8,39)">
+        <path d="M530,124L530,158" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-width:1.2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,8,39)">
+        <ellipse cx="530" cy="186" rx="22" ry="28" style="fill:rgb(29,158,117);fill-opacity:0.25;stroke:rgb(29,158,117);stroke-width:2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,523.997,221)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(29,158,117);">cpGFP</text>
+    </g>
+    <g transform="matrix(1,0,0,1,531.25,233)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(29,158,117);">ON</text>
+    </g>
+    <g transform="matrix(1,0,0,1,8,39)">
+        <path d="M530,158L530,148" style="fill:none;fill-rule:nonzero;stroke:rgb(29,158,117);stroke-width:1.5px;stroke-dasharray:3,2;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,546,185)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(29,158,117);">hν</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,36)">
+        <circle cx="492" cy="65" r="10" style="fill:rgb(226,75,74);fill-opacity:0.2;stroke:rgb(226,75,74);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,485.5,105)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:9px;fill:rgb(226,75,74);">DA</text>
+    </g>
+    <g transform="matrix(1,0,0,1,508.024,102)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(226,75,74);">binds orthosteric site</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,44)">
+        <path d="M492,50L492,54" style="fill:none;fill-rule:nonzero;stroke:rgb(222,220,209);stroke-opacity:0.18;stroke-width:0.7px;stroke-dasharray:2,2;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,501.479,267)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">intracellular loop 3</text>
+    </g>
+    <g transform="matrix(1,0,0,1,502.727,283)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(29,158,117);">high ﬂuorescence</text>
+    </g>
+    <g transform="matrix(1,0,0,1,525.482,296)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(156,154,146);">ΔF/F ↑</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,37)">
+        <path d="M362,278L660,278" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:0.8px;stroke-dasharray:4,3;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,474.473,332)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">Ligand is detected</text>
+    </g>
+    <g transform="matrix(1,0,0,1,455.692,346)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10px;fill:rgb(226,75,74);">in the extracellular space</text>
+    </g>
+    <g transform="matrix(1,0,0,1,456.721,359)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">regardless of release origin</text>
+    </g>
+    <g transform="matrix(1,0,0,1.06522,0,18.9565)">
+        <path d="M658,341.755C658,339.683 656.208,338 654,338L368,338C365.792,338 364,339.683 364,341.755L364,380.245C364,382.317 365.792,384 368,384L654,384C656.208,384 658,382.317 658,380.245L658,341.755Z" style="fill:none;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:0.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,452.926,394)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10px;fill:rgb(156,154,146);">Reports: extracellular [NT]</text>
+    </g>
+    <g transform="matrix(1,0,0,1,437.22,407)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">direct neurotransmitter measurement</text>
+    </g>
+    <g transform="matrix(1,0,0,1,436.719,418)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">location: plasma membrane (surface)</text>
+    </g>
+    <path d="M340,26L340,446" style="fill:none;fill-rule:nonzero;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:1px;stroke-dasharray:1,0;"/>
+    <path d="M670,456C670,453.792 668.208,452 666,452L14,452C11.792,452 10,453.792 10,456L10,470C10,472.208 11.792,474 14,474L666,474C668.208,474 670,472.208 670,470L670,456Z" style="fill:none;stroke:rgb(156,154,146);stroke-opacity:0.6;stroke-width:0.5px;"/>
+    <g transform="matrix(1,0,0,1,143.108,467)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9.5px;fill:rgb(100,160,240);">GCaMP</text>
+    </g>
+    <g transform="matrix(1,0,0,1,340,467)">
+        <g transform="matrix(1,0,0,1,-70.416,0)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">infers spiking via cytosolic Ca²</text>
+        </g>
+        <g transform="matrix(1,0,0,1,50.126,0)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:9px;fill:rgb(156,154,146);">⁺</text>
+        </g>
+        <g transform="matrix(1,0,0,1,56.424,0)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(156,154,146);">· · ·</text>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,506.539,467)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9.5px;fill:rgb(226,75,74);">GRAB</text>
+    </g>
+    <g transform="matrix(1,0,0,1,140.551,59)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(100,160,240);">GCaMP</text>
+    </g>
+    <g transform="matrix(1,0,0,1,169,60)">
+        <g transform="matrix(1,0,0,1,-85.629,19)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">intracellular Ca²</text>
+        </g>
+        <g transform="matrix(1,0,0,1,26.41,19)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:16px;fill:rgb(156,154,146);">⁺</text>
+        </g>
+        <g transform="matrix(1,0,0,1,37.605,19)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">sensor</text>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,460.758,59)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(226,75,74);">GRAB Sensor</text>
+    </g>
+    <g transform="matrix(1,0,0,1,383.379,79)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:16px;fill:rgb(156,154,146);">extracellular neuromodulator sensor</text>
+    </g>
+    <defs>
+        <image id="_Image1" width="320px" height="18px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAAASCAYAAAAqoQfiAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAjUlEQVR4nO3UIRLCUBBEwSHEIBAIBPc/EZ7iAsgIDFCIIDhBvphus7Vu1Nvdb9dLkkMAujznJMckjySfwWMAtjIlOc+/55XkPXAMwJb2yVpBgEoCCNQSQKCWAAK1BBCoJYBALQEEagkgUEsAgVoCCNQSQKCWAAK1BBCoNf9dMQRaTMkaviXJaewWgM0tX1GoCdht4574AAAAAElFTkSuQmCC"/>
+    </defs>
 </svg>
