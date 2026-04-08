@@ -56,7 +56,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .section-title{font-family:'Fraunces',serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:600;color:var(--text-head);margin-bottom:44px;line-height:1.1;}
 .tag-chip{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:rgba(var(--accent-rgb),.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.25);padding:3px 10px;border-radius:50px;cursor:pointer;transition:background .2s;}
 .tag-chip:hover{background:rgba(var(--accent-rgb),.2);}
-/* Archive filter buttons — bigger, flex-aligned */
+/* Archive filter buttons: bigger, flex-aligned */
 .filter-chip{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;background:rgba(var(--accent-rgb),.08);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.22);padding:8px 16px;border-radius:50px;cursor:pointer;transition:background .2s,border-color .2s;}
 .filter-chip:hover{background:rgba(var(--accent-rgb),.18);}
 .filter-chip.active{background:rgba(var(--accent-rgb),.25);border-color:rgba(var(--accent-rgb),.5);}
@@ -508,12 +508,23 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 0 3
 [data-theme="light"] .social-btn:hover .icon-img,
 [data-theme="light"] a:hover .icon-img{filter:invert(0) opacity(.9);}
 
-  </style>
+  
+/* ═══════════════════════════════════════════════════
+   POST FIGURES
+═══════════════════════════════════════════════════ */
+.post-figure{margin:2.2rem 0;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.post-figure img{width:100%;display:block;background:var(--bg3);}
+.post-figure figcaption{padding:12px 18px 14px;font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.65;color:var(--text-dim);border-top:1px solid var(--border);}
+.post-figure figcaption strong{color:var(--accent);letter-spacing:.04em;}
+.post-figure-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:2.2rem 0;}
+.post-figure-row .post-figure{margin:0;}
+@media(max-width:680px){.post-figure-row{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
 
 <!-- ══════════════════════════════════════════════════
-     ★  CONTENT CONFIG — EDIT EVERYTHING HERE  ★
+     ★  CONTENT CONFIG: EDIT EVERYTHING HERE  ★
      ══════════════════════════════════════════════════ -->
 
 <script>
@@ -569,7 +580,7 @@ const CONFIG = {
         + " desktop application for interactive gating, density"
         + " visualisation, automatic threshold detection, batch"
         + " statistics, and vector/polar analysis of multi-channel"
-        + " image-cytometry data — built for labs where not every"
+        + " image-cytometry data, built for labs where not every"
         + " collaborator has access to paid flow-cytometry licences.",
       date: "19 Mar, 2026",
       readTime: "16 min read",
@@ -580,14 +591,14 @@ const CONFIG = {
 
 <p>
   Modern fluorescence microscopy pipelines routinely produce per-object
-  tables — one row per synaptophysin punctum, per nucleus, per cell — that
+  tables (one row per synaptophysin punctum, per nucleus, per cell) that
   encode channel intensities, spatial coordinates, morphological features,
   and inter-channel distances.  Analysing that kind of data calls for the
   same interactive gating and population-statistics workflow that flow
   cytometrists have relied on for decades.  The problem is that the
   canonical tools (FlowJo, FCS Express, Cytobank) are licensed per-seat,
   and in a multi-institution collaboration the bottleneck is rarely the
-  experiment — it is waiting for someone with the right licence to open
+  experiment; it is waiting for someone with the right licence to open
   the file.
 </p>
 <p>
@@ -632,9 +643,9 @@ const CONFIG = {
 
 <h2>Getting Started</h2>
 <div class="tip-box">
-  <div class="tip-label">Standalone App — macOS Apple Silicon &amp; Windows</div>
+  <div class="tip-label">Standalone App · macOS Apple Silicon &amp; Windows</div>
   <p style="margin:0;line-height:1.75;font-size:0.9rem;">
-    Pre-built binaries are available on the Zenodo archive — no Python
+    Pre-built binaries are available on the Zenodo archive, with no Python
     installation required.  Download the
     <code>.dmg</code> (macOS Apple Silicon) or
     <code>.exe</code> (Windows) for your platform, open it, and launch
@@ -643,7 +654,7 @@ const CONFIG = {
   </p>
 </div>
 <div class="tip-box">
-  <div class="tip-label">Run from Source — any platform</div>
+  <div class="tip-label">Run from Source · any platform</div>
   <p style="margin:0;line-height:1.75;font-size:0.9rem;">
     Install dependencies once:
     <br><br>
@@ -703,7 +714,7 @@ const CONFIG = {
 </p>
 <img
   src="image-assets/posts/vFlow/fig1_dotplot.png"
-  alt="Dot Plot — three files overlaid with per-file colours and
+  alt="Dot Plot: three files overlaid with per-file colours and
        marginal histograms"
   style="width:100%;border-radius:6px;margin:1.2rem 0;"
 />
@@ -719,7 +730,7 @@ const CONFIG = {
 </p>
 <img
   src="image-assets/posts/vFlow/fig2_density.png"
-  alt="Density Plot — KDE colour-mapped scatter with marginal histograms"
+  alt="Density Plot: KDE colour-mapped scatter with marginal histograms"
   style="width:100%;border-radius:6px;margin:1.2rem 0;"
 />
 
@@ -734,7 +745,7 @@ const CONFIG = {
 </p>
 <img
   src="image-assets/posts/vFlow/fig3_contour.png"
-  alt="Contour Plot — filled KDE contours with scatter overlay"
+  alt="Contour Plot: filled KDE contours with scatter overlay"
   style="width:100%;border-radius:6px;margin:1.2rem 0;"
 />
 
@@ -742,32 +753,32 @@ const CONFIG = {
 <p>
   Background-corrected fluorescence intensities span several decades and
   include negative values where local background exceeds signal.  vFlow
-  ships four custom matplotlib scales registered at startup — in addition
-  to standard linear and log — so they work transparently with all
+  ships four custom matplotlib scales registered at startup, in addition
+  to standard linear and log, so they work transparently with all
   existing matplotlib functionality including figure export.  X and Y
   scales are set independently; the cofactor for asinh and logicle is
   adjustable via a sidebar entry and updates the axis live.
 </p>
 <ul>
   <li>
-    <strong>asinh</strong> — <code>arcsinh(x / c)</code> with adjustable
+    <strong>asinh</strong>: <code>arcsinh(x / c)</code> with adjustable
     cofactor <code>c</code> (default 150).  Symmetric around zero, linear
     near the origin, logarithmic in the tails.  The standard choice for
     background-corrected data.
   </li>
   <li>
-    <strong>biexp</strong> —
+    <strong>biexp</strong>:
     <code>sign(x) · log1p(|x| / t) · t</code>.  Similar shape to asinh;
     useful when data has already been biexponentially pre-processed by
     the acquisition software.
   </li>
   <li>
-    <strong>logicle</strong> —
+    <strong>logicle</strong>:
     <code>sign(x) · log10(1 + |x| / c)</code>.  Preserves the intuitive
     decade labelling (10², 10³ …) familiar to flow cytometrists.
   </li>
   <li>
-    <strong>log</strong> — standard base-10 logarithm for non-negative
+    <strong>log</strong>: standard base-10 logarithm for non-negative
     data where a strict log axis is preferred.
   </li>
 </ul>
@@ -797,7 +808,7 @@ const CONFIG = {
 </p>
 <img
   src="image-assets/posts/vFlow/fig5_crosshair.png"
-  alt="Crosshair gate — auto-detected thresholds dividing the scatter
+  alt="Crosshair gate: auto-detected thresholds dividing the scatter
        into four quadrants with percentage labels and marginal gate lines"
   style="width:100%;border-radius:6px;margin:1.2rem 0;"
 />
@@ -811,7 +822,7 @@ const CONFIG = {
   raw intensity value.  A sensitivity slider (1–10) controls
   algorithm-specific parameters and live re-runs the last used algorithm
   with 350 ms debouncing.  The figure below shows the four
-  threshold-based methods side by side on the same 1D distribution —
+  threshold-based methods side by side on the same 1D distribution;
   GMM Multi resolves three populations and places two thresholds; GMM
   Classic collapses the lower two into a single negative class; KDE
   Valley sits at the deepest density gap; Otsu maximises class variance
@@ -838,13 +849,13 @@ const CONFIG = {
   spinboxes).  Valley thresholds are placed at the density minima between
   adjacent Gaussian components, searched over a 3σ-widened window to
   handle asymmetric distributions.  When both axes yield multiple
-  components the result is a full N×M crosshair gate — the most
+  components the result is a full N×M crosshair gate, the most
   expressive of the five methods and the only one that gates both axes
   simultaneously based on data-driven population structure.
 </p>
 <img
   src="image-assets/posts/vFlow/fig_gmm_multi.png"
-  alt="GMM Multi auto-gate — 3-component fit on each axis independently,
+  alt="GMM Multi auto-gate: 3-component fit on each axis independently,
        with valley thresholds creating a 3×3 region grid. Dashed
        component curves and per-component weights are shown in the
        marginal histograms."
@@ -859,13 +870,13 @@ const CONFIG = {
   both flanking peaks are at least 5× taller than the valley, ensuring the
   gap represents a genuine population separation rather than a shoulder or
   noise artefact.  The valley chosen is the one closest to the midpoint
-  between its two flanking peaks — a deterministic rule that avoids
+  between its two flanking peaks, a deterministic rule that avoids
   instability in flat-floor regions between well-separated populations.
   Falls back to a 5 % peak-height walk for unimodal data.
 </p>
 <img
   src="image-assets/posts/vFlow/fig_kde_valley.png"
-  alt="KDE Valley auto-gate — smoothed density curve on Ch1 and Ch2
+  alt="KDE Valley auto-gate: smoothed density curve on Ch1 and Ch2
        with annotated valley points and a 2×2 region grid."
   style="width:100%;border-radius:6px;margin:1.2rem 0;"
 />
@@ -873,14 +884,14 @@ const CONFIG = {
 <h3>Otsu</h3>
 <p>
   Maximises between-class variance over a 512-bin histogram of the
-  transformed data — the classic Otsu threshold in
+  transformed data; the classic Otsu threshold in
   O(<em>n</em><sub>bins</sub>) time.  No distributional assumptions; works
   for any bimodal shape and is more robust than KDE for very unequal
   population splits such as 5 % / 95 %.
 </p>
 <img
   src="image-assets/posts/vFlow/fig_otsu.png"
-  alt="Otsu auto-gate — maximum between-class variance threshold on
+  alt="Otsu auto-gate: maximum between-class variance threshold on
        Ch1 and Ch2, with KDE overlay for reference and a 2×2 region
        grid."
   style="width:100%;border-radius:6px;margin:1.2rem 0;"
@@ -899,7 +910,7 @@ const CONFIG = {
 </p>
 <img
   src="image-assets/posts/vFlow/fig_cluster_polygons.png"
-  alt="Cluster Polygons auto-gate — HDBSCAN 2D clustering with convex
+  alt="Cluster Polygons auto-gate: HDBSCAN 2D clustering with convex
        hull polygon gates drawn around each discovered cluster. Marginal
        histograms coloured by cluster membership."
   style="width:100%;border-radius:6px;margin:1.2rem 0;"
@@ -919,7 +930,7 @@ const CONFIG = {
   The <em>Load from Folder</em> dialog doubles as a concatenation tool:
   selected files are vertically stacked into a single DataFrame with a
   <code>Source_File</code> column prepended, saved to a specified path,
-  and optionally loaded into the session immediately — a common preparation
+  and optionally loaded into the session immediately, a common preparation
   step when individual acquisition files need to be pooled before gating.
 </p>
 <img
@@ -950,7 +961,7 @@ const CONFIG = {
   data.  Circular statistics follow Zar (2010) §27.2: MRL as a
   concentration measure, a finite-sample-corrected Rayleigh p-value, and
   a significance flag requiring <em>both</em> p &lt; 0.05 and MRL ≥
-  threshold — the dual criterion prevents large-<em>n</em> samples with
+  threshold; the dual criterion prevents large-<em>n</em> samples with
   trivially small MRL from being flagged as significant, and guards
   against underpowered small-<em>n</em> samples with spuriously high MRL.
   The gate and region dropdowns mirror the main window, so the analysis
@@ -958,7 +969,7 @@ const CONFIG = {
 </p>
 <img
   src="image-assets/posts/vFlow/fig6_polar.png"
-  alt="Vector / Polar Analysis window — rose histogram with per-file
+  alt="Vector / Polar Analysis window: rose histogram with per-file
        mean-direction arrows and a statistics table showing N, MRL,
        Rayleigh p-value, mean direction and significance per file"
   style="width:100%;border-radius:6px;margin:1.2rem 0;"
@@ -1001,7 +1012,7 @@ const CONFIG = {
       content: `
 
     <!-- ═══════════════════════════════════════════════════════════════
-     POST CONTENT — "Light Through a Wire: The Principles of Fiber Photometry"
+     POST CONTENT: "Light Through a Wire: The Principles of Fiber Photometry"
      CORRECTIONS APPLIED:
        (1) dLight scaffold: was "periplasmic binding protein scaffold" → fixed to GPCR-based
        (2) jGCaMP8 CaM-binding peptide: was "eNOS in the jGCaMP8 series" → precised to jGCaMP8f
@@ -1046,7 +1057,7 @@ const CONFIG = {
   fraction of the emitted fluorescence is captured by the same fibre, collected
   within its numerical aperture, and guided back toward the proximal end, where
   it is separated from the excitation light by a dichroic mirror and bandpass
-  emission filter, then focused onto a photodetector — typically a sensitive
+  emission filter, then focused onto a photodetector (typically a sensitive
   avalanche photodiode (APD), photomultiplier tube (PMT), or scientific CMOS
   camera. The detected photon current is amplified, digitised and recorded
   continuously alongside behavioural timestamps.
@@ -1056,8 +1067,8 @@ const CONFIG = {
   core diameters of 200–600 μm and numerical apertures of 0.37–0.50. The
   implantable fibre stub is permanently affixed to the skull with dental cement
   and capped between sessions; a detachable patch cable connects it to the
-  benchtop optics during recording. The sampling volume — the cone of tissue
-  from which fluorescence is efficiently collected — extends approximately
+  benchtop optics during recording. The sampling volume (the cone of tissue
+  from which fluorescence is efficiently collected) extends approximately
   100–500 μm from the fibre tip, with sensitivity falling off as the inverse
   square of distance. This geometry means photometry does not image: it
   integrates fluorescence from a region containing potentially thousands of
@@ -1078,8 +1089,8 @@ const CONFIG = {
   />
   <figcaption style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-dim);
     font-family:'JetBrains Mono',monospace;line-height:1.6;">
-    Fiber photometry optical layout. Two amplitude-modulated LEDs — 470 nm
-    (calcium-sensitive excitation) and 405 nm (isosbestic reference) — are
+    Fiber photometry optical layout. Two amplitude-modulated LEDs (470 nm
+    calcium-sensitive excitation, and 405 nm isosbestic reference) are
     combined and reflected downward by a dichroic beamsplitter through a patch
     cable into an implanted multimode fibre. Excitation light exits the polished
     tip and illuminates the surrounding sampling volume (~100–500 μm cone).
@@ -1105,8 +1116,8 @@ const CONFIG = {
   action potentials due to voltage-gated calcium channel opening and is cleared
   over hundreds of milliseconds by pumps and buffers. GCaMP is built around a
   circularly permuted enhanced GFP (cpEGFP) fused to the calcium-binding
-  protein calmodulin (CaM) and a CaM-binding peptide: M13 — a smooth-muscle
-  myosin light chain kinase fragment — in the classical GCaMP3–7 lineage. In
+  protein calmodulin (CaM) and a CaM-binding peptide: M13, a smooth-muscle
+  myosin light chain kinase fragment, in the classical GCaMP3–7 lineage. In
   the calcium-free state, cpEGFP is largely non-fluorescent. Calcium binding
   induces a conformational change that stabilises the chromophore environment
   and dramatically increases quantum yield and brightness.
@@ -1124,8 +1135,8 @@ const CONFIG = {
   for burst firing. For photometry, faster indicators are generally preferable,
   but the choice depends on the spiking properties of the target population.
   One important practical caveat: jGCaMP8 sensors can undergo photoinactivation
-  under sustained illumination — fluorescence declines even when calcium levels
-  are stable — which has implications for continuous photometry recordings and
+  under sustained illumination; fluorescence declines even when calcium levels
+  are stable, which has implications for continuous photometry recordings and
   should be monitored by checking baseline stability across sessions.
 </p>
 <p>
@@ -1144,7 +1155,7 @@ const CONFIG = {
   transmitters with nanomolar sensitivity and sub-second kinetics. Because these
   sensors are expressed on the cell surface and detect ligand in the
   extracellular space, they report the ambient concentration seen by a cell
-  regardless of where the release originated — a fundamentally different quantity
+  regardless of where the release originated, a fundamentally different quantity
   from postsynaptic calcium.
 </p>
 
@@ -1162,11 +1173,11 @@ const CONFIG = {
   />
   <figcaption style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-dim);
     font-family:'JetBrains Mono',monospace;line-height:1.6;">
-    Sensing mechanisms compared. <strong>Left — GCaMP:</strong> a cytosolic
+    Sensing mechanisms compared. <strong>Left (GCaMP):</strong> a cytosolic
     construct. In the Ca²⁺-free state, CaM and the M13 peptide are extended and
     the cpGFP chromophore is non-fluorescent. Four Ca²⁺ ions bind, CaM wraps
     around M13, and the resulting conformational change activates cpGFP.
-    <strong>Right — GRAB sensor:</strong> a surface-expressed GPCR construct.
+    <strong>Right (GRAB sensor):</strong> a surface-expressed GPCR construct.
     Neurotransmitter (here dopamine, DA) binds the extracellular orthosteric
     site, driving a conformational change transmitted through the
     transmembrane helices to cpGFP inserted in intracellular loop 3.
@@ -1178,7 +1189,7 @@ const CONFIG = {
 <blockquote>
   <p>
     Fiber photometry does not tell you which cells fired. It tells you what the
-    tissue was doing — a different question.
+    tissue was doing: a different question.
   </p>
 </blockquote>
 
@@ -1200,8 +1211,8 @@ const CONFIG = {
   excited at this wavelength therefore reflects the total indicator
   concentration and optical pathlength, but not calcium. By simultaneously
   illuminating the tissue with both a calcium-sensitive excitation wavelength
-  (typically 470 nm) and the isosbestic 405 nm wavelength — usually via
-  lock-in detection using amplitude-modulated LEDs at different frequencies —
+  (typically 470 nm) and the isosbestic 405 nm wavelength, usually via
+  lock-in detection using amplitude-modulated LEDs at different frequencies,
   one obtains a calcium signal and a motion/bleach reference signal in parallel.
 </p>
 
@@ -1311,7 +1322,7 @@ const CONFIG = {
   contrast, collects fluorescence from all GCaMP molecules regardless of
   calcium occupancy, but more critically, it also collects substantial
   <em>tissue autofluorescence</em>. Endogenous fluorophores that absorb in the
-  violet — NADH, FAD, and collagen crosslinks — all have excitation peaks at or
+  violet (NADH, FAD, and collagen crosslinks) all have excitation peaks at or
   near 405 nm and emit in the blue-green range, overlapping with the GCaMP
   emission band collected by the detector. When GCaMP expression is low, this
   autofluorescence dominates the 405 nm channel and can exceed the 470 nm
@@ -1328,16 +1339,16 @@ const CONFIG = {
   470 nm excitation and ~520 nm GCaMP emission window differently from the
   405 nm channel, because oxy- and deoxyhaemoglobin have distinct absorption
   spectra and photon path lengths differ at the two wavelengths. When local
-  cerebral blood volume increases — as it does during sustained neural
-  activation or pharmacological vasodilation — the 470 nm channel is suppressed
+  cerebral blood volume increases (as it does during sustained neural
+  activation or pharmacological vasodilation), the 470 nm channel is suppressed
   to a greater extent than the 405 nm channel. The result is an apparent
   artefactual decrease in ΔF/F and, in extreme cases, a polarity inversion of
   the GCaMP signal that could be misread as neural inhibition. Critically, the
   standard isosbestic correction does not fully remove haemodynamic artefacts,
   because the 405 nm channel is itself affected by haemoglobin absorption, just
   not identically. Corrections based on spectral decomposition of haemoglobin
-  signals — using a co-expressed activity-independent red fluorophore such as
-  tdTomato — provide more complete correction at the cost of added preparation
+  signals, using a co-expressed activity-independent red fluorophore such as
+  tdTomato, provide more complete correction at the cost of added preparation
   complexity.
 </p>
 <p>
@@ -1350,8 +1361,8 @@ const CONFIG = {
   470 nm transients, or where calculated ΔF/F is smaller than expected or even
   inverted around genuine events. Keevers and Jean-Richard-dit-Bressel (2025)
   demonstrated formally that iteratively reweighted least squares (IRLS)
-  regression — which down-weights data points where signal and isosbestic
-  diverge, corresponding to true neural events — substantially outperforms OLS
+  regression, which down-weights data points where signal and isosbestic
+  diverge, corresponding to true neural events, substantially outperforms OLS
   in recovering accurate ΔF/F, and recommend it as a new standard for
   preprocessing pipelines.
 </p>
@@ -1390,15 +1401,15 @@ const CONFIG = {
 <p>
   Modern fiber photometry rigs almost universally use lock-in detection rather
   than continuous illumination. Each LED is sinusoidally or square-wave
-  modulated at a distinct carrier frequency — for example, 211 Hz for 405 nm
-  and 531 Hz for 470 nm in the commonly used Tucker-Davis or Doric systems —
+  modulated at a distinct carrier frequency (for example, 211 Hz for 405 nm
+  and 531 Hz for 470 nm in the commonly used Tucker-Davis or Doric systems)
   and the photodetector output is digitised at high speed and demodulated in
   software or hardware to extract the amplitude envelope at each carrier
   frequency. This approach provides several advantages: it eliminates DC drift
   and low-frequency 1/f noise from the detector, it rejects ambient light
   contamination without physical shielding, and it allows simultaneous
   multi-channel acquisition across spectrally overlapping indicators from a
-  single fibre — for example, recording GCaMP (green) and a red-shifted RCaMP
+  single fibre, for example, recording GCaMP (green) and a red-shifted RCaMP
   or jRCaMP simultaneously. For dual-fibre bilateral recordings or multi-region
   implants, the same principle extends naturally by adding additional fibre
   channels with unique carrier frequencies.
@@ -1410,16 +1421,16 @@ const CONFIG = {
   unconstrained freely moving behaviour across long timescales, in deep brain
   structures entirely inaccessible to multiphoton imaging, with equipment costs
   an order of magnitude lower than a two-photon rig. Wireless miniaturised
-  systems — in which the LED, detector and digitiser are carried by the animal
-  itself — have extended this to social interaction paradigms and experiments in
+  systems, in which the LED, detector and digitiser are carried by the animal
+  itself, have extended this to social interaction paradigms and experiments in
   naturalistic environments where tethering is not feasible.
 </p>
 <p>
   Its defining limitation is the complete absence of single-cell resolution.
   A photometry signal from the striatum is the luminance-weighted sum of every
   GCaMP-expressing cell within the collection volume. If a behaviour engages
-  opposing subpopulations — say, D1 and D2 striatal projection neurons with
-  antagonistic effects on output — their signals partially cancel and the
+  opposing subpopulations (say, D1 and D2 striatal projection neurons with
+  antagonistic effects on output), their signals partially cancel and the
   resulting trace may appear flat while considerable activity is occurring.
   This can be addressed by targeting the indicator to only one subpopulation
   via intersectional genetic strategies, but cannot be resolved optically within
@@ -1448,7 +1459,7 @@ const CONFIG = {
   signal-to-noise and kinetics over the first-generation sensors substantially.
   The practical result is that photometry can now monitor the extracellular
   dynamics of nearly every major diffusible signalling molecule across the sleep
-  cycle, stress response, or reward circuit — a catalogue of questions that was
+  cycle, stress response, or reward circuit, a catalogue of questions that was
   simply beyond reach before 2018.
 </p>
 <p>
@@ -1465,8 +1476,8 @@ const CONFIG = {
 </p>
 <p>
   <strong>Wireless and multi-region systems.</strong> Fully wireless miniaturised
-  photometry systems — where the LED driver, detector, and data logger are
-  carried by the animal — have matured from proof-of-concept to commercial
+  photometry systems, where the LED driver, detector, and data logger are
+  carried by the animal, have matured from proof-of-concept to commercial
   availability. This removes the tether artefact entirely and opens paradigms
   involving multiple animals in the same enclosure, natural foraging, and
   home-cage recordings across entire circadian cycles. In parallel, multi-fibre
@@ -1478,8 +1489,8 @@ const CONFIG = {
 <p>
   <strong>Tapered fibre probes.</strong> Standard flat-cleaved fibres collect
   fluorescence primarily within 100–200 μm of the tip, with a collection volume
-  that does not vary with depth. Tapered fibre probes — in which the fibre is
-  drawn to a sharp conical tip — extend the collection volume along the probe's
+  that does not vary with depth. Tapered fibre probes, in which the fibre is
+  drawn to a sharp conical tip, extend the collection volume along the probe's
   depth axis and allow crude depth-resolved recording along a single penetration
   track, providing information about laminar or depth-dependent activity
   gradients that flat fibres obscure.
@@ -1489,7 +1500,7 @@ const CONFIG = {
   is intrinsically sensitive to variation in sensor expression levels, optical
   coupling, and photobleaching, all of which shift the baseline independently of
   biology. Fluorescence lifetime measurements record the rate of photon emission
-  after a pulsed excitation rather than the number of photons — a quantity that
+  after a pulsed excitation rather than the number of photons, a quantity that
   is largely independent of expression level and excitation power. FLIM-adapted
   photometry sensors and the hardware to excite and time-resolve them are an
   active area of development, holding the potential for substantially more
@@ -1501,7 +1512,7 @@ const CONFIG = {
   <strong>Analysis standardisation.</strong> A recognised problem through the
   early 2020s was the divergence in analysis pipelines: different groups
   normalised ΔF/F differently, used different regression strategies, and applied
-  — or omitted — isosbestic correction in incompatible ways, making quantitative
+  or omitted isosbestic correction in incompatible ways, making quantitative
   comparison across studies unreliable. This has been addressed by a wave of
   peer-reviewed open-source toolboxes, including pMAT, pyPhotometry, GuPPy, and
   most recently PASTa (2025), that codify best-practice pipelines and provide
@@ -1511,7 +1522,7 @@ const CONFIG = {
 </p>
 
 <div class="tip-box">
-  <div class="tip-label">Field Primer — Best Practices Consensus</div>
+  <div class="tip-label">Field Primer: Best Practices Consensus</div>
   <p style="margin: 0; line-height: 1.75;">
     Simpson EH, Akam T, Patriarchi T, et al. Lights, fiber, action! A primer
     on in vivo fiber photometry. <em>Neuron.</em> 2024;112(5):718–739.<br>
@@ -1540,7 +1551,7 @@ const CONFIG = {
 </div>
 
 <div class="tip-box">
-  <div class="tip-label">Open-Source Analysis — PASTa Toolbox</div>
+  <div class="tip-label">Open-Source Analysis: PASTa Toolbox</div>
   <p style="margin: 0; line-height: 1.75;">
     Donka RM, Loh MK, Konanur VR, Roitman MF, Roitman JD. PASTa: An
     open-source analysis and signal processing toolbox for fiber photometry
@@ -1567,7 +1578,7 @@ const CONFIG = {
   At low rates, slow indicator kinetics mean individual spikes sum and are not
   individually resolvable. The saturation non-linearity also means that equal
   ΔF/F amplitudes at different baseline states do not represent equal changes in
-  firing — a point frequently overlooked when comparing conditions that differ
+  firing, a point frequently overlooked when comparing conditions that differ
   in baseline arousal or neuromodulatory tone.
 </p>
 <p>
@@ -1583,7 +1594,7 @@ const CONFIG = {
   particularly relevant after months of chronic expression.
 </p>
 <p>
-  None of this undermines the technique's power — it simply demands that the
+  None of this undermines the technique's power; it simply demands that the
   biological question be matched to the quantity being measured. Photometry
   excels at detecting the <em>timing</em> and <em>relative magnitude</em> of
   population-level events, at detecting whether a signal correlates with a
@@ -1593,11 +1604,11 @@ const CONFIG = {
   practice.
 </p>
 <p>
-  Used with appropriate rigour — with isosbestic correction applied via IRLS
+  Used with appropriate rigour, with isosbestic correction applied via IRLS
   rather than OLS, with awareness of haemodynamic artefacts in pharmacology
   experiments, with vigilance for jGCaMP8 photoinactivation in long recordings,
   with thoughtful choice of indicator kinetics, and with genetic targeting
-  precise enough that the signal source is unambiguous — fiber photometry
+  precise enough that the signal source is unambiguous, fiber photometry
   occupies a unique and largely irreplaceable niche in the neuroscientist's
   toolkit. It is the method that finally made it possible to watch a dopamine
   transient unfold in the nucleus accumbens of a mouse as it experiences an
@@ -1608,7 +1619,7 @@ const CONFIG = {
 </p>
 
 <div class="tip-box">
-  <div class="tip-label">Foundational Reference — Fiber Photometry</div>
+  <div class="tip-label">Foundational Reference: Fiber Photometry</div>
   <p style="margin: 0; line-height: 1.75;">
     Gunaydin LA, Grosenick L, Finkelstein JC, et al. Natural neural projection
     dynamics underlying social behavior. <em>Cell.</em>
@@ -1623,7 +1634,7 @@ const CONFIG = {
 </div>
 
 <div class="tip-box">
-  <div class="tip-label">GCaMP Indicator Reference — jGCaMP8 Series</div>
+  <div class="tip-label">GCaMP Indicator Reference: jGCaMP8 Series</div>
   <p style="margin: 0; line-height: 1.75;">
     Zhang Y, Rozsa M, Liang Y, et al. Fast and sensitive GCaMP calcium
     indicators for imaging neural populations. <em>Nature.</em>
@@ -1653,7 +1664,7 @@ const CONFIG = {
 </div>
 
 <div class="tip-box">
-  <div class="tip-label">GRAB Neuromodulator Sensors — Original Reference</div>
+  <div class="tip-label">GRAB Neuromodulator Sensors: Original Reference</div>
   <p style="margin: 0; line-height: 1.75;">
     Sun F, Zeng J, Jing M, et al. A genetically encoded fluorescent sensor
     enables rapid and specific detection of dopamine in flies, fish, and mice.
@@ -1668,7 +1679,7 @@ const CONFIG = {
 </div>
 
 <div class="tip-box">
-  <div class="tip-label">dLight — GPCR-Based Dopamine Sensor</div>
+  <div class="tip-label">dLight: GPCR-Based Dopamine Sensor</div>
   <p style="margin: 0; line-height: 1.75;">
     Patriarchi T, Cho JR, Merten K, et al. Ultrafast neuronal imaging of
     dopamine dynamics with designed genetically encoded sensors.
@@ -1683,7 +1694,7 @@ const CONFIG = {
 </div>
 
 <div class="tip-box">
-  <div class="tip-label">Practical Protocol — Isosbestic Correction and Analysis</div>
+  <div class="tip-label">Practical Protocol: Isosbestic Correction and Analysis</div>
   <p style="margin: 0; line-height: 1.75;">
     Lerner TN, Shilyansky C, Davidson TJ, et al. Intact-brain analyses reveal
     distinct information carried by SNc dopamine subcircuits.
@@ -1703,7 +1714,7 @@ const CONFIG = {
 {
   type: "excerpt", slug: "evolutionary-origins-of-synapses",
   title: "Before the First Neuron: The Ancient Origins of the Synaptic Toolkit",
-  excerpt: "A landmark review traces synaptic proteins back hundreds of millions of years — long before neurons existed. What does this tell us about how the nervous system first evolved?",
+  excerpt: "A landmark review traces synaptic proteins back hundreds of millions of years, long before neurons existed. What does this tell us about how the nervous system first evolved?",
   date: "10 Jan, 2025", readTime: "7 min read", tag: "Literature Excerpt",
   imageUrl: "image-assets/posts/evolutionary-origins-of-synapses/synapse_anatomy.svg",
   emoji: "",
@@ -1872,7 +1883,7 @@ Burkhardt et al. (2023), <em>Science</em>: Syncytial nerve net in a ctenophore a
     <figure>
       <img
         src="image-assets/posts/evolutionary-origins-of-synapses/modular_assembly.svg"
-        alt="Table showing which synaptic protein modules — presynaptic, cleft adhesion, postsynaptic PSD — are present, partial, or absent in each animal lineage from choanoflagellates to cnidarians"
+        alt="Table showing which synaptic protein modules (presynaptic, cleft adhesion, postsynaptic PSD) are present, partial, or absent in each animal lineage from choanoflagellates to cnidarians"
       />
       <figcaption>Stepwise co-option of synaptic modules. Each row is a lineage; each column a functional module. The table makes visible the key asymmetry: the presynaptic secretory machinery is ancient and broadly conserved, while the cleft adhesion complex and postsynaptic scaffolding proteins are late arrivals, appearing fully assembled only in the cnidarian–bilaterian ancestor.</figcaption>
     </figure>
@@ -2022,7 +2033,7 @@ d<sub>eff</sub> ≈ λ / (2·NA · √(1 + I<sub>STED</sub>/I<sub>s</sub>))
 </figure>
 
 <div class="tip-box">
-  <div class="tip-label">Foundational Reference — STED</div>
+  <div class="tip-label">Foundational Reference: STED</div>
   <p style="margin:0;line-height:1.75;">
 Hell SW &amp; Wichmann J. Breaking the diffraction resolution limit by
   stimulated emission: stimulated-emission-depletion fluorescence microscopy.
@@ -2149,7 +2160,7 @@ Heilemann M, van de Linde S, Schüttpelz M, et al. Subdiffraction-resolution
 </div>
 
 <div class="tip-box">
-  <div class="tip-label">Practical Protocol — dSTORM</div>
+  <div class="tip-label">Practical Protocol: dSTORM</div>
   <p style="margin:0;line-height:1.75;">
 van de Linde S, Löschberger A, Klein T, et al. Direct stochastic optical
   reconstruction microscopy with standard fluorescent probes. <em>Nat Protoc.</em>
@@ -2234,7 +2245,7 @@ van de Linde S, Löschberger A, Klein T, et al. Direct stochastic optical
 </p>
 
 <div class="tip-box">
-  <div class="tip-label">Foundational Reference — DNA-PAINT</div>
+  <div class="tip-label">Foundational Reference: DNA-PAINT</div>
   <p style="margin:0;line-height:1.75;">
 Jungmann R, Steinhauer C, Scheible M, Kuzyk A, Tinnefeld P, Simmel FC.
   Single-molecule kinetics and super-resolution microscopy by fluorescence
@@ -2394,7 +2405,7 @@ A few years ago, we showed that most dopaminergic terminals in the striatum
 <figure style="margin:2.5rem 0; text-align:center;">
   <img
     src="image-assets/posts/dopamine-hub-synapses-cryo-et/Fig1.svg"
-    alt="Figure 1 from Lapios et al. 2025 — Cryo-CLEM workflow and representative
+    alt="Figure 1 from Lapios et al. 2025: Cryo-CLEM workflow and representative
          tomograms of GLU, DA and DHS synaptosomes"
     style="width:100%;max-width:860px;border-radius:10px;
            border:1px solid var(--border);display:inline-block;"
@@ -2402,7 +2413,7 @@ A few years ago, we showed that most dopaminergic terminals in the striatum
   <figcaption
     style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-dim);
            font-family:'JetBrains Mono',monospace;line-height:1.6;">
-    <strong>Fig. 1</strong> — Cryo-CLEM and cryo-ET of cortico-striatal and
+    <strong>Fig. 1:</strong> Cryo-CLEM and cryo-ET of cortico-striatal and
     dopaminergic synaptosomes.
     <strong>A–C</strong>: experimental strategy, from fluorescent mouse lines
     to plunge-freezing on EM grids.
@@ -2553,7 +2564,7 @@ Lapios P, Anger R, Paget-Blanc V, Marza E, Lučić V, Fronzes R, Herzog E &amp;
     + " Mass Spectrometry-Based Proteomics",
   excerpt: `
     Proteomics asks what proteins are present, in what quantity, and in what
-    state — across thousands of molecules simultaneously. Here is how the
+    state, across thousands of molecules simultaneously. Here is how the
     technology works, what the shift from DDA to DIA actually means, why
     the choice of software pipeline matters as much as the mass spectrometer,
     and what the last five years have changed for researchers who work with
@@ -4020,6 +4031,20 @@ Paget-Blanc V*, Pfeffer ME*, Pronot M*, Lapios P, Angelo MF, Walle R,
   arrives.
 </p>
 
+
+<figure class="post-figure">
+  <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/nanoscale-remodeling/fig2-storm-mglu5-dagla.png"
+       alt="STORM super-resolution images of mGlu5 and DAGLα localisations in iSPN spine heads across four behavioral groups, with bar graphs showing total localisation counts and nearest-neighbour distances"
+       loading="lazy" />
+  <figcaption>
+    <strong>Fig. 2 </strong> STORM super-resolution imaging of mGlu5 and DAGLα in cortico-iSPN spine heads.
+    Left panels: representative STORM localisation maps for each behavioral group (Sh, Sh ΔA-O, Ov, Ov ΔA-O).
+    Right panels: quantification of total mGlu5 localisation points (top) and nearest-neighbour mGlu5–DAGLα
+    distance (bottom). Only Sh ΔA-O mice show increased mGlu5 abundance and convergence to 91 nm.
+    Scale bar 200 nm. Adapted from Paget-Blanc, Zöldi, Cavaccini et al., bioRxiv 2025.
+  </figcaption>
+</figure>
+
 <h2>DAGLα Clusters and Concentrates</h2>
 
 <p>
@@ -4067,6 +4092,21 @@ Using dual-channel STORM, we measured the nearest-neighbour distance between
   remodelling.
 </p>
 
+
+<figure class="post-figure">
+  <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/nanoscale-remodeling/fig4-cb1r-presynaptic-storm.png"
+       alt="STORM imaging of CB1 cannabinoid receptors on VGLUT1-positive corticostriatal axon terminals, showing a fourfold increase in localisation point density in short-trained mice after the contingency shift"
+       loading="lazy" />
+  <figcaption>
+    <strong>Fig. 4 </strong> Presynaptic CB1R remodelling at cortico-iSPN boutons.
+    STORM localisation maps of CB1R on VGLUT1+ terminals (left) and quantification of CB1R
+    localisation points and cluster density (right) across behavioral groups.
+    CB1R abundance is nearly four times higher in Sh ΔA-O mice, coordinated with the
+    postsynaptic mGlu5/DAGLα changes. Scale bar 200 nm.
+    Adapted from Paget-Blanc, Zöldi, Cavaccini et al., bioRxiv 2025.
+  </figcaption>
+</figure>
+
 <blockquote>
   <p>
   Taken together, the three molecular changes, more mGlu5, closer DAGLα, more
@@ -4097,6 +4137,20 @@ Using dual-channel STORM, we measured the nearest-neighbour distance between
   range of performance, from the most inflexible overtrained animals to the
   most flexible short-trained ones.
 </p>
+
+
+<figure class="post-figure">
+  <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/nanoscale-remodeling/fig6-molecular-behavioral-correlations.png"
+       alt="Scatter plots correlating mGlu5 localisation points, DAGLα cluster number and density, and CB1R parameters in presynaptic boutons with the individual adaptive index across all animals"
+       loading="lazy" />
+  <figcaption>
+    <strong>Fig. 6 </strong> Nanoscale molecular parameters predict individual behavioral flexibility.
+    Each dot is one animal. mGlu5 localisation points (left), DAGLα cluster number (centre),
+    and CB1R localisation density (right) in cortico-iSPN synapses correlate with the adaptive
+    index across the full performance range, from the most rigid overtrained to the most flexible
+    short-trained mice. Adapted from Paget-Blanc, Zöldi, Cavaccini et al., bioRxiv 2025.
+  </figcaption>
+</figure>
 
 <h2>Aging: The Same Molecular Signature Separates Flexible from Rigid</h2>
 
@@ -4147,6 +4201,20 @@ Using dual-channel STORM, we measured the nearest-neighbour distance between
   remodelling is what becomes unreliable.
 </p>
 </div>
+
+
+<figure class="post-figure">
+  <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/nanoscale-remodeling/fig7-aging-adaptive-rigid.png"
+       alt="DAGLα and CB1R STORM quantification in one-year-old mice classified as Adaptive or Rigid after the contingency shift, compared with young short-trained mice"
+       loading="lazy" />
+  <figcaption>
+    <strong>Fig. 7 </strong> Aging increases the probability of plasticity failure, not its inevitability.
+    Aged mice classified as Adaptive show DAGLα and CB1R upregulation at cortico-iSPN synapses
+    indistinguishable from young flexible animals. Aged Rigid mice show reductions comparable to
+    young overtrained animals. Baseline levels are identical between young and aged groups before
+    the contingency shift. Adapted from Paget-Blanc, Zöldi, Cavaccini et al., bioRxiv 2025.
+  </figcaption>
+</figure>
 
 <h2>Retrograde Plasticity Follows the Same Rules as Anterograde</h2>
 
@@ -4282,13 +4350,27 @@ Paget-Blanc V*, Zöldi M*, Cavaccini A*, Miczán V, Dudok B, Katona I &amp;
   candidate.
 </p>
 
-<h2>mGluR5 Is Engaged During Early Training — and Exhausted After Overtraining</h2>
+
+<figure class="post-figure">
+  <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/mglur5-inflexibility/fig1-behavioral-paradigm.png"
+       alt="Diagram of the instrumental conditioning and reward omission paradigm: short training (9 sessions) versus overtraining (23 sessions), followed by a reward omission test session in the same operant chamber"
+       loading="lazy" />
+  <figcaption>
+    <strong>Fig. 1 </strong> Behavioral paradigm. Mice underwent either short (9 sessions) or overtraining
+    (23 sessions) of an appetitive nose-poke task, then faced a contingency shift session in which
+    the active nose-poke no longer delivered reward. Short-trained mice suppressed responding and
+    earned more food; overtrained mice continued to nose-poke habitually.
+    Adapted from Paget-Blanc, Cavaccini et al., PLOS Biology 2025.
+  </figcaption>
+</figure>
+
+<h2>mGluR5 Is Engaged During Early Training, and Exhausted After Overtraining</h2>
 
 <p>
   Our first experiments confirmed that mGluR5 is actively recruited when mice
   are learning to nose-poke for food rewards. An additional training session
-  above the baseline schedule boosted phosphorylation of Akt — a downstream
-  effector of mGluR1/5 signalling — in the DLS, and this effect was abolished
+  above the baseline schedule boosted phosphorylation of Akt (a downstream
+  effector of mGluR1/5 signalling) in the DLS, and this effect was abolished
   by local infusion of the mGluR5 antagonist MPEP. The receptor was being
   used.
 </p>
@@ -4304,10 +4386,24 @@ Paget-Blanc V*, Zöldi M*, Cavaccini A*, Miczán V, Dudok B, Katona I &amp;
   had not broken mGluR5 at baseline.
 </p>
 
+
+<figure class="post-figure">
+  <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/mglur5-inflexibility/fig3-akt-phosphorylation-dls.png"
+       alt="Western blot and quantification of phospho-Akt levels in the dorsolateral striatum after the contingency shift in short-trained versus overtrained mice, with and without MPEP infusion"
+       loading="lazy" />
+  <figcaption>
+    <strong>Fig. 3 </strong> mGluR5-dependent Akt phosphorylation in the DLS after the contingency shift.
+    Short-trained mice show a significant increase in phospho-Akt in the DLS following reward omission,
+    blocked by local MPEP infusion. Overtrained mice show no such increase, revealing a selective failure
+    of mGluR5 signalling capacity in response to changed contingencies.
+    Adapted from Paget-Blanc, Cavaccini et al., PLOS Biology 2025.
+  </figcaption>
+</figure>
+
 <blockquote>
   <p>
-  The damage was contextual. When we shifted the contingency — rewarding mice
-  for withholding the trained nose-poke rather than performing it — short-
+  The damage was contextual. When we shifted the contingency, rewarding mice
+  for withholding the trained nose-poke rather than performing it, short-
   trained mice showed a surge of mGluR5-dependent Akt phosphorylation in the
   DLS. Overtrained mice showed nothing. Their mGluR5 had become specifically
   unable to respond to a change in the rules.
@@ -4318,7 +4414,7 @@ Paget-Blanc V*, Zöldi M*, Cavaccini A*, Miczán V, Dudok B, Katona I &amp;
   This was not a general reduction in mGluR5 expression or function. It was a
   selective loss of signalling capacity in response to novelty. The same
   contingency shift that drove molecular adaptation in flexible animals
-  produced silence in habitual ones — and the effect was anatomically specific
+  produced silence in habitual ones, and the effect was anatomically specific
   to the DLS; the adjacent dorsomedial striatum was unaffected.
 </p>
 
@@ -4337,7 +4433,7 @@ Paget-Blanc V*, Zöldi M*, Cavaccini A*, Miczán V, Dudok B, Katona I &amp;
 <p>
   What we did not expect was what happened in dSPNs, the direct-pathway
   neurons. In naive and short-trained animals, the same plasticity protocol
-  fails to induce t-LTD at cortico-dSPN synapses — a well-established
+  fails to induce t-LTD at cortico-dSPN synapses, a well-established
   asymmetry that reflects the tonically active mGluR5–CaMKII–GluN2B signalling
   cascade, which normally counteracts endocannabinoid synthesis in this cell
   type. In overtrained mice after the contingency shift, however, a robust
@@ -4358,13 +4454,39 @@ The dichotomy is precise and causally linked. In overtrained mice facing a
 </p>
 </div>
 
+
+<figure class="post-figure-row">
+  <figure class="post-figure">
+    <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/mglur5-inflexibility/fig4a-ispn-ltd-lost.png"
+         alt="Electrophysiology traces and quantification showing loss of timing-dependent LTD at cortico-iSPN synapses in overtrained mice after the contingency shift"
+         loading="lazy" />
+    <figcaption>
+      <strong>Fig. 4a </strong> t-LTD at cortico-iSPN synapses is lost in overtrained mice.
+      Corticostriatal EPSP amplitudes before (white) and after (grey) the plasticity induction protocol
+      in iSPNs. The ~45% depression seen in short-trained mice is absent in all overtrained groups.
+      Adapted from Paget-Blanc, Cavaccini et al., PLOS Biology 2025.
+    </figcaption>
+  </figure>
+  <figure class="post-figure">
+    <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/mglur5-inflexibility/fig4b-dspn-ltd-gained.png"
+         alt="Electrophysiology traces and quantification showing emergence of eCB-dependent LTD at cortico-dSPN synapses exclusively in overtrained mice after the contingency shift"
+         loading="lazy" />
+    <figcaption>
+      <strong>Fig. 4b </strong> t-LTD at cortico-dSPN synapses is unlocked in overtrained mice.
+      A robust CB1R-dependent depression of corticostriatal EPSPs appears specifically in dSPNs of
+      overtrained mice after the contingency shift, absent in all other groups. One receptor state,
+      two opposing synaptic phenotypes. Adapted from Paget-Blanc, Cavaccini et al., PLOS Biology 2025.
+    </figcaption>
+  </figure>
+</figure>
+
 <h2>A Homotypic Rescue: Blocking mGluR5 Late Preserves Flexibility</h2>
 
 <p>
   If accumulated overstimulation of mGluR5 during repeated training
-  progressively depletes its signalling capacity — through feedback
-  desensitisation, PKC-mediated internalisation, or Homer scaffold disruption
-  — then transiently blocking mGluR5 during the late phase of training should
+  progressively depletes its signalling capacity (through feedback
+  desensitisation, PKC-mediated internalisation, or Homer scaffold disruption)
+  then transiently blocking mGluR5 during the late phase of training should
   prevent that depletion and preserve behavioral sensitivity to contingency
   changes. We tested this by locally infusing MPEP into the DLS during
   sessions 12, 14, and 16 of the training schedule.
@@ -4375,7 +4497,7 @@ The dichotomy is precise and causally linked. In overtrained mice facing a
   itself. But when overtrained mice were subsequently tested in the omission
   procedure, those that had received MPEP during late training suppressed
   their nose-poking in response to the contingency reversal, just like short-
-  trained, goal-directed mice — and received significantly more food as a
+  trained, goal-directed mice, and received significantly more food as a
   result. Vehicle-treated overtrained animals continued to nose-poke as if
   nothing had changed. MPEP also rescued Akt phosphorylation, restored t-LTD
   at cortico-iSPN synapses, and prevented the aberrant t-LTD at cortico-dSPN
@@ -4384,7 +4506,7 @@ The dichotomy is precise and causally linked. In overtrained mice facing a
 </p>
 
 <p>
-  Notably, MPEP did not rescue sensitivity to outcome devaluation — a separate
+  Notably, MPEP did not rescue sensitivity to outcome devaluation, a separate
   test of goal-directed control that depends on the incentive value of the
   reward rather than the action–outcome contingency. This dissociation
   suggests that mGluR5 desensitisation specifically mediates the inability to
@@ -4393,11 +4515,26 @@ The dichotomy is precise and causally linked. In overtrained mice facing a
   molecular substrates.
 </p>
 
+
+<figure class="post-figure">
+  <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/mglur5-inflexibility/fig5-mpep-rescue.png"
+       alt="Behavioral data showing that local DLS infusion of MPEP during late overtraining sessions restores contingency sensitivity in the omission test, with accompanying Akt phosphorylation and electrophysiology data confirming synaptic rescue"
+       loading="lazy" />
+  <figcaption>
+    <strong>Fig. 5 </strong> Blocking mGluR5 during late overtraining rescues flexibility.
+    MPEP infused into the DLS at sessions 12, 14 and 16 had no effect on training performance,
+    but fully restored contingency sensitivity during the omission test (left), Akt phosphorylation
+    in the DLS (centre), and the normal t-LTD pattern at cortico-iSPN synapses (right).
+    Vehicle-treated overtrained controls showed no such recovery.
+    Adapted from Paget-Blanc, Cavaccini et al., PLOS Biology 2025.
+  </figcaption>
+</figure>
+
 <h2>Different Pathways in Different Neurons: CaMKII Gatekeeps dSPN Plasticity</h2>
 
 <p>
-  Understanding why dSPNs normally resist eCB-dependent t-LTD — and why this
-  resistance collapses after overtraining — required probing the intracellular
+  Understanding why dSPNs normally resist eCB-dependent t-LTD, and why this
+  resistance collapses after overtraining, required probing the intracellular
   logic of mGluR5 signalling in this cell type. We found that mGluR5, when
   active, constitutively couples to CaMKII in dSPNs. This activated CaMKII
   phosphorylates GluN2B-containing NMDA receptors, increasing their surface
@@ -4409,7 +4546,7 @@ The dichotomy is precise and causally linked. In overtrained mice facing a
 
 <p>
   When we simultaneously blocked mGluR5 and GluN2B in naive animals during the
-  plasticity induction protocol, t-LTD appeared at cortico-dSPN synapses — and
+  plasticity induction protocol, t-LTD appeared at cortico-dSPN synapses; and
   was blocked by CB1R antagonism, confirming its eCB dependence. Inhibiting
   CaMKII alone was sufficient to gate the same plasticity. This showed that
   CaMKII is the key gate, and mGluR5 holds it closed.
@@ -4418,7 +4555,7 @@ The dichotomy is precise and causally linked. In overtrained mice facing a
 <p>
   After overtraining followed by a contingency shift, GluN2B protein was
   reduced in the DLS, and the Ro-sensitive component of NMDA currents at dSPN
-  synapses was smaller — confirming reduced GluN2B at the membrane.
+  synapses was smaller, confirming reduced GluN2B at the membrane.
   Phosphorylation of GluN2B at Tyr1472, which normally prevents endocytosis,
   was decreased in the same condition, suggesting that reduced CaMKII activity
   (secondary to mGluR5 desensitisation) promotes GluN2B internalisation,
@@ -4445,15 +4582,15 @@ The dichotomy is precise and causally linked. In overtrained mice facing a
   In animal models of obsessive-compulsive disorder, Fragile-X syndrome, and
   autism spectrum disorders, striatal mGluR5 is hyperactive and the
   mGluR5–Homer scaffold is disrupted. The finding that pathological
-  overactivation of mGluR5 — whether caused by compulsive repetition or by
-  molecular disease mechanisms — converges on the same deficit in signalling
+  overactivation of mGluR5, whether caused by compulsive repetition or by
+  molecular disease mechanisms, converges on the same deficit in signalling
   capacity provides a mechanistic framework for understanding why mGluR5
   antagonists can reduce repetitive behaviors in these models.
 </p>
 
 <p>
   It also suggests a potentially important temporal constraint. The rescue we
-  achieved required intervening during the late phase of training — not
+  achieved required intervening during the late phase of training, but not
   before, and not after the habit had fully consolidated. If mGluR5
   desensitisation is the molecular event that tips the balance from flexible
   to inflexible control, there may be a window during which the transition is
@@ -4465,13 +4602,13 @@ The dichotomy is precise and causally linked. In overtrained mice facing a
   There is, however, a companion question that this study leaves open: if
   desensitisation tells us what fails in inflexibility, what does successful
   flexibility actually look like at the molecular level? We pursued that
-  question in a follow-up study using STORM super-resolution imaging — and the
+  question in a follow-up study using STORM super-resolution imaging, and the
   answer is strikingly concrete. At the moment a mouse updates its behavior in
   response to a contingency change, the mGlu5 receptor, its downstream
   endocannabinoid-synthesising enzyme DAGLα, and the presynaptic CB1 receptor
   all increase in abundance at cortico-iSPN synapses in the DLS. More
   importantly, the nanoscale distance between mGlu5 and DAGLα drops from
-  roughly 150 nm to 91 nm — a structural reconfiguration that precisely
+  roughly 150 nm to 91 nm, a structural reconfiguration that precisely
   mirrors what is known about the molecular basis of LTD failure in Fragile X
   syndrome. That story is told in the next post.
 </p>
@@ -4626,21 +4763,21 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
   timeline: {
     positions: [
     {
-        period: "November 2025 — Today",
+        period: "November 2025 – Today",
         title: "Postdoctoral researcher",
         institution: "Laboratory 'Nutrineuro', INRAE UMR1286, France",
         description: "Preclinical study on the role of mesocorticolimbic dopamine transmission in reward processing, using a SynCAM 2 conditional knockout model. Methods: Pavlovian conditioning, stereotaxic surgeries, operant behavior, in-vivo fiber photometry.",
         type: "position"
       },
       {
-        period: "June 2020 — June 2025",
+        period: "June 2020 – June 2025",
         title: "Postdoctoral researcher",
         institution: "Laboratory 'Membrane trafficking at synapses', CNRS UMR5297, France",
-        description: "Study of dopaminergic synapses, revealing a novel multi-synaptic structure—dopamine hub synapses—including their proteomes, microscopic/nanoscopic organization, and roles in physiology and pathophysiology. Methods: flow cytometry, subcellular fractionation, stereotaxic surgeries, synaptic tagging, neuronal tracing, proteomic data analysis, conditional knock-out, immuno-fluorescence, in-situ confocal microscopy, in-situ STED nanoscopy, ImageJ macro development, and Python programming.",
+        description: "Study of dopaminergic synapses, revealing a novel multi-synaptic structure, dopamine hub synapses, including their proteomes, microscopic/nanoscopic organization, and roles in physiology and pathophysiology. Methods: flow cytometry, subcellular fractionation, stereotaxic surgeries, synaptic tagging, neuronal tracing, proteomic data analysis, conditional knock-out, immuno-fluorescence, in-situ confocal microscopy, in-situ STED nanoscopy, ImageJ macro development, and Python programming.",
         type: "position"
       },
       {
-        period: "March 2018 — September 2019",
+        period: "March 2018 – September 2019",
         title: "Postdoctoral researcher",
         institution: "Istituto Italiano di Tecnologia, Laboratory 'Neuromodulation of Cortical and Subcortical Circuits', Italy",
         description: "Extension of Ph.D. research and collaborative work investigating the role of non coding genome in regulating automated actions. Method: biochemistry, behavioral paradigms (i.e., instrumental conditioning, contingency degradation, outcome devaluation), and in-vivo region-specific pharmacological interventions.",
@@ -4656,21 +4793,21 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
     ],
     education: [
       {
-        period: "2014 — 2018",
+        period: "2014 – 2018",
         title: "PhD in Neuroscience",
         institution: "Università degli Studi di Genova, Italy",
         description: "Thesis: 'Investigating the molecular basis of the shift from goal-directed to habitual behavior'. Supervised by Dr. Raffaella Tonini.",
         type: "education",
       },
       {
-        period: "2011 — 2013",
+        period: "2011 – 2013",
         title: "MSc in Neuroscience",
         institution: "University of Bordeaux, France",
         description: " Specialisation in neurosciences and neuropsychopharmacology.",
         type: "education",
       },
       {
-        period: "2009 — 2011",
+        period: "2009 – 2011",
         title: "BSc in Biology",
         institution: "University of Bordeaux, France",
         description: "Major in neuroscience. Specialisation in cell biology and physiology",
@@ -4679,7 +4816,7 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
     ],
      grants: [
       {
-        period: "... — ...",
+        period: "... – ...",
         title: "",
         institution: "",
         description: "€... . ...",
@@ -4714,14 +4851,15 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
   /* ── Collaboration / Contact ── */
   inquiries: {
     label:    "Work With Me",
-    title:    "Let's Collaborate",
-    subtitle: "Open to research collaborations, invited talks, media appearances, science communication projects and any other enquiries you might have. I typically respond within 48 hours.",
+    title:    "Let's Chat",
+    subtitle: "Open to Associate Professor positions and research roles, collaborations, invited talks, media appearances, science communication projects and any other enquiries you might have. I typically respond within 48 hours.",
     details: [
-      { icon: "<img src='image-assets/icons/ui/icon-location.svg' class='icon-img' alt=''>", text: "Based in France — collaborating globally" },
+      { icon: "<img src='image-assets/icons/ui/icon-location.svg' class='icon-img' alt=''>", text: "Currently based in France" },
       { icon: "<img src='image-assets/icons/ui/icon-microscope.svg' class='icon-img' alt=''>", text: "Collaboration · Enquiry · Invited Talks · Media" },
     ],
     projectTypes: [
-      "Research Collaboration",
+    "Research Position",
+    "Research Collaboration",
       "Invited Talk / Keynote",
       "Media / Science Communication",
       "Funding / Grant Partnership",
@@ -4761,10 +4899,10 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
     },
   ],
 
-  /* ── GitHub — gallery image loading ── */
+  /* ── GitHub: gallery image loading ── */
   github: {
-    owner: "your-username",
-    repo: "your-repo",
+    owner: "VincentPaget-Blanc",
+    repo: "NeuroInSight",
     branch: "main",
     imagesFolder: "galleries",
   },
@@ -4974,7 +5112,7 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
   <div class="form-row">
     <div class="form-field">
       <label>Your Name</label>
-      <input type="text" name="name" placeholder="Dr. Alex Kim" required />
+      <input type="text" name="name" placeholder="Dr. J" required />
     </div>
     <div class="form-field">
       <label>Email</label>
@@ -4990,7 +5128,7 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
   </div>
           <div class="form-field">
             <label>Tell me about your project</label>
-            <textarea placeholder="A brief description — your research group, the collaboration idea, or the talk topic you have in mind…" required></textarea>
+            <textarea placeholder="A brief description of your research group, the collaboration idea, or the talk topic you have in mind…" required></textarea>
           </div>
           <button class="btn" type="submit" id="inquiry-submit-btn" style="align-self:flex-start;">Send Enquiry →</button>
         </form>
@@ -5235,7 +5373,7 @@ CONFIG.featuredGalleries.forEach(slug=>{
 });
 
 /* ══════════════════════════════════════════════════
-   PUBLICATIONS — featured strip (homepage)
+   PUBLICATIONS: featured strip (homepage)
 ══════════════════════════════════════════════════ */
 function pubTypeBadge(type){
   return `<span class="pub-type-badge ${type.toLowerCase()}">${type}</span>`;
@@ -5274,7 +5412,7 @@ CONFIG.publications.filter(p=>p.featured).forEach(pub=>{
 });
 
 /* ══════════════════════════════════════════════════
-   CV TIMELINE — homepage section
+   CV TIMELINE: homepage section
 ══════════════════════════════════════════════════ */
 function renderCVTab(tabName){
   const content=el('cv-content');
@@ -5346,7 +5484,7 @@ async function handleInquiry(e) {
       throw new Error(json.message);
     }
   } catch {
-    btn.textContent = '✗ Failed — try again';
+    btn.textContent = '✗ Failed, try again';
     btn.style.background = '#ef4444';
     setTimeout(() => {
       btn.textContent = originalText;
@@ -5490,7 +5628,7 @@ function renderPublicationsArchive(){
   const hdr=make('div','archive-header');
   const lbl=make('div');lbl.className='section-label';lbl.textContent='Research Output';hdr.appendChild(lbl);
   const title=make('h1','archive-title');title.textContent='Publications';hdr.appendChild(title);
-  const sub=make('p','archive-sub');sub.textContent='Peer-reviewed articles, reviews, preprints, and book chapters — complete list.';hdr.appendChild(sub);
+  const sub=make('p','archive-sub');sub.textContent='Peer-reviewed articles, reviews, preprints, and book chapters, complete list.';hdr.appendChild(sub);
   const cnt=make('div','archive-count');cnt.textContent=CONFIG.publications.length+' publications';hdr.appendChild(cnt);
   wrap.appendChild(hdr);
 
@@ -5635,7 +5773,7 @@ function renderGalleriesArchive(){
   const hdr=make('div','archive-header');
   const lbl=make('div');lbl.className='section-label';lbl.textContent='Lab & Conference';hdr.appendChild(lbl);
   const title=make('h1','archive-title');title.textContent='All Galleries';hdr.appendChild(title);
-  const sub=make('p','archive-sub');sub.textContent='Microscopy, conferences, lab life — every photo series and image collection.';hdr.appendChild(sub);
+  const sub=make('p','archive-sub');sub.textContent='Microscopy, conferences, lab life: every photo series and image collection.';hdr.appendChild(sub);
   const cnt=make('div','archive-count');cnt.textContent=allG.length+' galleries';hdr.appendChild(cnt);
   wrap.appendChild(hdr);
   const grid=make('div','archive-galleries-grid');
@@ -5659,14 +5797,14 @@ function renderGalleriesArchive(){
 }
 
 function renderJournalArchive(){
-  el('detail-breadcrumb').textContent='Research — All Posts';
+  el('detail-breadcrumb').textContent='Research: All Posts';
   el('detail-back-btn').onclick=()=>{location.hash='home';};
   const dc=el('detail-content');dc.innerHTML='';
   const wrap=make('div','container');
   const hdr=make('div','archive-header');
   const lbl=make('div');lbl.className='section-label';lbl.textContent='Research Blog';hdr.appendChild(lbl);
   const title=make('h1','archive-title');title.textContent='All Posts';hdr.appendChild(title);
-  const sub=make('p','archive-sub');sub.textContent='Every article and gallery — sorted newest first.';hdr.appendChild(sub);
+  const sub=make('p','archive-sub');sub.textContent='Every article and gallery, sorted newest first.';hdr.appendChild(sub);
   const cnt=make('div','archive-count');cnt.textContent=CONFIG.posts.length+' entries';hdr.appendChild(cnt);
   const filters=make('div','archive-filters');
   const types=[
