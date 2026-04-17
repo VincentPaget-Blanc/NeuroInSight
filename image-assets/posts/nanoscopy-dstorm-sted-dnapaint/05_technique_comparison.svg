@@ -64,17 +64,17 @@
      ════════════════════════════════ -->
 
 <!-- STED header -->
-<rect x="230" y="32" width="138" height="40" rx="5" class="sted-box" stroke-width="1"/>
+<rect x="222.63" y="32" width="152.74" height="40" rx="5" class="sted-box" stroke-width="1"></rect>
 <text class="lbl sted-hd" x="299" y="50" text-anchor="middle">STED</text>
 <text class="sub sted-val" x="299" y="64" text-anchor="middle">stimulated emission depletion</text>
 
 <!-- dSTORM header -->
-<rect x="380" y="32" width="138" height="40" rx="5" class="storm-box" stroke-width="1"/>
+<rect x="380" y="32" width="138" height="40" rx="5" class="storm-box" stroke-width="1"></rect>
 <text class="lbl storm-hd" x="449" y="50" text-anchor="middle">dSTORM</text>
 <text class="sub storm-val" x="449" y="64" text-anchor="middle">stochastic localisation</text>
 
 <!-- DNA-PAINT header -->
-<rect x="530" y="32" width="138" height="40" rx="5" class="paint-box" stroke-width="1"/>
+<rect x="530" y="32" width="138" height="40" rx="5" class="paint-box" stroke-width="1"></rect>
 <text class="lbl paint-hd" x="599" y="50" text-anchor="middle">DNA-PAINT</text>
 <text class="sub paint-val" x="599" y="64" text-anchor="middle">transient binding</text>
 
@@ -82,91 +82,91 @@
      COMPARISON TABLE  y=82–380
      Col widths: Feature=200, each technique=150
      ════════════════════════════════ -->
-<rect x="20" y="80" width="640" height="296" rx="6" class="sum-box" stroke-width="0.5"/>
+<rect x="20" y="80" width="640" height="296" rx="6" class="sum-box" stroke-width="0.5"></rect>
 
 <!-- Column dividers -->
-<line x1="220" y1="80" x2="220" y2="376" class="divider" stroke-width="0.5"/>
-<line x1="370" y1="80" x2="370" y2="376" class="divider" stroke-width="0.5"/>
-<line x1="520" y1="80" x2="520" y2="376" class="divider" stroke-width="0.5"/>
+<line x1="220" y1="80" x2="220" y2="376" class="divider" stroke-width="0.5"></line>
+<line x1="370" y1="80" x2="370" y2="376" class="divider" stroke-width="0.5"></line>
+<line x1="520" y1="80" x2="520" y2="376" class="divider" stroke-width="0.5"></line>
 
 <!-- Header row -->
-<text class="lbl sum-hd"  x="120" y="100" text-anchor="middle">Property</text>
+<text class="lbl sum-hd" x="120" y="100" text-anchor="middle">Property</text>
 <text class="lbl sted-hd" x="295" y="100" text-anchor="middle">STED</text>
 <text class="lbl storm-hd" x="445" y="100" text-anchor="middle">dSTORM</text>
 <text class="lbl paint-hd" x="595" y="100" text-anchor="middle">DNA-PAINT</text>
-<line x1="20" y1="106" x2="660" y2="106" class="divider" stroke-width="1"/>
+<line x1="20" y1="106" x2="660" y2="106" class="divider" stroke-width="1"></line>
 
 <!-- Row 1: Principle -->
-<rect x="20"  y="107" width="640" height="28" class="row-alt" stroke-width="0"/>
-<text class="sub sub-lbl"  x="120" y="125" text-anchor="middle">Working principle</text>
-<text class="sub sted-val" x="295" y="122" text-anchor="middle">shrink emission</text>
-<text class="sub sted-val" x="295" y="134" text-anchor="middle">volume physically</text>
-<text class="sub storm-val" x="445" y="122" text-anchor="middle">photoswitching of</text>
-<text class="sub storm-val" x="445" y="134" text-anchor="middle">covalent dye</text>
-<text class="sub paint-val" x="595" y="122" text-anchor="middle">reversible DNA</text>
-<text class="sub paint-val" x="595" y="134" text-anchor="middle">hybridisation</text>
-<line x1="20" y1="135" x2="660" y2="135" class="divider" stroke-width="0.5"/>
+<rect x="20" y="107" width="640" height="28" class="row-alt" stroke-width="0"></rect>
+<text class="sub sub-lbl" x="120" y="125" text-anchor="middle">Working principle</text>
+<text class="sub sted-val" x="295" y="118" text-anchor="middle">shrink emission</text>
+<text class="sub sted-val" x="295" y="130" text-anchor="middle">volume physically</text>
+<text class="sub storm-val" x="445" y="118" text-anchor="middle">photoswitching of</text>
+<text class="sub storm-val" x="445" y="130" text-anchor="middle">covalent dye</text>
+<text class="sub paint-val" x="595" y="118" text-anchor="middle">reversible DNA</text>
+<text class="sub paint-val" x="595" y="130" text-anchor="middle">hybridisation</text>
+<line x1="20" y1="135" x2="660" y2="135" class="divider" stroke-width="0.5"></line>
 
 <!-- Row 2: Resolution -->
-<text class="sub sub-lbl"  x="120" y="153" text-anchor="middle">Lateral resolution</text>
+<text class="sub sub-lbl" x="120" y="153" text-anchor="middle">Lateral resolution</text>
 <text class="mono sted-val" x="295" y="153" text-anchor="middle">20–80 nm</text>
 <text class="mono storm-val" x="445" y="153" text-anchor="middle">20–50 nm</text>
 <text class="mono paint-val" x="595" y="153" text-anchor="middle">10–20 nm</text>
-<line x1="20" y1="163" x2="660" y2="163" class="divider" stroke-width="0.5"/>
+<line x1="20" y1="163" x2="660" y2="163" class="divider" stroke-width="0.5"></line>
 
 <!-- Row 3: Live cell -->
-<rect x="20" y="163" width="640" height="28" class="row-alt" stroke-width="0"/>
+<rect x="20" y="163" width="640" height="28" class="row-alt" stroke-width="0"></rect>
 <text class="sub sub-lbl" x="120" y="181" text-anchor="middle">Live-cell imaging</text>
 <!-- circle indicators: green=good, amber=ok, red=limited -->
-<circle cx="295" cy="177" r="7" class="good"/>
+<circle cx="295" cy="177" r="7" class="good"></circle>
 <text class="sub sum-hd" x="295" y="181" text-anchor="middle" font-size="9">✓</text>
-<circle cx="445" cy="177" r="7" class="bad"/>
+<circle cx="445" cy="177" r="7" class="bad"></circle>
 <text class="sub sum-hd" x="445" y="181" text-anchor="middle" font-size="9">✗</text>
-<circle cx="595" cy="177" r="7" class="bad"/>
+<circle cx="595" cy="177" r="7" class="bad"></circle>
 <text class="sub sum-hd" x="595" y="181" text-anchor="middle" font-size="9">✗</text>
-<line x1="20" y1="191" x2="660" y2="191" class="divider" stroke-width="0.5"/>
+<line x1="20" y1="191" x2="660" y2="191" class="divider" stroke-width="0.5"></line>
 
 <!-- Row 4: Image formation -->
-<text class="sub sub-lbl"  x="120" y="209" text-anchor="middle">Image formation</text>
+<text class="sub sub-lbl" x="120" y="209" text-anchor="middle">Image formation</text>
 <text class="sub sted-val" x="295" y="206" text-anchor="middle">direct (scanning)</text>
 <text class="sub sted-val" x="295" y="218" text-anchor="middle">no reconstruction</text>
 <text class="sub storm-val" x="445" y="206" text-anchor="middle">computational</text>
 <text class="sub storm-val" x="445" y="218" text-anchor="middle">reconstruction</text>
 <text class="sub paint-val" x="595" y="206" text-anchor="middle">computational</text>
 <text class="sub paint-val" x="595" y="218" text-anchor="middle">reconstruction</text>
-<line x1="20" y1="225" x2="660" y2="225" class="divider" stroke-width="0.5"/>
+<line x1="20" y1="225" x2="660" y2="225" class="divider" stroke-width="0.5"></line>
 
 <!-- Row 5: Multiplexing -->
-<rect x="20" y="225" width="640" height="28" class="row-alt" stroke-width="0"/>
-<text class="sub sub-lbl"  x="120" y="243" text-anchor="middle">Multiplexing</text>
+<rect x="20" y="225" width="640" height="28" class="row-alt" stroke-width="0"></rect>
+<text class="sub sub-lbl" x="120" y="243" text-anchor="middle">Multiplexing</text>
 <text class="sub sted-val" x="295" y="239" text-anchor="middle">2–4 colours</text>
 <text class="sub sted-val" x="295" y="251" text-anchor="middle">(spectral)</text>
 <text class="sub storm-val" x="445" y="239" text-anchor="middle">2–4 colours</text>
 <text class="sub storm-val" x="445" y="251" text-anchor="middle">(spectral)</text>
 <text class="sub paint-val" x="595" y="239" text-anchor="middle">unlimited</text>
 <text class="sub paint-val" x="595" y="251" text-anchor="middle">(Exchange-PAINT)</text>
-<line x1="20" y1="253" x2="660" y2="253" class="divider" stroke-width="0.5"/>
+<line x1="20" y1="253" x2="660" y2="253" class="divider" stroke-width="0.5"></line>
 
 <!-- Row 6: Quantification -->
-<text class="sub sub-lbl"  x="120" y="271" text-anchor="middle">Molecule counting</text>
+<text class="sub sub-lbl" x="120" y="271" text-anchor="middle">Molecule counting</text>
 <text class="sub sted-val" x="295" y="267" text-anchor="middle">not directly</text>
 <text class="sub sted-val" x="295" y="279" text-anchor="middle">accessible</text>
 <text class="sub storm-val" x="445" y="267" text-anchor="middle">difficult</text>
 <text class="sub storm-val" x="445" y="279" text-anchor="middle">(variable blink #)</text>
 <text class="sub paint-val" x="595" y="267" text-anchor="middle">qPAINT: absolute</text>
 <text class="sub paint-val" x="595" y="279" text-anchor="middle">stoichiometry</text>
-<line x1="20" y1="281" x2="660" y2="281" class="divider" stroke-width="0.5"/>
+<line x1="20" y1="281" x2="660" y2="281" class="divider" stroke-width="0.5"></line>
 
 <!-- Row 7: Key limitation -->
-<rect x="20" y="281" width="640" height="28" class="row-alt" stroke-width="0"/>
-<text class="sub sub-lbl"  x="120" y="299" text-anchor="middle">Key limitation</text>
+<rect x="20" y="281" width="640" height="28" class="row-alt" stroke-width="0"></rect>
+<text class="sub sub-lbl" x="120" y="299" text-anchor="middle">Key limitation</text>
 <text class="sub sted-val" x="295" y="295" text-anchor="middle">phototoxicity</text>
 <text class="sub sted-val" x="295" y="307" text-anchor="middle">(high STED intensity)</text>
 <text class="sub storm-val" x="445" y="295" text-anchor="middle">slow acquisition</text>
 <text class="sub storm-val" x="445" y="307" text-anchor="middle">(fixed samples)</text>
 <text class="sub paint-val" x="595" y="295" text-anchor="middle">low throughput</text>
 <text class="sub paint-val" x="595" y="307" text-anchor="middle">(sequential rounds)</text>
-<line x1="20" y1="309" x2="660" y2="309" class="divider" stroke-width="0.5"/>
+<line x1="20" y1="309" x2="660" y2="309" class="divider" stroke-width="0.5"></line>
 
 <!-- Row 8: Best use -->
 <text class="sub sub-lbl" x="120" y="327" text-anchor="middle">Best for</text>
@@ -176,10 +176,10 @@
 <text class="sub storm-val" x="445" y="335" text-anchor="middle">antibody labelling</text>
 <text class="sub paint-val" x="595" y="323" text-anchor="middle">quantification &amp;</text>
 <text class="sub paint-val" x="595" y="335" text-anchor="middle">high multiplexing</text>
-<line x1="20" y1="341" x2="660" y2="341" class="divider" stroke-width="0.5"/>
+<line x1="20" y1="341" x2="660" y2="341" class="divider" stroke-width="0.5"></line>
 
 <!-- Row 9: Fluorophore -->
-<rect x="20" y="341" width="640" height="28" class="row-alt" stroke-width="0"/>
+<rect x="20" y="341" width="640" height="28" class="row-alt" stroke-width="0"></rect>
 <text class="sub sub-lbl" x="120" y="359" text-anchor="middle">Preferred labels</text>
 <text class="sub sted-val" x="295" y="355" text-anchor="middle">rsEGFP2, SNAP/</text>
 <text class="sub sted-val" x="295" y="367" text-anchor="middle">Halo-tag organic dyes</text>
@@ -191,18 +191,18 @@
 <!-- ══════════════════════════════════
      Resolution scale strip  y=385–415
      ════════════════════════════════ -->
-<rect x="20" y="385" width="640" height="30" rx="4" class="sum-box" stroke-width="0.5"/>
+<rect x="20" y="380.98" width="640" height="34.02" rx="4" class="sum-box" stroke-width="0.5"></rect>
 <text class="sub sub-lbl" x="34" y="405" text-anchor="start">Lateral resolution:</text>
 <!-- Confocal bar (longest, grey) -->
-<line x1="160" y1="397" x2="480" y2="397" class="divider" stroke-width="3" stroke-linecap="round"/>
+<line x1="160" y1="397" x2="480" y2="397" class="divider" stroke-width="3" stroke-linecap="round"></line>
 <text class="sub sub-lbl" x="320" y="393" text-anchor="middle">Confocal ~200 nm</text>
 <!-- STED bar -->
-<line x1="160" y1="406" x2="230" y2="406" class="sted-hd" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="160" y1="406" x2="230" y2="406" class="sted-hd" stroke-width="2.5" stroke-linecap="round"></line>
 <text class="sub sted-val" x="195" y="413" text-anchor="middle">STED 20–80</text>
 <!-- dSTORM bar -->
-<line x1="160" y1="406" x2="220" y2="406" class="storm-hd" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+<line x1="160" y1="406" x2="220" y2="406" class="storm-hd" stroke-width="1.5" stroke-linecap="round" opacity="0.6"></line>
 <!-- DNA-PAINT bar -->
-<line x1="160" y1="406" x2="200" y2="406" class="paint-hd" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+<line x1="160" y1="406" x2="200" y2="406" class="paint-hd" stroke-width="1.5" stroke-linecap="round" opacity="0.6"></line>
 <text class="sub storm-val" x="340" y="413" text-anchor="middle">dSTORM 20–50 nm</text>
 <text class="sub paint-val" x="510" y="413" text-anchor="middle">DNA-PAINT 10–20 nm</text>
 

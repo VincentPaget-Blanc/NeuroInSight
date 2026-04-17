@@ -1,305 +1,819 @@
-<svg width="100%" viewBox="0 0 680 560" xmlns="http://www.w3.org/2000/svg">
-<defs>
-  <style>
-    @media (prefers-color-scheme: dark) {
-      .ttl  { fill: #e8e6de; }
-      .frm  { fill: none; stroke: rgba(222,220,209,0.22); }
-      .cap  { fill: #9c9a92; }
-      .dim  { fill: #5f5e5a; }
-      .div  { stroke: rgba(222,220,209,0.18); }
-      .box  { fill: none; stroke: rgba(222,220,209,0.20); }
-      /* surface / membrane */
-      .surf { fill: rgba(222,220,209,0.08); stroke: rgba(222,220,209,0.25); }
-      /* target blob */
-      .tgt  { fill: #2e2e2c; stroke: rgba(222,220,209,0.30); }
-      .tgt-t{ fill: #9c9a92; }
-      /* antibody complex — purple */
-      .ab   { fill: #534AB7; }
-      /* docking strand — purple line */
-      .ds   { stroke: #AFA9EC; fill: none; }
-      .ds-t { fill: #AFA9EC; }
-      /* imager free — dim teal */
-      .imf  { stroke: rgba(93,202,165,0.40); fill: rgba(93,202,165,0.18); }
-      /* imager bound + dye + halo */
-      .imb  { stroke: #1D9E75; }
-      .dye  { fill: #1D9E75; }
-      .halo { fill: rgba(29,158,117,0.16); }
-      .on-t { fill: #1D9E75; }
-      /* arrows */
-      .arr  { stroke: #5f5e5a; }
-      /* OFF indicator */
-      .off-t{ fill: #5f5e5a; }
-      /* Exchange rounds */
-      .r1b  { fill: rgba(83,74,183,0.18);  stroke: #7F77DD; }
-      .r2b  { fill: rgba(29,158,117,0.18); stroke: #1D9E75; }
-      .r3b  { fill: rgba(224,160,60,0.18); stroke: #E0A03C; }
-      .r1t  { fill: #AFA9EC; }
-      .r2t  { fill: #5DCAA5; }
-      .r3t  { fill: #E0A03C; }
-      .wsh  { fill: #E24B4A; }
-      .snum { fill: rgba(222,220,209,0.12); stroke: rgba(222,220,209,0.25); }
-      .snumt{ fill: #e8e6de; }
-    }
-    @media (prefers-color-scheme: light) {
-      .ttl  { fill: #1a1a1a; }
-      .frm  { fill: none; stroke: #D3D1C7; }
-      .cap  { fill: #5f5e5a; }
-      .dim  { fill: #B4B2A9; }
-      .div  { stroke: #D3D1C7; }
-      .box  { fill: none; stroke: #D3D1C7; }
-      .surf { fill: rgba(0,0,0,0.03); stroke: #D3D1C7; }
-      .tgt  { fill: #e8e6de; stroke: #C8C6BC; }
-      .tgt-t{ fill: #888780; }
-      .ab   { fill: #534AB7; }
-      .ds   { stroke: #534AB7; fill: none; }
-      .ds-t { fill: #534AB7; }
-      .imf  { stroke: rgba(15,110,86,0.28); fill: rgba(15,110,86,0.08); }
-      .imb  { stroke: #0F6E56; }
-      .dye  { fill: #0F6E56; }
-      .halo { fill: rgba(15,110,86,0.10); }
-      .on-t { fill: #0F6E56; }
-      .arr  { stroke: #B4B2A9; }
-      .off-t{ fill: #B4B2A9; }
-      .r1b  { fill: rgba(83,74,183,0.07);  stroke: #534AB7; }
-      .r2b  { fill: rgba(15,110,86,0.07);  stroke: #0F6E56; }
-      .r3b  { fill: rgba(180,110,10,0.07); stroke: #B46E0A; }
-      .r1t  { fill: #534AB7; }
-      .r2t  { fill: #0F6E56; }
-      .r3t  { fill: #B46E0A; }
-      .wsh  { fill: #C83232; }
-      .snum { fill: rgba(0,0,0,0.05); stroke: #D3D1C7; }
-      .snumt{ fill: #1a1a1a; }
-    }
-    .hd { font: 600 13px "Helvetica Neue",Arial,sans-serif; }
-    .lb { font: 500 12px "Helvetica Neue",Arial,sans-serif; }
-    .sb { font: 400 11px "Helvetica Neue",Arial,sans-serif; }
-    .mn { font: 400 11px "JetBrains Mono","Courier New",monospace; }
-  </style>
-  <marker id="a" viewBox="0 0 10 10" refX="8" refY="5"
-    markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </marker>
-</defs>
-
-<!-- ═══ TITLE ═══ -->
-<text class="hd ttl" x="340" y="20" text-anchor="middle">DNA-PAINT — Programmable Transient Binding</text>
-
-<!-- ══════════════════════════════════════════
-     THREE STATE PANELS  y=30–255
-     Each panel 200 wide, separated by 10
-     Left edges: 20, 240, 460
-     ════════════════════════════════════════ -->
-
-<!-- Step badges (centred in each panel: 120, 340, 560) -->
-<circle cx="120" cy="44" r="11" class="snum" stroke-width="0.8"/>
-<text class="lb snumt" x="120" y="49" text-anchor="middle">1</text>
-<circle cx="340" cy="44" r="11" class="snum" stroke-width="0.8"/>
-<text class="lb snumt" x="340" y="49" text-anchor="middle">2</text>
-<circle cx="560" cy="44" r="11" class="snum" stroke-width="0.8"/>
-<text class="lb snumt" x="560" y="49" text-anchor="middle">3</text>
-
-<!-- ────────────────────────────────────────
-     PANEL 1  x=20–220  y=30–255
-     "Label target — dark"
-     ──────────────────────────────────────── -->
-<rect x="20" y="30" width="200" height="225" rx="5" class="frm" stroke-width="0.5"/>
-<text class="lb cap" x="120" y="58" text-anchor="middle">Label target · no imager</text>
-
-<!-- Surface bar -->
-<rect x="30" y="65" width="180" height="11" rx="3" class="surf" stroke-width="0.8"/>
-<text class="sb dim" x="120" y="74" text-anchor="middle">surface / coverslip</text>
-
-<!-- Target protein — simple rounded rectangle -->
-<rect x="85" y="76" width="70" height="26" rx="7" class="tgt" stroke-width="0.8"/>
-<text class="sb tgt-t" x="120" y="93" text-anchor="middle">target protein</text>
-
-<!-- Antibody complex — drawn as a simple Y icon + colour block
-     to avoid the unreadable tiny Y shape.
-     Use a pentagon/trapezoid to suggest antibody body. -->
-<!-- Ab body (rectangle body) -->
-<rect x="104" y="102" width="32" height="20" rx="3" class="ab"/>
-<!-- Ab arms (two upward lines) -->
-<line x1="108" y1="102" x2="100" y2="88"  class="ab" stroke-width="4" stroke-linecap="round"/>
-<line x1="136" y1="102" x2="140" y2="88"  class="ab" stroke-width="4" stroke-linecap="round"/>
-<!-- Fab tips -->
-<circle cx="100" cy="87" r="4" class="ab"/>
-<circle cx="140" cy="87" r="4" class="ab"/>
-<!-- Label: 1° + 2° Ab combined into one labelled block for clarity -->
-<text class="sb ds-t" x="152" y="100" text-anchor="start">Ab complex</text>
-<text class="sb dim"  x="152" y="112" text-anchor="start">(1° + 2°)</text>
-
-<!-- Docking strand — wavy line downward from antibody body base -->
-<!-- represented as a thicker dashed line with a distinctive colour -->
-<line x1="120" y1="122" x2="120" y2="158" class="ds" stroke-width="2.5" stroke-linecap="round"/>
-<!-- Tick marks suggesting nucleotides -->
-<line x1="113" y1="130" x2="127" y2="130" class="ds" stroke-width="1" opacity="0.55"/>
-<line x1="113" y1="138" x2="127" y2="138" class="ds" stroke-width="1" opacity="0.55"/>
-<line x1="113" y1="146" x2="127" y2="146" class="ds" stroke-width="1" opacity="0.55"/>
-<line x1="113" y1="154" x2="127" y2="154" class="ds" stroke-width="1" opacity="0.55"/>
-<text class="sb ds-t" x="133" y="133" text-anchor="start">docking strand</text>
-<text class="sb dim"  x="133" y="145" text-anchor="start">ssDNA (unique seq.)</text>
-<text class="sb dim"  x="133" y="157" text-anchor="start">conjugated to 2° Ab</text>
-
-<!-- Docking strand tip (free, available) -->
-<circle cx="120" cy="162" r="5" class="ds" stroke-width="1.5"/>
-
-<!-- OFF state label -->
-<rect x="80" y="178" width="80" height="20" rx="4" class="frm" stroke-width="0.8"/>
-<text class="sb off-t" x="120" y="192" text-anchor="middle">● fluorescence OFF</text>
-<text class="sb cap"   x="120" y="215" text-anchor="middle">No imager bound.</text>
-<text class="sb cap"   x="120" y="227" text-anchor="middle">Target is dark.</text>
-<text class="sb cap"   x="120" y="240" text-anchor="middle">Docking strand waits.</text>
-
-<!-- ────────────────────────────────────────
-     PANEL 2  x=240–440  y=30–255
-     "Imager binds — ON event"
-     ──────────────────────────────────────── -->
-<rect x="240" y="30" width="200" height="225" rx="5" class="frm" stroke-width="0.5"/>
-<text class="lb cap" x="340" y="58" text-anchor="middle">Imager binds → ON event</text>
-
-<!-- Surface -->
-<rect x="250" y="65" width="180" height="11" rx="3" class="surf" stroke-width="0.8"/>
-<!-- Target -->
-<rect x="305" y="76" width="70" height="26" rx="7" class="tgt" stroke-width="0.8"/>
-<text class="sb tgt-t" x="340" y="93" text-anchor="middle">target protein</text>
-<!-- Ab -->
-<rect x="324" y="102" width="32" height="20" rx="3" class="ab"/>
-<line x1="328" y1="102" x2="320" y2="88" class="ab" stroke-width="4" stroke-linecap="round"/>
-<line x1="356" y1="102" x2="360" y2="88" class="ab" stroke-width="4" stroke-linecap="round"/>
-<circle cx="320" cy="87" r="4" class="ab"/>
-<circle cx="360" cy="87" r="4" class="ab"/>
-<!-- Docking strand -->
-<line x1="340" y1="122" x2="340" y2="148" class="ds" stroke-width="2.5" stroke-linecap="round"/>
-<line x1="333" y1="130" x2="347" y2="130" class="ds" stroke-width="1" opacity="0.55"/>
-<line x1="333" y1="138" x2="347" y2="138" class="ds" stroke-width="1" opacity="0.55"/>
-<line x1="333" y1="146" x2="347" y2="146" class="ds" stroke-width="1" opacity="0.55"/>
-
-<!-- Imager strand hybridised — teal, complementary to docking -->
-<line x1="340" y1="148" x2="340" y2="168" class="imb" stroke-width="3" stroke-linecap="round"/>
-<!-- Dye at tip -->
-<circle cx="340" cy="178" r="24" class="halo"/>
-<circle cx="340" cy="178" r="8"  class="dye"/>
-
-<!-- Free imagers drifting in solution (inside panel bounds only) -->
-<line x1="258" y1="140" x2="272" y2="140" class="imf" stroke-width="1.5" stroke-dasharray="3 1" stroke-linecap="round"/>
-<circle cx="276" cy="140" r="4" class="imf" stroke-width="0.8"/>
-<line x1="390" y1="150" x2="404" y2="150" class="imf" stroke-width="1.5" stroke-dasharray="3 1" stroke-linecap="round"/>
-<circle cx="408" cy="150" r="4" class="imf" stroke-width="0.8"/>
-
-<!-- Imager label callout (all within x=240–440) -->
-<line x1="349" y1="168" x2="380" y2="155" class="arr" stroke-width="0.8" marker-end="url(#a)"/>
-<text class="sb on-t"  x="340" y="210" text-anchor="middle">● fluorescence ON</text>
-<text class="mn on-t"  x="340" y="223" text-anchor="middle">dwell: 0.5–3 s</text>
-<text class="sb cap"   x="340" y="237" text-anchor="middle">→ Gaussian fit → localise</text>
-<text class="sb dim"   x="340" y="249" text-anchor="middle">imager: ssDNA + dye (8–10 nt)</text>
-
-<!-- ────────────────────────────────────────
-     PANEL 3  x=460–660  y=30–255
-     "Imager dissociates — reset"
-     ──────────────────────────────────────── -->
-<rect x="460" y="30" width="200" height="225" rx="5" class="frm" stroke-width="0.5"/>
-<text class="lb cap" x="560" y="58" text-anchor="middle">Imager dissociates → reset</text>
-
-<!-- Surface -->
-<rect x="470" y="65" width="180" height="11" rx="3" class="surf" stroke-width="0.8"/>
-<!-- Target -->
-<rect x="525" y="76" width="70" height="26" rx="7" class="tgt" stroke-width="0.8"/>
-<text class="sb tgt-t" x="560" y="93" text-anchor="middle">target protein</text>
-<!-- Ab -->
-<rect x="544" y="102" width="32" height="20" rx="3" class="ab"/>
-<line x1="548" y1="102" x2="540" y2="88" class="ab" stroke-width="4" stroke-linecap="round"/>
-<line x1="576" y1="102" x2="580" y2="88" class="ab" stroke-width="4" stroke-linecap="round"/>
-<circle cx="540" cy="87" r="4" class="ab"/>
-<circle cx="580" cy="87" r="4" class="ab"/>
-<!-- Docking strand -->
-<line x1="560" y1="122" x2="560" y2="158" class="ds" stroke-width="2.5" stroke-linecap="round"/>
-<line x1="553" y1="130" x2="567" y2="130" class="ds" stroke-width="1" opacity="0.55"/>
-<line x1="553" y1="138" x2="567" y2="138" class="ds" stroke-width="1" opacity="0.55"/>
-<line x1="553" y1="146" x2="567" y2="146" class="ds" stroke-width="1" opacity="0.55"/>
-<line x1="553" y1="154" x2="567" y2="154" class="ds" stroke-width="1" opacity="0.55"/>
-<!-- Docking strand tip available -->
-<circle cx="560" cy="163" r="5" class="ds" stroke-width="1.5"/>
-
-<!-- Imager leaving (dashed, upward arrow, stays inside panel) -->
-<line x1="560" y1="163" x2="560" y2="143" class="imf" stroke-width="2" stroke-dasharray="3 2" stroke-linecap="round" marker-end="url(#a)"/>
-
-<!-- OFF state + key point -->
-<rect x="500" y="175" width="120" height="20" rx="4" class="frm" stroke-width="0.8"/>
-<text class="sb off-t" x="560" y="189" text-anchor="middle">● fluorescence OFF</text>
-<text class="sb on-t"  x="560" y="213" text-anchor="middle">Docking strand intact!</text>
-<text class="sb cap"   x="560" y="225" text-anchor="middle">Next imager can bind.</text>
-<text class="sb cap"   x="560" y="237" text-anchor="middle">No bleaching ceiling.</text>
-<text class="sb cap"   x="560" y="249" text-anchor="middle">Cycle repeats indefinitely.</text>
-
-<!-- Inter-panel arrows (between panels, in the 20px gaps) -->
-<line x1="224" y1="145" x2="236" y2="145" class="arr" stroke-width="1.3" marker-end="url(#a)"/>
-<line x1="444" y1="145" x2="456" y2="145" class="arr" stroke-width="1.3" marker-end="url(#a)"/>
-
-<!-- ══════════════════════════════════════════
-     INTENSITY TRACE  y=265–315
-     ════════════════════════════════════════ -->
-<rect x="20" y="263" width="640" height="52" rx="5" class="box" stroke-width="0.5"/>
-<text class="lb cap" x="340" y="280" text-anchor="middle">Fluorescence intensity at one docking site over time</text>
-
-<!-- Axes -->
-<line x1="40" y1="306" x2="646" y2="306" class="arr" stroke-width="0.8" marker-end="url(#a)"/>
-<text class="sb dim" x="650" y="310" text-anchor="start">t</text>
-<!-- Baseline -->
-<line x1="40" y1="299" x2="646" y2="299" class="div" stroke-width="0.4" stroke-dasharray="2 2"/>
-
-<!-- ON pulses (teal rectangles rising from baseline) -->
-<rect x="72"  y="288" width="22" height="12" rx="1" class="dye" opacity="0.85"/>
-<rect x="150" y="288" width="30" height="12" rx="1" class="dye" opacity="0.85"/>
-<rect x="255" y="288" width="18" height="12" rx="1" class="dye" opacity="0.85"/>
-<rect x="348" y="288" width="26" height="12" rx="1" class="dye" opacity="0.85"/>
-<rect x="448" y="288" width="20" height="12" rx="1" class="dye" opacity="0.85"/>
-<rect x="556" y="288" width="28" height="12" rx="1" class="dye" opacity="0.85"/>
-
-<!-- Single label for one pulse (kept short, centred) -->
-<line x1="83"  y1="287" x2="83"  y2="282" class="arr" stroke-width="0.7" marker-end="url(#a)"/>
-<text class="sb on-t" x="83" y="279" text-anchor="middle">1 event = 1 localisation</text>
-
-<!-- ══════════════════════════════════════════
-     EXCHANGE-PAINT  y=325–475
-     Three round boxes + key points
-     ════════════════════════════════════════ -->
-<rect x="20" y="323" width="640" height="225" rx="6" class="box" stroke-width="0.5"/>
-<text class="hd ttl" x="340" y="343" text-anchor="middle">Exchange-PAINT — Multiplexing with a Single Dye</text>
-<line x1="40" y1="350" x2="640" y2="350" class="div" stroke-width="0.5"/>
-
-<!-- Round boxes: each 180 wide, spaced evenly within 640 -->
-<!-- centres: 120, 340, 560 -->
-<rect x="30"  y="358" width="180" height="60" rx="5" class="r1b" stroke-width="0.8"/>
-<text class="lb r1t" x="120" y="375" text-anchor="middle">Round 1</text>
-<text class="sb r1t" x="120" y="390" text-anchor="middle">imager-P1 in buffer</text>
-<text class="sb cap" x="120" y="405" text-anchor="middle">→ image target A</text>
-
-<rect x="250" y="358" width="180" height="60" rx="5" class="r2b" stroke-width="0.8"/>
-<text class="lb r2t" x="340" y="375" text-anchor="middle">Round 2</text>
-<text class="sb r2t" x="340" y="390" text-anchor="middle">imager-P2 in buffer</text>
-<text class="sb cap" x="340" y="405" text-anchor="middle">→ image target B</text>
-
-<rect x="470" y="358" width="180" height="60" rx="5" class="r3b" stroke-width="0.8"/>
-<text class="lb r3t" x="560" y="375" text-anchor="middle">Round 3 … N</text>
-<text class="sb r3t" x="560" y="390" text-anchor="middle">imager-P3… in buffer</text>
-<text class="sb cap" x="560" y="405" text-anchor="middle">→ image target C…</text>
-
-<!-- Wash arrows between boxes -->
-<line x1="214" y1="388" x2="246" y2="388" class="arr" stroke-width="1.2" marker-end="url(#a)"/>
-<text class="sb wsh" x="230" y="382" text-anchor="middle">wash</text>
-<line x1="434" y1="388" x2="466" y2="388" class="arr" stroke-width="1.2" marker-end="url(#a)"/>
-<text class="sb wsh" x="450" y="382" text-anchor="middle">wash</text>
-
-<!-- Divider before key points -->
-<line x1="40" y1="428" x2="640" y2="428" class="div" stroke-width="0.4"/>
-
-<!-- Key points — short lines, well within 660 right edge -->
-<text class="sb cap"  x="50" y="446" text-anchor="start">✓  Same dye and laser every round — no spectral crosstalk between targets</text>
-<text class="sb cap"  x="50" y="463" text-anchor="start">✓  Each target has a unique docking sequence — orthogonal, no cross-hybridisation</text>
-<text class="sb cap"  x="50" y="480" text-anchor="start">✓  Washing removes only imager strands — docking strands remain intact on sample</text>
-<text class="sb on-t" x="50" y="497" text-anchor="start">→  In principle unlimited targets, constrained only by available orthogonal sequences</text>
-<text class="sb on-t" x="50" y="513" text-anchor="start">→  Binding frequency can be quantified → absolute molecule counts (qPAINT)</text>
-<text class="sb cap"  x="50" y="530" text-anchor="start">    Typical resolution: 10–20 nm in cells; sub-10 nm on DNA origami in vitro</text>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 980 830" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g transform="matrix(1,0,0,1,489.958,24)">
+        <g>
+            <g transform="matrix(1,0,0,1,-159.969,0)">
+                <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:14px;fill:rgb(154,152,136);">DN</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-139.58,0)">
+                <g>
+                    <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:14px;fill:rgb(154,152,136);">A-P</text>
+                    <g transform="matrix(1,0,0,1,23.071,0)">
+                        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:14px;fill:rgb(154,152,136);">AINT  -  Programmable T</text>
+                    </g>
+                    <g transform="matrix(1,0,0,1,185.657,0)">
+                        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:14px;fill:rgb(154,152,136);">ransient Binding</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,255.128,38)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(154,152,136);">Fluorescence localisation via transient hybridisation of short imager strands to docking strands on antibody complexes</text>
+    </g>
+    <path d="M300,55C300,50.033 295.967,46 291,46L23,46C18.033,46 14,50.033 14,55L14,345C14,349.967 18.033,354 23,354L291,354C295.967,354 300,349.967 300,345L300,55Z" style="fill:url(#_Linear1);stroke:rgb(221,218,210);stroke-width:1.2px;"/>
+    <circle cx="157" cy="60" r="11" style="fill:rgb(154,152,136);"/>
+    <g transform="matrix(1,0,0,1,154.4,63.9531)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:11px;fill:white;">1</text>
+    </g>
+    <g transform="matrix(1,0,0,1,91.599,84)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:11px;fill:rgb(154,152,136);">Label target  ·  no imager</text>
+    </g>
+    <g transform="matrix(1,0,0,1,84.254,98)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(154,152,136);">Structure assembled — system is dark</text>
+    </g>
+    <path d="M292,327C292,324.792 290.208,323 288,323L26,323C23.792,323 22,324.792 22,327L22,335C22,337.208 23.792,339 26,339L288,339C290.208,339 292,337.208 292,335L292,327Z" style="fill:url(#_Linear2);stroke:rgb(160,154,140);stroke-width:0.8px;"/>
+    <g transform="matrix(1,0,0,1,120.112,334)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:7.5px;fill:rgb(120,112,96);">cell surface / coverslip</text>
+    </g>
+    <ellipse cx="157" cy="311" rx="44" ry="14" style="fill:url(#_Linear3);stroke:rgb(74,139,176);stroke-width:1.2px;"/>
+    <g transform="matrix(1,0,0,1,131.957,316)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(34,96,128);">target protein</text>
+    </g>
+    <path d="M157,259L157,281" style="fill:none;fill-rule:nonzero;stroke:rgb(106,72,164);stroke-width:5.5px;stroke-linecap:round;"/>
+    <path d="M157,281L134,299" style="fill:none;fill-rule:nonzero;stroke:rgb(106,72,164);stroke-width:5.5px;stroke-linecap:round;stroke-linejoin:round;"/>
+    <path d="M157,281L180,299" style="fill:none;fill-rule:nonzero;stroke:rgb(106,72,164);stroke-width:5.5px;stroke-linecap:round;stroke-linejoin:round;"/>
+    <circle cx="134" cy="299" r="7" style="fill:rgb(106,72,164);"/>
+    <circle cx="180" cy="299" r="7" style="fill:rgb(106,72,164);"/>
+    <circle cx="157" cy="281" r="5" style="fill:rgb(234,216,248);stroke:rgb(106,72,164);stroke-width:1px;"/>
+    <circle cx="157" cy="259" r="5.5" style="fill:rgb(106,72,164);fill-opacity:0.5;"/>
+    <path d="M157,213L157,234" style="fill:none;fill-rule:nonzero;stroke:rgb(40,104,192);stroke-width:5.5px;stroke-linecap:round;"/>
+    <path d="M157,234L138,251" style="fill:none;fill-rule:nonzero;stroke:rgb(40,104,192);stroke-width:5.5px;stroke-linecap:round;stroke-linejoin:round;"/>
+    <path d="M157,234L176,251" style="fill:none;fill-rule:nonzero;stroke:rgb(40,104,192);stroke-width:5.5px;stroke-linecap:round;stroke-linejoin:round;"/>
+    <circle cx="138" cy="251" r="7" style="fill:rgb(40,104,192);"/>
+    <circle cx="176" cy="251" r="7" style="fill:rgb(40,104,192);"/>
+    <circle cx="157" cy="234" r="5" style="fill:rgb(200,220,244);stroke:rgb(40,104,192);stroke-width:1px;"/>
+    <circle cx="157" cy="213" r="5.5" style="fill:rgb(40,104,192);fill-opacity:0.5;"/>
+    <path d="M157,167L157,213" style="fill:none;fill-rule:nonzero;stroke:rgb(200,92,20);stroke-width:3px;stroke-linecap:round;"/>
+    <g transform="matrix(1,0,0,1,7,0)">
+        <path d="M150,207L164,207" style="fill:none;fill-rule:nonzero;stroke:rgb(200,92,20);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,7,0)">
+        <path d="M150,199L164,199" style="fill:none;fill-rule:nonzero;stroke:rgb(200,92,20);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,7,0)">
+        <path d="M150,191L164,191" style="fill:none;fill-rule:nonzero;stroke:rgb(200,92,20);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,7,0)">
+        <path d="M150,183L164,183" style="fill:none;fill-rule:nonzero;stroke:rgb(200,92,20);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,7,0)">
+        <path d="M150,175L164,175" style="fill:none;fill-rule:nonzero;stroke:rgb(200,92,20);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,7,0)">
+        <path d="M165,191L189,191" style="fill:none;fill-rule:nonzero;stroke:rgb(200,92,20);stroke-width:0.9px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,200,189)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(200,92,20);">Docking strand</text>
+    </g>
+    <g transform="matrix(1,0,0,1,200,200)">
+        <g>
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:7.5px;fill:rgb(144,112,85);">8–10 nt ssDNA</text>
+            <g transform="matrix(1,0,0,1,50.028,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:7.5px;fill:rgb(144,112,85);">· unique seq.</text>
+            </g>
+        </g>
+    </g>
+    <path d="M177,234L189,234" style="fill:none;fill-rule:nonzero;stroke:rgb(40,104,192);stroke-width:0.9px;"/>
+    <g transform="matrix(1,0,0,1,193,238)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(40,104,192);">2° antibody</text>
+    </g>
+    <path d="M181,281L189,281" style="fill:none;fill-rule:nonzero;stroke:rgb(106,72,164);stroke-width:0.9px;"/>
+    <g transform="matrix(1,0,0,1,193,285)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(106,72,164);">1° antibody</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,20)">
+        <path d="M239,349C239,346.24 236.76,344 234,344L80,344C77.24,344 75,346.24 75,349L75,359C75,361.76 77.24,364 80,364L234,364C236.76,364 239,361.76 239,359L239,349Z" style="fill:rgb(242,240,235);stroke:rgb(212,208,196);stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,113.742,377)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9.5px;fill:rgb(154,152,136);">● ﬂuorescence  OFF</text>
+    </g>
+    <path d="M634,55C634,50.033 629.967,46 625,46L357,46C352.033,46 348,50.033 348,55L348,345C348,349.967 352.033,354 357,354L625,354C629.967,354 634,349.967 634,345L634,55Z" style="fill:url(#_Linear4);stroke:rgb(221,218,210);stroke-width:1.2px;"/>
+    <circle cx="491" cy="60" r="11" style="fill:rgb(154,152,136);"/>
+    <g transform="matrix(1,0,0,1,488.081,63.9531)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:11px;fill:white;">2</text>
+    </g>
+    <g transform="matrix(1,0,0,1,424.063,84)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:11px;fill:rgb(154,152,136);">Imager hybridises  →  ON</text>
+    </g>
+    <g transform="matrix(1,0,0,1,404.07,98)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(154,152,136);">0.5–3 s dwell  ·  Gaussian ﬁt  →  1 localisation</text>
+    </g>
+    <path d="M626,327C626,324.792 624.208,323 622,323L360,323C357.792,323 356,324.792 356,327L356,335C356,337.208 357.792,339 360,339L622,339C624.208,339 626,337.208 626,335L626,327Z" style="fill:url(#_Linear5);stroke:rgb(160,154,140);stroke-width:0.8px;"/>
+    <g transform="matrix(1,0,0,1,454.112,334)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:7.5px;fill:rgb(120,112,96);">cell surface / coverslip</text>
+    </g>
+    <ellipse cx="491" cy="311" rx="44" ry="14" style="fill:url(#_Linear6);stroke:rgb(74,139,176);stroke-width:1.2px;"/>
+    <g transform="matrix(1,0,0,1,465.957,316)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(34,96,128);">target protein</text>
+    </g>
+    <path d="M491,259L491,281" style="fill:none;fill-rule:nonzero;stroke:rgb(106,72,164);stroke-width:5.5px;stroke-linecap:round;"/>
+    <path d="M491,281L468,299" style="fill:none;fill-rule:nonzero;stroke:rgb(106,72,164);stroke-width:5.5px;stroke-linecap:round;stroke-linejoin:round;"/>
+    <path d="M491,281L514,299" style="fill:none;fill-rule:nonzero;stroke:rgb(106,72,164);stroke-width:5.5px;stroke-linecap:round;stroke-linejoin:round;"/>
+    <circle cx="468" cy="299" r="7" style="fill:rgb(106,72,164);"/>
+    <circle cx="514" cy="299" r="7" style="fill:rgb(106,72,164);"/>
+    <circle cx="491" cy="281" r="5" style="fill:rgb(234,216,248);stroke:rgb(106,72,164);stroke-width:1px;"/>
+    <circle cx="491" cy="259" r="5.5" style="fill:rgb(106,72,164);fill-opacity:0.5;"/>
+    <path d="M491,213L491,234" style="fill:none;fill-rule:nonzero;stroke:rgb(40,104,192);stroke-width:5.5px;stroke-linecap:round;"/>
+    <path d="M491,234L472,251" style="fill:none;fill-rule:nonzero;stroke:rgb(40,104,192);stroke-width:5.5px;stroke-linecap:round;stroke-linejoin:round;"/>
+    <path d="M491,234L510,251" style="fill:none;fill-rule:nonzero;stroke:rgb(40,104,192);stroke-width:5.5px;stroke-linecap:round;stroke-linejoin:round;"/>
+    <circle cx="472" cy="251" r="7" style="fill:rgb(40,104,192);"/>
+    <circle cx="510" cy="251" r="7" style="fill:rgb(40,104,192);"/>
+    <circle cx="491" cy="234" r="5" style="fill:rgb(200,220,244);stroke:rgb(40,104,192);stroke-width:1px;"/>
+    <circle cx="491" cy="213" r="5.5" style="fill:rgb(40,104,192);fill-opacity:0.5;"/>
+    <g>
+        <g>
+            <clipPath id="_clip7">
+                <path d="M371,155.75C370.843,155.959 370.75,156.219 370.75,156.5L370.75,159.5C370.75,159.781 370.843,160.041 371,160.25C370.843,160.459 370.75,160.719 370.75,161L370.75,164C370.75,164.281 370.843,164.541 371,164.75C370.843,164.959 370.75,165.219 370.75,165.5L370.75,168.5C370.75,168.781 370.843,169.041 371,169.25C370.843,169.459 370.75,169.719 370.75,170L370.75,173C370.75,173.69 371.31,174.25 372,174.25C372.69,174.25 373.25,173.69 373.25,173L373.25,170C373.25,169.719 373.157,169.459 373,169.25C373.157,169.041 373.25,168.781 373.25,168.5L373.25,165.5C373.25,165.219 373.157,164.959 373,164.75C373.157,164.541 373.25,164.281 373.25,164L373.25,161C373.25,160.719 373.157,160.459 373,160.25C373.157,160.041 373.25,159.781 373.25,159.5L373.25,156.5C373.25,156.219 373.157,155.959 373,155.75C373.157,155.541 373.25,155.281 373.25,155L373.25,152C373.25,151.31 372.69,150.75 372,150.75C371.31,150.75 370.75,151.31 370.75,152L370.75,155C370.75,155.281 370.843,155.541 371,155.75Z"/>
+            </clipPath>
+            <g clip-path="url(#_clip7)">
+                <g id="_Image8_" serif:id="_Image8" transform="matrix(0.833333,0,0,0.979167,370.75,150.75)">
+                    <use id="_Image8_1" serif:id="_Image8" xlink:href="#_Image8" x="0" y="0" width="3px" height="24px"/>
+                </g>
+            </g>
+        </g>
+    </g>
+    <circle cx="372" cy="147" r="4.5" style="fill:rgb(30,136,72);fill-opacity:0.45;"/>
+    <g transform="matrix(1,0,0,1,-112,-7)">
+        <g>
+            <g>
+                <clipPath id="_clip9">
+                    <path d="M565,133.75C564.843,133.959 564.75,134.219 564.75,134.5L564.75,137.5C564.75,137.781 564.843,138.041 565,138.25C564.843,138.459 564.75,138.719 564.75,139L564.75,142C564.75,142.281 564.843,142.541 565,142.75C564.843,142.959 564.75,143.219 564.75,143.5L564.75,146.5C564.75,146.781 564.843,147.041 565,147.25C564.843,147.459 564.75,147.719 564.75,148L564.75,151C564.75,151.69 565.31,152.25 566,152.25C566.69,152.25 567.25,151.69 567.25,151L567.25,148C567.25,147.719 567.157,147.459 567,147.25C567.157,147.041 567.25,146.781 567.25,146.5L567.25,143.5C567.25,143.219 567.157,142.959 567,142.75C567.157,142.541 567.25,142.281 567.25,142L567.25,139C567.25,138.719 567.157,138.459 567,138.25C567.157,138.041 567.25,137.781 567.25,137.5L567.25,134.5C567.25,134.219 567.157,133.959 567,133.75C567.157,133.541 567.25,133.281 567.25,133L567.25,130C567.25,129.31 566.69,128.75 566,128.75C565.31,128.75 564.75,129.31 564.75,130L564.75,133C564.75,133.281 564.843,133.541 565,133.75Z"/>
+                </clipPath>
+                <g clip-path="url(#_clip9)">
+                    <g transform="matrix(0.833333,0,0,0.979167,564.75,128.75)">
+                        <use id="_Image8_2" serif:id="_Image8" xlink:href="#_Image8" x="0" y="0" width="3px" height="24px"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,-112,-7)">
+        <circle cx="566" cy="125" r="4.5" style="fill:rgb(30,136,72);fill-opacity:0.45;"/>
+    </g>
+    <g>
+        <g>
+            <clipPath id="_clip10">
+                <path d="M499,111.75C498.843,111.959 498.75,112.219 498.75,112.5L498.75,115.5C498.75,115.781 498.843,116.041 499,116.25C498.843,116.459 498.75,116.719 498.75,117L498.75,120C498.75,120.281 498.843,120.541 499,120.75C498.843,120.959 498.75,121.219 498.75,121.5L498.75,124.5C498.75,124.781 498.843,125.041 499,125.25C498.843,125.459 498.75,125.719 498.75,126L498.75,129C498.75,129.69 499.31,130.25 500,130.25C500.69,130.25 501.25,129.69 501.25,129L501.25,126C501.25,125.719 501.157,125.459 501,125.25C501.157,125.041 501.25,124.781 501.25,124.5L501.25,121.5C501.25,121.219 501.157,120.959 501,120.75C501.157,120.541 501.25,120.281 501.25,120L501.25,117C501.25,116.719 501.157,116.459 501,116.25C501.157,116.041 501.25,115.781 501.25,115.5L501.25,112.5C501.25,112.219 501.157,111.959 501,111.75C501.157,111.541 501.25,111.281 501.25,111L501.25,108C501.25,107.31 500.69,106.75 500,106.75C499.31,106.75 498.75,107.31 498.75,108L498.75,111C498.75,111.281 498.843,111.541 499,111.75Z"/>
+            </clipPath>
+            <g clip-path="url(#_clip10)">
+                <g id="_Image11_" serif:id="_Image11" transform="matrix(0.833333,0,0,0.979167,498.75,106.75)">
+                    <use id="_Image11_1" serif:id="_Image11" xlink:href="#_Image11" x="0" y="0" width="3px" height="24px"/>
+                </g>
+            </g>
+        </g>
+    </g>
+    <circle cx="500" cy="103" r="4.5" style="fill:rgb(30,136,72);fill-opacity:0.38;"/>
+    <g transform="matrix(1,0,0,1,372,106)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:7.5px;fill:rgb(58,144,96);">imager strands</text>
+    </g>
+    <g transform="matrix(1,0,0,1,372,117)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:7.5px;fill:rgb(58,144,96);">in solution</text>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M486,167L486,213" style="fill:none;fill-rule:nonzero;stroke:rgb(200,92,20);stroke-width:3px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M496,160L496,213" style="fill:none;fill-rule:nonzero;stroke:rgb(30,136,72);stroke-width:3px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <circle cx="496" cy="142" r="32" style="fill:url(#_Radial12);"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M486,170L496,170" style="fill:none;fill-rule:nonzero;stroke:rgb(48,56,32);stroke-width:2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M486,178L496,178" style="fill:none;fill-rule:nonzero;stroke:rgb(48,56,32);stroke-width:2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M486,186L496,186" style="fill:none;fill-rule:nonzero;stroke:rgb(48,56,32);stroke-width:2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M486,194L496,194" style="fill:none;fill-rule:nonzero;stroke:rgb(48,56,32);stroke-width:2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M486,202L496,202" style="fill:none;fill-rule:nonzero;stroke:rgb(48,56,32);stroke-width:2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M486,210L496,210" style="fill:none;fill-rule:nonzero;stroke:rgb(48,56,32);stroke-width:2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M496,150L496,167" style="fill:none;fill-rule:nonzero;stroke:rgb(30,136,72);stroke-width:2.5px;stroke-linecap:round;stroke-dasharray:4,2;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <circle cx="496" cy="142" r="8" style="fill:rgb(238,255,48);stroke:rgb(160,192,32);stroke-width:1.2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M496,141L496,140" style="fill:none;fill-rule:nonzero;stroke:rgb(222,255,32);stroke-width:1.2px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M503,135L505,132" style="fill:none;fill-rule:nonzero;stroke:rgb(222,255,32);stroke-width:1.2px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M506,142L510,142" style="fill:none;fill-rule:nonzero;stroke:rgb(222,255,32);stroke-width:1.2px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M503,149L505,151" style="fill:none;fill-rule:nonzero;stroke:rgb(222,255,32);stroke-width:1.2px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M496,153L496,157" style="fill:none;fill-rule:nonzero;stroke:rgb(222,255,32);stroke-width:1.2px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M489,149L486,151" style="fill:none;fill-rule:nonzero;stroke:rgb(222,255,32);stroke-width:1.2px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M486,142L481,142" style="fill:none;fill-rule:nonzero;stroke:rgb(222,255,32);stroke-width:1.2px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M489,135L486,132" style="fill:none;fill-rule:nonzero;stroke:rgb(222,255,32);stroke-width:1.2px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M505,142L523,142" style="fill:none;fill-rule:nonzero;stroke:rgb(30,136,72);stroke-width:0.9px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,532,140)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(30,136,72);">Fluorophore (dye)</text>
+    </g>
+    <g transform="matrix(1,0,0,1,5,0)">
+        <path d="M504,191L523,191" style="fill:none;fill-rule:nonzero;stroke:rgb(30,136,72);stroke-width:0.9px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,532,189)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(30,136,72);">Imager strand</text>
+    </g>
+    <g transform="matrix(1,0,0,1,532,200)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:7.5px;fill:rgb(74,144,96);">hybridised via 8–10 nt</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,20)">
+        <path d="M581,349C581,346.24 578.76,344 576,344L406,344C403.24,344 401,346.24 401,349L401,371C401,373.76 403.24,376 406,376L576,376C578.76,376 581,373.76 581,371L581,349Z" style="fill:rgb(232,248,236);stroke:rgb(142,208,160);stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,450.115,378)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9.5px;fill:rgb(20,104,48);">● ﬂuorescence  ON</text>
+    </g>
+    <g transform="matrix(1,0,0,1,438.309,391)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8px;fill:rgb(48,144,80);">Gaussian ﬁt  →  1 localisation</text>
+    </g>
+    <g>
+        <path d="M968,55C968,50.033 963.967,46 959,46L691,46C686.033,46 682,50.033 682,55L682,345C682,349.967 686.033,354 691,354L959,354C963.967,354 968,349.967 968,345L968,55Z" style="fill:url(#_Linear13);stroke:rgb(221,218,210);stroke-width:1.2px;"/>
+    </g>
+    <circle cx="825" cy="60" r="11" style="fill:rgb(154,152,136);"/>
+    <g transform="matrix(1,0,0,1,821.971,63.886)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:11px;fill:white;">3</text>
+    </g>
+    <g transform="matrix(1,0,0,1,750.715,84)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:11px;fill:rgb(154,152,136);">Imager dissociates  →  reset</text>
+    </g>
+    <g transform="matrix(1,0,0,1,741.612,98)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(154,152,136);">Docking strand intact  ·  ready for next event</text>
+    </g>
+    <path d="M960,327C960,324.792 958.208,323 956,323L694,323C691.792,323 690,324.792 690,327L690,335C690,337.208 691.792,339 694,339L956,339C958.208,339 960,337.208 960,335L960,327Z" style="fill:url(#_Linear14);stroke:rgb(160,154,140);stroke-width:0.8px;"/>
+    <g transform="matrix(1,0,0,1,788.112,334)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:7.5px;fill:rgb(120,112,96);">cell surface / coverslip</text>
+    </g>
+    <ellipse cx="825" cy="311" rx="44" ry="14" style="fill:url(#_Linear15);stroke:rgb(74,139,176);stroke-width:1.2px;"/>
+    <g transform="matrix(1,0,0,1,799.957,316)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(34,96,128);">target protein</text>
+    </g>
+    <path d="M825,259L825,281" style="fill:none;fill-rule:nonzero;stroke:rgb(106,72,164);stroke-width:5.5px;stroke-linecap:round;"/>
+    <path d="M825,281L802,299" style="fill:none;fill-rule:nonzero;stroke:rgb(106,72,164);stroke-width:5.5px;stroke-linecap:round;stroke-linejoin:round;"/>
+    <path d="M825,281L848,299" style="fill:none;fill-rule:nonzero;stroke:rgb(106,72,164);stroke-width:5.5px;stroke-linecap:round;stroke-linejoin:round;"/>
+    <circle cx="802" cy="299" r="7" style="fill:rgb(106,72,164);"/>
+    <circle cx="848" cy="299" r="7" style="fill:rgb(106,72,164);"/>
+    <circle cx="825" cy="281" r="5" style="fill:rgb(234,216,248);stroke:rgb(106,72,164);stroke-width:1px;"/>
+    <circle cx="825" cy="259" r="5.5" style="fill:rgb(106,72,164);fill-opacity:0.5;"/>
+    <path d="M825,213L825,234" style="fill:none;fill-rule:nonzero;stroke:rgb(40,104,192);stroke-width:5.5px;stroke-linecap:round;"/>
+    <path d="M825,234L806,251" style="fill:none;fill-rule:nonzero;stroke:rgb(40,104,192);stroke-width:5.5px;stroke-linecap:round;stroke-linejoin:round;"/>
+    <path d="M825,234L844,251" style="fill:none;fill-rule:nonzero;stroke:rgb(40,104,192);stroke-width:5.5px;stroke-linecap:round;stroke-linejoin:round;"/>
+    <circle cx="806" cy="251" r="7" style="fill:rgb(40,104,192);"/>
+    <circle cx="844" cy="251" r="7" style="fill:rgb(40,104,192);"/>
+    <circle cx="825" cy="234" r="5" style="fill:rgb(200,220,244);stroke:rgb(40,104,192);stroke-width:1px;"/>
+    <circle cx="825" cy="213" r="5.5" style="fill:rgb(40,104,192);fill-opacity:0.5;"/>
+    <path d="M825,167L825,213" style="fill:none;fill-rule:nonzero;stroke:rgb(200,92,20);stroke-width:3px;stroke-linecap:round;"/>
+    <g transform="matrix(1,0,0,1,6,0)">
+        <path d="M818,207L832,207" style="fill:none;fill-rule:nonzero;stroke:rgb(200,92,20);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,6,0)">
+        <path d="M818,199L832,199" style="fill:none;fill-rule:nonzero;stroke:rgb(200,92,20);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,6,0)">
+        <path d="M818,191L832,191" style="fill:none;fill-rule:nonzero;stroke:rgb(200,92,20);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,6,0)">
+        <path d="M818,183L832,183" style="fill:none;fill-rule:nonzero;stroke:rgb(200,92,20);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,6,0)">
+        <path d="M818,175L832,175" style="fill:none;fill-rule:nonzero;stroke:rgb(200,92,20);stroke-width:1.5px;"/>
+    </g>
+    <circle cx="877" cy="115" r="7" style="fill:rgb(238,255,48);fill-opacity:0.35;"/>
+    <g transform="matrix(1,0,0,1,888,114)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8px;fill:rgb(42,136,72);">imager</text>
+    </g>
+    <g transform="matrix(1,0,0,1,888,126)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8px;fill:rgb(42,136,72);">dissociates</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,20)">
+        <path d="M915,349C915,346.24 912.76,344 910,344L740,344C737.24,344 735,346.24 735,349L735,385C735,387.76 737.24,390 740,390L910,390C912.76,390 915,387.76 915,385L915,349Z" style="fill:rgb(238,242,250);stroke:rgb(176,196,224);stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,781.742,377)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9.5px;fill:rgb(154,152,136);">● ﬂuorescence  OFF</text>
+    </g>
+    <g transform="matrix(1,0,0,1,825,391)">
+        <g transform="matrix(1,0,0,1,-47.96,0)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(32,72,136);">Docking strand intact</text>
+        </g>
+        <g transform="matrix(1,0,0,1,41.082,0)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:9px;fill:rgb(32,72,136);">✓</text>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,762.078,404)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8px;fill:rgb(96,96,80);">No bleaching ceiling · cycle repeats</text>
+    </g>
+    <path d="M305,206L343,206" style="fill:none;fill-rule:nonzero;stroke:rgb(138,136,120);stroke-width:1.5px;"/>
+    <path d="M639,206L677,206" style="fill:none;fill-rule:nonzero;stroke:rgb(138,136,120);stroke-width:1.5px;"/>
+    <g transform="matrix(1,0,0,1,0,70)">
+        <path d="M966,369C966,365.689 963.311,363 960,363L20,363C16.689,363 14,365.689 14,369L14,426C14,429.311 16.689,432 20,432L960,432C963.311,432 966,429.311 966,426L966,369Z" style="fill:white;fill-opacity:0;stroke:rgb(221,218,210);stroke-width:1px;"/>
+    </g>
+    <g transform="matrix(1,0,0,0.773684,0,186.032)">
+        <path d="M966,451.048C966,446.054 962.863,442 959,442L21,442C17.137,442 14,446.054 14,451.048L14,812.952C14,817.946 17.137,822 21,822L959,822C962.863,822 966,817.946 966,812.952L966,451.048Z" style="fill:white;fill-opacity:0;stroke:rgb(221,218,210);stroke-width:1px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,490,548)">
+        <g>
+            <g transform="matrix(1,0,0,1,-171.574,0)">
+                <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:12px;fill:rgb(154,152,136);">Exchange-P</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-103.775,0)">
+                <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:12px;fill:rgb(154,152,136);">AINT  -  Unlimited Multiplexing with a Single Dye</text>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,490,563)">
+        <g>
+            <g transform="matrix(1,0,0,1,-293.75,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(154,152,136);">Sequential rounds with dif</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-190.848,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(154,152,136);">ferent imager sequences image dif</text>
+            </g>
+            <g transform="matrix(1,0,0,1,-52.934,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(154,152,136);">ferent targets; wash steps remove the imager (not the docking strand) between rounds.</text>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M30,484L950,484" style="fill:none;fill-rule:nonzero;stroke:rgb(221,218,210);stroke-width:0.7px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M308,499C308,495.137 304.863,492 301,492L25,492C21.137,492 18,495.137 18,499L18,657C18,660.863 21.137,664 25,664L301,664C304.863,664 308,660.863 308,657L308,499Z" style="fill:rgb(234,216,248);stroke:rgb(104,72,168);stroke-width:1.2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M308,499C308,495.137 304.863,492 301,492L25,492C21.137,492 18,495.137 18,499L18,513C18,516.863 21.137,520 25,520L301,520C304.863,520 308,516.863 308,513L308,499Z" style="fill:rgb(104,72,168);"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <rect x="18" y="508" width="290" height="12" style="fill:rgb(104,72,168);"/>
+    </g>
+    <g transform="matrix(1,0,0,1,142.003,599)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:10.5px;fill:white;">Round 1</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M296,597C296,595.896 295.104,595 294,595L32,595C30.896,595 30,595.896 30,597L30,602C30,603.104 30.896,604 32,604L294,604C295.104,604 296,603.104 296,602L296,597Z" style="fill:rgb(192,187,176);stroke:rgb(154,148,136);stroke-width:0.7px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <ellipse cx="95" cy="592" rx="18" ry="8" style="fill:rgb(189,216,232);stroke:rgb(74,139,176);stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,92.292,684)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:7.5px;fill:rgb(34,96,128);">A</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M95,585L95,568" style="fill:none;fill-rule:nonzero;stroke:rgb(104,72,168);stroke-width:2.5px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <circle cx="95" cy="552" r="15" style="fill:url(#_Radial16);"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <circle cx="95" cy="552" r="5.5" style="fill:rgb(238,255,48);stroke:rgb(160,192,32);stroke-width:0.9px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M95,558L95,568" style="fill:none;fill-rule:nonzero;stroke:rgb(104,72,168);stroke-width:2.5px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <ellipse cx="163" cy="592" rx="18" ry="8" style="fill:rgb(189,216,232);stroke:rgb(74,139,176);stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,160.292,684)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:7.5px;fill:rgb(34,96,128);">B</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M163,585L163,568" style="fill:none;fill-rule:nonzero;stroke:rgb(30,136,72);stroke-width:2.5px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <circle cx="163" cy="567" r="3.5" style="fill:none;stroke:rgb(30,136,72);stroke-opacity:0.45;stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <ellipse cx="231" cy="592" rx="18" ry="8" style="fill:rgb(189,216,232);stroke:rgb(74,139,176);stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,228.292,684)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:7.5px;fill:rgb(34,96,128);">C</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M231,585L231,568" style="fill:none;fill-rule:nonzero;stroke:rgb(184,80,16);stroke-width:2.5px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <circle cx="231" cy="567" r="3.5" style="fill:none;stroke:rgb(184,80,16);stroke-opacity:0.45;stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,163,701)">
+        <g>
+            <g transform="matrix(1,0,0,1,-40.436,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(104,72,168);">→  images</text>
+            </g>
+            <g transform="matrix(1,0,0,1,7.416,0)">
+                <g>
+                    <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(104,72,168);">T</text>
+                    <g transform="matrix(1,0,0,1,4.5,0)">
+                        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(104,72,168);">arget</text>
+                    </g>
+                </g>
+            </g>
+            <g transform="matrix(1,0,0,1,34.433,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(104,72,168);">A</text>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,123.312,715)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(80,72,64);">imager P1 in solution</text>
+    </g>
+    <g transform="matrix(1,0,0,1,79.195,730)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8px;fill:rgb(112,104,88);">same dye · same laser · zero spectral crosstalk</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M634,499C634,495.137 630.863,492 627,492L351,492C347.137,492 344,495.137 344,499L344,657C344,660.863 347.137,664 351,664L627,664C630.863,664 634,660.863 634,657L634,499Z" style="fill:rgb(200,236,216);stroke:rgb(30,136,72);stroke-width:1.2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M634,499C634,495.137 630.863,492 627,492L351,492C347.137,492 344,495.137 344,499L344,513C344,516.863 347.137,520 351,520L627,520C630.863,520 634,516.863 634,513L634,499Z" style="fill:rgb(30,136,72);"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <rect x="344" y="508" width="290" height="12" style="fill:rgb(30,136,72);"/>
+    </g>
+    <g transform="matrix(1,0,0,1,468.003,599)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:10.5px;fill:white;">Round 2</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M622,597C622,595.896 621.104,595 620,595L358,595C356.896,595 356,595.896 356,597L356,602C356,603.104 356.896,604 358,604L620,604C621.104,604 622,603.104 622,602L622,597Z" style="fill:rgb(192,187,176);stroke:rgb(154,148,136);stroke-width:0.7px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <ellipse cx="421" cy="592" rx="18" ry="8" style="fill:rgb(189,216,232);stroke:rgb(74,139,176);stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,418.292,684)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:7.5px;fill:rgb(34,96,128);">A</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M421,585L421,568" style="fill:none;fill-rule:nonzero;stroke:rgb(104,72,168);stroke-width:2.5px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <circle cx="421" cy="567" r="3.5" style="fill:none;stroke:rgb(104,72,168);stroke-opacity:0.45;stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <ellipse cx="489" cy="592" rx="18" ry="8" style="fill:rgb(189,216,232);stroke:rgb(74,139,176);stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,486.292,684)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:7.5px;fill:rgb(34,96,128);">B</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M489,585L489,568" style="fill:none;fill-rule:nonzero;stroke:rgb(30,136,72);stroke-width:2.5px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <circle cx="489" cy="552" r="15" style="fill:url(#_Radial17);"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <circle cx="489" cy="552" r="5.5" style="fill:rgb(238,255,48);stroke:rgb(160,192,32);stroke-width:0.9px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M489,558L489,568" style="fill:none;fill-rule:nonzero;stroke:rgb(30,136,72);stroke-width:2.5px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <ellipse cx="557" cy="592" rx="18" ry="8" style="fill:rgb(189,216,232);stroke:rgb(74,139,176);stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,554.292,684)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:7.5px;fill:rgb(34,96,128);">C</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M557,585L557,568" style="fill:none;fill-rule:nonzero;stroke:rgb(184,80,16);stroke-width:2.5px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <circle cx="557" cy="567" r="3.5" style="fill:none;stroke:rgb(184,80,16);stroke-opacity:0.45;stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,489,701)">
+        <g>
+            <g transform="matrix(1,0,0,1,-40.685,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(30,136,72);">→  images</text>
+            </g>
+            <g transform="matrix(1,0,0,1,7.167,0)">
+                <g>
+                    <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(30,136,72);">T</text>
+                    <g transform="matrix(1,0,0,1,4.5,0)">
+                        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(30,136,72);">arget B</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,449.312,715)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(80,72,64);">imager P2 in solution</text>
+    </g>
+    <g transform="matrix(1,0,0,1,405.195,730)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8px;fill:rgb(112,104,88);">same dye · same laser · zero spectral crosstalk</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M960,499C960,495.137 956.863,492 953,492L677,492C673.137,492 670,495.137 670,499L670,657C670,660.863 673.137,664 677,664L953,664C956.863,664 960,660.863 960,657L960,499Z" style="fill:rgb(245,220,196);stroke:rgb(184,80,16);stroke-width:1.2px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M960,499C960,495.137 956.863,492 953,492L677,492C673.137,492 670,495.137 670,499L670,513C670,516.863 673.137,520 677,520L953,520C956.863,520 960,516.863 960,513L960,499Z" style="fill:rgb(184,80,16);"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <rect x="670" y="508" width="290" height="12" style="fill:rgb(184,80,16);"/>
+    </g>
+    <g transform="matrix(1,0,0,1,782.044,599)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:10.5px;fill:white;">Round 3 … N</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M948,597C948,595.896 947.104,595 946,595L684,595C682.896,595 682,595.896 682,597L682,602C682,603.104 682.896,604 684,604L946,604C947.104,604 948,603.104 948,602L948,597Z" style="fill:rgb(192,187,176);stroke:rgb(154,148,136);stroke-width:0.7px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <ellipse cx="747" cy="592" rx="18" ry="8" style="fill:rgb(189,216,232);stroke:rgb(74,139,176);stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,744.292,684)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:7.5px;fill:rgb(34,96,128);">A</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M747,585L747,568" style="fill:none;fill-rule:nonzero;stroke:rgb(104,72,168);stroke-width:2.5px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <circle cx="747" cy="567" r="3.5" style="fill:none;stroke:rgb(104,72,168);stroke-opacity:0.45;stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <ellipse cx="815" cy="592" rx="18" ry="8" style="fill:rgb(189,216,232);stroke:rgb(74,139,176);stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,812.292,684)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:7.5px;fill:rgb(34,96,128);">B</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M815,585L815,568" style="fill:none;fill-rule:nonzero;stroke:rgb(30,136,72);stroke-width:2.5px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <circle cx="815" cy="567" r="3.5" style="fill:none;stroke:rgb(30,136,72);stroke-opacity:0.45;stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <ellipse cx="883" cy="592" rx="18" ry="8" style="fill:rgb(189,216,232);stroke:rgb(74,139,176);stroke-width:0.8px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,880.292,684)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:7.5px;fill:rgb(34,96,128);">C</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M883,585L883,568" style="fill:none;fill-rule:nonzero;stroke:rgb(184,80,16);stroke-width:2.5px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <circle cx="883" cy="552" r="15" style="fill:url(#_Radial18);"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <circle cx="883" cy="552" r="5.5" style="fill:rgb(238,255,48);stroke:rgb(160,192,32);stroke-width:0.9px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M883,558L883,568" style="fill:none;fill-rule:nonzero;stroke:rgb(184,80,16);stroke-width:2.5px;stroke-linecap:round;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,815,701)">
+        <g>
+            <g transform="matrix(1,0,0,1,-46.683,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(184,80,16);">→  images</text>
+            </g>
+            <g transform="matrix(1,0,0,1,1.169,0)">
+                <g>
+                    <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(184,80,16);">T</text>
+                    <g transform="matrix(1,0,0,1,4.5,0)">
+                        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(184,80,16);">arget C …</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,775.312,715)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(80,72,64);">imager P3 in solution</text>
+    </g>
+    <g transform="matrix(1,0,0,1,731.195,730)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8px;fill:rgb(112,104,88);">same dye · same laser · zero spectral crosstalk</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M322,578L340,578" style="fill:none;fill-rule:nonzero;stroke:rgb(187,40,40);stroke-width:1.6px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,320.996,658)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:8px;fill:rgb(187,40,40);">wash</text>
+    </g>
+    <g transform="matrix(1,0,0,1,325.787,684)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:7.5px;fill:rgb(204,68,68);">out</text>
+    </g>
+    <g transform="matrix(1,0,0,1,320.302,694)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:7px;fill:rgb(204,68,68);">imager</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M647,578L665,578" style="fill:none;fill-rule:nonzero;stroke:rgb(187,40,40);stroke-width:1.6px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,645.996,658)">
+        <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:8px;fill:rgb(187,40,40);">wash</text>
+    </g>
+    <g transform="matrix(1,0,0,1,650.787,684)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:7.5px;fill:rgb(204,68,68);">out</text>
+    </g>
+    <g transform="matrix(1,0,0,1,645.302,694)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:7px;fill:rgb(204,68,68);">imager</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,88)">
+        <path d="M30,678L950,678" style="fill:none;fill-rule:nonzero;stroke:rgb(221,218,210);stroke-width:0.6px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,36,783)">
+        <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:8.5px;fill:rgb(58,56,40);">✓</text>
+        <g transform="matrix(1,0,0,1,11.219,0)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(58,56,40);">Same dye and laser every round — no spectral crosstalk between targets</text>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,36,797)">
+        <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:8.5px;fill:rgb(58,56,40);">✓</text>
+        <g transform="matrix(1,0,0,1,11.219,0)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(58,56,40);">Each target has a unique docking sequence — orthogonal, no cross-hybridisation</text>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,500,783)">
+        <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:8.5px;fill:rgb(58,56,40);">✓</text>
+        <g>
+            <g transform="matrix(1,0,0,1,11.219,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(58,56,40);">W</text>
+            </g>
+            <g transform="matrix(1,0,0,1,18.926,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(58,56,40);">ashing removes only imager — docking strands remain intact on sample</text>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,500,797)">
+        <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:8.5px;fill:rgb(58,56,40);">✓</text>
+        <g>
+            <g transform="matrix(1,0,0,1,11.219,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(58,56,40);">Binding frequency → absolute molecule counts  (qP</text>
+            </g>
+            <g transform="matrix(1,0,0,1,205.727,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(58,56,40);">AINT)</text>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,36,814)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(20,80,48);">→  In principle unlimited targets; constrained only by available orthogonal sequences</text>
+    </g>
+    <g transform="matrix(1,0,0,1,500,814)">
+        <g>
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(20,80,48);">→  Resolution: 10–20 nm in cells; sub-10 nm on DNA</text>
+            <g transform="matrix(1,0,0,1,200.796,0)">
+                <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8.5px;fill:rgb(20,80,48);">origami in vitro</text>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,360.632,447)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9.5px;fill:rgb(154,152,136);">Fluorescence intensity trace at a single docking site over time</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,70)">
+        <path d="M60,422L932,422" style="fill:none;fill-rule:nonzero;stroke:rgb(138,136,120);stroke-width:1px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,70)">
+        <path d="M60,422L60,383" style="fill:none;fill-rule:nonzero;stroke:rgb(138,136,120);stroke-width:1px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,937,496)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:9px;fill:rgb(96,96,80);">time</text>
+    </g>
+    <g transform="matrix(1,0,0,1,0,70)">
+        <path d="M62,422L930,422" style="fill:none;fill-rule:nonzero;stroke:rgb(204,200,180);stroke-width:0.6px;stroke-dasharray:3,2;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,70)">
+        <path d="M112,408C112,407.448 111.552,407 111,407L91,407C90.448,407 90,407.448 90,408L90,421C90,421.552 90.448,422 91,422L111,422C111.552,422 112,421.552 112,421L112,408Z" style="fill:rgb(30,136,72);fill-opacity:0.88;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,70)">
+        <path d="M218,408C218,407.448 217.552,407 217,407L189,407C188.448,407 188,407.448 188,408L188,421C188,421.552 188.448,422 189,422L217,422C217.552,422 218,421.552 218,421L218,408Z" style="fill:rgb(30,136,72);fill-opacity:0.88;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,70)">
+        <path d="M333,408C333,407.448 332.552,407 332,407L316,407C315.448,407 315,407.448 315,408L315,421C315,421.552 315.448,422 316,422L332,422C332.552,422 333,421.552 333,421L333,408Z" style="fill:rgb(30,136,72);fill-opacity:0.88;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,70)">
+        <path d="M468,408C468,407.448 467.552,407 467,407L441,407C440.448,407 440,407.448 440,408L440,421C440,421.552 440.448,422 441,422L467,422C467.552,422 468,421.552 468,421L468,408Z" style="fill:rgb(30,136,72);fill-opacity:0.88;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,70)">
+        <path d="M583,408C583,407.448 582.552,407 582,407L561,407C560.448,407 560,407.448 560,408L560,421C560,421.552 560.448,422 561,422L582,422C582.552,422 583,421.552 583,421L583,408Z" style="fill:rgb(30,136,72);fill-opacity:0.88;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,70)">
+        <path d="M697,408C697,407.448 696.552,407 696,407L679,407C678.448,407 678,407.448 678,408L678,421C678,421.552 678.448,422 679,422L696,422C696.552,422 697,421.552 697,421L697,408Z" style="fill:rgb(30,136,72);fill-opacity:0.88;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,70)">
+        <path d="M821,408C821,407.448 820.552,407 820,407L796,407C795.448,407 795,407.448 795,408L795,421C795,421.552 795.448,422 796,422L820,422C820.552,422 821,421.552 821,421L821,408Z" style="fill:rgb(30,136,72);fill-opacity:0.88;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,0,70)">
+        <path d="M910,408C910,407.448 909.552,407 909,407L889,407C888.448,407 888,407.448 888,408L888,421C888,421.552 888.448,422 889,422L909,422C909.552,422 910,421.552 910,421L910,408Z" style="fill:rgb(30,136,72);fill-opacity:0.88;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,39.961,445)">
+        <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:8px;fill:rgb(20,104,48);">1 binding event  =  1 localisation</text>
+    </g>
+    <g transform="matrix(1,0,0,1,505,-32)">
+        <g>
+            <g>
+                <clipPath id="_clip19">
+                    <path d="M371,155.75C370.843,155.959 370.75,156.219 370.75,156.5L370.75,159.5C370.75,159.781 370.843,160.041 371,160.25C370.843,160.459 370.75,160.719 370.75,161L370.75,164C370.75,164.281 370.843,164.541 371,164.75C370.843,164.959 370.75,165.219 370.75,165.5L370.75,168.5C370.75,168.781 370.843,169.041 371,169.25C370.843,169.459 370.75,169.719 370.75,170L370.75,173C370.75,173.69 371.31,174.25 372,174.25C372.69,174.25 373.25,173.69 373.25,173L373.25,170C373.25,169.719 373.157,169.459 373,169.25C373.157,169.041 373.25,168.781 373.25,168.5L373.25,165.5C373.25,165.219 373.157,164.959 373,164.75C373.157,164.541 373.25,164.281 373.25,164L373.25,161C373.25,160.719 373.157,160.459 373,160.25C373.157,160.041 373.25,159.781 373.25,159.5L373.25,156.5C373.25,156.219 373.157,155.959 373,155.75C373.157,155.541 373.25,155.281 373.25,155L373.25,152C373.25,151.31 372.69,150.75 372,150.75C371.31,150.75 370.75,151.31 370.75,152L370.75,155C370.75,155.281 370.843,155.541 371,155.75Z"/>
+                </clipPath>
+                <g clip-path="url(#_clip19)">
+                    <g transform="matrix(0.833333,0,0,0.979167,370.75,150.75)">
+                        <use id="_Image8_3" serif:id="_Image8" xlink:href="#_Image8" x="0" y="0" width="3px" height="24px"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,505,-32)">
+        <circle cx="372" cy="147" r="4.5" style="fill:rgb(30,136,72);fill-opacity:0.45;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,274.938,49.0938)">
+        <path d="M150,207L164,207" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,274.938,49.0938)">
+        <path d="M150,199L164,199" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,274.938,49.0938)">
+        <path d="M150,191L164,191" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,274.938,49.0938)">
+        <path d="M150,183L164,183" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,274.938,49.0938)">
+        <path d="M150,175L164,175" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,356.938,20.0938)">
+        <path d="M150,207L164,207" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,356.938,20.0938)">
+        <path d="M150,199L164,199" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,356.938,20.0938)">
+        <path d="M150,191L164,191" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,356.938,20.0938)">
+        <path d="M150,183L164,183" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,356.938,20.0938)">
+        <path d="M150,175L164,175" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,402.938,5.09375)">
+        <path d="M150,207L164,207" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,402.938,5.09375)">
+        <path d="M150,199L164,199" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,402.938,5.09375)">
+        <path d="M150,191L164,191" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,402.938,5.09375)">
+        <path d="M150,183L164,183" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,402.938,5.09375)">
+        <path d="M150,175L164,175" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,779.938,17.0938)">
+        <path d="M150,207L164,207" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,779.938,17.0938)">
+        <path d="M150,199L164,199" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,779.938,17.0938)">
+        <path d="M150,191L164,191" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,779.938,17.0938)">
+        <path d="M150,183L164,183" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <g transform="matrix(0.59375,0,0,0.59375,779.938,17.0938)">
+        <path d="M150,175L164,175" style="fill:none;fill-rule:nonzero;stroke:rgb(153,200,171);stroke-width:1.5px;"/>
+    </g>
+    <defs>
+        <linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.88596e-14,308,-308,1.88596e-14,14,46)"><stop offset="0" style="stop-color:white;stop-opacity:0"/><stop offset="1" style="stop-color:rgb(249,247,243);stop-opacity:0"/></linearGradient>
+        <linearGradient id="_Linear2" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(9.79717e-16,16,-16,9.79717e-16,22,323)"><stop offset="0" style="stop-color:rgb(208,203,192);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(176,171,156);stop-opacity:1"/></linearGradient>
+        <linearGradient id="_Linear3" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.71451e-15,28,-28,1.71451e-15,113,297)"><stop offset="0" style="stop-color:rgb(208,232,244);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(164,200,220);stop-opacity:1"/></linearGradient>
+        <linearGradient id="_Linear4" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.88596e-14,308,-308,1.88596e-14,348,46)"><stop offset="0" style="stop-color:white;stop-opacity:0"/><stop offset="1" style="stop-color:rgb(249,247,243);stop-opacity:0"/></linearGradient>
+        <linearGradient id="_Linear5" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(9.79717e-16,16,-16,9.79717e-16,356,323)"><stop offset="0" style="stop-color:rgb(208,203,192);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(176,171,156);stop-opacity:1"/></linearGradient>
+        <linearGradient id="_Linear6" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.71451e-15,28,-28,1.71451e-15,447,297)"><stop offset="0" style="stop-color:rgb(208,232,244);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(164,200,220);stop-opacity:1"/></linearGradient>
+        <image id="_Image8" width="3px" height="24px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAYCAYAAAA/OUfnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAF0lEQVQYlWOU6/AoYoACJgYkMMrBxwEAx7kBkHP7Dk4AAAAASUVORK5CYII="/>
+        <image id="_Image11" width="3px" height="24px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAYCAYAAAA/OUfnAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAF0lEQVQYlWOU6/BIYIACJgYkMMrBxwEAshEBfkuG7yoAAAAASUVORK5CYII="/>
+        <radialGradient id="_Radial12" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(32,0,0,32,496,142)"><stop offset="0" style="stop-color:rgb(255,232,32);stop-opacity:1"/><stop offset="0.3" style="stop-color:rgb(170,255,32);stop-opacity:0.8"/><stop offset="0.65" style="stop-color:rgb(68,255,96);stop-opacity:0.3"/><stop offset="1" style="stop-color:rgb(0,255,128);stop-opacity:0"/></radialGradient>
+        <linearGradient id="_Linear13" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.88596e-14,308,-308,1.88596e-14,682,46)"><stop offset="0" style="stop-color:white;stop-opacity:0"/><stop offset="1" style="stop-color:rgb(249,247,243);stop-opacity:0"/></linearGradient>
+        <linearGradient id="_Linear14" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(9.79717e-16,16,-16,9.79717e-16,690,323)"><stop offset="0" style="stop-color:rgb(208,203,192);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(176,171,156);stop-opacity:1"/></linearGradient>
+        <linearGradient id="_Linear15" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.71451e-15,28,-28,1.71451e-15,781,297)"><stop offset="0" style="stop-color:rgb(208,232,244);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(164,200,220);stop-opacity:1"/></linearGradient>
+        <radialGradient id="_Radial16" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(15,0,0,15,95,552)"><stop offset="0" style="stop-color:rgb(255,232,32);stop-opacity:1"/><stop offset="0.3" style="stop-color:rgb(170,255,32);stop-opacity:0.8"/><stop offset="0.65" style="stop-color:rgb(68,255,96);stop-opacity:0.3"/><stop offset="1" style="stop-color:rgb(0,255,128);stop-opacity:0"/></radialGradient>
+        <radialGradient id="_Radial17" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(15,0,0,15,489,552)"><stop offset="0" style="stop-color:rgb(255,232,32);stop-opacity:1"/><stop offset="0.3" style="stop-color:rgb(170,255,32);stop-opacity:0.8"/><stop offset="0.65" style="stop-color:rgb(68,255,96);stop-opacity:0.3"/><stop offset="1" style="stop-color:rgb(0,255,128);stop-opacity:0"/></radialGradient>
+        <radialGradient id="_Radial18" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(15,0,0,15,883,552)"><stop offset="0" style="stop-color:rgb(255,232,32);stop-opacity:1"/><stop offset="0.3" style="stop-color:rgb(170,255,32);stop-opacity:0.8"/><stop offset="0.65" style="stop-color:rgb(68,255,96);stop-opacity:0.3"/><stop offset="1" style="stop-color:rgb(0,255,128);stop-opacity:0"/></radialGradient>
+    </defs>
 </svg>

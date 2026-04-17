@@ -576,7 +576,7 @@ const CONFIG = {
       title: "vFlow: An Open-Source Desktop Suite for"
            + " Flow Cytometry-Style Analysis of Image Data",
       excerpt:
-          "A complete walkthrough of vFlow, an open-source Python"
+          "A complete walkthrough of vFlow, my open-source Python"
         + " desktop application for interactive gating, density"
         + " visualisation, automatic threshold detection, batch"
         + " statistics, and vector/polar analysis of multi-channel"
@@ -602,7 +602,7 @@ const CONFIG = {
   the file.
 </p>
 <p>
-  vFlow was written specifically for this context.  The immediate use case
+  I developped vFlow specifically for this context.  The immediate use case
   was colocalization analysis of two fluorescent markers measured at the
   level of individual puncta by a segmentation pipeline exporting CSV
   results tables, but the application is general to any tabular dataset
@@ -1004,23 +1004,12 @@ const CONFIG = {
         measures, why the choices you make in indicator and analysis matter enormously, 
         and what the last five years have changed.
       `,
-      date: "16 Mar, 2026",
+      date: "16 Feb, 2026",
       readTime: "15 min read",
       tag: "Technique Breakdown",
       emoji: "",
-      imageUrl: "image-assets/posts/fiber-photometry-principles/fp_system_setup.svg",
+      imageUrl: "image-assets/posts/fiber-photometry-principles/light-through-a-wire.png",
       content: `
-
-    <!-- ═══════════════════════════════════════════════════════════════
-     POST CONTENT: "Light Through a Wire: The Principles of Fiber Photometry"
-     CORRECTIONS APPLIED:
-       (1) dLight scaffold: was "periplasmic binding protein scaffold" → fixed to GPCR-based
-       (2) jGCaMP8 CaM-binding peptide: was "eNOS in the jGCaMP8 series" → precised to jGCaMP8f
-       (3) GCaMP6f KD: was "~100–300 nM for GCaMP6f" → fixed to ~290 nM for GCaMP6f
-       (4) Photoinactivation citation: garbled author list cleaned up
-       (5) Four figures inserted at correct pedagogical positions
-     IMAGE BASE PATH: image-assets/posts/fiber-photometry-principles/
-═══════════════════════════════════════════════════════════════ -->
 
 <p>
   Electrophysiology, the field's gold standard for temporal resolution,
@@ -1033,7 +1022,7 @@ const CONFIG = {
   timescales of minutes to hours, was simply intractable.
 </p>
 <p>
-  Fiber photometry addresses this directly. By coupling a thin optical fibre
+  Fiber photometry addresses this directly. By coupling a thin optical fiber
   implanted in the brain to a benchtop fluorescence detection system, it
   delivers bulk population-level signals from genetically targeted neurons in a
   freely behaving animal, with temporal resolution in the tens-of-milliseconds
@@ -1051,10 +1040,10 @@ const CONFIG = {
   A fiber photometry system is, at its simplest, a miniaturised epifluorescence
   microscope whose objective has been replaced by a single multimode optical
   fiber. Light from an excitation source (typically a solid-state LED or a
-  low-power laser) is coupled into the proximal end of the fibre, travels down
+  low-power laser) is coupled into the proximal end of the fiber, travels down
   its length, and exits at the polished distal tip implanted in the brain. There
-  it excites fluorescent molecules in the tissue surrounding the fibre. A
-  fraction of the emitted fluorescence is captured by the same fibre, collected
+  it excites fluorescent molecules in the tissue surrounding the fiber. A
+  fraction of the emitted fluorescence is captured by the same fiber, collected
   within its numerical aperture, and guided back toward the proximal end, where
   it is separated from the excitation light by a dichroic mirror and bandpass
   emission filter, then focused onto a photodetector (typically a sensitive
@@ -1063,20 +1052,20 @@ const CONFIG = {
   continuously alongside behavioural timestamps.
 </p>
 <p>
-  The fibres used are typically borosilicate or silica multimode fibres with
+  The fibers used are typically borosilicate or silica multimode fibers with
   core diameters of 200–600 μm and numerical apertures of 0.37–0.50. The
-  implantable fibre stub is permanently affixed to the skull with dental cement
+  implantable fiber stub is permanently affixed to the skull with dental cement
   and capped between sessions; a detachable patch cable connects it to the
   benchtop optics during recording. The sampling volume (the cone of tissue
   from which fluorescence is efficiently collected) extends approximately
-  100–500 μm from the fibre tip, with sensitivity falling off as the inverse
+  100–500 μm from the fiber tip, with sensitivity falling off as the inverse
   square of distance. This geometry means photometry does not image: it
   integrates fluorescence from a region containing potentially thousands of
   cells, producing a single trace that reflects population-level dynamics.
 </p>
 
 <!-- ─── FIGURE 1: Optical setup ─────────────────────── -->
-<figure style="margin:2.5rem 0;">
+<figure class="post-figure">
   <img
     src="image-assets/posts/fiber-photometry-principles/fp_system_setup.svg"
     alt="Fiber photometry optical setup diagram: two LEDs (470 nm calcium-sensitive
@@ -1085,17 +1074,16 @@ const CONFIG = {
          GCaMP-expressing neurons within a sampling volume cone in the striatum.
          Emitted fluorescence travels back up the fiber, passes through the dichroic
          and an emission filter, and reaches an APD detector."
-    style="width:100%;border-radius:6px;"
+    loading="lazy"
   />
-  <figcaption style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-dim);
-    font-family:'JetBrains Mono',monospace;line-height:1.6;">
+  <figcaption>
     Fiber photometry optical layout. Two amplitude-modulated LEDs (470 nm
     calcium-sensitive excitation, and 405 nm isosbestic reference) are
     combined and reflected downward by a dichroic beamsplitter through a patch
-    cable into an implanted multimode fibre. Excitation light exits the polished
+    cable into an implanted multimode fiber. Excitation light exits the polished
     tip and illuminates the surrounding sampling volume (~100–500 μm cone).
     GCaMP-expressing neurons (green dots, brightness reflecting fluorescence
-    yield) emit at ~520 nm; this light travels back up the same fibre, passes
+    yield) emit at ~520 nm; this light travels back up the same fiber, passes
     through the dichroic and an emission bandpass filter, and is detected by an
     APD. The dashed return path illustrates the emission channel; the solid line
     illustrates excitation.
@@ -1160,7 +1148,7 @@ const CONFIG = {
 </p>
 
 <!-- ─── FIGURE 2: GCaMP vs GRAB mechanism ─────────── -->
-<figure style="margin:2.5rem 0;">
+<figure class="post-figure">
   <img
     src="image-assets/posts/fiber-photometry-principles/gcamps_vs_grab.svg"
     alt="Side-by-side comparison of GCaMP and GRAB sensor mechanisms. Left panel
@@ -1169,15 +1157,14 @@ const CONFIG = {
          compact, cpGFP active). Right panel shows a GRAB sensor as a 7TM GPCR
          in the plasma membrane, with cpGFP in the intracellular loop becoming
          fluorescent when dopamine binds the extracellular orthosteric site."
-    style="width:100%;border-radius:6px;"
+    loading="lazy"
   />
-  <figcaption style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-dim);
-    font-family:'JetBrains Mono',monospace;line-height:1.6;">
-    Sensing mechanisms compared. <strong>Left (GCaMP):</strong> a cytosolic
+  <figcaption>
+    Sensing mechanisms compared. Left (GCaMP): a cytosolic
     construct. In the Ca²⁺-free state, CaM and the M13 peptide are extended and
     the cpGFP chromophore is non-fluorescent. Four Ca²⁺ ions bind, CaM wraps
     around M13, and the resulting conformational change activates cpGFP.
-    <strong>Right (GRAB sensor):</strong> a surface-expressed GPCR construct.
+    Right (GRAB sensor): a surface-expressed GPCR construct.
     Neurotransmitter (here dopamine, DA) binds the extracellular orthosteric
     site, driving a conformational change transmitted through the
     transmembrane helices to cpGFP inserted in intracellular loop 3.
@@ -1197,7 +1184,7 @@ const CONFIG = {
 <p>
   The raw fluorescence trace from a photometry recording is contaminated by
   several sources of noise that have nothing to do with indicator occupancy:
-  motion artefacts caused by fibre bending during movement, slow bleaching of
+  motion artefacts caused by fiber bending during movement, slow bleaching of
   the indicator, haemodynamic fluctuations that alter tissue optical properties,
   and electronic drift. Disentangling genuine neural signal from these confounds
   requires a reference channel, and the standard solution exploits a property of
@@ -1217,7 +1204,7 @@ const CONFIG = {
 </p>
 
 <!-- ─── FIGURE 3: GCaMP excitation spectra ────────── -->
-<figure style="margin:2.5rem 0;">
+<figure class="post-figure">
   <img
     src="image-assets/posts/fiber-photometry-principles/gcamps_spectra.svg"
     alt="GCaMP excitation spectra plot showing wavelength (360-540 nm) on the
@@ -1226,10 +1213,9 @@ const CONFIG = {
          peaks near 488 nm. Both curves intersect at the isosbestic point around
          405-410 nm marked with a dot. Vertical dashed lines indicate 405 nm
          reference LED and 470 nm calcium-sensitive LED positions."
-    style="width:100%;border-radius:6px;"
+    loading="lazy"
   />
-  <figcaption style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-dim);
-    font-family:'JetBrains Mono',monospace;line-height:1.6;">
+  <figcaption>
     GCaMP excitation spectra. The Ca²⁺-free (apo) form peaks near 395 nm and
     has minimal excitation at 470 nm. The Ca²⁺-bound (holo) form peaks near
     488 nm. The two forms have equal excitation at the isosbestic point
@@ -1267,8 +1253,7 @@ const CONFIG = {
   synchronous calcium transients.
 </p>
 
-<!-- ─── FIGURE 4: Dual-channel ΔF/F correction ─────── -->
-<figure style="margin:2.5rem 0;">
+<figure class="post-figure">
   <img
     src="image-assets/posts/fiber-photometry-principles/df_f_processing.svg"
     alt="Three stacked time-series panels over 120 seconds. Top panel: raw F470
@@ -1276,18 +1261,17 @@ const CONFIG = {
          Middle panel: raw F405 reference trace showing the same motion artefact
          spike but no neural transients. Bottom panel: corrected delta-F/F trace
          showing clean neural transients with the motion artefact eliminated."
-    style="width:100%;border-radius:6px;"
+    loading="lazy"
   />
-  <figcaption style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-dim);
-    font-family:'JetBrains Mono',monospace;line-height:1.6;">
+  <figcaption>
     Dual-channel artefact correction and ΔF/F computation.
-    <strong>Top (F₄₇₀):</strong> the 470 nm channel contains genuine neural
+    Top (F₄₇₀): the 470 nm channel contains genuine neural
     transients (blue shading) and a shared motion artefact (red), plus slow
     photobleaching drift.
-    <strong>Middle (F₄₀₅):</strong> the isosbestic reference channel captures
+    Middle (F₄₀₅): the isosbestic reference channel captures
     the same motion artefact and drift, but is insensitive to calcium and shows
     no neural transients.
-    <strong>Bottom (ΔF/F):</strong> after regression of the F₄₀₅ trace onto
+    Bottom (ΔF/F): after regression of the F₄₀₅ trace onto
     F₄₇₀ and subtraction, motion artefact and baseline drift are removed and
     only calcium-dependent transients remain. IRLS regression (Keevers &amp;
     Jean-Richard-dit-Bressel, 2025) is preferred over OLS to avoid
@@ -1313,11 +1297,11 @@ const CONFIG = {
   correction.
 </p>
 <p>
-  The most common cause is <strong>insufficient GCaMP expression or fibre
+  The most common cause is <strong>insufficient GCaMP expression or fiber
   misplacement</strong>. The 470 nm channel derives its signal almost entirely
   from calcium-bound GCaMP: in the unbound state, GCaMP has very low quantum
   yield and contributes little to detected fluorescence. If the virus has poorly
-  transduced the target region, or the fibre tip sits outside the expression
+  transduced the target region, or the fiber tip sits outside the expression
   volume, the calcium-dependent signal is small. The 405 nm channel, by
   contrast, collects fluorescence from all GCaMP molecules regardless of
   calcium occupancy, but more critically, it also collects substantial
@@ -1362,7 +1346,7 @@ const CONFIG = {
   inverted around genuine events. Keevers and Jean-Richard-dit-Bressel (2025)
   demonstrated formally that iteratively reweighted least squares (IRLS)
   regression, which down-weights data points where signal and isosbestic
-  diverge, corresponding to true neural events, substantially outperforms OLS
+  diverge (corresponding to true neural events), substantially outperforms OLS
   in recovering accurate ΔF/F, and recommend it as a new standard for
   preprocessing pipelines.
 </p>
@@ -1397,6 +1381,99 @@ const CONFIG = {
   </p>
 </div>
 
+
+<h2>Reference Channels for Neuromodulator Sensors: A Different Problem</h2>
+<p>
+  The isosbestic strategy described above is specific to GCaMP and a small
+  number of other sensors that share its dual-conformation excitation spectrum.
+  For GRAB and dLight neuromodulator sensors, the physics of the problem are
+  fundamentally different: these sensors are based on a GPCR scaffold
+  expressed on the plasma membrane, and their excitation spectrum does not have
+  a calcium-independent (or in their case, ligand-independent) isosbestic
+  point accessible with standard hardware. A 405 nm reference channel excited
+  alongside a green GRAB sensor would collect autofluorescence from the tissue
+  but would not reflect the total sensor concentration in the same principled
+  way, and so cannot serve as a calibrated motion reference. This creates a
+  real, and underappreciated, asymmetry between GCaMP recordings and
+  neuromodulator sensor recordings: the former enjoy a clean internal optical
+  control, and the latter do not.
+</p>
+<p>
+  The field has addressed this in two main ways. The first, and currently the
+  most rigorous, is <strong>co-expression of a spectrally distinct, activity-
+  insensitive fluorophore</strong> under the same promoter as the sensor, so
+  that its fluorescence reports optical pathlength and motion without responding
+  to the analyte. Co-expressed tdTomato (excitation ~554 nm, emission ~581 nm)
+  is the most commonly used choice, because its emission is well separated from
+  the green GRAB or dLight emission band and can be independently excited using
+  a 560 nm LED or laser. There is, however, an important practical caveat:
+  if the tdTomato illumination LED is left on continuously alongside the green
+  excitation LED, the GCaMP or GRAB emission spectrum partially overlaps with
+  the red emission filter, causing genuine neural transients to bleed through
+  into what should be an inert reference channel. Simpson and colleagues (2024),
+  in their field-wide primer, demonstrated this directly: continuous dual
+  illumination produced strong positive correlations between the reference
+  channel and the signal channel, rendering the reference uninformative for
+  motion correction. The solution is to use <strong>time-division
+  illumination</strong>, in which the green and red LEDs are pulsed alternately
+  in rapid succession so that green fluorescence is never excited while the red
+  channel is being acquired. This eliminates spectral bleed-through and allows
+  genuine use of tdTomato as a motion and bleach reference.
+</p>
+<p>
+  The second approach relies entirely on <strong>computational correction</strong>,
+  fitting and removing low-frequency drift and motion-correlated variance from
+  the single sensor signal using robust regression or principal component
+  analysis. These methods require careful validation against behavioural
+  timestamps and have less theoretical justification than an optical reference,
+  but they are used when co-expression of a second fluorophore is not feasible
+  (for example, in multiplex experiments where available spectral slots are
+  already occupied). As with OLS-based isosbestic correction for GCaMP, these
+  computational approaches carry a risk of overcorrecting genuine events, and
+  the IRLS framework is preferable wherever it can be applied.
+</p>
+<p>
+  A third scenario arises in dual-colour multiplexing, where a green and a red
+  sensor are expressed simultaneously: for example, a green GRAB dopamine sensor
+  alongside a red noradrenaline sensor (such as nLightR, Kagiampaki et al.,
+  2023), or a green GRAB serotonin sensor alongside a red calcium indicator
+  (jRGECO1a). In these configurations, there is no spare spectral slot for a
+  motion reference fluorophore. The experimenter must rely on computational
+  correction, or accept that one sensor channel can serve as a partial reference
+  for the other, with the significant limitation that correlated biological
+  signals in both channels cannot be distinguished from shared artefacts.
+</p>
+
+<div class="tip-box">
+  <div class="tip-label">Reference Channel Methods: tdTomato and Time-Division</div>
+  <p style="margin: 0; line-height: 1.75;">
+    Simpson EH, Akam T, Patriarchi T, et al. Lights, fiber, action! A primer
+    on in vivo fiber photometry. <em>Neuron.</em> 2024;112(5):718–739.<br>
+    <a href="https://doi.org/10.1016/j.neuron.2023.11.016"
+       target="_blank" rel="noopener noreferrer"
+       style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;
+              font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
+      https://doi.org/10.1016/j.neuron.2023.11.016
+    </a>
+  </p>
+</div>
+
+<div class="tip-box">
+  <div class="tip-label">Multicolour Noradrenaline Sensors: nLightG and nLightR</div>
+  <p style="margin: 0; line-height: 1.75;">
+    Kagiampaki Z, Rohner V, Kiss C, et al. Sensitive multicolor indicators for
+    monitoring norepinephrine in vivo. <em>Nat Methods.</em>
+    2023;20(9):1426–1436.<br>
+    <a href="https://doi.org/10.1038/s41592-023-01959-z"
+       target="_blank" rel="noopener noreferrer"
+       style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;
+              font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
+      https://doi.org/10.1038/s41592-023-01959-z
+    </a>
+  </p>
+</div>
+
+
 <h2>Lock-In Detection and Frequency Multiplexing</h2>
 <p>
   Modern fiber photometry rigs almost universally use lock-in detection rather
@@ -1409,11 +1486,255 @@ const CONFIG = {
   and low-frequency 1/f noise from the detector, it rejects ambient light
   contamination without physical shielding, and it allows simultaneous
   multi-channel acquisition across spectrally overlapping indicators from a
-  single fibre, for example, recording GCaMP (green) and a red-shifted RCaMP
-  or jRCaMP simultaneously. For dual-fibre bilateral recordings or multi-region
-  implants, the same principle extends naturally by adding additional fibre
+  single fiber, for example, recording GCaMP (green) and a red-shifted RCaMP
+  or jRCaMP simultaneously. For dual-fiber bilateral recordings or multi-region
+  implants, the same principle extends naturally by adding additional fiber
   channels with unique carrier frequencies.
 </p>
+
+
+<h2>Interpreting Neuromodulator Sensor Signals: Affinity, Specificity,
+    and Pharmacology</h2>
+<p>
+  Because GCaMP-based calcium imaging has dominated neuroscience for longer than
+  GPCR-based sensors, the interpretive pitfalls of the latter are less
+  institutionally familiar. Understanding them in detail is necessary to use
+  these tools without overreaching.
+</p>
+
+<h3>Choosing the Right Affinity for the Right Brain Region</h3>
+<p>
+  GPCR-based sensors come in multiple variants differing primarily in their
+  apparent dissociation constant (K<sub>D</sub>), the ligand concentration
+  at which the sensor reaches half its maximal fluorescence response. This
+  matters enormously in practice because dopamine concentrations, to take the
+  most studied example, vary by orders of magnitude across brain regions:
+  microdialysis estimates suggest that tonic dopamine in the striatum is in
+  the low-nanomolar to tens-of-nanomolar range, whereas phasic transients
+  following reward-related events can reach hundreds of nanomolars or above.
+  In the medial prefrontal cortex, which receives relatively sparse dopaminergic
+  innervation from the ventral tegmental area, both tonic and phasic
+  concentrations are substantially lower. A sensor with K<sub>D</sub> optimised
+  for the striatum (for example, GRAB<sub>DA2m</sub> at ~90 nM, or dLight1.3b
+  at ~1.6 µM) may sit in saturation or at the steep part of its response curve
+  in densely innervated areas, while being essentially unresponsive in sparsely
+  innervated ones. Zhuo and colleagues (2024) demonstrated this directly:
+  the next-generation sensor gDA3h, engineered for higher sensitivity, could
+  detect dopamine release in the medial prefrontal cortex in response to single
+  optogenetic pulses, whereas dLight1.3b failed to produce a detectable signal
+  under the same conditions. This is not a failure of the experimental paradigm
+  but of sensor-region mismatch. The practical rule is to match sensor affinity
+  to the expected ligand concentration in the target region and to validate
+  the sensor's dynamic range is not saturated under baseline conditions.
+</p>
+
+<h3>In-Vitro Specificity Does Not Guarantee In-Vivo Specificity</h3>
+<p>
+  Sensor characterisation papers typically measure specificity by applying
+  competing analytes to sensor-expressing cells in culture at fixed, matched
+  concentrations and comparing fluorescence responses. Under these conditions,
+  most GPCR-based neuromodulator sensors show impressive selectivity. The
+  GRAB dopamine sensor series shows 10-to-20-fold selectivity for dopamine over
+  noradrenaline; dLight1 variants show roughly 70-fold selectivity. The
+  noradrenaline sensors nLightG and nLightR (Kagiampaki et al., 2023) likewise
+  show high selectivity versus dopamine in cell-based assays. In the brain,
+  however, this picture becomes considerably more complicated.
+</p>
+<p>
+  A key preprint from López and colleagues (Kaeser lab, 2024) addressed this
+  directly, using brain slice and in-vivo fiber photometry experiments with
+  selective pathway silencing. Their central finding was that GRAB noradrenaline
+  sensors and GRAB dopamine sensors cross-activate each other in tissue where
+  the innervation density of the off-target transmitter is high enough to
+  compensate for the lower per-molecule affinity. Specifically, they showed
+  that GRAB<sub>NE</sub> expressed in the dopamine-rich dorsal striatum
+  produced robust signals in response to electrical stimulation, and that this
+  signal was substantially suppressed when dopamine neurons were selectively
+  silenced, demonstrating that dopamine (not noradrenaline) was activating the
+  noradrenaline sensor. The converse was also true in noradrenaline-rich
+  cortex. Crucially, the ratio of innervation densities between the two systems
+  can vary by 100-fold or more across brain regions, meaning that a sensor may
+  be highly specific in one region and substantially non-specific in another.
+  Pharmacological blockade of the sensor's target receptor (the usual control
+  used to verify sensor activation) does not resolve this ambiguity: blocking
+  the noradrenaline receptor will silence both noradrenaline-driven and
+  dopamine-driven sensor activation, giving a false positive confirmation.
+  The authors conclude that genetic or chemogenetic silencing of the specific
+  innervating pathway is indispensable for interpreting sensor fluorescence in
+  regions with dual monoaminergic innervation.
+</p>
+<p>
+  This finding has significant retroactive implications for published datasets.
+  Many studies using noradrenaline sensors in the striatum, or dopamine sensors
+  in noradrenaline-rich regions such as the prefrontal cortex, may contain
+  a non-trivial contribution from the competing catecholamine. The degree to
+  which this affects conclusions depends on whether the key behavioural
+  comparisons involve conditions that differentially recruit the two systems,
+  but it cannot be assumed away.
+</p>
+
+<h3>Pharmacological Interference with GPCR-Based Sensors</h3>
+<p>
+  Because GPCR-based sensors are engineered directly from endogenous receptors,
+  they retain the pharmacological binding pocket of the parent protein. Drugs
+  that act on the receptor from which a sensor is derived will interact with
+  the sensor itself, often in ways that confound data interpretation. A
+  GRAB dopamine sensor built on the D2 receptor backbone will be antagonised
+  by D2 receptor blockers (such as haloperidol or sulpiride), not because
+  dopamine release has changed, but because the drug occupies the sensor's
+  binding site and prevents the conformational change that drives fluorescence.
+  Conversely, a D1 receptor-based sensor like dLight1 will be blocked by
+  SCH-23390, a D1 antagonist commonly used to probe downstream signalling.
+  In pharmacological experiments where the drug of interest acts on the same
+  receptor family as the sensor backbone, what appears to be a change in
+  neuromodulator release may in fact be a direct drug-sensor interaction.
+  This is not a hypothetical concern: it has been documented that applying
+  receptor antagonists to sensor-expressing tissue reduces fluorescence
+  independently of endogenous transmitter levels, mimicking apparent release
+  suppression. Whenever an experiment involves drugs targeting receptors of
+  the same family as the sensor scaffold, independent confirmation of release
+  dynamics (using an orthogonal sensor from a different receptor family, or
+  electrochemical methods) is advisable.
+</p>
+
+<h3>Ligand Buffering: When the Sensor Competes with Endogenous Receptors</h3>
+<p>
+  A concern that applies to high-affinity neuromodulator sensors at high
+  expression levels is that the sensor itself becomes a significant buffer for
+  the transmitter it is meant to observe. GRAB<sub>DA2h</sub>, with a
+  K<sub>D</sub> of approximately 7 nM, has an affinity for dopamine that
+  matches or exceeds that of many endogenous D2 receptors. At sufficient
+  expression density, the sensor molecules collectively sequester a meaningful
+  fraction of released dopamine, reducing the concentration available to
+  endogenous receptors and potentially suppressing the downstream signalling
+  events the experiment is designed to study. This is particularly relevant
+  in chronic preparations where the virus has been expressing for months and
+  expression levels may have increased well beyond the initial titration.
+  Ligand buffering is less of a concern with lower-affinity variants whose
+  K<sub>D</sub> is well above local transmitter concentrations, because the
+  sensor molecules then occupy only a small fraction of their binding sites
+  under physiological conditions. Researchers should therefore be cautious
+  about using high-affinity sensor variants at high AAV titres or with
+  promoters that drive unusually strong expression, and should consider
+  pairing any finding sensitive to downstream dopaminergic effects with
+  a control condition that verifies receptor activation is intact.
+</p>
+
+<div class="tip-box">
+  <div class="tip-label">GPCR Sensor Specificity and Affinity: A Practical Guide</div>
+  <p style="margin: 0; line-height: 1.75;">
+    Labouesse MA, Patriarchi T. A brief guide to the genetically encoded
+    fluorescent indicator toolkit for the ventral tegmental area.
+    <em>Pharmacol Biochem Behav.</em> 2021;200:173090.<br>
+    Bhatt DL et al. GPCR-Based Dopamine Sensors — A Detailed Guide to Inform
+    Sensor Choice for In Vivo Imaging. <em>Int J Mol Sci.</em>
+    2020;21(21):8048.<br>
+    <a href="https://doi.org/10.3390/ijms21218048"
+       target="_blank" rel="noopener noreferrer"
+       style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;
+              font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
+      https://doi.org/10.3390/ijms21218048
+    </a>
+  </p>
+</div>
+
+<div class="tip-box">
+  <div class="tip-label">Cross-Reactivity of Catecholamine Sensors In Vivo</div>
+  <p style="margin: 0; line-height: 1.75;">
+    López RC, Noble N, Özçete ÖD, et al. Innervation density governs crosstalk
+    of GPCR-based norepinephrine and dopamine sensors.
+    <em>bioRxiv.</em> 2024; doi:10.1101/2024.11.23.624963.<br>
+    <a href="https://doi.org/10.1101/2024.11.23.624963"
+       target="_blank" rel="noopener noreferrer"
+       style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;
+              font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
+      https://doi.org/10.1101/2024.11.23.624963
+    </a>
+  </p>
+</div>
+
+<div class="tip-box">
+  <div class="tip-label">Next-Generation Dopamine Sensors: Improved Sensitivity</div>
+  <p style="margin: 0; line-height: 1.75;">
+    Zhuo Y, Luo B, Yi X, et al. Improved green and red GRAB sensors for
+    monitoring dopaminergic activity in vivo. <em>Nat Methods.</em>
+    2024;21(4):680–691.<br>
+    <a href="https://doi.org/10.1038/s41592-023-02100-w"
+       target="_blank" rel="noopener noreferrer"
+       style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;
+              font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
+      https://doi.org/10.1038/s41592-023-02100-w
+    </a>
+  </p>
+</div>
+
+
+<h2>Dual-Colour Multiplexing: Recording Two Signals Simultaneously</h2>
+<p>
+  One of the more powerful extensions of GPCR-based sensors is their
+  compatibility with simultaneous dual-colour photometry, enabled by the
+  availability of both green-fluorescent and red-fluorescent variants of the
+  same sensor target. When a green dopamine sensor and a red noradrenaline
+  sensor (or a red calcium indicator such as jRGECO1a) are co-expressed in
+  the same region, a single fiber can collect both signals simultaneously
+  using two spectrally separated excitation-emission channels. Feng and
+  colleagues (2024) used this approach with GRAB<sub>NE2m</sub> alongside
+  jRGECO1a to record noradrenaline release and local calcium dynamics
+  simultaneously across the sleep-wake cycle, revealing that noradrenaline
+  in the medial prefrontal cortex and preoptic area tracked state transitions
+  in a region-specific manner. A complementary study combining red-fluorescent
+  acetylcholine sensors (rACh1h) with green GRAB serotonin sensors revealed
+  opposing dynamics of acetylcholine and serotonin during REM sleep, a
+  dissociation that single-channel photometry could not have resolved.
+</p>
+<p>
+  Dual-colour recordings introduce their own interpretive challenges beyond
+  the reference channel problem already discussed. Spectral cross-talk, in
+  which emission from the brighter sensor bleeds into the filter passband of
+  the other, must be quantified and corrected for; this is more problematic
+  when one sensor is expressed at much higher levels than the other.
+  Differential photobleaching rates across the two channels can create
+  artificial divergence over time. And, as noted above, the absence of a spare
+  spectral slot for a motion reference means that artefact correction relies
+  on computational methods or on the assumption that any shared fast transients
+  in both channels are motion artefacts rather than co-occurring biological
+  events. The last assumption is particularly tenuous in circuits where two
+  neuromodulators genuinely co-fluctuate, such as dopamine and noradrenaline
+  during arousal.
+</p>
+
+<div class="tip-box">
+  <div class="tip-label">GRAB Noradrenaline Sensors: Second Generation</div>
+  <p style="margin: 0; line-height: 1.75;">
+    Feng J, Dong H, Lischinsky JE, et al. Monitoring norepinephrine release
+    in vivo using next-generation GRAB<sub>NE</sub> sensors.
+    <em>Neuron.</em> 2024;112(12):1930–1942.<br>
+    <a href="https://doi.org/10.1016/j.neuron.2024.03.001"
+       target="_blank" rel="noopener noreferrer"
+       style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;
+              font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
+      https://doi.org/10.1016/j.neuron.2024.03.001
+    </a>
+  </p>
+</div>
+
+<div class="tip-box">
+  <div class="tip-label">Red-Shifted Acetylcholine Sensors for Multiplexed Imaging</div>
+  <p style="margin: 0; line-height: 1.75;">
+    Jing M, Li Y, Zeng J, et al. An optimized acetylcholine sensor for
+    monitoring in vivo cholinergic activity. <em>Nat Methods.</em>
+    2020;17(11):1139–1146; and Chen S, Bhatt DL, et al. Red-shifted GRAB
+    acetylcholine sensors for multiplex imaging in vivo. <em>Nat Chem Biol.</em>
+    2024;20:1489–1499.<br>
+    <a href="https://doi.org/10.1038/s41589-024-01694-4"
+       target="_blank" rel="noopener noreferrer"
+       style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;
+              font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
+      https://doi.org/10.1038/s41589-024-01694-4
+    </a>
+  </p>
+</div>
+
 
 <h2>Strengths, Limitations and the Comparison with Two-Photon</h2>
 <p>
@@ -1428,9 +1749,9 @@ const CONFIG = {
 <p>
   Its defining limitation is the complete absence of single-cell resolution.
   A photometry signal from the striatum is the luminance-weighted sum of every
-  GCaMP-expressing cell within the collection volume. If a behaviour engages
-  opposing subpopulations (say, D1 and D2 striatal projection neurons with
-  antagonistic effects on output), their signals partially cancel and the
+  fluorophore-expressing cell within the collection volume. If a behaviour
+  engages opposing subpopulations (say, D1 and D2 striatal projection neurons
+  with antagonistic effects on output), their signals partially cancel and the
   resulting trace may appear flat while considerable activity is occurring.
   This can be addressed by targeting the indicator to only one subpopulation
   via intersectional genetic strategies, but cannot be resolved optically within
@@ -1438,11 +1759,12 @@ const CONFIG = {
 </p>
 <p>
   For questions requiring cellular resolution in freely moving animals,
-  one-photon miniscope calcium imaging (e.g., the UCLA miniscope or Inscopix
-  nVista platform) provides a viable alternative at the cost of greater
+  one-photon miniscope calcium imaging (for example, the UCLA miniscope or
+  Inscopix nVista platform) provides a viable alternative at the cost of greater
   complexity, a larger head-mounted device, and the need for a gradient-index
-  (GRIN) lens relay that causes more tissue damage than a bare fibre.
+  (GRIN) lens relay that causes more tissue damage than a bare fiber.
 </p>
+
 
 <h2>Recent Advances: 2020–2025</h2>
 <p>
@@ -1465,14 +1787,15 @@ const CONFIG = {
 <p>
   <strong>Sensors without isosbestic points.</strong> A structural limitation of
   GRAB and dLight sensors is that, unlike GCaMP, they lack a
-  calcium-independent excitation wavelength. The 405 nm channel is therefore
+  ligand-independent excitation wavelength. The 405 nm channel is therefore
   not available as a motion reference. The field has addressed this in two ways:
   co-expression of a spectrally inert red fluorophore (such as tdTomato) under
-  the same promoter, whose signal serves as a surrogate reference; or
-  computational correction using robust regression on the raw signal alone.
-  Neither approach is as clean as the GCaMP isosbestic strategy, and the lack
-  of a simple internal control is a meaningful methodological limitation that
-  users of GRAB sensors must account for explicitly.
+  the same promoter, whose signal serves as a surrogate reference with
+  time-division illumination; or computational correction using robust
+  regression on the raw signal alone. Neither approach is as clean as the GCaMP
+  isosbestic strategy, and the lack of a simple internal optical control is a
+  meaningful methodological limitation that users of GRAB sensors must account
+  for explicitly.
 </p>
 <p>
   <strong>Wireless and multi-region systems.</strong> Fully wireless miniaturised
@@ -1480,20 +1803,20 @@ const CONFIG = {
   carried by the animal, have matured from proof-of-concept to commercial
   availability. This removes the tether artefact entirely and opens paradigms
   involving multiple animals in the same enclosure, natural foraging, and
-  home-cage recordings across entire circadian cycles. In parallel, multi-fibre
-  array systems using 50 μm fibres and camera-based detection now allow
+  home-cage recordings across entire circadian cycles. In parallel, multi-fiber
+  array systems using 50 µm fibers and camera-based detection now allow
   simultaneous population-level recordings from five to ten brain regions in a
   single animal, enabling the study of state-dependent inter-regional dynamics
-  that single-fibre systems cannot access.
+  that single-fiber systems cannot access.
 </p>
 <p>
-  <strong>Tapered fibre probes.</strong> Standard flat-cleaved fibres collect
-  fluorescence primarily within 100–200 μm of the tip, with a collection volume
-  that does not vary with depth. Tapered fibre probes, in which the fibre is
+  <strong>Tapered fiber probes.</strong> Standard flat-cleaved fibers collect
+  fluorescence primarily within 100–200 µm of the tip, with a collection volume
+  that does not vary with depth. Tapered fiber probes, in which the fiber is
   drawn to a sharp conical tip, extend the collection volume along the probe's
   depth axis and allow crude depth-resolved recording along a single penetration
   track, providing information about laminar or depth-dependent activity
-  gradients that flat fibres obscure.
+  gradients that flat fibers obscure.
 </p>
 <p>
   <strong>Fluorescence lifetime photometry.</strong> Intensity-based photometry
@@ -1501,18 +1824,18 @@ const CONFIG = {
   coupling, and photobleaching, all of which shift the baseline independently of
   biology. Fluorescence lifetime measurements record the rate of photon emission
   after a pulsed excitation rather than the number of photons, a quantity that
-  is largely independent of expression level and excitation power. FLIM-adapted
-  photometry sensors and the hardware to excite and time-resolve them are an
-  active area of development, holding the potential for substantially more
-  quantitative and cross-animal-comparable signals. Commercial implementation
-  remains limited as of 2025, but the technique is likely to move from
-  specialist labs to broader adoption within the next few years.
+  is largely independent of expression level and excitation power. The recently
+  introduced dLight3.8 sensor (Patriarchi lab, 2025) has been shown to support
+  simultaneous intensity and lifetime recording in vivo, opening a route to more
+  quantitative, expression-level-independent dopamine signals. FLIM-adapted
+  photometry hardware remains specialist equipment, but this is likely to change
+  within the next few years as the instrumentation matures.
 </p>
 <p>
   <strong>Analysis standardisation.</strong> A recognised problem through the
   early 2020s was the divergence in analysis pipelines: different groups
   normalised ΔF/F differently, used different regression strategies, and applied
-  or omitted isosbestic correction in incompatible ways, making quantitative
+  or omitted artefact correction in incompatible ways, making quantitative
   comparison across studies unreliable. This has been addressed by a wave of
   peer-reviewed open-source toolboxes, including pMAT, pyPhotometry, GuPPy, and
   most recently PASTa (2025), that codify best-practice pipelines and provide
@@ -1565,12 +1888,18 @@ const CONFIG = {
   </p>
 </div>
 
+
 <h2>Interpreting the Signal Honestly</h2>
 <p>
   A recurring source of overinterpretation in the photometry literature is the
-  conflation of ΔF/F magnitude with firing rate or neuromodulator concentration.
-  Neither equivalence is straightforward. GCaMP ΔF/F is a non-linear,
-  saturating function of calcium, which is itself a non-linear, temporally
+  conflation of ΔF/F magnitude with firing rate or absolute neuromodulator
+  concentration. Neither equivalence is straightforward, and the caveats
+  differ depending on whether you are using a calcium indicator or a
+  neuromodulator sensor.
+</p>
+<p>
+  For <strong>GCaMP-based recordings</strong>, ΔF/F is a non-linear, saturating
+  function of intracellular calcium, which is itself a non-linear, temporally
   smeared proxy for spiking, filtered by indicator binding kinetics (K<sub>D</sub>
   of ~290 nM for GCaMP6f, with values ranging from ~150 to ~375 nM across
   common GCaMP variants depending on temperature and cellular environment) and
@@ -1582,40 +1911,65 @@ const CONFIG = {
   in baseline arousal or neuromodulatory tone.
 </p>
 <p>
-  For GRAB sensors, ΔF/F is more directly interpretable as a monotonic function
-  of occupancy, but the relationship between occupancy and true extracellular
-  concentration depends on local sensor density, the indicator's K<sub>D</sub>
-  (~90 nM for GRAB<sub>DA2m</sub>), and the kinetics of reuptake, all of which
-  vary across brain regions and can change with experimental manipulations.
-  High-affinity sensors such as GRAB<sub>DA2h</sub> (K<sub>D</sub> ~7 nM) also
-  carry a ligand-buffering risk: at sufficient expression levels, the sensor
-  itself competes with endogenous receptors for dopamine, potentially
-  suppressing the very signal it is intended to monitor. This concern is
-  particularly relevant after months of chronic expression.
+  For <strong>GPCR-based neuromodulator sensors</strong>, the relationship
+  between ΔF/F and analyte concentration is somewhat more tractable in
+  principle, since the fluorescence response follows a hyperbolic binding curve
+  that can be characterised in vitro. In practice, however, translating ΔF/F
+  to an absolute extracellular concentration in vivo requires knowing the
+  local sensor expression level, the optical collection efficiency at that
+  specific fiber placement, and the degree to which the sensor's apparent
+  affinity in tissue matches its in-vitro K<sub>D</sub>. None of these
+  quantities is routinely measured. The sensor's K<sub>D</sub> can also shift
+  with temperature, membrane tension, or the presence of competing ligands,
+  all of which vary across brain regions and experimental conditions. The kinetics
+  of reuptake transporters further shape the decay of the sensor signal
+  independently of release, meaning that pharmacological manipulations of
+  transporters (such as cocaine or desipramine) will alter the sensor signal
+  duration even if the magnitude of release is unchanged. Finally, high-affinity
+  sensor variants carry the ligand-buffering risk described above, which can
+  suppress the signal in a manner that is indistinguishable from genuine release
+  suppression.
+</p>
+<p>
+  A further dimension specific to neuromodulator sensors is what can be called
+  the <strong>volume transmission interpretation problem</strong>. GPCR-based
+  sensors report the ambient extracellular concentration of the analyte at the
+  cell surface where the sensor is expressed. This is not the same as the
+  concentration at the release site, nor the concentration seen by a specific
+  postsynaptic receptor, nor the total amount released. In regions where
+  neuromodulators act through volume transmission over large distances (as
+  dopamine does throughout much of the striatum), the sensor signal integrates
+  contributions from release sites that may be hundreds of micrometres away.
+  This can make it difficult to attribute a photometry transient to a specific
+  presynaptic population, especially in regions with convergent inputs from
+  multiple sources.
 </p>
 <p>
   None of this undermines the technique's power; it simply demands that the
   biological question be matched to the quantity being measured. Photometry
   excels at detecting the <em>timing</em> and <em>relative magnitude</em> of
-  population-level events, at detecting whether a signal correlates with a
-  behavioural variable, and at comparing conditions within an experiment. It is
-  not suited to absolute quantification of firing rate or transmitter
-  concentration without careful calibration that is rarely performed in
-  practice.
+  population-level events, at establishing whether a signal correlates with a
+  behavioural variable, and at comparing conditions within an experiment.
+  It is not suited to absolute quantification of firing rate or transmitter
+  concentration without careful calibration that is rarely performed in practice.
 </p>
 <p>
-  Used with appropriate rigour, with isosbestic correction applied via IRLS
-  rather than OLS, with awareness of haemodynamic artefacts in pharmacology
-  experiments, with vigilance for jGCaMP8 photoinactivation in long recordings,
-  with thoughtful choice of indicator kinetics, and with genetic targeting
-  precise enough that the signal source is unambiguous, fiber photometry
-  occupies a unique and largely irreplaceable niche in the neuroscientist's
-  toolkit. It is the method that finally made it possible to watch a dopamine
-  transient unfold in the nucleus accumbens of a mouse as it experiences an
-  unexpected reward, or to track serotonin across an entire circadian cycle in a
-  freely sleeping animal. The view it provides is coarse by the standards of
-  single-cell physiology. But it is a view of the circuit in action, in the
-  brain, in the animal, as it lives.
+  Used with appropriate rigour (isosbestic correction via IRLS rather than OLS
+  for calcium sensors; time-division tdTomato correction for neuromodulator
+  sensors; awareness of haemodynamic artefacts in pharmacology experiments;
+  vigilance for jGCaMP8 photoinactivation in long recordings; sensor affinity
+  matched to the target brain region; specificity confirmed by selective
+  pathway silencing rather than pharmacological blockade alone; and genetic
+  targeting precise enough that the signal source is unambiguous), fiber
+  photometry occupies a unique and largely irreplaceable niche in the
+  neuroscientist's toolkit. It is the method that finally made it possible to
+  watch a dopamine transient unfold in the nucleus accumbens as a mouse
+  experiences an unexpected reward, to track noradrenaline across an entire
+  sleep cycle, or to observe acetylcholine and serotonin simultaneously and
+  discover that they diverge during REM sleep in a way no prior method could
+  resolve. The view it provides is coarse by the standards of single-cell
+  physiology. But it is a view of the circuit in action, in the brain, in the
+  animal, as it lives.
 </p>
 
 <div class="tip-box">
@@ -1715,8 +2069,8 @@ const CONFIG = {
   type: "excerpt", slug: "evolutionary-origins-of-synapses",
   title: "Before the First Neuron: The Ancient Origins of the Synaptic Toolkit",
   excerpt: "A landmark review traces synaptic proteins back hundreds of millions of years, long before neurons existed. What does this tell us about how the nervous system first evolved?",
-  date: "10 Jan, 2025", readTime: "7 min read", tag: "Literature Excerpt",
-  imageUrl: "image-assets/posts/evolutionary-origins-of-synapses/synapse_anatomy.svg",
+  date: "10 Jan, 2026", readTime: "7 min read", tag: "Literature Excerpt",
+  imageUrl: "image-assets/posts/evolutionary-origins-of-synapses/evolutionary.png",
   emoji: "",
   content: `
     <p>
@@ -1748,12 +2102,13 @@ One of the deepest questions in neuroscience is not how brains process
   question of how the first true synapses evolved.
 </p></blockquote>
 
-    <figure>
+    <figure class="post-figure">
       <img
         src="image-assets/posts/evolutionary-origins-of-synapses/synapse_anatomy.svg"
-        alt="Labeled cross-section of a chemical synapse showing the presynaptic terminal with reserve pool and readily releasable vesicles, active zone proteins (Bassoon, RIM, Unc13, VGCCs), neurexin–neuroligin adhesion across the cleft, and the layered postsynaptic density (PSD-95, GKAP, Shank, Homer)"
+        alt="Labeled cross-section of an excitatory glutamatergic synapse showing the presynaptic terminal with reserve pool and readily releasable vesicles, active zone proteins (RIM, Unc13, VGCCs), neurexin–neuroligin adhesion across the cleft, and the layered postsynaptic density (PSD-95/DLG, GKAP, Shank, Homer)"
+        loading="lazy"
       />
-      <figcaption>The chemical synapse as a layered molecular machine. The presynaptic active zone docks vesicles for fast Ca²⁺-triggered release; neurexin–neuroligin pairs bridge the ~20 nm cleft; and the postsynaptic density (PSD-95 → GKAP → Shank → Homer) clusters receptors opposite the release site.</figcaption>
+      <figcaption>An excitatory glutamatergic synapse, shown here as a canonical example of a chemical synapse. The presynaptic active zone docks vesicles for fast Ca²⁺-triggered release; neurexin–neuroligin pairs bridge the ~20 nm cleft; and the postsynaptic scaffolding layer (PSD-95/DLG → GKAP → Shank → Homer) clusters glutamate receptors opposite the release site. Inhibitory synapses (GABAergic, glycinergic) use a distinct scaffold — gephyrin and collybistin — in place of this PSD-95-based hierarchy.</figcaption>
     </figure>
 
     <h2>Choanoflagellates: A Primordial Neurosecretory Apparatus</h2>
@@ -1773,10 +2128,11 @@ One of the deepest questions in neuroscience is not how brains process
   entire colony, a form of collective behaviour that echoes what neurons do.
 </p>
 
-    <figure>
+    <figure class="post-figure">
       <img
         src="image-assets/posts/evolutionary-origins-of-synapses/evolutionary_lineage.svg"
         alt="Phylogenetic tree showing the stepwise appearance of synaptic proteins across choanoflagellates, ctenophores, sponges, placozoans, and cnidarians, with annotated cards per lineage"
+        loading="lazy"
       />
       <figcaption>Evolutionary origins of the synaptic toolkit. Each card lists the protein modules present, partial, or absent in that lineage. The dashed ctenophore branch reflects the contested independent origin of their nervous system. After Colgren &amp; Burkhardt, <em>Nature Reviews Neuroscience</em> 2025.</figcaption>
     </figure>
@@ -1815,12 +2171,13 @@ One of the deepest questions in neuroscience is not how brains process
   signalling.
 </p></blockquote>
 
-    <figure>
+    <figure class="post-figure">
       <img
         src="image-assets/posts/evolutionary-origins-of-synapses/volumetric_vs_directed.svg"
-        alt="Side-by-side comparison of volumetric peptidergic signalling (slow, diffuse, no junctional structure) versus directed chemical synaptic transmission (fast, precise, neurexin–neuroligin cleft, full PSD)"
+        alt="Side-by-side comparison of volumetric peptidergic signalling (slow, diffuse, no junctional structure) versus directed chemical synaptic transmission (fast, precise, neurexin–neuroligin cleft, postsynaptic scaffolding)"
+        loading="lazy"
       />
-      <figcaption>Volumetric versus directed signalling. Early animals coordinated behaviour through diffuse peptide release reaching many cells non-specifically. The evolution of the synaptic cleft adhesion complex and postsynaptic density shifted communication to fast, point-to-point transmission.</figcaption>
+      <figcaption>Volumetric versus directed signalling. Early animals coordinated behaviour through diffuse peptide release reaching many cells non-specifically. The evolution of the synaptic cleft adhesion complex and postsynaptic scaffolding shifted communication to fast, point-to-point transmission. The directed synapse panel depicts an excitatory glutamatergic synapse as a canonical example; inhibitory synapses use a distinct postsynaptic scaffold.</figcaption>
     </figure>
 
     <h2>Ctenophores: An Independent Evolutionary Experiment</h2>
@@ -1880,10 +2237,21 @@ Burkhardt et al. (2023), <em>Science</em>: Syncytial nerve net in a ctenophore a
   cells, later co-opted for neurotransmission.
 </p></blockquote>
 
-    <figure>
+
+    <figure class="post-figure">
+      <img
+        src="image-assets/posts/evolutionary-origins-of-synapses/evolutionary.png"
+        alt=""
+        loading="lazy"
+      />
+    </figure>
+
+
+    <figure class="post-figure">
       <img
         src="image-assets/posts/evolutionary-origins-of-synapses/modular_assembly.svg"
-        alt="Table showing which synaptic protein modules (presynaptic, cleft adhesion, postsynaptic PSD) are present, partial, or absent in each animal lineage from choanoflagellates to cnidarians"
+        alt="Table showing which synaptic protein modules (presynaptic, cleft adhesion, postsynaptic scaffolding) are present, partial, or absent in each animal lineage from choanoflagellates to cnidarians"
+        loading="lazy"
       />
       <figcaption>Stepwise co-option of synaptic modules. Each row is a lineage; each column a functional module. The table makes visible the key asymmetry: the presynaptic secretory machinery is ancient and broadly conserved, while the cleft adhesion complex and postsynaptic scaffolding proteins are late arrivals, appearing fully assembled only in the cnidarian–bilaterian ancestor.</figcaption>
     </figure>
@@ -1909,7 +2277,7 @@ Colgren JJ &amp; Burkhardt P. <em>The evolutionary origins of synaptic proteins
   slug: "nanoscopy-dstorm-sted-dnapaint",
   title: "Seeing in Nanoscale: Principles of dSTORM, STED and DNA-PAINT",
   excerpt: "Conventional fluorescence microscopy cannot resolve synaptic substructure, the diffraction limit sits at ~200 nm while in synapses, the structures that matter are 20–100 nm apart. Here is how three super-resolution techniques break that barrier, and why each one matters for neuroscience.",
-  date: "11 Mar, 2025",
+  date: "01 Jan, 2026",
   readTime: "10 min read",
   tag: "Technique Breakdown",
   emoji: "",
@@ -1955,12 +2323,11 @@ Colgren JJ &amp; Burkhardt P. <em>The evolutionary origins of synaptic proteins
   below the diffraction limit.
 </p>
 
-<figure>
+<figure class="post-figure">
   <img src="image-assets/posts/nanoscopy-dstorm-sted-dnapaint/01_diffraction_barrier.svg"
-       alt="Two overlapping PSFs unresolved by confocal vs two clearly separated PSFs in super-resolution, with the Abbe formula and the two strategies for breaking the diffraction limit." />
-  <figcaption style="margin-top: 0.75rem; font-size: 0.78rem;
-    color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
-    line-height: 1.6;">
+       alt="Two overlapping PSFs unresolved by confocal vs two clearly separated PSFs in super-resolution, with the Abbe formula and the two strategies for breaking the diffraction limit."
+       loading="lazy" />
+  <figcaption>
     Left: two fluorophores ~200 nm apart produce a single blurred spot in
     confocal microscopy, their point spread function (PSFs) overlap and cannot 
     be distinguished.
@@ -2014,12 +2381,11 @@ d<sub>eff</sub> ≈ λ / (2·NA · √(1 + I<sub>STED</sub>/I<sub>s</sub>))
   accelerate photobleaching, particularly in live preparations.
 </p>
 
-<figure>
+<figure class="post-figure">
   <img src="image-assets/posts/nanoscopy-dstorm-sted-dnapaint/02_sted_principle.svg"
-       alt="STED principle: excitation Gaussian beam, toroidal STED depletion beam with central zero, resulting sub-diffraction emission volume, Jablonski energy level diagram, and resolution formula." />
-  <figcaption style="margin-top: 0.75rem; font-size: 0.78rem;
-    color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
-    line-height: 1.6;">
+       alt="STED principle: excitation Gaussian beam, toroidal STED depletion beam with central zero, resulting sub-diffraction emission volume, Jablonski energy level diagram, and resolution formula."
+       loading="lazy" />
+  <figcaption>
     The STED beam (centre) is shaped into a toroid whose zero-intensity node
     falls exactly at the focal centre. It drives all surrounding fluorophores to
     the ground state via stimulated emission, leaving only the molecules inside
@@ -2085,12 +2451,11 @@ Klar TA &amp; Hell SW. Subdiffraction resolution in far-field fluorescence
   photons per localisation, precisions of 10–30 nm are routinely achieved.
 </p>
 
-<figure>
+<figure class="post-figure">
   <img src="image-assets/posts/nanoscopy-dstorm-sted-dnapaint/03_dstorm_principle.svg"
-       alt="dSTORM acquisition: three camera frames showing sparse single-molecule blinking, Gaussian localisation precision formula, buffer chemistry components, and the photoswitching cycle." />
-  <figcaption style="margin-top: 0.75rem; font-size: 0.78rem;
-    color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
-    line-height: 1.6;">
+       alt="dSTORM acquisition: three camera frames showing sparse single-molecule blinking, Gaussian localisation precision formula, buffer chemistry components, and the photoswitching cycle."
+       loading="lazy" />
+  <figcaption>
     In each camera frame only one or a few molecules are fluorescent (ON); the
     rest are held in a dark thiol-adduct state by the imaging buffer. Each
     isolated emitter is fitted with a 2D Gaussian to yield a sub-diffraction
@@ -2120,12 +2485,11 @@ Klar TA &amp; Hell SW. Subdiffraction resolution in far-field fluorescence
   resolution image.
 </p>
 
-<figure>
+<figure class="post-figure">
   <img src="image-assets/posts/nanoscopy-dstorm-sted-dnapaint/03b_dstorm_buffer_chemistry.svg"
-       alt="dSTORM buffer chemistry: four-state photoswitching diagram for AF647/Cy5, buffer component roles, and linear thiol-adduct reaction mechanism." />
-  <figcaption style="margin-top: 0.75rem; font-size: 0.78rem;
-    color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
-    line-height: 1.6;">
+       alt="dSTORM buffer chemistry: four-state photoswitching diagram for AF647/Cy5, buffer component roles, and linear thiol-adduct reaction mechanism."
+       loading="lazy" />
+  <figcaption>
     Left: the four-state cycle for cyanine dyes (AF647, Cy5). Intense 647 nm
     illumination populates S₁, from which intersystem crossing (ISC) produces
     the long-lived T₁ triplet. MEA reacts with T₁ to form a covalent
@@ -2198,12 +2562,11 @@ van de Linde S, Löschberger A, Klein T, et al. Direct stochastic optical
   counts per target.
 </p>
 
-<figure>
+<figure class="post-figure">
   <img src="image-assets/posts/nanoscopy-dstorm-sted-dnapaint/04_dnapaint_principle.svg"
-       alt="DNA-PAINT: three molecular states showing labelled target dark, imager hybridised and fluorescent, and imager dissociated with intact docking strand; plus a single-molecule intensity trace and Exchange-PAINT multiplexing workflow." />
-  <figcaption style="margin-top: 0.75rem; font-size: 0.78rem;
-    color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
-    line-height: 1.6;">
+       alt="DNA-PAINT: three molecular states showing labelled target dark, imager hybridised and fluorescent, and imager dissociated with intact docking strand; plus a single-molecule intensity trace and Exchange-PAINT multiplexing workflow."
+       loading="lazy" />
+  <figcaption>
     Steps 1–3 (top): the target is labelled via a primary + secondary antibody
     complex, with a short ssDNA docking strand of unique sequence conjugated to
     the secondary antibody. In step 1 no imager is present and the target is
@@ -2296,12 +2659,11 @@ Jungmann R, Avendaño MS, Woehrstein JB, Dai M, Shih WM, Yin P. Multiplexed 3D
   exchange cycles, washing and re-imaging add substantial time per sample.
 </p>
 
-<figure>
+<figure class="post-figure">
   <img src="image-assets/posts/nanoscopy-dstorm-sted-dnapaint/05_technique_comparison.svg"
-       alt="Nine-row comparison table of STED, dSTORM and DNA-PAINT covering working principle, lateral resolution, live-cell imaging, image formation, multiplexing, molecule counting, key limitation, best use case, and preferred fluorophores." />
-  <figcaption style="margin-top: 0.75rem; font-size: 0.78rem;
-    color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
-    line-height: 1.6;">
+       alt="Nine-row comparison table of STED, dSTORM and DNA-PAINT covering working principle, lateral resolution, live-cell imaging, image formation, multiplexing, molecule counting, key limitation, best use case, and preferred fluorophores."
+       loading="lazy" />
+  <figcaption>
     Property matrix for the three nanoscopy workhorses. STED is the only method
     compatible with live-cell imaging and produces images directly without a
     reconstruction step. dSTORM is the most accessible entry point for fixed
@@ -2316,7 +2678,7 @@ Jungmann R, Avendaño MS, Woehrstein JB, Dai M, Shih WM, Yin P. Multiplexed 3D
 
 <p>
   In practice, the techniques are increasingly used in combination or in
-  parallel with cryo-electron tomography to link molecular identity with true nanometre-
+  parallel with cryo-electron tomography to link molecular identity with true nanometer-
   scale ultrastructure. The synapse is finally visible at the scale at which
   it works, and what it reveals continues to surprise.
 </p>
@@ -2334,7 +2696,7 @@ Jungmann R, Avendaño MS, Woehrstein JB, Dai M, Shih WM, Yin P. Multiplexed 3D
   readTime: "8 min read",
   tag: "Dopamine",
   emoji: "",
-  imageUrl: "",
+  imageUrl: "image-assets/posts/dopamine-hub-synapses-cryo-et/Hub.png",
   content: `
 <p>
 A few years ago, we showed that most dopaminergic terminals in the striatum
@@ -2346,7 +2708,7 @@ A few years ago, we showed that most dopaminergic terminals in the striatum
   2022 study gave us the molecular composition of these terminals and showed
   that the glutamatergic synapses contacted by dopamine terminals are
   molecularly distinct from those that are not. What it could not tell us was
-  what any of this looked like at the nanometre scale, in close-to-native
+  what any of this looked like at the nanometer scale, in close-to-native
   conditions, without the artefacts introduced by chemical fixation. That is
   what this paper set out to do.
 </p>
@@ -2362,7 +2724,7 @@ A few years ago, we showed that most dopaminergic terminals in the striatum
   this by letting us first locate a fluorescently labelled terminal by its
   colour, then image its internal architecture by electron tomography on the
   same frozen grid, with no chemical fixation or staining in between. The
-  result is a three-dimensional reconstruction at nanometre resolution, of a
+  result is a three-dimensional reconstruction at nanometer resolution, of a
   structure that is identified with certainty, and preserved as close to its
   living state as current technology allows.
 </p>
@@ -2402,24 +2764,21 @@ A few years ago, we showed that most dopaminergic terminals in the striatum
   2022.
 </p>
 
-<figure style="margin:2.5rem 0; text-align:center;">
+<figure class="post-figure">
   <img
     src="image-assets/posts/dopamine-hub-synapses-cryo-et/Fig1.svg"
     alt="Figure 1 from Lapios et al. 2025: Cryo-CLEM workflow and representative
          tomograms of GLU, DA and DHS synaptosomes"
-    style="width:100%;max-width:860px;border-radius:10px;
-           border:1px solid var(--border);display:inline-block;"
+    loading="lazy"
   />
-  <figcaption
-    style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-dim);
-           font-family:'JetBrains Mono',monospace;line-height:1.6;">
-    <strong>Fig. 1:</strong> Cryo-CLEM and cryo-ET of cortico-striatal and
+  <figcaption>
+    Cryo-CLEM and cryo-ET of cortico-striatal and
     dopaminergic synaptosomes.
-    <strong>A–C</strong>: experimental strategy, from fluorescent mouse lines
+    A–C: experimental strategy, from fluorescent mouse lines
     to plunge-freezing on EM grids.
-    <strong>D–E</strong>: cryo-fluorescence and cryo-EM images of the same grid
+    D–E: cryo-fluorescence and cryo-EM images of the same grid
     square, registered using fiducial beads (yellow circles).
-    <strong>F–G</strong>: representative tomographic slices and 3D segmentation
+    F–G: representative tomographic slices and 3D segmentation
     models for VGLUT1+ (GLU, green), DAT+ (DA, magenta) and DA+GLU dopamine
     hub synaptosomes (DHS, blue).
     Scale bars: 500 nm (tomograms). Reproduced from Lapios et al.,
@@ -2448,7 +2807,7 @@ A few years ago, we showed that most dopaminergic terminals in the striatum
   In glutamate synapses, release occurs within a millisecond of calcium entry.
   This speed depends on vesicles being pre-positioned and pre-primed at the
   active zone: tethered to the plasma membrane by nanoscale filaments, and in
-  many cases sitting less than five nanometres from the membrane, held by
+  many cases sitting less than five nanometers from the membrane, held by
   multiple short tethers that correspond to the primed, fusion-ready state.
   Among glutamatergic synaptosomes, 52% of proximal vesicles were tethered,
   and those closest to the membrane carried an average of three tethers, the
@@ -2521,7 +2880,7 @@ A few years ago, we showed that most dopaminergic terminals in the striatum
   synapses contacted by dopaminergic varicosities display increased levels of
   Bassoon, VGLUT1, Homer1c and Synaptopodin. The 2022 data showed molecular
   potentiation; the 2025 cryo-ET data now show that this potentiation has a
-  structural correlate at the nanometre scale, in the organisation of the
+  structural correlate at the nanometer scale, in the organisation of the
   vesicle pool itself.
 </p>
 
@@ -2557,1133 +2916,6 @@ Lapios P, Anger R, Paget-Blanc V, Marza E, Lučić V, Fronzes R, Herzog E &amp;
 `,
 },
 
-{
-  type: "breakdown",
-  slug: "mass-spectrometry-proteomics-principles",
-  title: "Peptides to Proteins: The Principles and Practice of"
-    + " Mass Spectrometry-Based Proteomics",
-  excerpt: `
-    Proteomics asks what proteins are present, in what quantity, and in what
-    state, across thousands of molecules simultaneously. Here is how the
-    technology works, what the shift from DDA to DIA actually means, why
-    the choice of software pipeline matters as much as the mass spectrometer,
-    and what the last five years have changed for researchers who work with
-    complex biological samples.
-  `,
-  date: "16 Mar, 2026",
-  readTime: "25 min read",
-  tag: "Technique Breakdown",
-  emoji: "",
-  imageUrl: "",
-  content: `
-
-<p>
-  The proteome is not a static catalogue. It is a snapshot, a record of which
-  proteins are present, at what abundance, with which post-translational
-  modifications, in this sample, at this moment. Unlike the genome, which is
-  largely fixed across the cells of an organism, the proteome is dynamic: it
-  shifts with development, disease, drug treatment, stress, and time of day.
-  Transcriptomics can tell you which genes are being transcribed, but
-  proteins are not mRNAs, the correlation between transcript abundance and
-  protein abundance is imperfect, regulated at multiple post-transcriptional
-  levels, and sometimes spectacularly weak. To understand what a cell is
-  actually doing, you need to measure what is there.
-</p>
-<p>
-  Mass spectrometry-based proteomics is the technology that makes this
-  possible at scale. A modern instrument can identify and quantify thousands
-  of proteins from a biological sample in a single run, with sub-nanomolar
-  sensitivity, across a dynamic range spanning five or more orders of
-  magnitude. The field has been transformed in the past decade by a
-  convergence of instrument engineering, computational innovation, and
-  open-source software development. Understanding the principles behind that
-  transformation is increasingly necessary for anyone who uses the data it
-  produces.
-</p>
-
-<h2>The Core Workflow: Bottom-Up Shotgun Proteomics</h2>
-<p>
-  The dominant strategy in proteomics today is called bottom-up, or shotgun,
-  proteomics. The logic is counterintuitive at first: rather than trying to
-  measure intact proteins, which are large, heterogeneous, and hard to
-  separate, the sample is enzymatically digested into peptides first. Trypsin
-  is the workhorse enzyme, cleaving reliably after lysine and arginine residues
-  to generate peptides typically 7–25 amino acids long. These peptides are
-  far more tractable for mass spectrometry: they are small enough to
-  ionise efficiently, short enough to fragment predictably in the gas phase,
-  and their sequences can be inferred by matching fragment mass patterns
-  against a protein sequence database.
-</p>
-<p>
-  The workflow proceeds in five stages. First, protein extraction from cells,
-  tissue, or biofluid. Second, enzymatic digestion into peptides. Third,
-  liquid chromatography (LC) separation, typically on a reversed-phase C18
-  column, which reduces the complexity of what enters the mass spectrometer
-  at any given moment and concentrates co-eluting peptides into tight peaks
-  of seconds to minutes. Fourth, electrospray ionisation (ESI), which
-  transfers peptides from solution into the gas phase as multiply charged
-  ions. Fifth, mass spectrometric detection: the instrument measures the
-  mass-to-charge ratio (m/z) of intact peptide ions (MS1), then isolates
-  selected precursors for fragmentation and measures the resulting fragment
-  ion spectra (MS2), which serve as sequence fingerprints.
-</p>
-<p>
-  Peptide identification proceeds by database search: observed fragment
-  spectra are compared against theoretical spectra predicted from all
-  tryptic peptides in a reference proteome, and matches are scored and
-  filtered at a defined false discovery rate (FDR), conventionally 1% at
-  the peptide-spectrum match (PSM) level. Quantification is then inferred
-  from the intensity of peptide ion signals, either at the MS1 level
-  (precursor intensity), or at the MS2 level (fragment ion areas), depending
-  on the acquisition strategy used.
-</p>
-
-
-<figure style="margin: 2.5rem 0;">
-  <img
-    src="image-assets/posts/Proteomics/workflow_fixed.svg"
-    alt="Bottom-up proteomics workflow: from sample to differential analysis"
-    style="width: 100%; border-radius: 8px;
-           border: 1px solid var(--border);"
-  />
-  <figcaption style="margin-top: 0.75rem; font-size: 0.78rem;
-    color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
-    line-height: 1.6;">
-    The bottom-up shotgun proteomics workflow. Left column: wet-lab stages (sample collection, protein extraction, enzymatic digestion, desalting, LC separation, ESI ionisation). Right column: computational stages (database search, protein inference, quantification, normalisation, differential analysis). The dashed arrow connects MS acquisition output to the database search engine.
-  </figcaption>
-</figure>
-<h2>Sample Preparation: Where Most Experiments Succeed or Fail</h2>
-<p>
-  The most carefully optimised mass spectrometer cannot recover information
-  lost during sample preparation. Protein recovery, peptide yield, and the
-  introduction of contaminants or modifications during workup are the
-  dominant sources of irreproducibility in most proteomics experiments, and
-  the choice of preparation method has a greater effect on final data quality
-  than many instrument or software decisions. Modern sample preparation has
-  moved decisively toward methods that are fast, detergent-tolerant, and
-  operable at low sample inputs.
-</p>
-<p>
-  The standard workflow after protein extraction involves four steps: reduction
-  of disulfide bonds (typically with dithiothreitol or TCEP), alkylation of
-  cysteines (iodoacetamide), tryptic digestion, and desalting/cleanup before
-  LC-MS injection. The critical variation is in how the protein is held and
-  washed during these steps, and this is where method choice matters most.
-</p>
-<p>
-  <strong>FASP</strong> (filter-aided sample preparation, Wiśniewski et al.
-  2009) was the first widely adopted protocol for proteomics-compatible
-  handling of SDS-solubilised lysates. Proteins are retained on a molecular
-  weight cutoff (MWCO) filter while detergent is washed away, then digested
-  on-filter. FASP works well for standard inputs (&gt;50 µg protein) and is
-  compatible with strong detergents including SDS. Its main limitations are
-  significant protein loss at low inputs, slow filtration steps, and
-  sensitivity to filter batch variation.
-</p>
-<div class="tip-box">
-  <div class="tip-label">FASP - Filter-Aided Sample Preparation</div>
-  <p style="margin: 0; line-height: 1.75;">
-    Wiśniewski JR, Zougman A, Nagaraj N, Mann M. Universal sample preparation method for proteome analysis. <em>Nat Methods.</em> 2009;6(5):359–362.<br>
-    <a href="https://doi.org/10.1038/nmeth.1322" target="_blank" rel="noopener noreferrer"
-      style="color: var(--accent); text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;"
-    >https://doi.org/10.1038/nmeth.1322</a>
-  </p>
-</div>
-<p>
-  <strong>SP3</strong> (single-pot, solid-phase-enhanced sample preparation,
-  Hughes et al. 2019) has largely displaced FASP for low-input and
-  high-throughput applications. The method uses paramagnetic carboxylate-coated
-  beads that bind protein non-specifically in high-organic conditions, allowing
-  the supernatant, including detergents, salts, and small-molecule
-  contaminants, to be removed by magnet-assisted washing. After cleanup,
-  proteins are resuspended in digestion buffer and cleaved on-bead. SP3
-  completes in 30–60 minutes in a single tube with no centrifugation steps,
-  is automatable on liquid-handling robots, and performs well from as little
-  as 1 µg total protein. It is the current community default for low-input
-  proteomics and for any application requiring high-throughput processing of
-  many samples in parallel.
-</p>
-<div class="tip-box">
-  <div class="tip-label">SP3 Sample Preparation</div>
-  <p style="margin: 0; line-height: 1.75;">
-    Hughes CS, Moggridge S, Müller T, Sorensen PH, Morin GB, Krijgsveld J.
-    Single-pot, solid-phase-enhanced sample preparation for proteomics
-    experiments. <em>Nat Protoc.</em> 2019;14(1):68–85.<br>
-    <a
-      href="https://doi.org/10.1038/s41596-018-0082-x"
-      target="_blank"
-      rel="noopener noreferrer"
-      style="
-        color: var(--accent);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.8rem;
-      "
-    >
-      https://doi.org/10.1038/s41596-018-0082-x
-    </a>
-  </p>
-</div>
-<p>
-  <strong>S-Trap</strong> (suspension trapping, Zougman et al. 2014, commercialised
-  by ProtiFi) uses a packed quartz fibre plug in a spin-column format to
-  trap SDS-solubilised proteins under acidic conditions. SDS is trapped and
-  washed out while protein is retained, and digestion occurs in the trap
-  body. S-Trap is particularly robust for high-SDS lysates and for samples
-  derived from tissue with complex matrices. Its kit format limits
-  throughput relative to SP3 for large sample numbers but offers excellent
-  reproducibility.
-</p>
-<div class="tip-box">
-  <div class="tip-label">S-Trap - Suspension Trapping</div>
-  <p style="margin: 0; line-height: 1.75;">
-    Zougman A, Selby PJ, Banks RE. Suspension trapping (STrap) sample preparation method for bottom-up proteomics analysis. <em>Proteomics.</em> 2014;14(9):1006–1010.<br>
-    <a href="https://doi.org/10.1002/pmic.201300553" target="_blank" rel="noopener noreferrer"
-      style="color: var(--accent); text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;"
-    >https://doi.org/10.1002/pmic.201300553</a>
-  </p>
-</div>
-<p>
-  <strong>in-StageTip</strong> and nanodroplet processing methods take SP3's
-  principle further toward single-cell proteomics, conducting lysis,
-  reduction, alkylation, and digestion in nanolitre volumes to minimise
-  surface losses. These approaches, combined with optimised low-input
-  acquisition on instruments like the Orbitrap Astral, underpin the current
-  frontier of single-cell proteomics.
-</p>
-<p>
-  A practical consideration that is often underappreciated: the choice of
-  digestion enzyme matters beyond trypsin. LysC alone generates fewer but
-  longer peptides and is more active in denaturing conditions; the
-  LysC-then-trypsin sequential protocol is now widely used for deep proteomics
-  as it improves missed-cleavage rates. Glu-C, Asp-N, and chymotrypsin are
-  used in complementary digestion strategies for coverage of proteins that
-  are poorly represented in tryptic digests, such as transmembrane domains
-  and highly basic regions.
-</p>
-
-<h2>Liquid Chromatography: Sensitivity, Throughput, and the Evosep Principle</h2>
-
-<figure style="margin: 2.5rem 0;">
-  <img
-    src="image-assets/posts/Proteomics/evosep-v2.svg"
-    alt="The Evosep One LC principle: Evotip loading, gradient storage loop, high-pressure elution"
-    style="width: 100%; border-radius: 8px;
-           border: 1px solid var(--border);"
-  />
-  <figcaption style="margin-top: 0.75rem; font-size: 0.78rem;
-    color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
-    line-height: 1.6;">
-    The Evosep One operating principle. Peptides are loaded onto a disposable C18 Evotip offline using four low-pressure syringe pumps. The eluted gradient is captured in a long capillary storage loop. While the mass spectrometer analyses the current sample, the next Evotip is being prepared in parallel. A single high-pressure pump then delivers the stored gradient through the analytical nano C18 column to the MS. Bar chart shows gradient time (depth) vs. throughput for the six standard methods (30–300 SPD).
-  </figcaption>
-</figure>
-
-<p>
-  The liquid chromatography step preceding mass spectrometric analysis is not
-  merely a sample delivery mechanism. It determines sensitivity (through peak
-  concentration), peak capacity (through gradient length and column efficiency),
-  and ultimately how many peptides can be distinguished from one another and
-  identified in a given run. The choice of LC format, nanoflow, microflow,
-  or the Evosep One, involves a tradeoff between sensitivity and throughput
-  that is central to study design.
-</p>
-<p>
-  <strong>Nanoflow LC</strong> (75–150 µm internal diameter columns, 200–400
-  nL/min flow rate) provides the highest sensitivity per microgram of injected
-  material. The narrow column concentrates peptides into small peak volumes
-  before ESI, maximising ion flux into the mass spectrometer. For single-cell
-  proteomics, phosphoproteomics, or any experiment where sample quantity is
-  the limiting factor, nanoflow remains the method of choice. Its disadvantages
-  are sensitivity to pressure fluctuations and particulates, robustness
-  challenges over hundreds of injections, and a typical cycle time of 60–120
-  minutes per sample including equilibration, which limits throughput to
-  10–24 samples per day.
-</p>
-<p>
-  <strong>Microflow LC</strong> (300–800 µm columns, 5–50 µL/min) sacrifices
-  approximately 2–5-fold sensitivity relative to nanoflow in exchange for
-  substantially improved robustness and the ability to run standard HPLC
-  hardware. For large-cohort clinical studies where sample quantity is not
-  limiting and hundreds of samples must be processed reliably, microflow
-  has become the pragmatic choice at several major clinical proteomics centres.
-</p>
-<p>
-  The <strong>Evosep One</strong> (Bache et al. 2018) introduced an
-  architecturally different approach that decouples the gradient formation
-  step from the LC-MS run, enabling throughput of 30–300 samples per day
-  without the sensitivity penalty of microflow. The principle is as follows:
-  peptides are loaded onto a disposable C18 pipette tip (the Evotip) offline.
-  The Evosep system then uses four low-pressure syringe pumps in parallel to
-  elute the peptides from the Evotip at low pressure and flow rate, forming a
-  chromatographic gradient that carries the embedded analytes into a long
-  capillary storage loop. This preformed gradient, with the peptides already
-  distributed along it, is then switched inline with a single high-pressure
-  pump and delivered to a standard nano-scale analytical C18 column for
-  high-resolution separation. The key operational advantage is parallelism:
-  while the current sample is being separated and analysed on the mass
-  spectrometer, the system is simultaneously preparing the next Evotip and
-  filling the next storage loop. Overhead time between injections drops to
-  2–3 minutes, enabling robust analysis of over 200 samples per day on the
-  same analytical column for thousands of injections. Disposable Evotips
-  eliminate carryover without requiring blank runs.
-</p>
-<p>
-  The Evosep One offers six standard methods spanning 30 to 300 samples per
-  day. The gradient time ranges from approximately 88 minutes (30 SPD, for
-  maximum proteome depth comparable to nanoflow) to approximately 5 minutes
-  (300 SPD, for ultra-high-throughput screening or large clinical cohorts).
-  The 60 SPD method (~44 min gradient) has become a community standard for
-  deep proteomics at high throughput, routinely identifying 6,000–8,000
-  protein groups from HeLa digests on an Orbitrap Exploris 480. A Whisper
-  method series operating at ultra-low flow rates (~200 nL/min) extends
-  sensitivity further for limited samples.
-</p>
-<p>
-  The consequence for study design is concrete: an experiment that would
-  require three months of instrument time at nanoflow (one run per 90 minutes)
-  can be completed in approximately one week at 200 SPD on the Evosep One,
-  with modest depth sacrifice. For biomarker discovery cohorts of hundreds
-  to thousands of plasma or tissue samples, this transformation in throughput
-  has changed what is experimentally feasible.
-</p>
-
-<div class="tip-box">
-  <div class="tip-label">Evosep One - Original Description</div>
-  <p style="margin: 0; line-height: 1.75;">
-    Bache N, Geyer PE, Bekker-Jensen DB, et al. A Novel LC System Embeds
-    Analytes in Pre-formed Gradients for Rapid, Ultra-robust Proteomics.
-    <em>Mol Cell Proteomics.</em> 2018;17(12):2284–2296.<br>
-    <a
-      href="https://doi.org/10.1074/mcp.TIR118.000853"
-      target="_blank"
-      rel="noopener noreferrer"
-      style="
-        color: var(--accent);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.8rem;
-      "
-    >
-      https://doi.org/10.1074/mcp.TIR118.000853
-    </a>
-  </p>
-</div>
-
-
-<h2>DDA vs DIA: A Fundamental Choice</h2>
-
-<figure style="margin: 2.5rem 0;">
-  <img
-    src="image-assets/posts/Proteomics/dda_dia_fixed.svg"
-    alt="DDA vs DIA acquisition strategies compared"
-    style="width: 100%; border-radius: 8px;
-           border: 1px solid var(--border);"
-  />
-  <figcaption style="margin-top: 0.75rem; font-size: 0.78rem;
-    color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
-    line-height: 1.6;">
-    Comparison of data-dependent (DDA, left) and data-independent (DIA, right) acquisition. In DDA, the top-N most abundant precursors are selected stochastically each cycle, yielding clean but incomplete MS2 spectra and systematic missing values. In DIA, wide isolation windows fragment all precursors every cycle, producing chimeric MS2 spectra that are deconvolved computationally by tools such as DIA-NN or Spectronaut.
-  </figcaption>
-</figure>
-
-<p>
-  The single most consequential methodological decision in a modern proteomics
-  experiment is how the mass spectrometer selects which precursor ions to
-  fragment. Two broad strategies exist, and their consequences for coverage,
-  reproducibility, and missing data are profound.
-</p>
-<p>
-  In <strong>data-dependent acquisition (DDA)</strong>, the instrument
-  continuously surveys the m/z spectrum at the MS1 level, then, in real time
-, selects the most abundant ions above a threshold for fragmentation. A
-  "top-N" scheme fragments the N highest-intensity precursors in each survey
-  cycle. The appeal is simplicity: only real signal gets selected, spectra are
-  relatively clean because only one precursor is co-isolated, and the method
-  works on almost any instrument. The fundamental limitation is
-  <em>stochastic undersampling</em>: in a complex proteome digest, thousands
-  of peptide ions co-elute simultaneously, but the instrument can fragment
-  only 10–30 per second. The selection is biased toward abundant peptides.
-  Low-abundance species are frequently missed, and, critically, whether a
-  given peptide is selected can differ between runs. This introduces
-  systematic missing values: a peptide present in sample A and sample B may
-  only be identified in A because the instrument happened to select it there.
-  Missing values in DDA datasets are not random; they correlate with
-  abundance, which makes their imputation during statistical analysis
-  non-trivial and potentially misleading.
-</p>
-<p>
-  In <strong>data-independent acquisition (DIA)</strong>, the instrument
-  abandons precursor selection entirely. Instead, it cycles through a
-  predefined series of wide isolation windows (typically 4–25 Da) that
-  together cover the full m/z range of interest. All precursor ions within
-  each window are co-fragmented simultaneously. The resulting MS2 spectra are
-  therefore chimeric: they contain fragment ions from multiple co-eluting
-  peptides at once, entangled in a complex mixture. This was long considered
-  analytically intractable. What changed it was the development of
-  computational tools, most importantly DIA-NN and Spectronaut, capable of
-  deconvolving these chimeric spectra by matching against reference spectral
-  libraries and tracing consistent fragment ion chromatograms across runs.
-</p>
-<p>
-  The consequence of DIA's unbiased acquisition is a near-elimination of
-  missing values: every precursor in every isolation window is sampled in
-  every run. Reproducibility is dramatically higher, coefficients of
-  variation (CVs) for DIA quantification are routinely below 10–15%,
-  compared to 20–30% or more for DDA. Proteome depth, particularly for
-  low-abundance proteins, is substantially greater. The tradeoff is
-  complexity: DIA requires either a pre-existing spectral library or an
-  in silico predicted one, and the computational analysis is more demanding.
-  As software has matured, these tradeoffs have shifted decisively in DIA's
-  favour for most discovery proteomics applications.
-</p>
-
-<h2>Spectral Libraries: The Reference for DIA Analysis</h2>
-<p>
-  DIA data analysis depends on knowing what a peptide's fragmentation
-  spectrum should look like before you go looking for it. This prior
-  knowledge is encoded in a spectral library: a collection of peptide
-  entries each specifying the precursor m/z, the expected retention time, and
-  the expected fragment ion masses and relative intensities. The instrument
-  then searches each DIA window for patterns consistent with each library
-  entry, integrating fragment ion chromatograms across the elution peak.
-</p>
-<p>
-  Libraries can be empirical, generated by prior DDA measurements of the
-  same or similar samples with offline fractionation to maximise depth, or
-  in silico predicted, generated entirely from a protein sequence database
-  using deep learning models that predict fragmentation patterns, retention
-  times, and ion mobility values for every tryptic peptide. The first
-  generation of accurate in silico predictors, Prosit (2019), DeepMass,
-  and the prediction engine built into DIA-NN, changed the field
-  significantly by removing the requirement for a separate DDA experiment
-  to build the library. Modern tools like DIA-NN can now perform library-free
-  analysis from a FASTA file alone, with identification performance
-  competitive with empirical library-based workflows for most standard
-  proteomes.
-</p>
-<p>
-  A hybrid strategy, using a project-specific DDA library to refine in
-  silico predictions, often provides the best of both approaches and is
-  commonly implemented in the FragPipe / MSFragger-DIA pipeline.
-</p>
-
-<h2>Quantification Strategies: Label-Free, SILAC, and TMT</h2>
-
-<figure style="margin: 2.5rem 0;">
-  <img
-    src="image-assets/posts/Proteomics/quantification-v2.svg"
-    alt="Quantification strategies in MS-based proteomics: LFQ, SILAC, TMT"
-    style="width: 100%; border-radius: 8px;
-           border: 1px solid var(--border);"
-  />
-  <figcaption style="margin-top: 0.75rem; font-size: 0.78rem;
-    color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
-    line-height: 1.6;">
-    Side-by-side comparison of label-free quantification (LFQ), SILAC, and TMT isobaric labelling. LFQ uses raw signal intensity from separate runs; SILAC mixes heavy (¹³C₆-Lys/Arg) and light samples before digestion and reads H/L doublets at MS1; TMT labels up to 18 samples with isobaric chemical tags and reads reporter ions at MS2.
-  </figcaption>
-</figure>
-
-<p>
-  How protein abundance is actually measured varies substantially depending on
-  the experimental design, sample type, and required precision. Three broad
-  strategies are in common use.
-</p>
-<p>
-  <strong>Label-free quantification (LFQ)</strong> uses the raw signal
-  intensity of peptide ions as a proxy for abundance. It requires no chemical
-  modification of the sample, which makes it applicable to clinical samples
-  and field-collected tissue. The MaxLFQ algorithm, implemented in MaxQuant
-  and subsequently in DIA-NN and FragPipe, normalises intensities across runs
-  and aggregates peptide-level intensities into protein-level estimates. Its
-  limitation is variability: run-to-run differences in chromatography,
-  ionisation efficiency, and matrix effects inflate technical variance. DIA
-  substantially mitigates this relative to DDA, but LFQ remains inherently
-  noisier than isotope-based approaches.
-</p>
-<div class="tip-box">
-  <div class="tip-label">MaxQuant and MaxLFQ</div>
-  <p style="margin: 0; line-height: 1.75;">
-    Cox J &amp; Mann M. MaxQuant enables high peptide identification rates, individualized p.p.b.-range mass accuracies and proteome-wide protein quantification. <em>Nat Biotechnol.</em> 2008;26(12):1367–1372.<br>
-    Cox J, Hein MY, Luber CA, et al. Accurate proteome-wide label-free quantification by delayed normalization and maximal peptide ratio extraction, termed MaxLFQ. <em>Mol Cell Proteomics.</em> 2014;13(9):2513–2526.<br>
-    <a href="https://doi.org/10.1038/nbt.1511" target="_blank" rel="noopener noreferrer"
-      style="color: var(--accent); text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;"
-    >https://doi.org/10.1038/nbt.1511</a>
-  </p>
-</div>
-<p>
-  <strong>SILAC</strong> (stable isotope labelling by amino acids in cell
-  culture) incorporates heavy isotope-labelled amino acids (typically
-  ¹³C₆-lysine and ¹³C₆-arginine) into the proteome of one sample during
-  cell culture, then mixes heavy and light samples before digestion. Because
-  heavy and light peptides are chemically identical and co-elute, their
-  intensity ratio directly reports the biological fold change independent of
-  run-to-run variation. SILAC is the gold standard for quantitative accuracy
-  in cell culture experiments, but cannot be applied to tissue, body fluids,
-  or organisms where metabolic labelling is impractical.
-</p>
-<div class="tip-box">
-  <div class="tip-label">SILAC - Original Description</div>
-  <p style="margin: 0; line-height: 1.75;">
-    Ong SE, Blagoev B, Kratchmarova I, et al. Stable isotope labeling by amino acids in cell culture, SILAC, as a simple and accurate approach to expression proteomics. <em>Mol Cell Proteomics.</em> 2002;1(5):376–386.<br>
-    <a href="https://doi.org/10.1074/mcp.m200025-mcp200" target="_blank" rel="noopener noreferrer"
-      style="color: var(--accent); text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;"
-    >https://doi.org/10.1074/mcp.m200025-mcp200</a>
-  </p>
-</div>
-<p>
-  <strong>Isobaric labelling</strong>, most commonly with tandem mass tags
-  (TMT), attaches chemical tags of identical mass but distinct isotopic
-  composition to peptide amine groups. Up to 18 samples (with TMTpro 18-plex)
-  can be labelled, pooled, and measured in a single run, dramatically
-  increasing throughput and eliminating between-run variability entirely for
-  the labelled batch. Quantification is read from reporter ion signals at
-  the MS3 level (or MS2 with FAIMS). The limitation is ratio compression:
-  co-isolation of multiple precursors within the isolation window mixes
-  reporter ion signals, compressing observed fold changes toward 1. This can
-  be partly corrected by high-field asymmetric waveform ion mobility
-  spectrometry (FAIMS) or triple-stage fragmentation (MS3), both of which
-  require specific instrument configurations.
-</p>
-
-<h2>Instrumentation: Orbitrap, timsTOF, and the Fourth Dimension</h2>
-<p>
-  The choice of mass analyser shapes every downstream parameter: scan speed,
-  resolving power, mass accuracy, sensitivity, and what kinds of acquisition
-  strategies are feasible. Two instrument families dominate modern discovery
-  proteomics.
-</p>
-<p>
-  <strong>Orbitrap-based instruments</strong> (Thermo Fisher Scientific) use
-  the Orbitrap mass analyser, an electrostatic ion trap in which ions orbit
-  around a central spindle electrode and their oscillation frequency encodes
-  their m/z with very high resolving power (typically 60,000–240,000 FWHM)
-  and sub-5 ppm mass accuracy. The flagship platform for DIA proteomics is
-  the Orbitrap Exploris 480, which combined with the FAIMS Pro ion mobility
-  interface achieved deep proteome coverage at high throughput. In 2023,
-  Thermo Fisher introduced the <strong>Orbitrap Astral</strong>, which pairs
-  the Orbitrap analyser for survey scans with a novel Asymmetric Track
-  Lossless (Astral) analyser for fragment ion detection. The Astral operates
-  at 200 Hz scan speed with ~80% ion utilisation efficiency, far exceeding
-  the 1–5% typical of previous instruments, translating directly into
-  dramatically higher sensitivity and throughput. Benchmarks have shown the
-  Orbitrap Astral quantifying five times more peptides per unit time than
-  the Exploris 480, identifying over 5,000 proteins from a single 60-minute
-  plasma run and enabling single-cell proteomics at coverages of 1,800–5,300
-  protein groups per cell.
-</p>
-<p>
-  <strong>timsTOF instruments</strong> (Bruker Daltonics) integrate trapped
-  ion mobility spectrometry (TIMS) with a quadrupole time-of-flight analyser.
-  TIMS separates ions by their mobility through a gas-filled tunnel under an
-  electric field: ions are first trapped in the tunnel, then released
-  sequentially as the field is ramped down, with larger, less mobile ions
-  eluting last. This adds a fourth dimension of separation, m/z, retention
-  time, fragment spectrum, and now ion mobility or collisional cross section
-  (CCS), which improves peak capacity, reduces spectral complexity, and
-  enables confident distinction of isobaric species. The PASEF (Parallel
-  Accumulation–Serial Fragmentation) acquisition mode synchronises the
-  release of ions from the TIMS device with the downstream quadrupole
-  selection, allowing the instrument to fragment 10–15 precursors per 100 ms
-  TIMS scan without loss of sensitivity. dia-PASEF extends this to
-  data-independent acquisition. DIA-NN 2.0 (released January 2025) added
-  native, unified support for PASEF data across all PASEF variants, with a
-  universal algorithm that exploits any available ion mobility information.
-</p>
-
-<h2>The Software Stack: From Raw Files to Protein Abundances</h2>
-
-<figure style="margin: 2.5rem 0;">
-  <img
-    src="image-assets/posts/Proteomics/software-v2.svg"
-    alt="Proteomics software landscape: identification, quantification, and statistical tiers"
-    style="width: 100%; border-radius: 8px;
-           border: 1px solid var(--border);"
-  />
-  <figcaption style="margin-top: 0.75rem; font-size: 0.78rem;
-    color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
-    line-height: 1.6;">
-    Tiered map of the proteomics software landscape. Top: raw data formats (vendor binary and open mzML). Identification tier: MaxQuant, MSFragger/FragPipe, DIA-NN, Spectronaut, and Oktoberfest (post-search rescoring). Quantification tier: MaxLFQ, IonQuant, DIA-NN quant, Spectronaut quant. Statistics tier: MS-DAP (accepts all inputs), Perseus, FragPipe-Analyst, DEqMS/MSqRob. Open-source tools distinguished from commercial (filled) by border weight.
-  </figcaption>
-</figure>
-
-<p>
-  Raw data from a mass spectrometer is not proteomics data. The conversion
-  from instrument files to a table of protein abundances with statistical
-  confidence requires a multi-stage computational pipeline, and the choices
-  made at each stage are as consequential as the instrument settings. This is
-  not widely appreciated by users of proteomics data: the same raw files
-  processed by different software can yield proteome coverage that differs
-  by 20–40%, and differential expression results that partially disagree.
-</p>
-<p>
-  The pipeline has three logical tiers: raw data processing and peptide
-  identification, protein inference and quantification, and downstream
-  statistical analysis and differential expression. Different tools occupy
-  different tiers, and they can be combined modularly.
-</p>
-<p>
-  <strong>DIA-NN</strong> (versions 1.8 through 2.0, developed by Vadim
-  Demichev and colleagues, now distributed by Aptila Bio) is the most widely
-  adopted open-source tool for DIA data analysis. Its core innovation, first
-  described in 2019, was the use of deep neural networks to score peptide
-  identifications from chimeric DIA spectra and to correct for interference,
-  the signal contamination from co-eluting peptides that is the central
-  technical challenge of DIA. It operates on a peptide-centric model:
-  it searches for each library entry's fragment ion pattern in the raw data,
-  traces extracted ion chromatograms (XICs) across the LC run, and uses the
-  neural network to distinguish true signal from interference. In silico
-  library prediction from FASTA is built in, enabling fully library-free
-  analysis. Version 1.9 added native PASEF support; version 2.0 (January
-  2025) introduced Proteoform Confidence mode, combining DIA's quantitative
-  depth with DDA-like identification confidence at the peptidoform level,
-  along with fine-tuning of deep learning models for PTM-focused applications
-  and improved phosphoproteomics and ubiquitinomics depth.
-</p>
-<p>
-  <strong>FragPipe / MSFragger</strong> is a comprehensive open-source
-  platform (University of Michigan, Alexey Nesvizhskii's group). MSFragger
-  is an ultrafast database search engine based on fragment ion indexing,
-  capable of searching DDA and DIA data as well as open searches with wide
-  precursor mass tolerances for PTM discovery, a search mode that would
-  take hours in most engines takes minutes in MSFragger. FragPipe wraps
-  MSFragger with a complete downstream pipeline: Percolator for
-  semi-supervised rescoring, Philosopher for FDR filtering and protein
-  inference, IonQuant for label-free quantification with FDR-controlled
-  match-between-runs (MBR), and EasyPQP for spectral library building.
-  The MSBooster module adds deep-learning-based rescoring by predicting
-  expected retention times and fragment intensities and penalising
-  identifications that deviate from predictions. For DIA data specifically,
-  MSFragger-DIA performs a direct database search of DIA MS2 spectra before
-  any feature detection, then hands off quantification to DIA-NN. FragPipe
-  provides one-stop GUI-based analysis from raw files to protein tables,
-  with workflow presets for DDA-LFQ, DDA-TMT, DIA, single-cell, and
-  phosphoproteomics.
-</p>
-<div class="tip-box">
-  <div class="tip-label">MSFragger - Original Description</div>
-  <p style="margin: 0; line-height: 1.75;">
-    Kong AT, Leprevost FV, Avtonomov DM, Mellacheruvu D, Nesvizhskii AI. MSFragger: ultrafast and comprehensive peptide identification in mass spectrometry-based proteomics. <em>Nat Methods.</em> 2017;14(5):513–520.<br>
-    <a href="https://doi.org/10.1038/nmeth.4256" target="_blank" rel="noopener noreferrer"
-      style="color: var(--accent); text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;"
-    >https://doi.org/10.1038/nmeth.4256</a>
-  </p>
-</div>
-<p>
-  <strong>Spectronaut</strong> (Biognosys) is the leading commercial
-  alternative to DIA-NN for DIA analysis. It offers a highly polished
-  user interface, robust built-in statistical testing, and direct integration
-  with vendor raw data formats. It consistently performs at or near the top
-  of benchmarking studies for proteome coverage and quantitative accuracy,
-  particularly on Orbitrap data. Its directDIA mode (library-free analysis
-  from FASTA) has improved substantially through versions 15–18. The main
-  limitation relative to DIA-NN and FragPipe is cost: Spectronaut requires
-  a commercial licence.
-</p>
-
-<h2>Downstream Statistical Analysis: MS-DAP and the Normalisation Problem</h2>
-<p>
-  Getting from a table of protein intensities to a list of significantly
-  differentially abundant proteins involves choices that are as consequential
-  as the upstream pipeline, and whose impact is less commonly scrutinised.
-  The core steps, filtering, normalisation, imputation of missing values,
-  and statistical testing, each introduce assumptions that interact in
-  non-obvious ways. A 2022 benchmarking study demonstrated that the choice
-  of normalisation algorithm and statistical model can change the number of
-  recovered true positives by two- to threefold on the same dataset.
-</p>
-<p>
-  <strong>MS-DAP</strong> (Mass Spectrometry Downstream Analysis Pipeline),
-  developed by Frank Koopmans and Smit/Klaassen at Vrije Universiteit
-  Amsterdam and published in the <em>Journal of Proteome Research</em> in
-  2022, is an open-source R package designed to address this directly.
-  MS-DAP imports output from any major upstream tool (MaxQuant, DIA-NN,
-  FragPipe, Spectronaut, Skyline) through a common data structure, then
-  provides a flexible, transparent pipeline for peptide filtering,
-  normalisation, and differential expression analysis. Multiple algorithms
-  can be applied in parallel, VSN normalisation followed by mode-between
-  correction, DEqMS, MSqRob, and ms-empire for statistical testing, and
-  their results are compared in a standardised PDF quality control report
-  that is automatically generated alongside the analysis. The R code
-  used for each analysis is embedded in the PDF as an audit log, making
-  results reproducible without additional documentation. MS-DAP was designed
-  for the specific characteristics of label-free proteomics data: the sparse
-  detection matrix, the non-normal intensity distributions, the peptide-level
-  variance structure, and the need for protein-level aggregation from
-  multiple peptide observations.
-</p>
-<p>
-  Several statistical algorithms integrated in MS-DAP deserve note. DEqMS
-  (Zhu et al., 2020) adapts the limma framework for proteomics by
-  incorporating the number of PSMs or peptides per protein into the variance
-  prior: proteins quantified by more peptides are treated as having lower
-  prior variance, reflecting the greater reliability of their abundance
-  estimate. MSqRob models peptide-level intensities using mixed-effects
-  regression, propagating peptide-level variance to protein-level inference
-  rather than collapsing to a single protein intensity first, this is
-  particularly important when different peptides from the same protein
-  disagree, which frequently occurs with post-translational modifications
-  or protein isoforms.
-</p>
-<p>
-  A practical concern that MS-DAP's benchmarking highlighted is the
-  behaviour of common normalisation methods when sample groups differ
-  substantially in their total protein content or in their proportion of
-  regulated proteins. In such cases, median or quantile normalisation can
-  systematically distort true fold changes. The VSN + mode-between combination
-  recommended by MS-DAP is more robust to this confound, as it separates
-  within-sample scaling from between-sample group balance.
-</p>
-
-<div class="tip-box">
-  <div class="tip-label">MS-DAP - Downstream Analysis Pipeline</div>
-  <p style="margin: 0; line-height: 1.75;">
-    Koopmans F, Smit AB, Klaassen RV. MS-DAP Platform for Downstream Data
-    Analysis of Label-Free Proteomics Uncovers Optimal Workflows in Benchmark
-    Data Sets and Increased Sensitivity in Analysis of Alzheimer's Biomarker
-    Data. <em>J Proteome Res.</em> 2023;22(1):1–14.<br>
-    <a
-      href="https://doi.org/10.1021/acs.jproteome.2c00513"
-      target="_blank"
-      rel="noopener noreferrer"
-      style="
-        color: var(--accent);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.8rem;
-      "
-    >
-      https://doi.org/10.1021/acs.jproteome.2c00513
-    </a>
-    &nbsp;·&nbsp; Open Source R package:
-    <a
-      href="https://github.com/ftwkoopmans/msdap"
-      target="_blank"
-      rel="noopener noreferrer"
-      style="
-        color: var(--accent);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.8rem;
-      "
-    >
-      github.com/ftwkoopmans/msdap
-    </a>
-  </p>
-</div>
-
-<h2>What the Missing Value Problem Actually Means</h2>
-<p>
-  Missing values in a proteomics dataset are not equivalent to zero
-  abundance. A protein absent from a DDA run may simply have not been
-  selected for fragmentation; a protein absent from a DIA run is more
-  likely to be genuinely below the detection limit. These two types of
-  missingness have different statistical implications and should not be
-  handled identically.
-</p>
-<p>
-  The conventional approach, imputing missing values with a small constant
-  near the lower end of the observed distribution, simulating a
-  "below-detection" value, is appropriate when missingness correlates with
-  low abundance (missing not at random, MNAR). But in DDA datasets, some
-  missingness is genuinely stochastic (missing at random, MAR): a peptide
-  was present at adequate abundance but simply not selected for
-  fragmentation. Imputing MAR values with a near-zero constant artificially
-  inflates apparent fold changes for those proteins and inflates false
-  positive rates. A rigorous approach distinguishes the two types and applies
-  different imputation strategies accordingly, or uses statistical models
-  that handle missingness explicitly, as MSqRob does.
-</p>
-<p>
-  DIA's near-elimination of stochastic missing values is one of its most
-  practically significant advantages: it shifts the nature of the problem
-  from mixed MAR/MNAR to predominantly MNAR, simplifying statistical
-  interpretation and reducing the influence of imputation method on results.
-</p>
-
-<h2>Recent Advances: 2020–2026</h2>
-<p>
-  The half-decade since 2020 has substantially expanded the depth, throughput,
-  and scope of mass spectrometry-based proteomics. Several developments
-  stand out for practitioners working with complex biological samples.
-</p>
-<p>
-  <strong>The Orbitrap Astral (2023).</strong> The introduction of the
-  Asymmetric Track Lossless analyser represents the most significant step
-  change in Orbitrap platform performance since the Q Exactive. At 200 Hz
-  scan speed with ~80% ion utilisation, it acquires five times more
-  quantifiable peptides per unit time than previous Orbitrap instruments,
-  while maintaining mass accuracy below 5 ppm. For single-cell proteomics,
-  where the fundamental constraint is signal, not speed, it achieves
-  5,300+ protein groups per individual cell; for plasma proteomics, over
-  5,000 proteins in a 60-minute gradient without depletion. The instrument
-  has rapidly become the preferred platform for any application where
-  sensitivity or throughput is the limiting constraint.
-</p>
-<p>
-  <strong>DIA-NN 2.0 (2025).</strong> The release of DIA-NN 2.0 in January
-  2025 addressed a long-standing limitation of DIA: identification confidence
-  at the peptidoform and proteoform level. In standard DIA workflows, a
-  peptide carrying a phosphorylation at position 5 is difficult to
-  distinguish from the same peptide with the modification at position 8,
-  because chimeric spectra blur the distinction. DIA-NN 2.0's Proteoform
-  Confidence mode delivers near-complete peptidoform-level confidence on
-  modern instruments, combining DIA's quantitative depth with identification
-  precision previously achievable only in DDA. Fine-tuning of the internal
-  deep learning models for specific datasets also made version 2.0
-  substantially more capable for phosphoproteomics and ubiquitinomics.
-</p>
-<p>
-  <strong>Deep learning rescoring for DDA (Oktoberfest / Prosit).</strong>
-  The accuracy of peptide identification in DDA experiments is limited by
-  the scoring functions of classical search engines, which use a relatively
-  small number of features and do not exploit the predictable relationships
-  between peptide sequence and fragmentation pattern. The Prosit deep learning
-  model (Gessulat et al. 2019) predicts fragment ion intensities and retention
-  times for any tryptic peptide with high accuracy; these predictions can then
-  be compared against observed spectra to generate additional discriminating
-  features for Percolator-based semi-supervised rescoring. The practical effect
-  is substantial: Oktoberfest, an open-source implementation from TU Munich
-  that wraps Prosit predictions with a standardised rescoring pipeline, recovers
-  more than twice as many PSMs at 1% FDR compared to MaxQuant's native Andromeda
-  scoring on the same raw data, with the gain concentrated in low-quality or
-  ambiguous spectra that Andromeda scores poorly but Prosit can discriminate.
-  This improvement is particularly pronounced for challenging applications such
-  as immunopeptidomics (HLA-bound peptides, which are non-tryptic) and
-  phosphoproteomics (modified peptides, which are sparser and harder to score).
-  MSBooster within FragPipe implements the same principle and is applied by
-  default in current FragPipe workflows.
-</p>
-
-<div class="tip-box">
-  <div class="tip-label">Prosit - Deep Learning Fragment Prediction</div>
-  <p style="margin: 0; line-height: 1.75;">
-    Gessulat S, Schmidt T, Zolg DP, et al. Prosit: proteome-wide prediction
-    of peptide tandem mass spectra by deep learning. <em>Nat Methods.</em>
-    2019;16(6):509–518.<br>
-    <a
-      href="https://doi.org/10.1038/s41592-019-0426-7"
-      target="_blank"
-      rel="noopener noreferrer"
-      style="
-        color: var(--accent);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.8rem;
-      "
-    >
-      https://doi.org/10.1038/s41592-019-0426-7
-    </a>
-  </p>
-</div>
-
-<div class="tip-box">
-  <div class="tip-label">Oktoberfest - Open-Source Rescoring Pipeline</div>
-  <p style="margin: 0; line-height: 1.75;">
-    Gabriel W, The M, Zolg DP, et al. Prosit Transformer: A Novel Deep
-    Learning Model for the Prediction of MS2 Spectra. See also: Picciani M,
-    Samaras P, Roriz M, et al. Oktoberfest: Open-source spectral library
-    generation and rescoring pipeline based on Prosit.
-    <em>Proteomics.</em> 2023;23:e2300112.<br>
-    <a
-      href="https://doi.org/10.1002/pmic.202300112"
-      target="_blank"
-      rel="noopener noreferrer"
-      style="
-        color: var(--accent);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.8rem;
-      "
-    >
-      https://doi.org/10.1002/pmic.202300112
-    </a>
-  </p>
-</div>
-<p>
-  <strong>Deep learning for spectral prediction.</strong> The accuracy of
-  in silico spectral libraries has improved dramatically since 2020, driven
-  by models like Prosit, DIA-NN's internal predictor, and MSBooster's
-  prediction engine within FragPipe. These models predict not just fragment
-  masses, which can be computed analytically, but the relative intensities
-  of each fragment ion, which depend on gas-phase chemistry and are not
-  straightforward to predict from sequence alone. Accurate intensity
-  predictions make library-free DIA analysis competitive with empirical
-  library-based approaches for standard proteomes, and enable confident
-  identification of modified peptides without the need for prior observation.
-  The 2022 integration of timsTOF CCS values as an additional predicted
-  dimension further improved identification specificity on PASEF
-  instruments.
-</p>
-<p>
-  <strong>FragPipe / MSFragger maturation.</strong> The FragPipe platform has
-  grown from a DDA search tool into a complete multi-modal analysis
-  environment. The addition of IonQuant (2021) for label-free quantification
-  with FDR-controlled match-between-runs addressed a reproducibility
-  limitation in DDA datasets. MSFragger-DIA (2023) extended the platform to
-  DIA. diaTracer (2025), a new module for diaPASEF data, enables
-  spectrum-centric analysis of four-dimensional timsTOF data. FragPipe-Analyst
-  provides integrated downstream visualisation and pathway analysis directly
-  from FragPipe output tables, lowering the barrier for non-bioinformatician
-  users. The platform is free, cross-platform, and regularly updated, it
-  has become the principal open-source alternative to Spectronaut for
-  end-to-end DIA proteomics.
-</p>
-<p>
-  <strong>Single-cell proteomics.</strong> The practical accessibility of
-  single-cell mass spectrometry proteomics has improved substantially, driven
-  by the Orbitrap Astral's sensitivity, improved low-input sample preparation
-  methods (nanodroplet processing, micropillar arrays, nanowell systems),
-  and dedicated computational workflows. Whereas the earliest single-cell MS
-  studies in 2018–2020 identified fewer than 1,000 proteins per cell using
-  multiplexed isobaric labelling (SCoPE-MS), label-free single-cell DIA on
-  the Orbitrap Astral now routinely achieves 1,800–3,000 protein groups per
-  cell at high throughput, with individual large cells yielding up to 5,300.
-  This has opened the direct comparison of protein-level cell heterogeneity
-  across populations in a way previously achievable only by single-cell
-  transcriptomics.
-</p>
-<p>
-  <strong>Clinical and plasma proteomics.</strong> Plasma is simultaneously
-  one of the most informative and most analytically challenging proteomics
-  matrices, owing to the extreme dynamic range of its protein content:
-  albumin and immunoglobulins account for the majority of total protein mass,
-  while potential biomarkers exist at picomolar or subpicomolar
-  concentrations, 10–12 orders of magnitude below the most abundant
-  proteins. Depletion strategies remove the most abundant proteins but
-  introduce their own biases. The Orbitrap Astral, combined with
-  DIA acquisition and extracellular vesicle enrichment or other fractionation
-  strategies, has pushed single-run plasma proteome coverage beyond 5,000
-  proteins, making large-cohort biomarker discovery increasingly feasible
-  without the cost and complexity of targeted assays.
-</p>
-<p>
-  <strong>Phosphoproteomics at scale.</strong> Post-translational modification
-  analysis has historically required extensive enrichment and deep sequencing,
-  yielding datasets that are sparse, noisy, and difficult to compare across
-  studies. The Orbitrap Astral combined with titanium dioxide or Fe-NTA
-  phosphopeptide enrichment and DIA-NN can now map approximately 30,000
-  unique phosphorylation sites within 30 minutes of data collection, a
-  figure that previously required several hours and multiple fractions. The
-  DIA-NN 2.0 Proteoform Confidence mode's improvement in phospho-site
-  localisation further reduces ambiguity in phosphosite assignment, which
-  has been a persistent challenge for DIA phosphoproteomics.
-</p>
-
-<h2>Interpreting Proteomics Data Honestly</h2>
-<p>
-  A recurring source of over-interpretation in proteomics literature is the
-  conflation of detected proteins with measured proteins. The proteome
-  reported by any experiment is not the proteome: it is the detectable
-  proteome under those specific conditions of sample preparation, instrument
-  parameters, gradient length, and software settings. A protein absent from
-  the results may be absent because it is not expressed, or because it is
-  expressed below the detection limit, or because it was lost during
-  sample preparation, or because the sequence database used was incomplete.
-  These are not equivalent explanations.
-</p>
-<p>
-  Quantitative proteomics faces additional interpretive challenges. Protein
-  abundance as reported by MaxLFQ or equivalent is a dimensionless relative
-  quantity, normalised to be comparable across samples within an experiment
-  but not across experiments with different sample inputs, different protein
-  concentrations, or different normalisation strategies. Fold changes are
-  reliable within the linear dynamic range of the instrument and above the
-  noise floor of the measurement; fold changes for proteins near the detection
-  limit are inflated by noise. The 1% FDR threshold applied at the PSM level
-  does not mean 1% of reported proteins are false, it means 1% of
-  peptide-spectrum matches are incorrect, and the actual protein-level FDR
-  depends on the number of peptides supporting each identification and the
-  complexity of the protein inference problem.
-</p>
-<p>
-  None of this diminishes the power of the approach. Proteomics is the only
-  technology that can simultaneously report the abundance of thousands of
-  proteins from a milligram of tissue, connect post-translational
-  modification states to protein identity, and detect novel proteoforms
-  absent from the reference transcriptome. Used with appropriate rigour,
-  with pre-registered analysis pipelines, appropriate normalisation for
-  the experimental design, transparent reporting of missing value handling,
-  and statistical models matched to the data structure, it has become one
-  of the most productive sources of molecular phenotyping in biology.
-</p>
-
-<div class="tip-box">
-  <div class="tip-label">DIA-NN - Foundational Reference</div>
-  <p style="margin: 0; line-height: 1.75;">
-    Demichev V, Messner CB, Vernardis SI, Lilley KS, Ralser M. DIA-NN:
-    neural networks and interference correction enable deep proteome coverage
-    in high throughput. <em>Nat Methods.</em> 2020;17(1):41–44.<br>
-    <a
-      href="https://doi.org/10.1038/s41592-019-0638-x"
-      target="_blank"
-      rel="noopener noreferrer"
-      style="
-        color: var(--accent);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.8rem;
-      "
-    >
-      https://doi.org/10.1038/s41592-019-0638-x
-    </a>
-  </p>
-</div>
-
-<div class="tip-box">
-  <div class="tip-label">DIA-NN 2.0 Release Notes</div>
-  <p style="margin: 0; line-height: 1.75;">
-    Aptila Bio release notes, January 2025.<br>
-    <a
-      href="https://aptila.bio/posts/release-of-dia-nn-2-0/"
-      target="_blank"
-      rel="noopener noreferrer"
-      style="
-        color: var(--accent);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.8rem;
-      "
-    >
-      https://aptila.bio/posts/release-of-dia-nn-2-0/
-    </a>
-  </p>
-</div>
-
-<div class="tip-box">
-  <div class="tip-label">MSFragger-DIA and FragPipe for DIA Proteomics</div>
-  <p style="margin: 0; line-height: 1.75;">
-    Yu F, Teo GC, Kong AT, Fröhlich K, Li GX, Demichev V, Nesvizhskii AI.
-    Analysis of DIA proteomics data using MSFragger-DIA and FragPipe
-    computational platform. <em>Nat Commun.</em> 2023;14:4154.<br>
-    <a
-      href="https://doi.org/10.1038/s41467-023-39869-5"
-      target="_blank"
-      rel="noopener noreferrer"
-      style="
-        color: var(--accent);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.8rem;
-      "
-    >
-      https://doi.org/10.1038/s41467-023-39869-5
-    </a>
-  </p>
-</div>
-
-<div class="tip-box">
-  <div class="tip-label">timsTOF PASEF - Online Implementation</div>
-  <p style="margin: 0; line-height: 1.75;">
-    Meier F, Brunner A-D, Koch S, et al. Online Parallel Accumulation–Serial
-    Fragmentation (PASEF) with a Novel Trapped Ion Mobility Mass Spectrometer.
-    <em>Mol Cell Proteomics.</em> 2018;17(12):2534–2545.<br>
-    <a
-      href="https://doi.org/10.1074/mcp.TIR118.000900"
-      target="_blank"
-      rel="noopener noreferrer"
-      style="
-        color: var(--accent);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.8rem;
-      "
-    >
-      https://doi.org/10.1074/mcp.TIR118.000900
-    </a>
-  </p>
-</div>
-
-<div class="tip-box">
-  <div class="tip-label">Orbitrap Astral - Instrument Description</div>
-  <p style="margin: 0; line-height: 1.75;">
-    Stewart HI, Grinfeld D, Tischer A, et al. Parallelized Acquisition of
-    Orbitrap and Astral Analyzers Enables High-Throughput Quantitative
-    Analysis. <em>Anal Chem.</em> 2023;95(43):15656–15664.<br>
-    <a
-      href="https://doi.org/10.1021/acs.analchem.3c02856"
-      target="_blank"
-      rel="noopener noreferrer"
-      style="
-        color: var(--accent);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.8rem;
-      "
-    >
-      https://doi.org/10.1021/acs.analchem.3c02856
-    </a>
-  </p>
-</div>
-
-<div class="tip-box">
-  <div class="tip-label">DEqMS - Protein-Level Variance Estimation</div>
-  <p style="margin: 0; line-height: 1.75;">
-    Zhu Y, Orre LM, Tran YZ, et al. DEqMS: a method for accurate variance
-    estimation in differential protein expression analysis.
-    <em>Mol Cell Proteomics.</em> 2020;19(6):1047–1057.<br>
-    <a
-      href="https://doi.org/10.1074/mcp.TIR119.001646"
-      target="_blank"
-      rel="noopener noreferrer"
-      style="
-        color: var(--accent);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.8rem;
-      "
-    >
-      https://doi.org/10.1074/mcp.TIR119.001646
-    </a>
-  </p>
-</div>
-
-<div class="tip-box">
-  <div class="tip-label">DIA Review - Comprehensive Overview</div>
-  <p style="margin: 0; line-height: 1.75;">
-    Kitata RB, Yang J-C, Chen Y-J. Advances in data-independent acquisition
-    mass spectrometry towards comprehensive digital proteome landscape.
-    <em>Mass Spectrom Rev.</em> 2023;42(5–6):2324–2348.<br>
-    <a
-      href="https://doi.org/10.1002/mas.21781"
-      target="_blank"
-      rel="noopener noreferrer"
-      style="
-        color: var(--accent);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.8rem;
-      "
-    >
-      https://doi.org/10.1002/mas.21781
-    </a>
-  </p>
-</div>
-
-  `,
-},
 
     {
   type: "post",
@@ -3694,11 +2926,11 @@ Lapios P, Anger R, Paget-Blanc V, Marza E, Lučić V, Fronzes R, Herzog E &amp;
     + " purified dopaminergic synapses from the mouse striatum and discovered"
     + " that most are embedded in multipartite hub structures with glutamatergic,"
     + " GABAergic and cholinergic partners.",
-  date: "03 Jun, 2022",
+  date: "11 Nov, 2025",
   readTime: "8 min read",
   tag: "Dopamine",
   emoji: "",
-  imageUrl: "",
+  imageUrl: "image-assets/posts/synaptomic-analysis-dopamine-hub-synapses/Redefining_DA_Synapse.png",
   content: `
 <p>
   Dopamine is one of the most studied neuromodulators in the brain, yet for a
@@ -3793,13 +3025,30 @@ Lapios P, Anger R, Paget-Blanc V, Marza E, Lučić V, Fronzes R, Herzog E &amp;
   The most striking result came from looking at the sorted synaptosomes under
   the electron microscope. What we expected to see was isolated dopaminergic
   boutons, perhaps with a postsynaptic element containing a dopamine receptor.
-  What we actually saw, repeatedly, were multipartite structures: a
+  What we actually saw, repeatedly, were multipartite structures: potential
   dopaminergic terminal adhering to one or more other terminals, which in turn
   were in contact with postsynaptic membranes. These were not aggregation
   artefacts, the structures survived two rounds of mechanical shearing forces
   (tissue homogenisation and passage through the nozzle of the cell sorter)
   and were not seen in control aggregation experiments.
 </p>
+
+<figure class="post-figure">
+  <img
+    src="image-assets/posts/synaptomic-analysis-dopamine-hub-synapses/figure1.svg"
+    alt="Figure 6 from Paget-Blanc et al. 2022, SElectron micrographs of sorted
+synaptosomes"
+    loading="lazy"
+  />
+  <figcaption> h, i Typical synaptosomes displaying a bouton (b), synaptic vesicles (SV) and an opened postsynaptic membrane (arrowheads in i).
+j Example of a multipartite synaptosome displaying a SV-rich bouton (b1) contacting a postsynaptic membrane (arrowheads) and a second bouton
+(arrows) less populated with SVs (b2). k Multipartite synaptosome displaying 3 distinct presynaptic profiles (b1, b2, and b3) contacting a postsynaptic
+membrane (arrowheads). l Multipartite synaptosome cut through a plane that is not optimal. Boutons (b), Mitochondria (m). Scale bar, 200 nm; for
+uncropped immunoblots see supplementary material or original data files in source data.
+    Reproduced from Paget-Blanc et al., <em>Nature Communications</em> (2022)
+    under CC BY 4.0.
+  </figcaption>
+</figure>
 
 <p>
 To characterise these structures systematically, we immunolabelled the sorted
@@ -3813,25 +3062,22 @@ To characterise these structures systematically, we immunolabelled the sorted
   partner. We named these structures <strong>dopamine hub synapses</strong>.
 </p>
 
-<figure style="margin:2.5rem 0; text-align:center;">
+<figure class="post-figure">
   <img
     src="image-assets/posts/synaptomic-analysis-dopamine-hub-synapses/figure6.svg"
     alt="Figure 6 from Paget-Blanc et al. 2022, Spatial organisation of
          dopaminergic synaptic hubs, showing STED images and the hub model
          diagram"
-    style="width:100%;max-width:860px;border-radius:10px;
-           border:1px solid var(--border);display:inline-block;"
+    loading="lazy"
   />
-  <figcaption
-    style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-dim);
-           font-family:'JetBrains Mono',monospace;line-height:1.6;">
-    <strong>Fig. 6</strong> Spatial organisation of dopaminergic synaptic hubs.
-    <strong>a</strong>: Centre-to-centre distance between dopaminergic
+  <figcaption>
+    Spatial organisation of dopaminergic synaptic hubs.
+    a: Centre-to-centre distance between dopaminergic
     varicosities (EGFP+ or Th+) and each indicated synaptic marker, showing a
     structured spatial hierarchy from the DA varicosity outward.
-    <strong>b–g</strong>: STED super-resolution images confirming the
+    b–g: STED super-resolution images confirming the
     apposition of each marker.
-    <strong>h</strong>: Synaptomic model summarising the full population: most
+    h: Synaptomic model summarising the full population: most
     DA varicosities contact a postsynaptic element (D1R or D2R), and up to 82%
     additionally form hub contacts with glutamatergic (VGLUT1: 30%, VGLUT2:
     12%), GABAergic (VIAAT: 26%) or cholinergic (VAChT: 14%) partners.
@@ -3868,21 +3114,11 @@ To characterise these structures systematically, we immunolabelled the sorted
   showed a modest decrease.
 </p>
 
-<blockquote>
-  <p>
-  This was unexpected. We had anticipated that the hub might simply be a
-  physical proximity, without functional consequence. Instead, the molecular
-  profile of the glutamatergic synapse was systematically altered by the
-  presence of a dopaminergic neighbour, suggesting that the adhesion itself,
-  or the local signalling it enables, actively remodels the synapse.
-</p>
-</blockquote>
-
 <p>
   Whether this molecular potentiation reflects a causal effect of dopamine
   release, or whether it results from trans-synaptic adhesion signals
-  independent of dopamine secretion, remains an open question, and one we have
-  continued to pursue. What this study established is that dopamine hub
+  independent of dopamine secretion, remains an open question. 
+  What this study established is that dopamine hub
   synapses are real, mechanically resilient, molecularly distinct, and
   remarkably frequent. The volume-transmission picture of dopaminergic
   signalling is likely incomplete.
@@ -3927,7 +3163,7 @@ Paget-Blanc V*, Pfeffer ME*, Pronot M*, Lapios P, Angelo MF, Walle R,
   readTime: "10 min read",
   tag: "Synaptic Plasticity",
   emoji: "",
-  imageUrl: "",
+  imageUrl: "image-assets/posts/nanoscale-remodeling-corticostriatal-flexibility-storm/nanoscale-remodeling-corticostriatal-flexibility-storm.png",
   content: `
 <p>
   My earlier study traced the molecular path into behavioral inflexibility:
@@ -3962,7 +3198,7 @@ Paget-Blanc V*, Pfeffer ME*, Pronot M*, Lapios P, Angelo MF, Walle R,
   head. Stochastic Optical Reconstruction Microscopy (STORM) works by
   switching individual fluorophore molecules on and off stochastically and
   recording their precise positions over thousands of frames, producing a
-  final image with localisation precision in the tens of nanometres. By
+  final image with localisation precision in the tens of nanometers. By
   combining correlated confocal and STORM imaging on the same tissue sections,
   we could first identify cell types and subcellular compartments at the
   confocal level, and then interrogate molecular distributions at nanoscale
@@ -3979,12 +3215,12 @@ Paget-Blanc V*, Pfeffer ME*, Pronot M*, Lapios P, Angelo MF, Walle R,
 </blockquote>
 
 <p>
-  To identify indirect-pathway neurons (iSPNs) selectively, we used D2-EGFP
+  To identify indirect-pathway neurons (iSPNs) selectively, I used D2-EGFP
   BAC transgenic mice, in which EGFP fluorescence marks the spine heads of
   D2-receptor-expressing neurons. Cortical glutamatergic afferents were
   labelled by immunostaining for VGLUT1, distinguishing them from thalamic and
   other subcortical inputs. This three-layer approach, EGFP for cell type,
-  VGLUT1 for input identity, STORM for molecular content, allowed us to ask
+  VGLUT1 for input identity, STORM for molecular content, allowed me to ask
   what happens, at the nanoscale, at precisely the synapses of interest:
   cortico-iSPN contacts in the dorsolateral striatum (DLS).
 </p>
@@ -3992,19 +3228,19 @@ Paget-Blanc V*, Pfeffer ME*, Pronot M*, Lapios P, Angelo MF, Walle R,
 <h2>The Behavioral Paradigm and Its Synaptic Readout</h2>
 
 <p>
-  We used the same instrumental conditioning and reward omission procedure
+  I used the same instrumental conditioning and reward omission procedure
   established in our companion study. Mice underwent either a short (Sh) or an
   overtraining (Ov) schedule of nose-poke for food reward, then faced a reward
   omission session requiring them to withhold the learned response. Short-
   trained mice adapted and earned substantially more food; overtrained mice
-  continued to nose-poke and did not. After the omission session, we
+  continued to nose-poke and did not. After the omission session, I
   sacrificed animals for electrophysiology or STORM imaging within thirty
   minutes, a narrow window that constrained the molecular changes we could
   observe to those causally relevant to behavioral updating.
 </p>
 
 <p>
-  Electrophysiology in acute brain slices confirmed the iSPN-specific
+  Electrophysiology performed by Anna in acute brain slices confirmed the iSPN-specific
   plasticity signature. In short-trained mice that had experienced the
   contingency shift (Sh ∆A-O), pharmacological mGlu1/5 stimulation with DHPG
   induced substantially stronger long-term depression of corticostriatal EPSPs
@@ -4031,20 +3267,6 @@ Paget-Blanc V*, Pfeffer ME*, Pronot M*, Lapios P, Angelo MF, Walle R,
   arrives.
 </p>
 
-
-<figure class="post-figure">
-  <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/nanoscale-remodeling/fig2-storm-mglu5-dagla.png"
-       alt="STORM super-resolution images of mGlu5 and DAGLα localisations in iSPN spine heads across four behavioral groups, with bar graphs showing total localisation counts and nearest-neighbour distances"
-       loading="lazy" />
-  <figcaption>
-    <strong>Fig. 2 </strong> STORM super-resolution imaging of mGlu5 and DAGLα in cortico-iSPN spine heads.
-    Left panels: representative STORM localisation maps for each behavioral group (Sh, Sh ΔA-O, Ov, Ov ΔA-O).
-    Right panels: quantification of total mGlu5 localisation points (top) and nearest-neighbour mGlu5–DAGLα
-    distance (bottom). Only Sh ΔA-O mice show increased mGlu5 abundance and convergence to 91 nm.
-    Scale bar 200 nm. Adapted from Paget-Blanc, Zöldi, Cavaccini et al., bioRxiv 2025.
-  </figcaption>
-</figure>
-
 <h2>DAGLα Clusters and Concentrates</h2>
 
 <p>
@@ -4058,7 +3280,7 @@ Paget-Blanc V*, Pfeffer ME*, Pronot M*, Lapios P, Angelo MF, Walle R,
 <div class="tip-box">
   <div class="tip-label">Key measurement</div>
   <p style="margin:0;line-height:1.75;">
-Using dual-channel STORM, we measured the nearest-neighbour distance between
+Using dual-channel STORM, I measured the nearest-neighbour distance between
   individual mGlu5 and DAGLα localisations in the same spine head. In
   short-trained, overtrained, and overtrained post-omission mice, this distance
   averaged between 127 and 167 nm. In short-trained mice after the contingency
@@ -4067,11 +3289,23 @@ Using dual-channel STORM, we measured the nearest-neighbour distance between
   facilitated.
 </p>
 </div>
+<figure class="post-figure">
+  <img src="image-assets/posts/nanoscale-remodeling-corticostriatal-flexibility-storm/Fig2.png"
+       alt="STORM super-resolution images of mGlu5 and DAGLα localisations in iSPN spine heads across four behavioral groups, with bar graphs showing total localisation counts and nearest-neighbour distances"
+       loading="lazy" />
+  <figcaption>
+    STORM super-resolution imaging of mGlu5 and DAGLα in cortico-iSPN spine heads.
+    Top panels: representative STORM localisation maps for each behavioral group (Sh, Sh ΔA-O, Ov, Ov ΔA-O).
+    Bottom panels: quantification of total DAGLα localisation points (left) and nearest-neighbour mGlu5–DAGLα
+    distance (right). Only Sh ΔA-O mice show increased DAGLα abundance and convergence to 91 nm with mGlu5.
+    Scale bar 200 nm. Adapted from Paget-Blanc, Zöldi, Cavaccini et al., bioRxiv 2025.
+  </figcaption>
+</figure>
 
 <h2>Presynaptic CB1 Receptors Quadruple</h2>
 
 <p>
-  The postsynaptic changes were dramatic, but we wondered whether the
+  The postsynaptic changes were consistent, but I wondered whether the
   presynaptic side of the synapse would mirror them. CB1 cannabinoid receptors
   on cortico-striatal axon terminals are the final effectors of eCB retrograde
   signalling: when 2-AG synthesised in the iSPN spine head diffuses to the
@@ -4094,11 +3328,11 @@ Using dual-channel STORM, we measured the nearest-neighbour distance between
 
 
 <figure class="post-figure">
-  <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/nanoscale-remodeling/fig4-cb1r-presynaptic-storm.png"
+  <img src="image-assets/posts/nanoscale-remodeling-corticostriatal-flexibility-storm/Fig4.png"
        alt="STORM imaging of CB1 cannabinoid receptors on VGLUT1-positive corticostriatal axon terminals, showing a fourfold increase in localisation point density in short-trained mice after the contingency shift"
        loading="lazy" />
   <figcaption>
-    <strong>Fig. 4 </strong> Presynaptic CB1R remodelling at cortico-iSPN boutons.
+    Presynaptic CB1R remodelling at cortico-iSPN boutons.
     STORM localisation maps of CB1R on VGLUT1+ terminals (left) and quantification of CB1R
     localisation points and cluster density (right) across behavioral groups.
     CB1R abundance is nearly four times higher in Sh ΔA-O mice, coordinated with the
@@ -4122,7 +3356,7 @@ Using dual-channel STORM, we measured the nearest-neighbour distance between
 <p>
   Both short-trained and overtrained mice showed substantial individual
   variation in how well they suppressed nose-poking during the omission
-  session. We quantified this as an adaptive index, the inverse ratio of
+  session. I quantified this as an adaptive index, the inverse ratio of
   active nose-pokes during the negative contingency relative to the positive
   contingency, and asked whether the nanoscale molecular parameters correlated
   with it across animals.
@@ -4140,13 +3374,13 @@ Using dual-channel STORM, we measured the nearest-neighbour distance between
 
 
 <figure class="post-figure">
-  <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/nanoscale-remodeling/fig6-molecular-behavioral-correlations.png"
+  <img src="image-assets/posts/nanoscale-remodeling-corticostriatal-flexibility-storm/Fig6.svg"
        alt="Scatter plots correlating mGlu5 localisation points, DAGLα cluster number and density, and CB1R parameters in presynaptic boutons with the individual adaptive index across all animals"
        loading="lazy" />
   <figcaption>
-    <strong>Fig. 6 </strong> Nanoscale molecular parameters predict individual behavioral flexibility.
-    Each dot is one animal. mGlu5 localisation points (left), DAGLα cluster number (centre),
-    and CB1R localisation density (right) in cortico-iSPN synapses correlate with the adaptive
+    Nanoscale molecular parameters predict individual behavioral flexibility.
+    Each dot is one animal. Localisation points (left), cluster number (centre),
+    and localisation density (right) in cortico-iSPN synapses correlate with the adaptive
     index across the full performance range, from the most rigid overtrained to the most flexible
     short-trained mice. Adapted from Paget-Blanc, Zöldi, Cavaccini et al., bioRxiv 2025.
   </figcaption>
@@ -4155,12 +3389,12 @@ Using dual-channel STORM, we measured the nearest-neighbour distance between
 <h2>Aging: The Same Molecular Signature Separates Flexible from Rigid</h2>
 
 <p>
-  Behavioral inflexibility is a well-documented feature of aging, and the DLS
+  Behavioral rigidity is a well-documented feature of aging, and the DLS
   has been implicated in the age-related shift toward stimulus–response
   habits. If the nanoscale remodelling we observed in young flexible mice
   reflects a genuine plasticity mechanism rather than a developmental
   artefact, it should be observable in old animals that happen to remain
-  behaviorally flexible, and absent in those that do not. We tested this by
+  behaviorally flexible, and absent in those that do not. I tested this by
   running one-year-old mice through the same short-training and omission
   procedure used with young animals.
 </p>
@@ -4172,7 +3406,7 @@ Using dual-channel STORM, we measured the nearest-neighbour distance between
   some animals performing like young short-trained flexible mice and others
   resembling young overtrained rigid animals. Using k-nearest-neighbour
   clustering to classify each aged animal's behavioral profile against the
-  young benchmarks, we assigned them to two groups: Sh aged ∆A-O Adaptive and
+  young benchmarks, I assigned them to two groups: Sh aged ∆A-O Adaptive and
   Sh aged ∆A-O Rigid.
 </p>
 
@@ -4204,11 +3438,11 @@ Using dual-channel STORM, we measured the nearest-neighbour distance between
 
 
 <figure class="post-figure">
-  <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/nanoscale-remodeling/fig7-aging-adaptive-rigid.png"
+  <img src="image-assets/posts/nanoscale-remodeling-corticostriatal-flexibility-storm/Fig7.png"
        alt="DAGLα and CB1R STORM quantification in one-year-old mice classified as Adaptive or Rigid after the contingency shift, compared with young short-trained mice"
        loading="lazy" />
   <figcaption>
-    <strong>Fig. 7 </strong> Aging increases the probability of plasticity failure, not its inevitability.
+    Aging increases the probability of plasticity failure, not its inevitability.
     Aged mice classified as Adaptive show DAGLα and CB1R upregulation at cortico-iSPN synapses
     indistinguishable from young flexible animals. Aged Rigid mice show reductions comparable to
     young overtrained animals. Baseline levels are identical between young and aged groups before
@@ -4305,9 +3539,9 @@ Paget-Blanc V*, Zöldi M*, Cavaccini A*, Miczán V, Dudok B, Katona I &amp;
     + " sufficient to explain the transition from flexible to habitual behavior.",
   date: "29 Jul, 2025",
   readTime: "10 min read",
-  tag: "Synaptic Plasticity",
+  tag: "Synaptic Plasticity", 
   emoji: "",
-  imageUrl: "",
+  imageUrl: "image-assets/posts/mglur5-overtraining-behavioral-inflexibility-dls/mglur5-overtraining-behavioral-inflexibility-dls.png",
   content: `
 <p>
   Every time you reach for your phone without thinking, take the same route to
@@ -4351,19 +3585,6 @@ Paget-Blanc V*, Zöldi M*, Cavaccini A*, Miczán V, Dudok B, Katona I &amp;
 </p>
 
 
-<figure class="post-figure">
-  <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/mglur5-inflexibility/fig1-behavioral-paradigm.png"
-       alt="Diagram of the instrumental conditioning and reward omission paradigm: short training (9 sessions) versus overtraining (23 sessions), followed by a reward omission test session in the same operant chamber"
-       loading="lazy" />
-  <figcaption>
-    <strong>Fig. 1 </strong> Behavioral paradigm. Mice underwent either short (9 sessions) or overtraining
-    (23 sessions) of an appetitive nose-poke task, then faced a contingency shift session in which
-    the active nose-poke no longer delivered reward. Short-trained mice suppressed responding and
-    earned more food; overtrained mice continued to nose-poke habitually.
-    Adapted from Paget-Blanc, Cavaccini et al., PLOS Biology 2025.
-  </figcaption>
-</figure>
-
 <h2>mGluR5 Is Engaged During Early Training, and Exhausted After Overtraining</h2>
 
 <p>
@@ -4375,30 +3596,33 @@ Paget-Blanc V*, Zöldi M*, Cavaccini A*, Miczán V, Dudok B, Katona I &amp;
   used.
 </p>
 
+
 <p>
   The critical comparison was between mice that had received a short training
   (nine sessions, producing flexible, goal-directed behavior) and mice that
   had been overtrained (twenty-three sessions, producing the inflexible,
-  habitual performance that is the hallmark of the DLS habit system). At rest,
+  habitual performance that is the hallmark of the DLS habit system).
+
+  <figure class="post-figure">
+  <img src="image-assets/posts/mglur5-overtraining-behavioral-inflexibility-dls/fig1-behavioral-paradigm.svg"
+       alt="Diagram of the instrumental conditioning and reward omission paradigm: short training (9 sessions) versus overtraining (23 sessions), followed by a reward omission test session in the same operant chamber"
+       loading="lazy" />
+  <figcaption>
+    Behavioral paradigm. Mice underwent either short (9 sessions) or overtraining
+    (23 sessions) of an appetitive nose-poke task, then faced a contingency shift session in which
+    the active nose-poke no longer delivered reward. Short-trained mice suppressed responding and
+    earned more food; overtrained mice continued to nose-poke habitually.
+    Adapted from Paget-Blanc, Cavaccini et al., PLOS Biology 2025.
+  </figcaption>
+</figure>
+
+At rest,
   and in response to direct pharmacological activation, the two groups were
   indistinguishable: basal Akt phosphorylation was the same, and DHPG-induced
   long-term depression of population spikes was equally robust. Overtraining
   had not broken mGluR5 at baseline.
 </p>
 
-
-<figure class="post-figure">
-  <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/mglur5-inflexibility/fig3-akt-phosphorylation-dls.png"
-       alt="Western blot and quantification of phospho-Akt levels in the dorsolateral striatum after the contingency shift in short-trained versus overtrained mice, with and without MPEP infusion"
-       loading="lazy" />
-  <figcaption>
-    <strong>Fig. 3 </strong> mGluR5-dependent Akt phosphorylation in the DLS after the contingency shift.
-    Short-trained mice show a significant increase in phospho-Akt in the DLS following reward omission,
-    blocked by local MPEP infusion. Overtrained mice show no such increase, revealing a selective failure
-    of mGluR5 signalling capacity in response to changed contingencies.
-    Adapted from Paget-Blanc, Cavaccini et al., PLOS Biology 2025.
-  </figcaption>
-</figure>
 
 <blockquote>
   <p>
@@ -4407,6 +3631,20 @@ Paget-Blanc V*, Zöldi M*, Cavaccini A*, Miczán V, Dudok B, Katona I &amp;
   trained mice showed a surge of mGluR5-dependent Akt phosphorylation in the
   DLS. Overtrained mice showed nothing. Their mGluR5 had become specifically
   unable to respond to a change in the rules.
+
+  <figure class="post-figure">
+  <img src="image-assets/posts/mglur5-overtraining-behavioral-inflexibility-dls/fig3-akt-phosphorylation-dls.png.svg"
+       alt="Western blot and quantification of phospho-Akt levels in the dorsolateral striatum after the contingency shift in short-trained versus overtrained mice, with and without MPEP infusion"
+       loading="lazy" />
+  <figcaption>
+    mGluR5-dependent Akt phosphorylation in the DLS after the contingency shift.
+    Short-trained mice show a significant increase in phospho-Akt in the DLS following reward omission,
+    blocked by local MPEP infusion. Overtrained mice show no such increase, revealing a selective failure
+    of mGluR5 signalling capacity in response to changed contingencies.
+    Adapted from Paget-Blanc, Cavaccini et al., PLOS Biology 2025.
+  </figcaption>
+</figure>
+
 </p>
 </blockquote>
 
@@ -4433,10 +3671,8 @@ Paget-Blanc V*, Zöldi M*, Cavaccini A*, Miczán V, Dudok B, Katona I &amp;
 <p>
   What we did not expect was what happened in dSPNs, the direct-pathway
   neurons. In naive and short-trained animals, the same plasticity protocol
-  fails to induce t-LTD at cortico-dSPN synapses, a well-established
-  asymmetry that reflects the tonically active mGluR5–CaMKII–GluN2B signalling
-  cascade, which normally counteracts endocannabinoid synthesis in this cell
-  type. In overtrained mice after the contingency shift, however, a robust
+  fails to induce t-LTD at cortico-dSPN synapses. 
+  In overtrained mice after the contingency shift, however, a robust
   form of eCB-dependent t-LTD appeared at cortico-dSPN synapses. Overtraining
   had not only disabled plasticity in one cell type; it had unlocked it in
   another.
@@ -4448,31 +3684,29 @@ Paget-Blanc V*, Zöldi M*, Cavaccini A*, Miczán V, Dudok B, Katona I &amp;
 The dichotomy is precise and causally linked. In overtrained mice facing a
   contingency change: iSPN t-LTD is <strong>lost</strong> (normally present in flexible animals),
   and dSPN t-LTD <strong>appears</strong> (normally absent). Both changes are eCB-dependent and
-  CB1R-mediated. Both are prevented by restoring mGluR5 signalling capacity
-  before the contingency shift. One receptor state explains both synaptic
-  phenotypes.
+  CB1R-mediated.
 </p>
 </div>
 
 
 <figure class="post-figure-row">
   <figure class="post-figure">
-    <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/mglur5-inflexibility/fig4a-ispn-ltd-lost.png"
+    <img src="image-assets/posts/mglur5-overtraining-behavioral-inflexibility-dls/fig4a-ispn-ltd-lost.png.svg"
          alt="Electrophysiology traces and quantification showing loss of timing-dependent LTD at cortico-iSPN synapses in overtrained mice after the contingency shift"
          loading="lazy" />
     <figcaption>
-      <strong>Fig. 4a </strong> t-LTD at cortico-iSPN synapses is lost in overtrained mice.
+      t-LTD at cortico-iSPN synapses is lost in overtrained mice.
       Corticostriatal EPSP amplitudes before (white) and after (grey) the plasticity induction protocol
       in iSPNs. The ~45% depression seen in short-trained mice is absent in all overtrained groups.
       Adapted from Paget-Blanc, Cavaccini et al., PLOS Biology 2025.
     </figcaption>
   </figure>
   <figure class="post-figure">
-    <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/mglur5-inflexibility/fig4b-dspn-ltd-gained.png"
+    <img src="image-assets/posts/mglur5-overtraining-behavioral-inflexibility-dls/fig4b-dspn-ltd-gained.png.svg"
          alt="Electrophysiology traces and quantification showing emergence of eCB-dependent LTD at cortico-dSPN synapses exclusively in overtrained mice after the contingency shift"
          loading="lazy" />
     <figcaption>
-      <strong>Fig. 4b </strong> t-LTD at cortico-dSPN synapses is unlocked in overtrained mice.
+      t-LTD at cortico-dSPN synapses is unlocked in overtrained mice.
       A robust CB1R-dependent depression of corticostriatal EPSPs appears specifically in dSPNs of
       overtrained mice after the contingency shift, absent in all other groups. One receptor state,
       two opposing synaptic phenotypes. Adapted from Paget-Blanc, Cavaccini et al., PLOS Biology 2025.
@@ -4517,11 +3751,11 @@ The dichotomy is precise and causally linked. In overtrained mice facing a
 
 
 <figure class="post-figure">
-  <img src="https://raw.githubusercontent.com/VincentPaget-Blanc/NeuroInSight/main/image-assets/post-figures/mglur5-inflexibility/fig5-mpep-rescue.png"
+  <img src="image-assets/posts/mglur5-overtraining-behavioral-inflexibility-dls/fig5-mpep-rescue.png .svg"
        alt="Behavioral data showing that local DLS infusion of MPEP during late overtraining sessions restores contingency sensitivity in the omission test, with accompanying Akt phosphorylation and electrophysiology data confirming synaptic rescue"
        loading="lazy" />
   <figcaption>
-    <strong>Fig. 5 </strong> Blocking mGluR5 during late overtraining rescues flexibility.
+    Blocking mGluR5 during late overtraining rescues flexibility.
     MPEP infused into the DLS at sessions 12, 14 and 16 had no effect on training performance,
     but fully restored contingency sensitivity during the omission test (left), Akt phosphorylation
     in the DLS (centre), and the normal t-LTD pattern at cortico-iSPN synapses (right).
@@ -4535,12 +3769,12 @@ The dichotomy is precise and causally linked. In overtrained mice facing a
 <p>
   Understanding why dSPNs normally resist eCB-dependent t-LTD, and why this
   resistance collapses after overtraining, required probing the intracellular
-  logic of mGluR5 signalling in this cell type. We found that mGluR5, when
-  active, constitutively couples to CaMKII in dSPNs. This activated CaMKII
-  phosphorylates GluN2B-containing NMDA receptors, increasing their surface
+  logic of mGluR5 signalling in this cell type.
+  When mGluR5 is activated, CaMKII dissociates from the receptor and translocates to
+  phosphorylate GluN2B-containing NMDA receptors, increasing their surface
   expression and simultaneously inhibiting the diacylglycerol lipase that
   synthesises the endocannabinoid 2-AG. The net result is that active mGluR5
-  in dSPNs is counterproductive to eCB-LTD: it builds up GluN2B and suppresses
+  in dSPNs inhibits eCB-LTD: it builds up GluN2B and suppresses
   the biosynthetic enzyme.
 </p>
 
@@ -4548,8 +3782,7 @@ The dichotomy is precise and causally linked. In overtrained mice facing a
   When we simultaneously blocked mGluR5 and GluN2B in naive animals during the
   plasticity induction protocol, t-LTD appeared at cortico-dSPN synapses; and
   was blocked by CB1R antagonism, confirming its eCB dependence. Inhibiting
-  CaMKII alone was sufficient to gate the same plasticity. This showed that
-  CaMKII is the key gate, and mGluR5 holds it closed.
+  CaMKII alone was sufficient to gate the same plasticity.
 </p>
 
 <p>
@@ -4766,7 +3999,7 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
         period: "November 2025 – Today",
         title: "Postdoctoral researcher",
         institution: "Laboratory 'Nutrineuro', INRAE UMR1286, France",
-        description: "Preclinical study on the role of mesocorticolimbic dopamine transmission in reward processing, using a SynCAM 2 conditional knockout model. Methods: Pavlovian conditioning, stereotaxic surgeries, operant behavior, in-vivo fiber photometry.",
+        description: "Preclinical study on the role of mesocorticolimbic dopamine transmission in reward processing, using a conditional knockout model. Methods: Pavlovian conditioning, stereotaxic surgeries, operant behavior, in-vivo fiber photometry.",
         type: "position"
       },
       {
@@ -4787,7 +4020,7 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
         period: "Multiple years, 2016, 2017, 2018, 2019",
         title: "Visiting scientist",
         institution: "Institute of Experimental Medicine of the Hungarian Academy of Sciences, Laboratory 'Momentum Laboratory of Molecular Neurobiology', Hungary",
-        description: "Extension of Ph.D. research and collaborative work investigating the role of non coding genome in regulating automated actions. Method: biochemistry, behavioral paradigms (i.e., instrumental conditioning, contingency degradation, outcome devaluation), and in-vivo region-specific pharmacological interventions.",
+        description: "Study behaviorally induced alteration of striatal synapses’ endocannabinoid system with nanometer-scale resolution. Method: immuno-fluorescence, in-situ correlative confocal stochastic optical reconstruction microscopy (dSTORM).",
         type: "position"
       },
     ],
@@ -4858,8 +4091,7 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
       { icon: "<img src='image-assets/icons/ui/icon-microscope.svg' class='icon-img' alt=''>", text: "Collaboration · Enquiry · Invited Talks · Media" },
     ],
     projectTypes: [
-    "Research Position",
-    "Research Collaboration",
+      "Research Collaboration",
       "Invited Talk / Keynote",
       "Media / Science Communication",
       "Funding / Grant Partnership",
@@ -4894,7 +4126,6 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
       posts: [
         { title: "Light Through a Wire: The Principles of Fiber Photometry",                                    slug: "fiber-photometry-principles" },
         { title: "Seeing in Nanoscale: Principles of dSTORM, STED and DNA-PAINT",                              slug: "nanoscopy-dstorm-sted-dnapaint" },
-        { title: "Peptides to Proteins: The Principles and Practice of Mass Spectrometry-Based Proteomics",    slug: "mass-spectrometry-proteomics-principles" },
       ],
     },
   ],
@@ -5122,10 +4353,6 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
   <div class="form-field">
     <label>Enquiry Type</label>
     <select id="project-type-select" name="enquiry_type">
-  <div class="form-field">
-    <label>Tell me about your project</label>
-    <textarea name="message" placeholder="A brief description…" required></textarea>
-  </div>
           <div class="form-field">
             <label>Tell me about your project</label>
             <textarea placeholder="A brief description of your research group, the collaboration idea, or the talk topic you have in mind…" required></textarea>
