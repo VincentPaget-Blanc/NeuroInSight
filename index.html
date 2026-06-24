@@ -3,7 +3,7 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>NeuroInSight · Neuroscience Research</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -80,7 +80,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   justify-content:space-between;
   background:var(--nav-bg);
   border-top:1px solid var(--border);
-  padding:10px 24px;
+  padding:10px 24px calc(10px + env(safe-area-inset-bottom)) 24px;
   z-index:150;
   backdrop-filter:blur(20px);
   transition:opacity .35s ease, transform .35s ease;
@@ -104,7 +104,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* ═══════════════════════════════════════════════════
    NAVBAR
 ═══════════════════════════════════════════════════ */
-#navbar{position:sticky;top:0;z-index:200;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:box-shadow .25s,var(--transition-theme);}
+#navbar{position:sticky;top:0;z-index:200;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:box-shadow .25s,var(--transition-theme);padding-top:env(safe-area-inset-top);}
 #navbar.scrolled{box-shadow:var(--shadow);}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:66px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--text-head);flex-shrink:0;}
@@ -120,7 +120,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .nav-search input{background:transparent;border:none;outline:none;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;width:100%;}
 .nav-search input::placeholder{color:var(--text-dim);}
 .nav-search svg{color:var(--text-dim);flex-shrink:0;}
-#mobile-menu{display:none;flex-direction:column;gap:4px;position:fixed;top:66px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;z-index:199;}
+#mobile-menu{display:none;flex-direction:column;gap:4px;position:fixed;top:calc(66px + env(safe-area-inset-top));left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;z-index:199;}
 #mobile-menu.open{display:flex;}
 #mobile-menu a{padding:10px 12px;border-radius:8px;color:var(--text);font-size:15px;}
 #mobile-menu a:hover{background:var(--bg3);color:var(--text-head);}
