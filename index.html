@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta id="theme-color-meta" name="theme-color" content="#090d13" />
   <title>NeuroInSight · Neuroscience Research</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,7 +20,7 @@
   --accent:#5eaec8; --accent2:#9b7ec8; --accent-rgb:94,174,200;
   --accent3:#c8a05e;
   --text:#aab4c8; --text-dim:#52607a; --text-head:#dde5f5;
-  --nav-bg:rgba(9,13,19,.93); --shadow:0 8px 32px rgba(0,0,0,.55);
+  --nav-bg:rgba(9,13,19,.93); --nav-bg-solid:#090d13; --shadow:0 8px 32px rgba(0,0,0,.55);
   --shadow-lg:0 24px 60px rgba(0,0,0,.7); --noise-op:.38;
 }
 [data-theme="light"] {
@@ -27,7 +28,7 @@
   --accent:#2070a0; --accent2:#6040a0; --accent-rgb:32,112,160;
   --accent3:#a07030;
   --text:#3a4560; --text-dim:#8494b0; --text-head:#0e1828;
-  --nav-bg:rgba(242,244,248,.94); --shadow:0 4px 20px rgba(0,0,0,.09);
+  --nav-bg:rgba(242,244,248,.94); --nav-bg-solid:#f2f4f8; --shadow:0 4px 20px rgba(0,0,0,.09);
   --shadow-lg:0 20px 50px rgba(0,0,0,.13); --noise-op:.16;
 }
 
@@ -35,7 +36,7 @@
    RESET & BASE
 ═══════════════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;background:var(--bg);}
+html{scroll-behavior:smooth;background:var(--nav-bg-solid);}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;overflow-x:hidden;transition:var(--transition-theme);}
 a{color:inherit;text-decoration:none;}
 img{display:block;max-width:100%;}
@@ -78,13 +79,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   display:flex;
   align-items:center;
   justify-content:space-between;
-  background:transparent;
+  background:var(--nav-bg);
   border-top:1px solid var(--border);
   padding:10px 24px calc(10px + env(safe-area-inset-bottom)) 24px;
   z-index:150;
+  backdrop-filter:blur(20px);
   transition:opacity .35s ease, transform .35s ease;
 }
-#floating-social::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:-1;transition:var(--transition-theme);}
 #floating-social.hidden{
   opacity:0;
   pointer-events:none;
@@ -104,13 +105,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* ═══════════════════════════════════════════════════
    NAVBAR
 ═══════════════════════════════════════════════════ */
-/* iOS 26 Safari Liquid Glass fix:
-   Fixed elements must have transparent bg + no backdrop-filter.
-   Visual glass effect lives on a position:absolute child that Safari ignores for toolbar tinting. */
-#navbar{position:sticky;top:0;z-index:200;background:transparent;border-bottom:1px solid var(--border);transition:box-shadow .25s,var(--transition-theme);padding-top:env(safe-area-inset-top);}
+#navbar{position:sticky;top:0;z-index:200;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:box-shadow .25s,var(--transition-theme);padding-top:env(safe-area-inset-top);}
 #navbar.scrolled{box-shadow:var(--shadow);}
-/* The actual glass background — absolute child, invisible to Safari's tinting sampler */
-#navbar::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:-1;transition:var(--transition-theme);}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:66px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--text-head);flex-shrink:0;}
 .nav-logo{font-family:'Fraunces',serif;font-size:1.55rem;font-weight:600;color:var(--text-head);letter-spacing:-.01em;flex-shrink:0;cursor:pointer;}
@@ -353,8 +349,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 0 3
    ARCHIVE / DETAIL PAGES
 ═══════════════════════════════════════════════════ */
 #detail-view{min-height:100vh;background:var(--bg);}
-.detail-back-bar{position:sticky;top:0;z-index:100;background:transparent;border-bottom:1px solid var(--border);height:66px;display:flex;align-items:center;padding:0 24px;gap:16px;}
-.detail-back-bar::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:-1;transition:var(--transition-theme);}
+.detail-back-bar{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:66px;display:flex;align-items:center;padding:0 24px;gap:16px;}
 .detail-back-btn{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;color:var(--text-dim);background:none;border:none;cursor:pointer;padding:6px 12px;border-radius:6px;transition:color .2s,background .2s;white-space:nowrap;}
 .detail-back-btn:hover{color:var(--text-head);background:var(--bg3);}
 .detail-back-btn svg{flex-shrink:0;}
@@ -439,8 +434,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 0 3
 /* ═══════════════════════════════════════════════════
    TOPIC OVERLAY
 ═══════════════════════════════════════════════════ */
-#topic-overlay{display:none;position:fixed;inset:0;z-index:300;pointer-events:none;opacity:0;transition:opacity .3s;}
-#topic-overlay.open{display:block;pointer-events:all;opacity:1;}
+#topic-overlay{position:fixed;inset:0;z-index:300;pointer-events:none;opacity:0;transition:opacity .3s;}
+#topic-overlay.open{pointer-events:all;opacity:1;}
 .topic-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);cursor:pointer;}
 .topic-drawer{position:absolute;top:0;right:0;bottom:0;width:460px;max-width:95vw;background:var(--bg2);border-left:1px solid var(--border);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);}
 #topic-overlay.open .topic-drawer{transform:translateX(0);}
@@ -4429,11 +4424,14 @@ CONFIG.posts.forEach(p=>POST_MAP[p.slug]=p);
 
 /* ── Theme ── */
 const htmlEl=document.documentElement;
+const THEME_COLORS={dark:'#090d13',light:'#f2f4f8'};
 function applyTheme(t){
   htmlEl.setAttribute('data-theme',t);
   const d=t==='dark';
   const m=el('moon-icon'); if(m) m.style.display=d?'block':'none';
   const s=el('sun-icon');  if(s) s.style.display=d?'none':'block';
+  /* Update theme-color meta so Safari address bar matches navbar on both iOS versions */
+  const tc=el('theme-color-meta'); if(tc) tc.setAttribute('content',THEME_COLORS[t]||THEME_COLORS.dark);
   try{localStorage.setItem('theme',t);}catch(e){}
 }
 (function(){let s='dark';try{s=localStorage.getItem('theme')||'dark';}catch(e){}applyTheme(s);})();
@@ -4800,16 +4798,12 @@ function openTopic(topicTag){
       dposts.appendChild(item);
     });
   }
-  el('topic-overlay').style.display='';
   el('topic-overlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
 function closeTopicOverlay(){
-  const ov=el('topic-overlay');
-  ov.classList.remove('open');
+  el('topic-overlay').classList.remove('open');
   document.body.style.overflow='';
-  /* After transition, set display:none so Safari removes it from tinting render tree */
-  setTimeout(()=>{if(!ov.classList.contains('open'))ov.style.display='none';},320);
 }
 el('topic-close-btn').onclick=closeTopicOverlay;
 el('topic-backdrop').onclick=closeTopicOverlay;
