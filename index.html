@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta id="theme-color-meta" name="theme-color" content="#090d13" />
   <title>NeuroInSight · Neuroscience Research</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,10 +32,36 @@
 }
 
 /* ═══════════════════════════════════════════════════
-   RESET & BASE
+   iOS 26 SAFARI LIQUID GLASS TOOLBAR TINTING FIX
+   Safari samples fixed elements within 4px of top / 3px of bottom,
+   ≥80% wide, ≥3px tall. These sentinel divs feed it the right color.
+   Only shown on iOS Safari 26+ via @supports selector.
 ═══════════════════════════════════════════════════ */
+#safari-top-sentinel,
+#safari-bottom-sentinel {
+  display: none;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  z-index: 9998;
+  pointer-events: none;
+  background-color: var(--nav-bg-solid);
+  transition: background-color 0.35s ease;
+}
+#safari-top-sentinel    { top: 0;   height: 12px; }
+#safari-bottom-sentinel { bottom: -8px; height: 12px; }
+
+/* Only activate on iOS Safari 26+ */
+@supports (-webkit-text-size-adjust: none) and (font: -apple-system-body) and (-webkit-touch-callout: none) {
+  @media (width < 768px) {
+    #safari-top-sentinel,
+    #safari-bottom-sentinel { display: block; }
+  }
+}
+
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;background:var(--nav-bg-solid);}
+html{scroll-behavior:smooth;}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;overflow-x:hidden;transition:var(--transition-theme);}
 a{color:inherit;text-decoration:none;}
 img{display:block;max-width:100%;}
@@ -434,7 +459,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 0 3
 /* ═══════════════════════════════════════════════════
    TOPIC OVERLAY
 ═══════════════════════════════════════════════════ */
-#topic-overlay{position:fixed;inset:0;z-index:300;pointer-events:none;opacity:0;transition:opacity .3s;}
+#topic-overlay{display:none;position:fixed;inset:0;z-index:300;pointer-events:none;transition:opacity .3s;opacity:0;}
+#topic-overlay.open{display:block;pointer-events:all;opacity:1;}
 #topic-overlay.open{pointer-events:all;opacity:1;}
 .topic-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);cursor:pointer;}
 .topic-drawer{position:absolute;top:0;right:0;bottom:0;width:460px;max-width:95vw;background:var(--bg2);border-left:1px solid var(--border);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);}
@@ -523,6 +549,9 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 0 3
 </style>
 </head>
 <body>
+<!-- iOS 26 Safari Liquid Glass toolbar tinting sentinels -->
+<div id="safari-top-sentinel"></div>
+<div id="safari-bottom-sentinel"></div>
 
 <!-- ══════════════════════════════════════════════════
      ★  CONTENT CONFIG: EDIT EVERYTHING HERE  ★
@@ -4424,14 +4453,17 @@ CONFIG.posts.forEach(p=>POST_MAP[p.slug]=p);
 
 /* ── Theme ── */
 const htmlEl=document.documentElement;
-const THEME_COLORS={dark:'#090d13',light:'#f2f4f8'};
+const NAV_SOLID={dark:'#090d13',light:'#f2f4f8'};
 function applyTheme(t){
   htmlEl.setAttribute('data-theme',t);
   const d=t==='dark';
   const m=el('moon-icon'); if(m) m.style.display=d?'block':'none';
   const s=el('sun-icon');  if(s) s.style.display=d?'none':'block';
-  /* Update theme-color meta so Safari address bar matches navbar on both iOS versions */
-  const tc=el('theme-color-meta'); if(tc) tc.setAttribute('content',THEME_COLORS[t]||THEME_COLORS.dark);
+  /* Keep Safari Liquid Glass sentinels in sync with theme */
+  const color=NAV_SOLID[t]||NAV_SOLID.dark;
+  ['safari-top-sentinel','safari-bottom-sentinel'].forEach(id=>{
+    const el2=document.getElementById(id); if(el2) el2.style.backgroundColor=color;
+  });
   try{localStorage.setItem('theme',t);}catch(e){}
 }
 (function(){let s='dark';try{s=localStorage.getItem('theme')||'dark';}catch(e){}applyTheme(s);})();
@@ -4798,12 +4830,17 @@ function openTopic(topicTag){
       dposts.appendChild(item);
     });
   }
-  el('topic-overlay').classList.add('open');
+  const ov=el('topic-overlay');
+  ov.style.display=''; /* clear any inline display:none from previous close */
+  ov.classList.add('open');
   document.body.style.overflow='hidden';
 }
 function closeTopicOverlay(){
-  el('topic-overlay').classList.remove('open');
+  const ov=el('topic-overlay');
+  ov.classList.remove('open');
   document.body.style.overflow='';
+  /* After fade-out, set display:none so Safari removes it from tinting render tree */
+  setTimeout(()=>{ if(!ov.classList.contains('open')) ov.style.display='none'; }, 320);
 }
 el('topic-close-btn').onclick=closeTopicOverlay;
 el('topic-backdrop').onclick=closeTopicOverlay;
