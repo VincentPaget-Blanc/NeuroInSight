@@ -35,9 +35,8 @@
    RESET & BASE
 ═══════════════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;transition:var(--transition-theme);}
-#page-wrapper{overflow-x:hidden;}
+html{scroll-behavior:smooth;background:var(--bg);}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;overflow-x:hidden;transition:var(--transition-theme);}
 a{color:inherit;text-decoration:none;}
 img{display:block;max-width:100%;}
 ul{list-style:none;}
@@ -79,13 +78,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   display:flex;
   align-items:center;
   justify-content:space-between;
-  background:var(--nav-bg);
+  background:transparent;
   border-top:1px solid var(--border);
   padding:10px 24px calc(10px + env(safe-area-inset-bottom)) 24px;
   z-index:150;
-  backdrop-filter:blur(20px);
   transition:opacity .35s ease, transform .35s ease;
 }
+#floating-social::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:-1;transition:var(--transition-theme);}
 #floating-social.hidden{
   opacity:0;
   pointer-events:none;
@@ -105,10 +104,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* ═══════════════════════════════════════════════════
    NAVBAR
 ═══════════════════════════════════════════════════ */
-#navbar{position:fixed;top:env(safe-area-inset-top);left:0;right:0;z-index:200;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:box-shadow .25s,var(--transition-theme);}
-#navbar-spacer{height:calc(66px + env(safe-area-inset-top));flex-shrink:0;}
-#safe-area-top-fill{position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top);background:var(--nav-bg);z-index:201;pointer-events:none;transition:background .35s ease;}
+/* iOS 26 Safari Liquid Glass fix:
+   Fixed elements must have transparent bg + no backdrop-filter.
+   Visual glass effect lives on a position:absolute child that Safari ignores for toolbar tinting. */
+#navbar{position:sticky;top:0;z-index:200;background:transparent;border-bottom:1px solid var(--border);transition:box-shadow .25s,var(--transition-theme);padding-top:env(safe-area-inset-top);}
 #navbar.scrolled{box-shadow:var(--shadow);}
+/* The actual glass background — absolute child, invisible to Safari's tinting sampler */
+#navbar::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:-1;transition:var(--transition-theme);}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:66px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--text-head);flex-shrink:0;}
 .nav-logo{font-family:'Fraunces',serif;font-size:1.55rem;font-weight:600;color:var(--text-head);letter-spacing:-.01em;flex-shrink:0;cursor:pointer;}
@@ -350,8 +352,9 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 0 3
 /* ═══════════════════════════════════════════════════
    ARCHIVE / DETAIL PAGES
 ═══════════════════════════════════════════════════ */
-#detail-view{min-height:100vh;background:var(--bg);padding-top:calc(66px + env(safe-area-inset-top));}
-.detail-back-bar{position:fixed;top:env(safe-area-inset-top);left:0;right:0;z-index:200;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:66px;display:flex;align-items:center;padding:0 24px;gap:16px;}
+#detail-view{min-height:100vh;background:var(--bg);}
+.detail-back-bar{position:sticky;top:0;z-index:100;background:transparent;border-bottom:1px solid var(--border);height:66px;display:flex;align-items:center;padding:0 24px;gap:16px;}
+.detail-back-bar::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:-1;transition:var(--transition-theme);}
 .detail-back-btn{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;color:var(--text-dim);background:none;border:none;cursor:pointer;padding:6px 12px;border-radius:6px;transition:color .2s,background .2s;white-space:nowrap;}
 .detail-back-btn:hover{color:var(--text-head);background:var(--bg3);}
 .detail-back-btn svg{flex-shrink:0;}
@@ -436,8 +439,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 0 3
 /* ═══════════════════════════════════════════════════
    TOPIC OVERLAY
 ═══════════════════════════════════════════════════ */
-#topic-overlay{position:fixed;inset:0;z-index:300;pointer-events:none;opacity:0;transition:opacity .3s;}
-#topic-overlay.open{pointer-events:all;opacity:1;}
+#topic-overlay{display:none;position:fixed;inset:0;z-index:300;pointer-events:none;opacity:0;transition:opacity .3s;}
+#topic-overlay.open{display:block;pointer-events:all;opacity:1;}
 .topic-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);cursor:pointer;}
 .topic-drawer{position:absolute;top:0;right:0;bottom:0;width:460px;max-width:95vw;background:var(--bg2);border-left:1px solid var(--border);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);}
 #topic-overlay.open .topic-drawer{transform:translateX(0);}
@@ -4179,13 +4182,9 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
     </div>
   </div>
 </nav>
-<div id="safe-area-top-fill"></div>
-<div id="navbar-spacer"></div>
 <div id="mobile-menu"></div>
 
 <!-- TOPIC OVERLAY -->
-
-<div id="page-wrapper">
 
 <div id="topic-overlay">
   <div class="topic-backdrop" id="topic-backdrop"></div>
@@ -4411,8 +4410,6 @@ Paget-Blanc V*, Cavaccini A*, Longaretti A, Nava L, Trusel M, Rocchi A,
      ══════════════════════════════════════════════════ -->
 
 <div id="floating-social"></div>
-
-</div><!-- END #page-wrapper -->
 
 <script>
 /* ── Helpers ── */
@@ -4803,12 +4800,16 @@ function openTopic(topicTag){
       dposts.appendChild(item);
     });
   }
+  el('topic-overlay').style.display='';
   el('topic-overlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
 function closeTopicOverlay(){
-  el('topic-overlay').classList.remove('open');
+  const ov=el('topic-overlay');
+  ov.classList.remove('open');
   document.body.style.overflow='';
+  /* After transition, set display:none so Safari removes it from tinting render tree */
+  setTimeout(()=>{if(!ov.classList.contains('open'))ov.style.display='none';},320);
 }
 el('topic-close-btn').onclick=closeTopicOverlay;
 el('topic-backdrop').onclick=closeTopicOverlay;
