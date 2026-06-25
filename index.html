@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta id="theme-color-meta" name="theme-color" content="#090d13" />
+  <!-- Set theme instantly before CSS loads to avoid flash and give Safari correct tint color -->
+  <script>
+    (function(){
+      var SOLID={dark:'#090d13',light:'#f2f4f8'};
+      var t='dark';try{t=localStorage.getItem('theme')||'dark';}catch(e){}
+      document.documentElement.setAttribute('data-theme',t);
+      document.documentElement.style.backgroundColor=SOLID[t]||SOLID.dark;
+      var tc=document.getElementById('theme-color-meta');
+      if(tc)tc.setAttribute('content',SOLID[t]||SOLID.dark);
+    })();
+  </script>
   <title>NeuroInSight · Neuroscience Research</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -4431,8 +4443,15 @@ CONFIG.posts.forEach(p=>POST_MAP[p.slug]=p);
 
 /* ── Theme ── */
 const htmlEl=document.documentElement;
+const THEME_SOLID={dark:'#090d13',light:'#f2f4f8'};
 function applyTheme(t){
+  const color=THEME_SOLID[t]||THEME_SOLID.dark;
+  /* Set inline style BEFORE setAttribute so Safari sees the right color immediately */
+  htmlEl.style.backgroundColor=color;
   htmlEl.setAttribute('data-theme',t);
+  /* Also update theme-color meta for older Safari versions */
+  const tc=document.getElementById('theme-color-meta');
+  if(tc) tc.setAttribute('content',color);
   const d=t==='dark';
   const m=el('moon-icon'); if(m) m.style.display=d?'block':'none';
   const s=el('sun-icon');  if(s) s.style.display=d?'none':'block';
