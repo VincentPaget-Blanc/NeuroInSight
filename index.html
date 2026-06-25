@@ -1,21 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta id="theme-color-meta" name="theme-color" content="#090d13" />
-  <!-- Set theme instantly before CSS loads to avoid flash and give Safari correct tint color -->
-  <script>
-    (function(){
-      var SOLID={dark:'#090d13',light:'#f2f4f8'};
-      var t='dark';try{t=localStorage.getItem('theme')||'dark';}catch(e){}
-      document.documentElement.setAttribute('data-theme',t);
-      document.documentElement.style.backgroundColor=SOLID[t]||SOLID.dark;
-      var tc=document.getElementById('theme-color-meta');
-      if(tc)tc.setAttribute('content',SOLID[t]||SOLID.dark);
-    })();
-  </script>
   <title>NeuroInSight · Neuroscience Research</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,9 +31,49 @@
   --shadow-lg:0 20px 50px rgba(0,0,0,.13); --noise-op:.16;
 }
 
-/* ═══════════════════════════════════════════════════
-   RESET & BASE
-═══════════════════════════════════════════════════ */
+/* ── Safari 26 live toolbar tinting sentinels ──────────────
+   position:sticky elements are re-sampled by Safari in real
+   time when CSS variables change — unlike html background.
+   Top sentinel: sticks to top:0, feeds address-bar tint.
+   Bottom sentinel: sits at the end of body, feeds bottom-bar tint.
+─────────────────────────────────────────────────────────── */
+#safari-tint-top {
+  position: sticky;
+  top: 0;
+  height: 0;          /* zero height — invisible, takes no layout space */
+  overflow: visible;
+  z-index: 9997;
+  pointer-events: none;
+}
+#safari-tint-top::before {
+  content: '';
+  position: absolute;
+  top: -50px;         /* extends up into the safe-area/notch region */
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: var(--nav-bg-solid);
+  transition: background-color 0.35s ease;
+}
+#safari-tint-bottom {
+  position: sticky;
+  bottom: 0;
+  height: 0;
+  overflow: visible;
+  z-index: 9997;
+  pointer-events: none;
+}
+#safari-tint-bottom::before {
+  content: '';
+  position: absolute;
+  bottom: -50px;      /* extends down into the home-indicator region */
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: var(--nav-bg-solid);
+  transition: background-color 0.35s ease;
+}
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;background-color:var(--nav-bg-solid);}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;overflow-x:hidden;transition:var(--transition-theme);}
@@ -542,6 +570,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 0 3
 </style>
 </head>
 <body>
+<div id="safari-tint-top"></div>
 
 <!-- ══════════════════════════════════════════════════
      ★  CONTENT CONFIG: EDIT EVERYTHING HERE  ★
@@ -4443,15 +4472,8 @@ CONFIG.posts.forEach(p=>POST_MAP[p.slug]=p);
 
 /* ── Theme ── */
 const htmlEl=document.documentElement;
-const THEME_SOLID={dark:'#090d13',light:'#f2f4f8'};
 function applyTheme(t){
-  const color=THEME_SOLID[t]||THEME_SOLID.dark;
-  /* Set inline style BEFORE setAttribute so Safari sees the right color immediately */
-  htmlEl.style.backgroundColor=color;
   htmlEl.setAttribute('data-theme',t);
-  /* Also update theme-color meta for older Safari versions */
-  const tc=document.getElementById('theme-color-meta');
-  if(tc) tc.setAttribute('content',color);
   const d=t==='dark';
   const m=el('moon-icon'); if(m) m.style.display=d?'block':'none';
   const s=el('sun-icon');  if(s) s.style.display=d?'none':'block';
@@ -5173,5 +5195,6 @@ const observer=new IntersectionObserver(entries=>{
 reObserve();
 </script>
 
+<div id="safari-tint-bottom"></div>
 </body>
 </html>
