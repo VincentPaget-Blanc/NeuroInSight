@@ -626,8 +626,8 @@ const CONFIG = {
 </p>
 <p>
   Three principles shaped every design decision.
-  <strong>Zero install friction</strong>: pre-built binaries for macOS
-  Apple Silicon and Windows mean most collaborators can open the tool with
+  <strong>Zero install friction</strong>: pre-built binaries for macOS,
+  Linux, and Windows mean most collaborators can open the tool with
   a double-click; for anyone running from source, a single
   <code>pip install</code> of five packages covers all dependencies.
   <strong>Reproducibility by default</strong>: gates are serialised to
@@ -643,12 +643,12 @@ const CONFIG = {
   <p style="margin:0;line-height:1.75;">
     Citable release, source code and example datasets are available
     via Zenodo.<br>
-    <a href="https://zenodo.org/records/19353234"
+    <a href="https://zenodo.org/records/22093347"
        target="_blank" rel="noopener noreferrer"
        style="color:var(--accent);text-decoration:underline;
               text-underline-offset:3px;
               font-family:'JetBrains Mono',monospace;font-size:0.8rem;">
-      https://zenodo.org/records/19353234
+      https://zenodo.org/records/22093347
     </a>
   </p>
 </div>
@@ -659,8 +659,8 @@ const CONFIG = {
   <p style="margin:0;line-height:1.75;font-size:0.9rem;">
     Pre-built binaries are available on the Zenodo archive, with no Python
     installation required.  Download the
-    <code>.dmg</code> (macOS Apple Silicon) or
-    <code>.exe</code> (Windows) for your platform, open it, and launch
+    <code>macOS</code> (Intel or ARM), 
+    <code>Windows</code>, <code>Linux</code> (x86-x64 or ARM), open it, and launch
     vFlow directly.  A splash screen tracks the startup sequence while
     the bundled runtime initialises.
   </p>
@@ -683,7 +683,7 @@ const CONFIG = {
       style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;
              background:var(--code-bg,#111);padding:0.2em 0.5em;
              border-radius:4px;">
-      python vFlow_v3_9_9.py
+      python run_vflow.py
     </code>
   </p>
 </div>
